@@ -1,2 +1,2 @@
-# Documentación Del Proceso. [![Proyecto De Grado][BrayanNovoa-img]][BrayanNovoa-url]
+# Documentación Del Proceso. [![Proyecto De Grado][Codeneitor-img]][Codeneitor-url]
 
