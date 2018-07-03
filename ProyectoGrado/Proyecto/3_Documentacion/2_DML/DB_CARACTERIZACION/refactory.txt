@@ -1,0 +1,55 @@
+-----------+-----------+-----------+-----------+-----------+-----------
+Crear tabla que contiene las encuestas
+id_encuesta
+nombre_encuesta
+descripcion_encuesta
+-----------+-----------+-----------+-----------+-----------+-----------
+
+-----------+-----------+-----------+-----------+-----------+-----------
+crear tabla que contiene las preguntas.
+pregunta_id
+pregunta
+encuesta_id
+-----------+-----------+-----------+-----------+-----------+-----------
+Una alternativa es crear una tabla que contiene tanto preguntas como respuestas
+y se identifica por su padre_id
+
+agregar a cada tabla de los formularios 
+
+
+-----------+-----------+-----------+-----------+-----------+-----------
+PROCESO DE REFACTORIZACIÓN 
+
+-----------+-----------+-----------+-----------+-----------+-----------
+
+
+
+
+
+
+-----------+-----------+-----------+-----------+-----------+-----------
+INTERACCIÓN CON LA BASE DE DATOS:
+identificar el sexo del usuario y en base a este dato definir las
+preguntas para cada género
+MASCULINO:
+se valida la situación sentimental y en base a este dato se modifican
+las preguntas de estado de embarazo con respecto a su pareja.
+-----------+-----------+-----------+-----------+-----------+-----------
+
+
+
+si tiene pereja: a qué se dedica.
+
+
+
+
+
+-----------+-----------+-----------+-----------+-----------+-----------
+IMPLEMENTACIÓN DE FUNCIONES
+
+Función para creas las clases dinámicamente.
+Función para modificar una clase en específico.
+
+Funcionalidad de exportar a pdf, jpg y excel
+
+-----------+-----------+-----------+-----------+-----------+-----------

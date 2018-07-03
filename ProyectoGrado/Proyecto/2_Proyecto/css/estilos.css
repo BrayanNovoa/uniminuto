@@ -1,0 +1,157 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+hr{
+	width: 50%;
+	margin: auto;
+}
+h2{
+	text-align: center;
+}
+body{
+
+	background: #abcdef;
+}
+div{
+	border-radius: 5px;
+	padding: 5px;
+}
+header{
+	padding-bottom: 15px;
+	width: 100%;
+	background-color: #FFC107;
+	margin-bottom: 10px;
+}
+header h1{
+	text-align: center;
+}
+header nav{
+	background: #fff;
+	width: 50%;
+	margin: auto;
+}
+p{
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+div.asignature{
+	background-color: #000;
+	color: #fff;
+	width: 15%;
+}
+div.congrats{
+	margin-top: 20px;
+	margin: auto;
+	width: 80%;
+	background: #fff;
+}
+
+.instructions .linux-command{
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+	margin-top: 10px;
+}
+.instructions{
+	width: 80%;
+	margin: auto;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: rgba(56,56,56,.2);
+	
+}
+.linux-command{
+	text-shadow: #0f0;
+	border: 2px;
+	border-radius: 5px;
+	border-color: #fff;
+	padding: 5px;
+	font-family: serif;
+	font-size: 18px;
+	color: #fff;
+	background-color: rgb(55,55,55);
+}
+div.introduction{
+	background: rgba(050,180,050,.8);
+	margin: auto;
+	width: 80%;
+	color: #000;
+}
+div.introduction p{
+
+}
+.welcome {
+	background: #303F9F;
+	color: #fff;
+}
+.link-nav{
+	color: #ff0000;
+	display: inline;
+
+}
+/*Slider Principal*/
+.slides {
+	position: relative;
+}
+.slides li{
+	padding: 100px;
+}
+li.slider1 {
+	background: #e54d42;
+}
+li.slider2 {
+	background: #0e96dd;
+}
+.informacion-slider {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+h3.titulo-slider {
+	font-size: 24px;
+	color: #000;
+}
+p.descripcion {
+	font-size: 16px;
+	color: #701c16;
+	background: rgba(255,255,255,.5);
+	padding: 15px;
+	margin: 20px 0;
+}
+a.btn-slider {
+	background: #792923;
+	padding: 12px;
+	color:#fff;
+	display: inline-block;
+}
+.imagen-slider {
+	height: 250px;
+	position: relative;
+}
+.imagen-slider img {
+	margin: 0 auto;
+	display: table;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+/*Fondo De la sección Bienvenida*/
+section.bienvenida {
+    /*background: #515151;*/
+    background: #1a2128;
+    padding: 30px 0;
+}
+h4.titulo-bienvenida {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+p.mensaje-bienvenida {
+    color: #687079;
+    width: 40%;
+    margin: 0 auto;
+}
