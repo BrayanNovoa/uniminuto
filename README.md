@@ -1,2 +1,6 @@
-# uniminuto
-Trabajos de la Universidad
+### Proyecto De Grado
+
+## Brayan Mauricio Novoa Salazar
+# Uniminuto Llanos
+
+
