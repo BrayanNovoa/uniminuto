@@ -30,6 +30,8 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 
 # Anexos.
+- [ ] Cartas
+- [ ] Cronograma de actividades
 - [ ] 
 - [ ] 
 - [ ] 
@@ -39,9 +41,29 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] 
 - [ ] 
 - [ ] 
+
+# Presupuesto
 - [ ] 
 - [ ] 
 - [ ] 
+- [ ] 
+- [ ] 
+
+RUBRO | FEBRERO | MARZO | ABRIL | MAYO | JUNIO
+------ | ------------ | ------ | ------ |------ |------ 
+------ | Cantidad | valor |
+Computador
+Dominio
+Hosting
+GooglePlayStore Account
+IO'S Account
+Impresora
+Investigación
+Transporte
+Alimentación
+
+
+
 
 #  Software Documentation
 - [ ] Levantamiento de requerimientos
