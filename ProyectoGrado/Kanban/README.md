@@ -54,11 +54,11 @@ RUBRO | AGOSTO | SEPTIEMBRE | OCTUBRE | NOVIEMBRE
 ------ | Cantidad * valor | Cantidad * valor | Cantidad * valor | Cantidad * valor
 Computador | 1 - $1.500.000 | 0 | 0 | 0
 Impresora | 1 - $200.000 | 0 | 0 | 0
-Investigación | 16 - $56.000 | 16 - $56.000 | 16 - $56.000
-Alimentación | 16 - $96.000 | 16 - $96.000 | 16 - $96.000 | 16 - $96.000
-Transporte | 16 - $56.000 | 16 - $56.000 | 16 - $56.000 | 16 - $56.000
-Dominio | 0 | 0 | 0 | 1 - $40.000
-Hosting | 0 | 0 | 0 | 1 - $250.000
+Investigación | 1 * $125.000 | 1 * $125.000 | 1 * $150.000 | 1 * $100.000
+Alimentación | 16 - $6.000 | 16 - $6.000 | 16 - $6.000 | 16 - $6.000
+Transporte | 16 - $3.500 | 16 - $3.500 | 16 - $3.500 | 16 - $3.500
+Dominio | 0 | 0 | 1 - $40.000 | 0
+Hosting | 0 | 0 | 1 - $250.000 | 0
 GooglePlayStore Account | 0 | 0 | 0 | 1 - $80.000
 TOTAL |  |  |  |
 
