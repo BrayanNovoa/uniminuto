@@ -43,11 +43,10 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] 
 
 # Presupuesto
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [x] Identificacion de los recursos necesarios para desarrollar el proyecto.
+- [x] Cotización de los recursos necesarios para desarrollar el proyecto.
+- [ ] Presentación del presupuesto ante el asesor del proyecto para su respectiva revisión.
+- [ ] Aprobación o desaprobación del presupuesto.
 
 RUBRO | AGOSTO | SEPTIEMBRE | OCTUBRE | NOVIEMBRE
 ------ | ------------ | ------ | ------ |------
