@@ -42,7 +42,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] Manual de usuario Hosting
 - [ ] Manual de usuario GooglePlayStore Account
 - [ ] CD-ROM con Proyecto de Grado :cd:  :cd:  :cd:  :cd:  :cd:
-- [*] Presupuesto
+- [ ] Presupuesto
 
 
 ## Presupuesto
@@ -61,6 +61,7 @@ Con el fin de llevar un control del presupuesto se identifican los recursos nece
 
  :suspect: :alien: :alien: :alien: :alien: :alien: :sunglasses: :sunglasses: :sunglasses: :alien: :alien: :alien: :alien: :alien: :suspect:
 - [ ] Los conceptos de **alimentación** y **Transporte** equivale solo a la inversión en la misma para los días que haya reunión con el ProductOwner.
+
  :fork_and_knife::curry: :bread: :spaghetti: :hamburger: :meat_on_bone: :poultry_leg: :pizza: :beer: :rice: :egg: :fork_and_knife:
 
 
@@ -75,9 +76,9 @@ RUBRO | AGOSTO | SEPTIEMBRE | OCTUBRE | NOVIEMBRE
 Computador | 1 - $1.500.000 | 0 | 0 | 0
 Impresora | 1 - $200.000 | 0 | 0 | 0
 Investigación | 1 * $125.000 | 1 * $125.000 | 1 * $150.000 | 1 * $100.000
-Alimentación | 16 - $6.000 | 16 - $6.000 | 16 - $6.000 | 16 - $6.000
-Transporte | 16 - $3.500 | 16 - $3.500 | 16 - $3.500 | 16 - $3.500
-Dominio | 0 | 0 | 1 - $40.000 | 0
+Alimentación | 16 - $96.000 | 16 - $96.000 | 16 - $96.000 | 16 - $96.000
+Transporte | 16 - $56.000 | 16 - $56.000 | 16 - $56.000 | 16 - $56.000
+Dominio | 0 | 0 | 1 - $60.583,27 | 0
 Hosting | 0 | 0 | 1 - $250.000 | 0
 GooglePlayStore Account | 0 | 0 | 0 | 1 - $80.000
 TOTAL |  |  |  |
