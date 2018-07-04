@@ -6,7 +6,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 
 # Process Documentation / Informe Final.
--[ ] Título del proyecto.
+-[ ] Título del proyecto
 -[ ] Tabla de contenido.
 -[ ] Lista de tablas, figuras y/o anexos.
 -[ ] Introducción.
