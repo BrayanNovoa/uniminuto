@@ -51,16 +51,16 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 RUBRO | AGOSTO | SEPTIEMBRE | OCTUBRE | NOVIEMBRE
 ------ | ------------ | ------ | ------ |------
- | Cantidad * valor | Cantidad * valor | Cantidad * valor | Cantidad * valor
+- | Cantidad * valor | Cantidad * valor | Cantidad * valor | Cantidad * valor
 Computador | 1  | 0 | 1 |0
-GooglePlayStore Account | 1 | 0 | 0 | 0
+GooglePlayStore Account | 1 $80.000 | 0 | 0 | 0
 Dominio | 0 | 0 | 1 | 0
 Hosting | 0 | 0 | 1 | 0
 IO'S Account | 1
 Impresora | 1
 Investigación | 1
-Transporte | 16 
-Alimentación | 16 | $96.000
+Transporte | 16 $56.000 |
+Alimentación | 16 $96.000 |
 TOTAL |  |  |  |
 
 
