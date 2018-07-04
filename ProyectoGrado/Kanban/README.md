@@ -7,7 +7,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 # Documentación del proceso / Informe Final.
 - [x] Título del proyecto
-- [x] Tabla de contenido.
+- [ ] Tabla de contenido.
 - [ ] Lista de tablas, figuras y/o anexos.
 - [x] Introducción.
 - [ ] Resumen Ejecutivo.
@@ -41,18 +41,16 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] Manual de usuario Dominio
 - [ ] Manual de usuario Hosting
 - [ ] Manual de usuario GooglePlayStore Account
-- [ ] 
-- [ ] 
-- [ ] CD-ROM con proyecto completo
-- [ ] Credenciales de acceso
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] CD-ROM con Proyecto de Grado
+- [*] Presupuesto
 
 
-# Presupuesto
+## Presupuesto
 - [x] Identificacion de los recursos necesarios para desarrollar el proyecto.
+### Lista de recursos necesarios para el desarrollo del Proyecto.
+#### Recursos Tecnológicos:
+	-[x] Se hace nesesaria la compra de un nombre de dominio para identificar el sistema.
+	
 - [x] Cotización de los recursos necesarios para desarrollar el proyecto.
 - [ ] Presentación del presupuesto ante el asesor del proyecto para su respectiva revisión.
 - [ ] Aprobación o desaprobación del presupuesto.

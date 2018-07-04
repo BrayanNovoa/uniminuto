@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-07-01" view-index="0" gantt-divider-location="558" resource-divider-location="300" version="2.8.8" locale="es">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-07-01" view-index="0" gantt-divider-location="631" resource-divider-location="300" version="2.8.8" locale="es">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
-        <field id="tpd3" name="Nombre" width="354" order="0"/>
-        <field id="tpd4" name="Fecha de inicio" width="102" order="1"/>
-        <field id="tpd5" name="Fecha de fin" width="83" order="2"/>
-        <option id="color.recent"><![CDATA[#000000]]></option>
+        <field id="tpd3" name="Nombre" width="436" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="101" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="90" order="2"/>
+        <option id="color.recent"><![CDATA[#ffff00 #000033 #000099 #000000]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nombre" width="210" order="0"/>
@@ -34,47 +34,61 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="DOCUMENTACIÓN DEL PROCESO" color="#000000" meeting="false" start="2018-07-04" duration="88" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+        <task id="0" name="DOCUMENTACIÓN DEL PROCESO" color="#000033" meeting="false" start="2018-07-04" duration="88" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
+            <task id="32" name="Informe Final" meeting="false" start="2018-07-04" duration="88" complete="0" expand="false">
+                <task id="70" name="tarea_11" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="71" name="tarea_12" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="72" name="tarea_13" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="73" name="tarea_14" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="74" name="tarea_15" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="75" name="tarea_16" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="76" name="tarea_10" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="77" name="tarea_18" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="78" name="tarea_19" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="79" name="tarea_20" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="80" name="tarea_21" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="81" name="tarea_22" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="82" name="tarea_23" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+                <task id="83" name="tarea_24" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
+            </task>
             <task id="30" name="ENTREGA FINAL" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="32" name="tarea_10" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="33" name="tarea_11" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="34" name="tarea_12" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="35" name="tarea_13" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="36" name="tarea_14" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="37" name="tarea_15" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="38" name="tarea_16" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="39" name="tarea_10" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="40" name="tarea_18" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="41" name="tarea_19" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="42" name="tarea_20" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="43" name="tarea_21" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="44" name="tarea_22" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="45" name="tarea_23" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
-            <task id="46" name="tarea_24" meeting="false" start="2018-07-04" duration="88" complete="0" expand="true"/>
         </task>
-        <task id="1" name="DOCUMENTACIÓN DEL SOFTWARE" meeting="false" start="2018-07-02" duration="90" complete="0" expand="true">
+        <task id="84" name="ANEXOS" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true">
+            <task id="85" name="Cronograma de actividades" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="87" name="Solicitud permiso encuesta Coordinador Facultades" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="88" name="Solicitud permiso encuesta Docentes" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="89" name="Solicitud permiso encuesta Estudiantes" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="90" name="Procedimiento adquisición dominio" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="91" name="Procedimiento adquisición Hosting" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="92" name="Procedimiento adquisición GooglePlayStore Account" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="93" name="Manual de usuario Dominio" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="94" name="Manual de usuario Hosting" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="95" name="Manual de usuario GooglePlayStore Account" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+            <task id="96" name="tarea_96" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="1" name="DOCUMENTACIÓN DEL SOFTWARE" meeting="false" start="2018-07-02" duration="90" complete="0" expand="false">
             <task id="53" name="tarea_52" meeting="false" start="2018-07-02" duration="90" complete="0" expand="true"/>
         </task>
-        <task id="6" name="SERVER" color="#8cb6ce" meeting="false" start="2018-07-02" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
-            <task id="57" name="Adquisición del Dominio" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
-            <task id="59" name="Adquisición del Hosting" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+        <task id="6" name="SERVER" color="#8cb6ce" meeting="false" start="2018-07-05" duration="30" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
+            <task id="57" name="Adquisición del Dominio" color="#ffff00" meeting="false" start="2018-07-05" duration="1" complete="0" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true"/>
+            <task id="59" name="Adquisición del Hosting" color="#ffff00" meeting="false" start="2018-08-15" duration="1" complete="0" thirdDate="2018-08-15" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="2" name="DATABASE" color="#8cb6ce" meeting="false" start="2018-07-02" duration="90" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+        <task id="2" name="DATABASE" color="#8cb6ce" meeting="false" start="2018-07-02" duration="90" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
             <task id="54" name="MER" color="#8cb6ce" meeting="false" start="2018-07-02" duration="90" complete="0" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true"/>
             <task id="63" name="DDL" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
             <task id="64" name="DML" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
             <task id="65" name="Deploy in Server" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
         </task>
-        <task id="4" name="WEBSITE" color="#8cb6ce" meeting="false" start="2018-07-02" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+        <task id="4" name="WEBSITE" color="#8cb6ce" meeting="false" start="2018-07-02" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
             <task id="55" name="Build WebSite" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
             <task id="66" name="Deploy in Server" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
             <task id="67" name="Go to PhoneGap" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
         </task>
-        <task id="3" name="APK" color="#8cb6ce" meeting="false" start="2018-07-02" duration="90" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+        <task id="3" name="APK" color="#8cb6ce" meeting="false" start="2018-07-02" duration="90" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
             <task id="29" name="BUILD APK" color="#8cb6ce" meeting="false" start="2018-07-03" duration="89" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true"/>
             <task id="68" name="Deploy In GooglePlayStore" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
         </task>
-        <task id="5" name="DESKTOP" color="#8cb6ce" meeting="false" start="2018-07-02" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+        <task id="5" name="DESKTOP" color="#8cb6ce" meeting="false" start="2018-07-02" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
             <task id="56" name="Build Application For Admins" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
         </task>
     </tasks>
