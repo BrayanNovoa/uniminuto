@@ -31,6 +31,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 # Anexos.
 - [x] Cronograma de actividades
+![](https://github.com/BrayanNovoa/uniminuto/blob/master/ProyectoGrado/Cronograma/CRONOGRAMA2.png).
 - [ ] Solicitud permiso encuesta Coordinador Facultades
 - [ ] Solicitud permiso encuesta Docentes
 - [ ] Solicitud permiso encuesta Estudiantes
