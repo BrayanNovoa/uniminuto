@@ -5,7 +5,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 ## Lista de actividades.
 
 
-# Process Documentation / Informe Final.
+# Documentación del proceso / Informe Final.
 - [x] Título del proyecto
 - [x] Tabla de contenido.
 - [ ] Lista de tablas, figuras y/o anexos.
@@ -30,17 +30,25 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 
 # Anexos.
-- [ ] Cartas
-- [ ] Cronograma de actividades
+- [x] Cronograma de actividades
+- [ ] Solicitud permiso encuesta Coordinador Facultades
+- [ ] Solicitud permiso encuesta Docentes
+- [ ] Solicitud permiso encuesta Estudiantes
+- [ ] Procedimiento adquisición dominio
+- [ ] Procedimiento adquisición Hosting
+- [ ] Procedimiento adquisición GooglePlayStore Account
+- [ ] Manual de usuario Dominio
+- [ ] Manual de usuario Hosting
+- [ ] Manual de usuario GooglePlayStore Account
+- [ ] 
+- [ ] 
+- [ ] CD-ROM con proyecto completo
+- [ ] Credenciales de acceso
 - [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+
 
 # Presupuesto
 - [x] Identificacion de los recursos necesarios para desarrollar el proyecto.
