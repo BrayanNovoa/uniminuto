@@ -51,7 +51,7 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 RUBRO | AGOSTO | SEPTIEMBRE | OCTUBRE | NOVIEMBRE
 ------ | ------------ | ------ | ------ |------ |------ 
- | Cantidad * valor = SubTotal | Cantidad * valor | Cantidad * valor = SubTotal | Cantidad * valor | Cantidad * valor = SubTotal |
+ | Cantidad * valor = SubTotal | Cantidad * valor | Cantidad * valor = SubTotal | Cantidad * valor = SubTotal
 Computador | 1  | 0 | 1 |0
 GooglePlayStore Account | 1 | 0 | 0 | 0
 Dominio | 0 | 0 | 1 | 0
