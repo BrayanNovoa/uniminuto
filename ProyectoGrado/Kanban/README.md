@@ -41,17 +41,31 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] Manual de usuario Dominio
 - [ ] Manual de usuario Hosting
 - [ ] Manual de usuario GooglePlayStore Account
-- [ ] CD-ROM con Proyecto de Grado
+- [ ] CD-ROM con Proyecto de Grado :cd:  :cd:  :cd:  :cd:  :cd:
 - [*] Presupuesto
 
 
 ## Presupuesto
-- [x] Identificacion de los recursos necesarios para desarrollar el proyecto.
-### Lista de recursos necesarios para el desarrollo del Proyecto.
+  :dollar: :moneybag: :money_with_wings: :credit_card: :key::dollar: :moneybag: :money_with_wings: :credit_card: :key::dollar: :moneybag: :money_with_wings: :credit_card: :key::dollar: :moneybag: :money_with_wings: :credit_card: :key:
+Con el fin de llevar un control del presupuesto se identifican los recursos necesarios para desarrollar el proyecto.
+
+### Lista de recursos.
 #### Recursos Tecnológicos:
-	-[x] Se hace nesesaria la compra de un nombre de dominio para identificar el sistema.
-	
-- [x] Cotización de los recursos necesarios para desarrollar el proyecto.
+- [ ] :computer:  Es imprescindible el uso de un equipo de cómputo para realizar el mayor porcentaje del proyecto por lo cual se incluye en el presupuesto. :computer:
+- [ ] :fax:  La tenencia de una impresora ahorra tiempo y recursos a un largo plazo por lo cual se incluye en el presupuesto. :fax:
+- [ ] :earth_americas: Se hace nesesaria la compra de un nombre de dominio para identificar el sistema. :earth_americas:
+- [ ] :house: De igual forma se necesita contratar un servicio de Hosting para alojar el sistema. :house:
+- [ ] :arrow_forward: Con fines de un Despliegue con mayor cobertura se propone la adquisición de una cuenta de publicador en GooglePlayStore la cual tiene un valor constante de **25U$D**. :arrow_forward:
+
+#### Recursos Humanos
+
+ :suspect: :alien: :alien: :alien: :alien: :alien: :sunglasses: :sunglasses: :sunglasses: :alien: :alien: :alien: :alien: :alien: :suspect:
+- [ ] Los conceptos de **alimentación** y **Transporte** equivale solo a la inversión en la misma para los días que haya reunión con el ProductOwner.
+ :fork_and_knife::curry: :bread: :spaghetti: :hamburger: :meat_on_bone: :poultry_leg: :pizza: :beer: :rice: :egg: :fork_and_knife:
+
+
+### Cotización de recursos.
+
 - [ ] Presentación del presupuesto ante el asesor del proyecto para su respectiva revisión.
 - [ ] Aprobación o desaprobación del presupuesto.
 
