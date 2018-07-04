@@ -6,24 +6,24 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 
 # Process Documentation / Informe Final.
-- [ ] Título del proyecto
-- [ ] Tabla de contenido.
+- [x] Título del proyecto
+- [x] Tabla de contenido.
 - [ ] Lista de tablas, figuras y/o anexos.
-- [ ] Introducción.
+- [x] Introducción.
 - [ ] Resumen Ejecutivo.
-- [ ] Planteamiento del problema.
+- [x] Planteamiento del problema.
 - [ ] Formulación del problema.
-- [ ] Objetivos (general y específicos).
-- [ ] Justificación e impacto central del proyecto.
+- [x] Objetivos (general y específicos).
+- [x] Justificación e impacto central del proyecto.
 - [ ] Marco referencial y antecedentes.
-- [ ] Tipo de investigación.
+- [x] Tipo de investigación.
 - [ ] Muestra.
-- [ ] Instrumentos / técnicas de recolección de información.
+- [x] Instrumentos / técnicas de recolección de información.
 - [ ] Procedimiento.
 - [ ] Análisis de datos.
 - [ ] Conclusiones.
 - [ ] Recomendaciones.
-- [ ] Bibliografía.
+- [x] Bibliografía.
 - [ ] Anexos.
 - [ ] Resumen analítico especializado con fines de publicación RAE.
 - [ ] Fin.
