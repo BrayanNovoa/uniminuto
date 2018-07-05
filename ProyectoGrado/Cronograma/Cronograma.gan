@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto de Grado Brayan Mauricio Novoa Salazar" company="Uniminuto" webLink="https://sicacest.com" view-date="2018-06-01" view-index="0" gantt-divider-location="587" resource-divider-location="565" version="2.8.8" locale="es">
+<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto de Grado Brayan Mauricio Novoa Salazar" company="Uniminuto" webLink="https://sicacest.com" view-date="2018-07-01" view-index="0" gantt-divider-location="629" resource-divider-location="565" version="2.8.8" locale="es">
     <description/>
     <view zooming-state="default:8" id="gantt-chart">
-        <field id="tpd3" name="Nombre" width="378" order="0"/>
-        <field id="tpd4" name="Fecha de inicio" width="102" order="1"/>
-        <field id="tpd5" name="Fecha de fin" width="88" order="2"/>
+        <field id="tpd3" name="Nombre" width="428" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="97" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="85" order="2"/>
         <option id="taskLabelUp" value=""/>
         <option id="taskLabelLeft" value="advancement"/>
         <option id="taskLabelRight" value="name"/>
-        <timeline><![CDATA[129,127,6,131]]></timeline>
+        <timeline><![CDATA[131,127,6,129]]></timeline>
         <option id="color.recent"><![CDATA[#000000 #ffff00 #ff0000 #ccccff #ffcc99 #ffff99 #e1e1e1 #ff6600 #ff9900 #ff3300]]></option>
     </view>
     <view id="resource-table">
@@ -39,7 +39,7 @@
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
         <task id="0" name="Proyecto De Grado" color="#000033" meeting="false" start="2018-07-01" duration="146" complete="9" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true">
-            <task id="32" name="Informe Final" meeting="false" start="2018-07-19" duration="120" complete="24" expand="false">
+            <task id="32" name="Informe Final" meeting="false" start="2018-07-19" duration="120" complete="24" expand="true">
                 <task id="70" name="Título del proyecto" color="#0000ff" meeting="false" start="2018-07-19" duration="1" complete="100" thirdDate="2018-08-15" thirdDate-constraint="0" expand="true">
                     <depend id="71" type="2" difference="0" hardness="Strong"/>
                     <depend id="73" type="2" difference="0" hardness="Strong"/>
@@ -65,7 +65,7 @@
                     <depend id="80" type="2" difference="0" hardness="Strong"/>
                     <depend id="82" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="79" name="Marco referencial y antecedentes" color="#0000ff" meeting="false" start="2018-07-22" duration="44" complete="35" expand="false">
+                <task id="79" name="Marco referencial y antecedentes" color="#0000ff" meeting="false" start="2018-07-22" duration="44" complete="35" expand="true">
                     <task id="110" name="Ministerio De Educación" color="#0000ff" meeting="false" start="2018-07-22" duration="44" complete="50" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
                     <task id="112" name="Sistema Para la Deserción de las IES. SPADIES" color="#0000ff" meeting="false" start="2018-07-22" duration="9" complete="50" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
                     <task id="111" name="Sistema de Educación Nacional de Aprenizaje SENA" color="#0000ff" meeting="false" start="2018-07-22" duration="16" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
@@ -75,7 +75,7 @@
                     <depend id="81" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="81" name="Muestra" color="#0000ff" meeting="false" start="2018-08-06" duration="5" complete="0" thirdDate="2018-09-10" thirdDate-constraint="0" expand="true"/>
-                <task id="82" name="Instrumentos / técnicas de recolección de información" color="#0000ff" meeting="false" start="2018-08-04" duration="16" complete="0" thirdDate="2018-08-11" thirdDate-constraint="0" expand="false">
+                <task id="82" name="Instrumentos / técnicas de recolección de información" color="#0000ff" meeting="false" start="2018-08-04" duration="16" complete="0" thirdDate="2018-08-11" thirdDate-constraint="0" expand="true">
                     <depend id="83" type="2" difference="0" hardness="Strong"/>
                     <depend id="97" type="2" difference="0" hardness="Strong"/>
                     <task id="143" name="Encuesta Coordinadores" color="#ff0000" meeting="false" start="2018-08-06" duration="14" complete="0" thirdDate="2018-08-06" thirdDate-constraint="0" expand="true"/>
