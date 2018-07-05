@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto de Grado Brayan Mauricio Novoa Salazar" company="Uniminuto" webLink="https://sicacest.com" view-date="2018-05-01" view-index="1" gantt-divider-location="652" resource-divider-location="565" version="2.8.8" locale="es">
+    <description/>
+    <view zooming-state="default:9" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="445" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="103" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="85" order="2"/>
+        <option id="taskLabelUp" value=""/>
+        <option id="taskLabelLeft" value="advancement"/>
+        <option id="taskLabelRight" value="name"/>
+        <timeline><![CDATA[2,57,30]]></timeline>
+        <option id="color.recent"><![CDATA[#ff3300 #009900 #999999 #cccccc #ffff00 #0000ff #0000cc #3333ff #cc0000 #1ed029]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="242" order="0"/>
+        <field id="1" name="Función" width="319" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Proyecto De Grado" color="#000033" meeting="false" start="2018-06-01" duration="176" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true">
+            <task id="142" name="Documento" meeting="false" start="2018-06-01" duration="175" complete="0" expand="true">
+                <task id="32" name="Informe Final" meeting="false" start="2018-06-01" duration="175" complete="0" expand="true">
+                    <task id="70" name="Título del proyecto" color="#0000ff" meeting="false" start="2018-08-15" duration="1" complete="100" thirdDate="2018-08-15" thirdDate-constraint="0" expand="true"/>
+                    <task id="71" name="Tabla de contenido" color="#0000ff" meeting="false" start="2018-08-25" duration="42" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true"/>
+                    <task id="72" name="Lista de tablas, figuras y/o anexos" color="#0000ff" meeting="false" start="2018-09-09" duration="29" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true"/>
+                    <task id="73" name="Introducción" color="#0000ff" meeting="false" start="2018-08-16" duration="1" complete="0" expand="true">
+                        <depend id="74" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="74" name="Resumen Ejecutivo" color="#0000ff" meeting="false" start="2018-08-17" duration="1" complete="0" thirdDate="2018-08-17" thirdDate-constraint="0" expand="true">
+                        <depend id="75" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                    <task id="75" name="Planteamiento del problema" color="#0000ff" meeting="false" start="2018-08-18" duration="3" complete="0" thirdDate="2018-08-18" thirdDate-constraint="0" expand="true"/>
+                    <task id="76" name="Formulación del problema" color="#0000ff" meeting="false" start="2018-08-18" duration="3" complete="0" expand="true"/>
+                    <task id="77" name="Objetivos (general y específicos)" color="#0000ff" meeting="false" start="2018-08-21" duration="1" complete="0" expand="true"/>
+                    <task id="78" name="Justificación e impacto central del proyecto" color="#0000ff" meeting="false" start="2018-08-22" duration="2" complete="0" expand="true"/>
+                    <task id="79" name="Marco referencial y antecedentes" color="#0000ff" meeting="false" start="2018-07-22" duration="63" complete="0" expand="false">
+                        <task id="110" name="Ministerio De Educación" color="#0000ff" meeting="false" start="2018-07-22" duration="63" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
+                        <task id="112" name="Sistema Para la Deserción de las IES. SPADIES" color="#0000ff" meeting="false" start="2018-07-22" duration="61" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
+                        <task id="111" name="Sistema de Educación Nacional de Aprenizaje SENA" color="#0000ff" meeting="false" start="2018-07-22" duration="57" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
+                        <task id="113" name="Universidad Javeriana De Colombia" color="#0000ff" meeting="false" start="2018-07-22" duration="53" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
+                    </task>
+                    <task id="80" name="Tipo de investigación" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" thirdDate="2018-09-10" thirdDate-constraint="0" expand="true"/>
+                    <task id="81" name="Muestra" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="82" name="Instrumentos / técnicas de recolección de información" color="#0000ff" meeting="false" start="2018-06-01" duration="1" complete="0" expand="false">
+                        <task id="143" name="Encuesta Coordinadores" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                        <task id="144" name="Encuesta Docentes" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                        <task id="145" name="Encuesta Estudiantes" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                    </task>
+                    <task id="83" name="Procedimiento" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="97" name="Análisis de datos" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="98" name="Conclusiones" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="99" name="Recomendaciones" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="100" name="Bibliografía" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                    <task id="84" name="ANEXOS" color="#ffff00" meeting="false" start="2018-06-01" duration="175" complete="2" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
+                        <task id="140" name="Repositorio GitHub" color="#009900" meeting="false" start="2018-07-01" duration="145" complete="0" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true"/>
+                        <task id="85" name="Cronograma de actividades" color="#999999" meeting="false" start="2018-07-01" duration="10" complete="0" thirdDate="2018-07-01" thirdDate-constraint="0" expand="false">
+                            <task id="134" name="Planeación De la lista de actividades" meeting="false" start="2018-07-01" duration="10" complete="0" expand="true"/>
+                        </task>
+                        <task id="96" name="CD-ROM con Proyecto de Grado" color="#999999" meeting="false" start="2018-06-01" duration="151" complete="5" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true">
+                            <task id="1" name="UML (DOCUMENTACIÓN)" meeting="false" start="2018-07-02" duration="120" complete="0" expand="false">
+                                <task id="53" name="Historias De Usuario" meeting="false" start="2018-07-23" duration="90" complete="0" expand="true"/>
+                                <task id="117" name="Requierimientos" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="118" name="Funcionalidades" meeting="false" start="2018-09-10" duration="1" complete="0" expand="true"/>
+                                <task id="101" name="Diagramas de Casos De Uso" color="#0000ff" meeting="false" start="2018-09-10" duration="50" complete="0" expand="true"/>
+                                <task id="116" name="Diagramas de Clases" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+                                <task id="119" name="Mockups" meeting="false" start="2018-07-02" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="120" name="SOLICITUDES" meeting="false" start="2018-07-23" duration="1" complete="0" expand="false">
+                                <task id="87" name="Solicitud permiso encuesta Coordinadores" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="88" name="Solicitud permiso encuesta Docentes" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="89" name="Solicitud permiso encuesta Estudiantes" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="135" name="Presupuesto" meeting="false" start="2018-07-23" duration="1" complete="0" expand="false">
+                                <task id="90" name="Compra del dominio" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="91" name="Contratación servicio de Hosting en" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="92" name="Compra de GooglePlayStore Account" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="2" name="DATABASE.zip" color="#ff3300" meeting="false" start="2018-08-10" duration="11" complete="0" thirdDate="2018-08-10" thirdDate-constraint="0" expand="true">
+                                <task id="54" name="MER" color="#8cb6ce" meeting="false" start="2018-08-10" duration="3" complete="0" thirdDate="2018-07-20" thirdDate-constraint="0" expand="true">
+                                    <depend id="63" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="63" name="DDL" color="#8cb6ce" meeting="false" start="2018-08-13" duration="3" complete="0" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
+                                    <depend id="64" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="64" name="DML" color="#8cb6ce" meeting="false" start="2018-08-16" duration="3" complete="0" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
+                                    <depend id="65" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="65" name="Implementar en servidor local" color="#8cb6ce" meeting="false" start="2018-08-19" duration="1" complete="0" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
+                                    <depend id="147" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="147" name="Realizar pruebas locales" color="#cc0000" meeting="false" start="2018-08-20" duration="1" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true"/>
+                            </task>
+                            <task id="6" name="SERVER" color="#8cb6ce" meeting="false" start="2018-06-01" duration="71" complete="33" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
+                                <task id="57" name="Adquisición del Dominio" color="#ffff00" meeting="false" start="2018-07-04" duration="1" complete="100" thirdDate="2018-07-04" thirdDate-constraint="0" priority="2" expand="true"/>
+                                <task id="59" name="Adquisición del Hosting" color="#ffff00" meeting="false" start="2018-08-10" duration="1" complete="0" thirdDate="2018-08-15" thirdDate-constraint="0" expand="true"/>
+                                <task id="148" name="Desplegar Base de Datos en Servidor WEB" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="4" name="WEBSITE" color="#8cb6ce" meeting="false" start="2018-06-01" duration="53" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
+                                <task id="114" name="Diseñar Aplicativo Web Para Estudiantes" meeting="false" start="2018-07-01" duration="1" complete="0" expand="true"/>
+                                <task id="55" name="Construir Aplicación" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="146" name="Realizar pruebas en servidor local" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                                <task id="66" name="Desplegar en el servidor" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="67" name="Compilar con PhoneGap" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="3" name="APK" color="#000000" meeting="false" start="2018-06-01" duration="142" complete="0" thirdDate="2018-07-02" thirdDate-constraint="0" expand="false">
+                                <task id="29" name="Generar archivo .APK" color="#8cb6ce" meeting="false" start="2018-07-24" duration="89" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="true"/>
+                                <task id="141" name="Realizar Pruebas" meeting="false" start="2018-06-01" duration="1" complete="0" expand="true"/>
+                                <task id="68" name="Despliegue en GooglePlayStore" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="5" name="DESKTOP" color="#8cb6ce" meeting="false" start="2018-07-23" duration="1" complete="0" thirdDate="2018-07-04" thirdDate-constraint="0" expand="false">
+                                <task id="56" name="Diseñar Interface Gráfica" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="107" name="Establecer Conexión Con El Servidor" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="108" name="Implementar Funcionalidades" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                                <task id="109" name="Instalar Aplicativo en Coordinación Bienestar" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                            <task id="128" name="Manuales" meeting="false" start="2018-07-23" duration="1" complete="0" expand="false">
+                                <task id="93" name="Manual de usuario Dominio" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true">
+                                    <depend id="63" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="94" name="Manual de usuario Hosting" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true">
+                                    <depend id="63" type="2" difference="0" hardness="Strong"/>
+                                </task>
+                                <task id="95" name="Manual de usuario GooglePlayStore Account" meeting="false" start="2018-07-23" duration="1" complete="0" expand="true"/>
+                            </task>
+                        </task>
+                    </task>
+                    <task id="102" name="Resumen analítico especializado (RAE)" color="#0000ff" meeting="false" start="2018-07-23" duration="99" complete="0" expand="true"/>
+                </task>
+            </task>
+            <task id="30" name="Entregas Por Corte" color="#1ed029" meeting="false" start="2018-09-10" duration="75" complete="0" thirdDate="2018-11-23" thirdDate-constraint="0" priority="4" expand="true">
+                <task id="127" name="Primer Corte" meeting="false" start="2018-09-10" duration="5" complete="0" expand="true"/>
+                <task id="129" name="Segundo Corte" meeting="false" start="2018-10-22" duration="5" complete="0" expand="true"/>
+                <task id="131" name="Tercer Corte" meeting="false" start="2018-11-19" duration="5" complete="0" expand="true"/>
+            </task>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Brayan Mauricio Novoa Salazar" function="Default:1" contacts="bnovoasalaz@uniminuto.edu.co" phone="319 746 7681"/>
+        <resource id="2" name="Jorge Eduardo Cárdenas" function="1" contacts="" phone=""/>
+        <resource id="4" name="Brayan Mauricio Novoa Salazar" function="SoftwareDevelopment:3" contacts="bnovoasalaz@uniminuto.edu.co" phone="319 746 7681"/>
+        <resource id="5" name="Brayan Mauricio Novoa Salazar" function="SoftwareDevelopment:2" contacts="bnovoasalaz@uniminuto.edu.co" phone="319 746 7681"/>
+        <resource id="3" name="Brayan Mauricio Novoa Salazar" function="SoftwareDevelopment:9" contacts="bnovoasalaz@uniminuto.edu.co" phone="319 746 7681"/>
+        <resource id="1" name="Brayan Mauricio Novoa Salazar" function="SoftwareDevelopment:4" contacts="bnovoasalaz@uniminuto.edu.co" phone="319 746 7681"/>
+        <resource id="6" name="Martha Janneth Jaime Reyes" function="6" contacts="martha.jaime@uniminuto.edu" phone="PBX.: +57 (8) 681 8810 Ext. 4545"/>
+    </resources>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+    <roles>
+        <role id="1" name="Asesor"/>
+        <role id="2" name="Colaborador"/>
+        <role id="3" name="Recursos Humanos"/>
+        <role id="4" name="Recursos Tecnológicos"/>
+        <role id="5" name="Autor Del Proyecto"/>
+        <role id="6" name="Coordinadora Acompañamiento y Permanencia"/>
+    </roles>
+</project>
