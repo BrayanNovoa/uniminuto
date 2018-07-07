@@ -1,0 +1,108 @@
+* {
+ font-family: Arial, sans;
+/* margin: 0;*/
+ padding: 0;
+ box-sizing: border-box;
+ -moz-box-sizing: border-box;
+}
+h1 {
+ margin: 1em 0;
+ text-align: center;
+}
+hr{
+ margin-bottom: 20px;
+}
+#container {
+/* position: absolute;
+ 
+ left: 0;
+ right: 0;*/
+ width: 100%; /* Ancho del contenedor */
+ margin-left: auto;
+ margin-right: auto;
+}
+#container input{
+ height: 2.5em;
+ visibility: hidden;
+/* margin-left: 5px;*/
+}
+#container input.login-input, #container input.perfil-submit, #container input.panel{
+ visibility: visible;
+}
+#container label {  
+background: #000;  /* Fondo de las pestañas */
+ border-radius: .25em .25em 0 0;
+ color: #fff;  /*Color del texto de las pestañas */
+ cursor: pointer;
+ float: left;
+ font-size: 15px; /*Tamaño del texto de las pestañas*/ 
+ height: 2.5em;
+/* line-height: 2.5em;*/
+ padding: 5px;
+ text-align: center;
+}
+#container input:hover + label {
+ background: #ffb94b; /* Fondo de las pestañas al pasar el cursor por encima */
+ color: #666; /* Color del texto de las pestañas al pasar el cursor por encima */
+}
+#container input:checked + label {
+ background: #003366; /* Fondo de las pestañas al presionar */
+ color: #fff; /* Color de las pestañas al presionar */
+ position: relative;
+ z-index: 6;
+}
+#content {
+ background: #f1f1f1; /* Fondo del contenido */
+ border-radius: 0 .25em .25em .25em;
+ min-height: 100%; /* Alto del contenido */
+ margin: 0 auto;
+ position: relative;
+ width: 100%;
+ z-index: 5;
+}
+#content div {
+ opacity: 0;
+ padding: 1.5em;
+/* position: fixed;*/
+position: absolute;
+top: 50px; 
+bottom: 0;
+ right: 0;
+ 
+ margin-left: auto;
+ margin-right: auto;
+ left: 0;
+ right: 0;
+ z-index: -100;
+}
+#content form{
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+#content-datos-basicos {
+ clear: both;
+}
+#content-contacto {
+ clear: both;
+ margin-bottom: 1em;
+ margin-right: 1em;
+}
+#content-vivienda {
+ clear: both;
+ margin-bottom: 1em;
+ margin-right: 1em;
+}
+#content-financiera {
+ clear: both;
+ margin-bottom: 1em;
+ margin-right: 1em;
+}
+#container input#tab-datos-basicos:checked ~ #content #content-datos-basicos,
+#container input#tab-contacto:checked ~ #content #content-contacto,
+#container input#tab-vivienda:checked ~ #content #content-vivienda,
+#container input#tab-salud:checked ~ #content #content-salud,
+#container input#tab-financiera:checked ~ #content #content-financiera,
+#container input#tab-familiar:checked ~ #content #content-familiar {
+ opacity: 1;
+ z-index: 100;
+}
