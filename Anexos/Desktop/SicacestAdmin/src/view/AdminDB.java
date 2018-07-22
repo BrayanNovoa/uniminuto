@@ -180,7 +180,7 @@ public final class AdminDB extends javax.swing.JFrame {
                 .addComponent(txtRectoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         tFiltro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -308,7 +308,7 @@ public final class AdminDB extends javax.swing.JFrame {
                 .addComponent(txtRectoria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         txtSedes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -434,7 +434,7 @@ public final class AdminDB extends javax.swing.JFrame {
                 .addComponent(txtRectoria2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         txtSedes1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
