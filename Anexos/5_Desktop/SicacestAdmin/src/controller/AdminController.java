@@ -22,6 +22,7 @@ public class AdminController implements interfaces.IAdmin {
     DefaultTableModel model;
     DbConnection entrar = new DbConnection();
     
+    @Override
     public boolean buscarRectoria(String rectoriaId){
         String sql = "SELECT vicerrectoria FROM tb_vicerrectorias WHERE vicerrectoria_id ="+rectoriaId+";";
         String nombre= null;
@@ -42,7 +43,9 @@ public class AdminController implements interfaces.IAdmin {
         return false;
     }
     
-    public boolean buscarSede(String sedeId){
+    @Override
+    public boolean buscarSede(String rect){
+        String sql ="select";
         return false;
     }
     
