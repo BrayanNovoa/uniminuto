@@ -1,0 +1,23 @@
+OBJETIVO:
+
+Identificar las fallas que se presentan actualmente en el proceso  de Caracterizacion  de la coordinacion de Bienestar  Universitario , con el fin de  desarrollar una solución informática basada en software, que  permita llevar a cabo estos procesos de una manera sistematizada.
+
+-- En cuanto al proceso de caracterización:
+* Qué etapas conforman el proceso de caracterización?
+* Cómo se realiza actualmente cada etapa del proceso?
+* Cuáles son las variables necesarias para obtener los resultados del proceso?
+* cada cuanto tiempo es necesario acceder a la información del proceso?
+-Diariamente
+Semanalmente
+-mensualmente
+* Se siente conforme con la forma como se lleva el proceso actual?
+-- Lo que se espera del proceso:
+* Cuál o cuales son los resultados esperados en este proceso?
+* Cuánto tiempo se demora verificando los datos de cada proceso para obtener la información deseada?
+
+* Cree que es necesario implementar un sistema que permita sistematizar y agilizar el proceso de caracterización?
+* Cómo se puede mejorar la metodología del proceso actual?
+-- Esperando obtener una información más precisa en el proceso usted:
+* Qué agregaría?
+* Qué modificaría?
+* Qué eliminaría?
