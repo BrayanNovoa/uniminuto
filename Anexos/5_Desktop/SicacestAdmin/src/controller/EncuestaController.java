@@ -36,9 +36,9 @@ public class EncuestaController {
                 registro[0]=rs.getString(campos[0]);
                 registro[1]=rs.getString(campos[1]);
                 model.addRow(registro);
-                view.Encuestas.cmbEncuestas.addItem(rs.getString(campos[0]));
+                view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
             }
-            view.Encuestas.tbEncuestas.setModel(model);
+            view.Admin.tbEncuestas.setModel(model);
         }catch(NullPointerException | SQLException ex){
             /*
             if(ex.equals("NullPointerException")){
