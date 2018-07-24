@@ -79,9 +79,10 @@ public class AdminController implements interfaces.IAdmin {
     
     
     public boolean buscarFacultades(){
-        String[] campos={"sede_id","facultad"};
+        String[] campos={"facultad"};
+        //String[] campos={"sede_id","facultad"};
         String[] registro = new String[campos.length];
-        String sql = "SELECT sede_id, facultad FROM tb_facultades";
+        String sql = "SELECT facultad FROM tb_facultades";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{
@@ -89,7 +90,7 @@ public class AdminController implements interfaces.IAdmin {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(campos[0]);
-                registro[1]=rs.getString(campos[1]);
+                //registro[1]=rs.getString(campos[1]);
                 model.addRow(registro);
             }
             view.Admin.tbFacultades.setModel(model);

@@ -25,7 +25,7 @@ public class AdminDbController {
     
     public void cargar(String valor){
         String [] campos = {"Vicerrectorías"};
-        String [] registro = new String [1];
+        String [] registro = new String [campos.length];
         String sql ="SELECT vicerrectoria FROM tb_vicerrectorias WHERE vicerrectoria LIKE '%"+valor+"%';";
         modelRectorias = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();

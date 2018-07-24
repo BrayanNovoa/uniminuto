@@ -6,12 +6,16 @@
  */
 package view;
 
+import controller.LoginController;
+
 /**
  *
  * @author b41n
  */
 public final class Login extends javax.swing.JFrame {
-    
+    LoginController logControl = new LoginController();
+    public String rectoria;
+    public String sede;
 
     /**
      * Creates new form Login
@@ -19,6 +23,15 @@ public final class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setView();
+        cmbSede.setEnabled(false);
+    }
+    public void setView(){
+        logControl.llenarComboRectorias();
+    }
+    public void getValues(){
+        rectoria = cmbRectoria.getSelectedItem().toString();
+        sede = cmbSede.getSelectedItem().toString();
     }
 
     /**
@@ -32,11 +45,11 @@ public final class Login extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbRectoria = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbSede = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
@@ -51,7 +64,12 @@ public final class Login extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar..."}));
+        cmbRectoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbRectoriaActionPerformed(evt);
+            }
+        });
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Usuario");
@@ -63,7 +81,8 @@ public final class Login extends javax.swing.JFrame {
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField1.setText("programador");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar..."}));
+        cmbSede.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -72,8 +91,8 @@ public final class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 218, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbRectoria, 0, 218, Short.MAX_VALUE)
+                    .addComponent(cmbSede, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1)
@@ -96,9 +115,9 @@ public final class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbRectoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,8 +154,20 @@ public final class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        getValues();
+        if(logControl.verificarAcceso("usuario", sede, rectoria, "password")){
+            this.dispose();
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmbRectoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRectoriaActionPerformed
+        // TODO add your handling code here:
+        rectoria = cmbRectoria.getSelectedItem().toString();
+        //cmbSede.setEnabled(true);
+        logControl.llenarComboSedes(rectoria);
+
+    }//GEN-LAST:event_cmbRectoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,9 +205,9 @@ public final class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JComboBox<String> cmbRectoria;
+    public static javax.swing.JComboBox<String> cmbSede;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
