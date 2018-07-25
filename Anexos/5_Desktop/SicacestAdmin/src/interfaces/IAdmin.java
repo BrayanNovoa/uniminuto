@@ -12,6 +12,5 @@ package interfaces;
  */
 public interface IAdmin {
     public boolean buscarSede(String sedeId);
-    public boolean buscarRectoria(String rectoria);
     
 }

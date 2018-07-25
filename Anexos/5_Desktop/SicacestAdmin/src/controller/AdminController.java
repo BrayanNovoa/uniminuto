@@ -22,26 +22,6 @@ public class AdminController implements interfaces.IAdmin {
     DefaultTableModel model;
     DbConnection entrar = new DbConnection();
     
-    @Override
-    public boolean buscarRectoria(String rectoriaId){
-        String sql = "SELECT vicerrectoria FROM tb_vicerrectorias WHERE vicerrectoria_id ="+rectoriaId+";";
-        String nombre= null;
-        Connection cn = entrar.getConexion();
-        try{
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                nombre = rs.getString("vicerrectoria");
-                System.out.println(nombre);
-            }
-            JOptionPane.showMessageDialog(null, "Bienvenido administrador de Buenestar "+nombre);
-            view.Admin.txtRectoria.setText(nombre);
-            return true;
-        }catch(NullPointerException | SQLException ex){
-            System.out.println(ex);
-        }
-        return false;
-    }
     
     @Override
     public boolean buscarSede(String rect){
@@ -74,7 +54,6 @@ public class AdminController implements interfaces.IAdmin {
     public static void main(String [] args){
         AdminController adc = new AdminController();
         //adc.buscarFacultades();
-        adc.buscarRectoria("8");
     }
     
     
