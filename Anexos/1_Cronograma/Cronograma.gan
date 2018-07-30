@@ -8,7 +8,7 @@
         <option id="taskLabelDown" value=""/>
         <option id="taskLabelLeft" value="advancement"/>
         <option id="taskLabelRight" value="name"/>
-        <timeline><![CDATA[127,6,129,131]]></timeline>
+        <timeline><![CDATA[6,129,127,131]]></timeline>
         <option id="color.recent"><![CDATA[#ff0000 #cc0000 #339900 #ffcc99 #cccccc #000000 #ffff00 #ccccff #ffff99 #e1e1e1]]></option>
     </view>
     <view id="resource-table">
@@ -39,8 +39,8 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Proyecto De Grado" color="#000033" meeting="false" start="2018-07-01" duration="146" complete="13" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
-            <task id="32" name="Informe Final" meeting="false" start="2018-07-01" duration="115" complete="23" expand="true">
+        <task id="0" name="Proyecto De Grado" color="#000033" meeting="false" start="2018-07-01" duration="146" complete="15" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
+            <task id="32" name="Informe Final" meeting="false" start="2018-07-01" duration="115" complete="25" expand="true">
                 <task id="70" name="Título del proyecto" color="#339900" meeting="false" start="2018-07-19" duration="1" complete="100" thirdDate="2018-07-19" thirdDate-constraint="0" expand="true">
                     <depend id="71" type="2" difference="0" hardness="Strong"/>
                     <depend id="73" type="2" difference="0" hardness="Strong"/>
@@ -72,7 +72,7 @@
                     <task id="111" name="Sistema de Educación Nacional de Aprenizaje" color="#0000ff" meeting="false" start="2018-07-22" duration="16" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
                     <task id="113" name="Universidad Javeriana De Colombia" color="#0000ff" meeting="false" start="2018-07-22" duration="6" complete="0" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
                 </task>
-                <task id="80" name="Tipo de investigación" color="#0000ff" meeting="false" start="2018-08-04" duration="2" complete="0" thirdDate="2018-09-10" thirdDate-constraint="0" expand="true">
+                <task id="80" name="Tipo de investigación" color="#0000ff" meeting="false" start="2018-08-04" duration="2" complete="80" thirdDate="2018-08-04" thirdDate-constraint="0" expand="true">
                     <depend id="81" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="81" name="Muestra" color="#0000ff" meeting="false" start="2018-08-06" duration="5" complete="0" thirdDate="2018-09-10" thirdDate-constraint="0" expand="true"/>
@@ -97,13 +97,13 @@
                     <depend id="102" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="100" name="Bibliografía" color="#0000ff" meeting="false" start="2018-07-19" duration="53" complete="0" expand="true"/>
-                <task id="84" name="ANEXOS" color="#ffff00" meeting="false" start="2018-07-01" duration="99" complete="23" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true">
-                    <task id="96" name="CD-ROM con Erpositorio de GitHub" color="#999999" meeting="false" start="2018-07-01" duration="12" complete="95" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true"/>
-                    <task id="140" name="Repositorio https://github.com/BrayanNovoa/uniminuto" color="#009900" meeting="false" start="2018-07-01" duration="99" complete="15" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
+                <task id="84" name="ANEXOS" color="#ffff00" meeting="false" start="2018-07-01" duration="99" complete="27" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true">
+                    <task id="96" name="CD-ROM con Repositorio de GitHub" color="#999999" meeting="false" start="2018-07-01" duration="12" complete="95" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true"/>
+                    <task id="140" name="Repositorio https://github.com/BrayanNovoa/uniminuto" color="#009900" meeting="false" start="2018-07-01" duration="99" complete="19" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
                         <task id="85" name="Cronograma" color="#000000" meeting="false" start="2018-07-01" duration="12" complete="95" thirdDate="2018-07-01" thirdDate-constraint="0" expand="false">
                             <task id="134" name="Planeación De la lista de actividades" color="#ffcc99" meeting="false" start="2018-07-01" duration="12" complete="95" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true"/>
                         </task>
-                        <task id="1" name="DOCUMENTACIÓN" color="#000000" meeting="false" start="2018-07-04" duration="96" complete="4" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true">
+                        <task id="1" name="DOCUMENTACIÓN" color="#000000" meeting="false" start="2018-07-04" duration="96" complete="4" thirdDate="2018-07-02" thirdDate-constraint="0" expand="false">
                             <task id="53" name="Historias De Usuario" color="#ffcc99" meeting="false" start="2018-08-21" duration="11" complete="0" thirdDate="2018-07-23" thirdDate-constraint="0" priority="2" expand="true"/>
                             <task id="117" name="Requierimientos" color="#ffcc99" meeting="false" start="2018-08-27" duration="10" complete="0" thirdDate="2018-08-27" thirdDate-constraint="0" expand="true"/>
                             <task id="118" name="UML" color="#ffcc99" meeting="false" start="2018-09-06" duration="14" complete="0" thirdDate="2018-09-10" thirdDate-constraint="0" expand="false">
@@ -126,14 +126,14 @@
                                 <task id="92" name="GooglePlayStore Publish Account SetUp" color="#cc0000" meeting="false" start="2018-07-23" duration="2" complete="0" thirdDate="2018-07-23" thirdDate-constraint="0" expand="true"/>
                             </task>
                         </task>
-                        <task id="2" name="DATABASE" color="#ff3300" meeting="false" start="2018-08-10" duration="11" complete="0" thirdDate="2018-08-10" thirdDate-constraint="0" expand="false">
-                            <task id="54" name="MER" color="#8cb6ce" meeting="false" start="2018-08-10" duration="3" complete="0" thirdDate="2018-07-20" thirdDate-constraint="0" expand="true">
+                        <task id="2" name="DATABASE" color="#ff3300" meeting="false" start="2018-08-10" duration="11" complete="40" thirdDate="2018-08-10" thirdDate-constraint="0" expand="false">
+                            <task id="54" name="MER" color="#8cb6ce" meeting="false" start="2018-08-10" duration="3" complete="50" thirdDate="2018-08-10" thirdDate-constraint="0" expand="true">
                                 <depend id="63" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="63" name="DDL" color="#8cb6ce" meeting="false" start="2018-08-13" duration="3" complete="0" thirdDate="2018-08-28" thirdDate-constraint="0" expand="true">
+                            <task id="63" name="DDL" color="#8cb6ce" meeting="false" start="2018-08-13" duration="3" complete="50" thirdDate="2018-08-13" thirdDate-constraint="0" expand="true">
                                 <depend id="64" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="64" name="DML" color="#8cb6ce" meeting="false" start="2018-08-16" duration="3" complete="0" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
+                            <task id="64" name="DML" color="#8cb6ce" meeting="false" start="2018-08-16" duration="3" complete="50" thirdDate="2018-08-16" thirdDate-constraint="0" expand="true">
                                 <depend id="65" type="2" difference="0" hardness="Strong"/>
                             </task>
                             <task id="65" name="Implementar en servidor local" color="#8cb6ce" meeting="false" start="2018-08-19" duration="1" complete="0" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
@@ -142,15 +142,15 @@
                             <task id="147" name="Realizar pruebas locales" color="#cc0000" meeting="false" start="2018-08-20" duration="1" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true"/>
                         </task>
                         <task id="6" name="SERVER" color="#ff9900" meeting="false" start="2018-08-24" duration="3" complete="0" thirdDate="2018-08-19" thirdDate-constraint="0" expand="false">
-                            <task id="148" name="Desplegar BaseDatos en Servidor WEB" color="#cc0000" meeting="false" start="2018-08-24" duration="3" complete="0" thirdDate="2018-08-23" thirdDate-constraint="0" priority="2" expand="true"/>
+                            <task id="148" name="Desplegar BaseDatos en Servidor JAVA" color="#cc0000" meeting="false" start="2018-08-24" duration="3" complete="0" thirdDate="2018-08-23" thirdDate-constraint="0" priority="2" expand="true"/>
                         </task>
-                        <task id="5" name="Desktop" color="#8cb6ce" meeting="false" start="2018-07-13" duration="31" complete="35" thirdDate="2018-10-02" thirdDate-constraint="0" expand="false">
-                            <task id="56" name="Diseñar Interface Gráfica" color="#cc0000" meeting="false" start="2018-07-13" duration="18" complete="50" thirdDate="2018-07-12" thirdDate-constraint="0" expand="true"/>
-                            <task id="107" name="Establecer Conexión Con Servidor Local" color="#ff0000" meeting="true" start="2018-07-13" duration="0" complete="50" thirdDate="2018-07-13" thirdDate-constraint="0" expand="true"/>
-                            <task id="108" name="Desarrollar Funcionalidades" color="#cc0000" meeting="false" start="2018-07-13" duration="16" complete="50" thirdDate="2018-07-21" thirdDate-constraint="0" expand="true">
+                        <task id="5" name="Desktop" color="#8cb6ce" meeting="false" start="2018-07-13" duration="31" complete="42" thirdDate="2018-10-02" thirdDate-constraint="0" expand="false">
+                            <task id="56" name="Diseñar Interface Gráfica" color="#cc0000" meeting="false" start="2018-07-13" duration="29" complete="60" thirdDate="2018-07-13" thirdDate-constraint="0" expand="true"/>
+                            <task id="107" name="Establecer Conexión Con Servidor Local" color="#ff0000" meeting="true" start="2018-07-13" duration="0" complete="100" thirdDate="2018-07-13" thirdDate-constraint="0" expand="true"/>
+                            <task id="108" name="Desarrollar Funcionalidades" color="#cc0000" meeting="false" start="2018-07-13" duration="16" complete="40" thirdDate="2018-07-13" thirdDate-constraint="0" expand="true">
                                 <depend id="156" type="2" difference="0" hardness="Strong"/>
                             </task>
-                            <task id="156" name="Realizar pruebas locales a la Aplicación Java SE" color="#cc0000" meeting="false" start="2018-07-29" duration="3" complete="0" thirdDate="2018-10-08" thirdDate-constraint="0" expand="true">
+                            <task id="156" name="Realizar pruebas locales a la Aplicación Java SE" color="#cc0000" meeting="false" start="2018-07-29" duration="3" complete="40" thirdDate="2018-07-29" thirdDate-constraint="0" expand="true">
                                 <depend id="162" type="2" difference="0" hardness="Strong"/>
                             </task>
                             <task id="162" name="Realizar corrección de errores encontrados" color="#cc0000" meeting="false" start="2018-08-01" duration="3" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true">
