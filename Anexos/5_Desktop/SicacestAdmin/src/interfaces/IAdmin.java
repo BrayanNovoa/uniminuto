@@ -15,4 +15,5 @@ public interface IAdmin {
     public boolean buscarFacultades();
     public boolean buscarPeriodos();
     public boolean cargarListaEstudiantes();
+    public boolean guardarEstudiantes(Object estudiantes[]);
 }
