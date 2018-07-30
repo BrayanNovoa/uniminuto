@@ -8,7 +8,6 @@ package view;
 
 import controller.AdminController;
 import controller.AdminDbController;
-import controller.DbConnection;
 import controller.EncuestaController;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -16,9 +15,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -45,6 +41,7 @@ public final class Admin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         cargar();
     }
+    
     void cargar(){
         btnGuardarEstudiantes.setVisible(false);
         btnCargarLista.setEnabled(false);
@@ -53,8 +50,8 @@ public final class Admin extends javax.swing.JFrame {
         //adc.buscarProgramas();
         enc.buscarEncuestas();
         limpiarCampos();
-        
     }
+    
     private void limpiarCampos(){
         txtPeriodo.setText("Seleccione...");
         txtFacultad.setText("Seleccione...");
