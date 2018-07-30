@@ -1,9 +1,0 @@
-CREATE USER 'Developer'@'localhost' IDENTIFIED BY '***';
-
-GRANT ALL PRIVILEGES ON * . * TO 'Developer'@'localhost' IDENTIFIED BY '***' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
-
-CREATE DATABASE IF NOT EXISTS `Developer` ;
-
-GRANT ALL PRIVILEGES ON `Developer` . * TO 'Developer'@'localhost';
-
-GRANT ALL PRIVILEGES ON `Developer\_%` . * TO 'Developer'@'localhost';
