@@ -135,6 +135,18 @@ public class AdminController implements interfaces.IAdmin {
         
         return false;
     }
+    
+    @Override
+    public boolean guardarEstudiantes(Object estudiantes[]){
+        for(int i = 0; i <= estudiantes.length; i++){
+            String linea = estudiantes[i].toString().trim();
+            String[] datosFila = linea.split(",");
+            //model.addRow(datosFila);
+            System.out.println(estudiantes[i]);
+        }
+        return false;
+    }
+    
     public static void main(String [] args){
         AdminController adc = new AdminController();
         //adc.buscarFacultades();
