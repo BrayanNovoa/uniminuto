@@ -64,14 +64,7 @@ public class AdminDbController {
             Logger.getLogger(AdminDbController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void guardarEstudiantes(Object[] estudiantes){
-        for (int i = 0; i < estudiantes.length; i++){
-            String linea = estudiantes[i].toString().trim();
-            String[] datosFila = linea.split(",");
-            //model.addRow(datosFila);
-            System.out.println(estudiantes[i]);
-        }
-    }
+    
     public static void main(String[]args){
         AdminDbController admin = new AdminDbController();
         //admin.cargar("");
