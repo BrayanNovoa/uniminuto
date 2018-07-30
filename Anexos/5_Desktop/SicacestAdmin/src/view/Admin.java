@@ -32,9 +32,9 @@ import javax.swing.table.DefaultTableModel;
  * @author b41n
  */
 public final class Admin extends javax.swing.JFrame {
-    AdminDbController adminController = new AdminDbController();
+    AdminDbController adbc = new AdminDbController();
     AdminController adc = new AdminController();
-    EncuestaController enController = new EncuestaController();
+    EncuestaController enc = new EncuestaController();
     DefaultTableModel model;
 
     /**
@@ -51,7 +51,7 @@ public final class Admin extends javax.swing.JFrame {
         adc.buscarPeriodos();
         //adc.buscarFacultades();
         //adc.buscarProgramas();
-        enController.buscarEncuestas();
+        enc.buscarEncuestas();
         limpiarCampos();
         
     }
@@ -1140,7 +1140,7 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed
         // TODO add your handling code here:
-        adminController.guardarEstudiantes(estudiantes);
+        adc.guardarEstudiantes(estudiantes);
     }//GEN-LAST:event_btnGuardarEstudiantesActionPerformed
 
     private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
