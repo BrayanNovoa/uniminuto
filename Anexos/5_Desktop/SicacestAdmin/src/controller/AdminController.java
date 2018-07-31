@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,8 +20,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import view.Admin;
+import view.Cargador;
 
 /**
  *
@@ -29,6 +32,7 @@ import view.Admin;
 
 public class AdminController implements interfaces.IAdmin {
     DefaultTableModel model;
+    CargadorController carc = new CargadorController();
     DbConnection entrar = new DbConnection();
     public Object[] estudiantes;
     
@@ -119,8 +123,8 @@ public class AdminController implements interfaces.IAdmin {
                 model.setColumnIdentifiers(titulos);
 
                 estudiantes = buffer.lines().toArray();
-                for (int i = 0; i < estudiantes.length; i++){
-                    String linea = estudiantes[i].toString().trim();
+                for(int i = 1; i <= estudiantes.length; i++){
+                    String linea = estudiantes[i-1].toString().trim();
                     String[] datosFila = linea.split(",");
                     model.addRow(datosFila);
                 }
@@ -136,12 +140,54 @@ public class AdminController implements interfaces.IAdmin {
     }
     
     @Override
-    public boolean guardarEstudiantes(Object estudiantes[]){
-        for(int i = 0; i <= estudiantes.length; i++){
-            String linea = estudiantes[i].toString().trim();
-            String[] datosFila = linea.split(",");
-            //model.addRow(datosFila);
-            System.out.println(estudiantes[i]);
+    public boolean guardarEstudiantes(Object estudiantes[], String periodo, String programa){
+        float total = estudiantes.length;
+        float tasa = 100/total;
+        float avance;
+        System.out.println(tasa);
+        PreparedStatement pst;
+        String consulta;
+        String sql;
+        String sqlPrograma;
+        String sqlPeriodo;
+        String fin = "');\n";
+        Cargador cargador = new Cargador("Guardar Estudiantes",total);
+        cargador.setVisible(true);
+        view.Cargador.txtAccion.setText("Guardando");
+        for(int i=1; i<= total;i++){
+            avance= tasa*i;
+            view.Cargador.progress.setValue((int) avance);
+            System.out.println("Progreso: "+tasa*i);
+            view.Cargador.txtPercent.setText(Float.toString(avance));
+            view.Cargador.txtElemento.setText(estudiantes[i-1].toString());
+            sql="INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES(";
+            sqlPrograma = "(SELECT programa_id FROM tb_programas WHERE programa= '"+programa+"'),";
+            sqlPeriodo = "(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+periodo+"'),";
+            consulta=sql+sqlPrograma+sqlPeriodo+"'"+estudiantes[i-1].toString().trim()+fin;
+            //System.out.println(consulta);
+            try{
+                pst = entrar.getConexion().prepareStatement(consulta);
+                if(pst!=null){
+                    pst.execute(consulta);
+                    //System.out.println("Estudiante Guardado: "+estudiantes[i-1]);
+                    view.Cargador.txtStatus.setText("OK.");
+                }else{
+                    JOptionPane.showMessageDialog(null, "ERROR");
+                }
+            }catch(SQLException ex){
+                if(ex.equals("Duplicate entry '000324471' for key 'estudiante'")){
+                    System.err.println("ERROR :"+ex);
+                    //JOptionPane.showMessageDialog(null, "Estudiante "+estudiantes[i-1]+" ya se encuentra registrado.");
+                }
+                JOptionPane.showMessageDialog(null, "Estudiante "+estudiantes[i-1]+" ya se encuentra registrado.");
+                view.Cargador.txtStatus.setText("ERROR");
+                return false;
+            }
+            if(i==estudiantes.length){
+                //JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+i);
+                System.out.println("Estudiantes Guardados: "+i);
+                return true;
+            }
         }
         return false;
     }
@@ -149,7 +195,7 @@ public class AdminController implements interfaces.IAdmin {
     public static void main(String [] args){
         AdminController adc = new AdminController();
         //adc.buscarFacultades();
-        adc.buscarPeriodos();
+        //adc.buscarPeriodos();
     }
     
 }

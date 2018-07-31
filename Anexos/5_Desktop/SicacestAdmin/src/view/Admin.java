@@ -171,7 +171,6 @@ public final class Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage(Admin.class.getResource("/img/logo.png")));
-        setPreferredSize(new java.awt.Dimension(1200, 700));
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(1000, 720));
 
@@ -474,7 +473,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(jLabel15)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 32, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCargarLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -612,7 +611,7 @@ public final class Admin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
@@ -1059,7 +1058,7 @@ public final class Admin extends javax.swing.JFrame {
         IconPanelLayout.setVerticalGroup(
             IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IconPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
@@ -1137,7 +1136,7 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed
         // TODO add your handling code here:
-        adc.guardarEstudiantes(estudiantes);
+        adc.guardarEstudiantes(estudiantes, txtPeriodo.getText(),txtPrograma.getText());
     }//GEN-LAST:event_btnGuardarEstudiantesActionPerformed
 
     private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
@@ -1155,11 +1154,11 @@ public final class Admin extends javax.swing.JFrame {
                 BufferedReader buffer = new BufferedReader(new FileReader(archivo));
                 String primerLinea = buffer.readLine().trim();
                 String[] titulos = primerLinea.split(",");
-                DefaultTableModel model = (DefaultTableModel)tbEstudiantes.getModel();
+                model = (DefaultTableModel)tbEstudiantes.getModel();
                 model.setColumnIdentifiers(titulos);
 
                 estudiantes = buffer.lines().toArray();
-                for (int i = 0; i < estudiantes.length; i++){
+                for(int i = 0; i < estudiantes.length; i++){
                     String linea = estudiantes[i].toString().trim();
                     String[] datosFila = linea.split(",");
                     model.addRow(datosFila);

@@ -76,14 +76,14 @@ public final class Login extends javax.swing.JFrame {
         });
 
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsuario.setText("Usuario");
+        txtUsuario.setText("bnovoa.linux@gmail.com");
 
         jLabel1.setFont(jLabel1.getFont().deriveFont((jLabel1.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel1.getFont().getSize()+3));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Iniciar Sesión");
 
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPassword.setText("programador");
+        txtPassword.setText("1234567");
 
         cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar..."}));
         cmbSede.setEnabled(false);
