@@ -71,6 +71,9 @@ INSERT INTO tb_periodos(periodo_id, agno, semestre, periodo) VALUES(4,2017,2,'20
 INSERT INTO tb_periodos(periodo_id, agno, semestre, periodo) VALUES(5,2018,1,'201810');
 INSERT INTO tb_periodos(periodo_id, agno, semestre, periodo) VALUES(6,2018,2,'201820');
 
+
+SELECT periodo_id FROM tb_periodos WHERE periodo ='201820';
+
 CREATE TABLE tb_(
 	id INT(3) NOT NULL AUTO_INCREMENT,
 	VARCHAR(50) NOT NULL,
@@ -200,6 +203,9 @@ CREATE TABLE tb_usuarios(
 );
 
 
+
+
+
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'bnovoa.linux@gmail.com','1234567',1,1);
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'','',,);
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (,'','',);
@@ -227,6 +233,54 @@ SELECT facultad FROM tb_facultades WHERE sede_id IN (SELECT sede_id FROM tb_sede
 
 
 
+
+
+DROP TABLE tb_estudiantes;
+CREATE TABLE tb_estudiantes(
+	estudiante_id INT(11) NOT NULL AUTO_INCREMENT,
+	programa_id INT(3) NOT NULL,
+	INDEX programa_ind(programa_id),
+	FOREIGN KEY(programa_id) REFERENCES tb_programas(programa_id) ON DELETE CASCADE,
+	periodo_id INT(3) NOT NULL,
+	INDEX periodo_ind(periodo_id),
+	FOREIGN KEY(periodo_id) REFERENCES tb_periodos(periodo_id) ON DELETE CASCADE,
+	estudiante VARCHAR(20) NOT NULL UNIQUE,
+	PRIMARY KEY(estudiante_id)
+);
+
+INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES
+(1, 6, '000324471'),
+(1, 6, '000121312');
+
+
+INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES(
+	(SELECT programa_id FROM tb_programas WHERE programa= 'Tecnología en Desarrollo de Software'),
+	(SELECT periodo_id FROM tb_periodos WHERE periodo ='201820'),
+	'1111111')
+;
+
+(1, 6, '000121312');
+
+
+SELECT rol_id FROM tb_usuarios WHERE usuario ='bnovoa.linux@gmail.com' AND password = '1234567' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
+
+
+
+
+INSERT INTO `tb_vicerrectorias` (`vicerrectoria_id`, `vicerrectoria`) VALUES
+(1, 'Antioquia Y Eje Cafetero'),
+(2, 'Sede Principal'),
+(3, 'Sede Principal Virtual y a Distancia'),
+(4, 'Bogotá Sur'),
+(5, 'Cundinamarca'),
+(6, 'Nariño'),
+(7, 'Neiva'),
+(8, 'Villavicencio'),
+(9, 'Norte de Santander'),
+(11, 'Bucaramanga'),
+(12, 'Ibagué'),
+(13, 'Cali'),
+(14, 'Atlántico');
 
 
 
