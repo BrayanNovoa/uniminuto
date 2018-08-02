@@ -8,7 +8,7 @@
         <option id="taskLabelDown" value=""/>
         <option id="taskLabelLeft" value="advancement"/>
         <option id="taskLabelRight" value="name"/>
-        <timeline><![CDATA[6,129,127,131]]></timeline>
+        <timeline><![CDATA[129,6,127,131]]></timeline>
         <option id="color.recent"><![CDATA[#ff0000 #cc0000 #339900 #ffcc99 #cccccc #000000 #ffff00 #ccccff #ffff99 #e1e1e1]]></option>
     </view>
     <view id="resource-table">
@@ -59,7 +59,7 @@
                 <task id="76" name="Formulación del problema" color="#0000ff" meeting="false" start="2018-07-27" duration="3" complete="50" thirdDate="2018-07-27" thirdDate-constraint="0" expand="true">
                     <depend id="77" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="77" name="Objetivos (general y específicos)" color="#0000ff" meeting="false" start="2018-07-30" duration="3" complete="70" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
+                <task id="77" name="Objetivos (generales y específicos)" color="#0000ff" meeting="false" start="2018-07-30" duration="3" complete="70" thirdDate="2018-07-30" thirdDate-constraint="0" expand="true">
                     <depend id="78" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="78" name="Justificación e impacto central del proyecto" color="#0000ff" meeting="false" start="2018-08-02" duration="2" complete="70" thirdDate="2018-08-02" thirdDate-constraint="0" expand="true">
