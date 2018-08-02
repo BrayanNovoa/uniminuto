@@ -160,10 +160,10 @@ public class AdminController implements interfaces.IAdmin {
             System.out.println("Progreso: "+tasa*i);
             view.Cargador.txtPercent.setText(Float.toString(avance));
             view.Cargador.txtElemento.setText(estudiantes[i-1].toString());
-            sql="INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES(";
+            sql="INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante) VALUES(";
             sqlPrograma = "(SELECT programa_id FROM tb_programas WHERE programa= '"+programa+"'),";
             sqlPeriodo = "(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+periodo+"'),";
-            consulta=sql+sqlPrograma+sqlPeriodo+"'"+estudiantes[i-1].toString().trim()+fin;
+            consulta=sql+sqlPrograma+sqlPeriodo+"4,"+"'"+estudiantes[i-1].toString().trim()+fin;
             //System.out.println(consulta);
             try{
                 pst = entrar.getConexion().prepareStatement(consulta);
@@ -179,12 +179,13 @@ public class AdminController implements interfaces.IAdmin {
                     System.err.println("ERROR :"+ex);
                     //JOptionPane.showMessageDialog(null, "Estudiante "+estudiantes[i-1]+" ya se encuentra registrado.");
                 }
-                JOptionPane.showMessageDialog(null, "Estudiante "+estudiantes[i-1]+" ya se encuentra registrado.");
-                view.Cargador.txtStatus.setText("ERROR");
+                System.err.println("ERROR:"+ex);
+                view.Cargador.txtStatus.setText("ERROR: "+ex);
+                JOptionPane.showMessageDialog(null, "ERROR: "+ex);
                 return false;
             }
             if(i==estudiantes.length){
-                //JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+i);
+                JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+i);
                 System.out.println("Estudiantes Guardados: "+i);
                 return true;
             }
