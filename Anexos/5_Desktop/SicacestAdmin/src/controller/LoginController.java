@@ -23,7 +23,7 @@ public class LoginController implements interfaces.ILogin {
     @Override
     public boolean llenarComboRectorias(){
         //String[] opciones = new String[1];
-        String sql ="SELECT vicerrectoria FROM tb_vicerrectorias;";
+        String sql ="SELECT rectoria FROM tb_rectorias;";
         java.sql.Connection cn = entrar.getConexion();
         try{
             java.sql.Statement st = cn.createStatement();
@@ -43,7 +43,7 @@ public class LoginController implements interfaces.ILogin {
     @Override
     public boolean llenarComboSedes(String rectoria){
         String[] opciones = new String[1];
-        String sql ="SELECT sede FROM tb_sedes WHERE vicerrectoria_id IN (SELECT vicerrectoria_id FROM tb_vicerrectorias WHERE vicerrectoria = '"+rectoria+"')";
+        String sql ="SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+rectoria+"')";
         java.sql.Connection cn = entrar.getConexion();
         try{
             java.sql.Statement st = cn.createStatement();
