@@ -34,10 +34,7 @@ INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(7,2,'Agregar 
 INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(8,3,'Generar Reportes');
 INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(9,4,'Llenar Encuestas');
 
-INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(10,,'');
-INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(1,,'');
-INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(1,,'');
-INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(1,,'');
+
 
 
 CREATE TABLE tb_roles_permisos(
@@ -52,7 +49,6 @@ CREATE TABLE tb_roles_permisos(
 );
 
 
-DROP TABLE tb_periodos;
 
 
 
@@ -74,13 +70,6 @@ INSERT INTO tb_periodos(periodo_id, agno, semestre, periodo) VALUES(6,2018,2,'20
 
 SELECT periodo_id FROM tb_periodos WHERE periodo ='201820';
 
-CREATE TABLE tb_(
-	id INT(3) NOT NULL AUTO_INCREMENT,
-	VARCHAR(50) NOT NULL,
-	PRIMARY KEY()
-);
-
-
 
 DROP TABLE tb_programas;
 
@@ -88,30 +77,30 @@ DROP TABLE tb_facultades;
 
 DROP TABLE tb_sedes;
 
-DROP TABLE tb_vicerrectorias;
+DROP TABLE tb_rectorias;
 
 
 
 
 
-CREATE TABLE tb_vicerrectorias(
-	vicerrectoria_id INT(3) NOT NULL AUTO_INCREMENT,
-	vicerrectoria VARCHAR(50) NOT NULL,
-	PRIMARY KEY(vicerrectoria_id)
+CREATE TABLE tb_rectorias(
+	rectoria_id INT(3) NOT NULL AUTO_INCREMENT,
+	rectoria VARCHAR(50) NOT NULL,
+	PRIMARY KEY(rectoria_id)
 );
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(1,'Antioquia Y Eje Cafetero');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(2,'Sede Principal');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(3,'Sede Principal Virtual y a Distancia');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(4,'Bogotá Sur');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(5,'Cundinamarca');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(6,'Nariño');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(7,'Neiva');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(8,'Villavicencio');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(9,'Norte de Santander');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(11,'Bucaramanga');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(12,'Ibagué');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(13,'Cali');
-INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(14,'Atlántico');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(1,'Antioquia Y Eje Cafetero');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(2,'Sede Principal');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(3,'Sede Principal Virtual y a Distancia');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(4,'Bogotá Sur');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(5,'Cundinamarca');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(6,'Nariño');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(7,'Neiva');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(8,'Villavicencio');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(9,'Norte de Santander');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(11,'Bucaramanga');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(12,'Ibagué');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(13,'Cali');
+INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(14,'Atlántico');
 
 
 
@@ -119,20 +108,20 @@ INSERT INTO tb_vicerrectorias(vicerrectoria_id, vicerrectoria) VALUES(14,'Atlán
 
 CREATE TABLE tb_sedes(
 	sede_id INT(3) NOT NULL AUTO_INCREMENT,
-	vicerrectoria_id INT(3) NOT NULL,
-	INDEX vicerrectoria_ind (vicerrectoria_id),
-	FOREIGN KEY(vicerrectoria_id) REFERENCES tb_vicerrectorias(vicerrectoria_id) ON DELETE CASCADE,
+	rectoria_id INT(3) NOT NULL,
+	INDEX rectoria_ind (rectoria_id),
+	FOREIGN KEY(rectoria_id) REFERENCES tb_rectorias(rectoria_id) ON DELETE CASCADE,
 	sede VARCHAR(50) NOT NULL,
 	PRIMARY KEY(sede_id)
 );
 
-INSERT INTO tb_sedes(sede_id, vicerrectoria_id, sede) VALUES(1,8,'Sede Principal - Administrativa');
-INSERT INTO tb_sedes(sede_id, vicerrectoria_id, sede) VALUES(2,8,'Mitú');
-INSERT INTO tb_sedes(sede_id, vicerrectoria_id, sede) VALUES(3,8,'Puerto Carreño Vichada');
-INSERT INTO tb_sedes(sede_id, vicerrectoria_id, sede) VALUES(4,8,'Orocué');
+INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(1,8,'Sede Principal - Administrativa');
+INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(2,8,'Mitú');
+INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(3,8,'Puerto Carreño Vichada');
+INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(4,8,'Orocué');
 
-SELECT sede FROM tb_sedes WHERE vicerrectoria_id IN (SELECT vicerrectoria_id FROM tb_vicerrectorias WHERE vicerrectoria_id = 8);
-SELECT sede FROM tb_sedes WHERE vicerrectoria_id IN (SELECT vicerrectoria_id FROM tb_vicerrectorias WHERE vicerrectoria = 'Villavicencio');
+SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_rectorias WHERE rectoria_id = 8);
+SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_rectorias WHERE rectoria = 'Villavicencio');
 
 
 
@@ -174,20 +163,7 @@ INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(6,3,'Psicol
 INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(7,3,'Pedagogía Infantil');
 INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(8,4,'Cominicación Social');
 INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(9,4,'Cominicación Gráfica');
-/*
 
-INSERT INTO tb_programas(id, programa) VALUES(1,'Tecnología en Desarrollo de Software');
-INSERT INTO tb_programas(id, programa) VALUES(2,'Tecnología en Comunicación Gráfica');
-INSERT INTO tb_programas(id, programa) VALUES(3,'Administración de Empresas');
-INSERT INTO tb_programas(id, programa) VALUES(4,'Ingeniería Ambiental');
-INSERT INTO tb_programas(id, programa) VALUES(5,'Contaduría Pública');
-INSERT INTO tb_programas(id, programa) VALUES(6,'Comunicación Social y Periodismo');
-INSERT INTO tb_programas(id, programa) VALUES(7,'Mercadéo');
-INSERT INTO tb_programas(id, programa) VALUES(8,'Administración Financiera');
-INSERT INTO tb_programas(id, programa) VALUES(9,'Salud Ocupacional');
-INSERT INTO tb_programas(id, programa) VALUES(10,'Pedagogía Infantil');
-INSERT INTO tb_programas(id, programa) VALUES(11,'Psicología');
-*/
 
 CREATE TABLE tb_usuarios(
 	usuario_id INT(3) NOT NULL AUTO_INCREMENT,
@@ -203,6 +179,9 @@ CREATE TABLE tb_usuarios(
 );
 
 
+
+
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'bnovoa.linux@gmail.com','1234567',1,1);
 
 
 
@@ -248,9 +227,9 @@ CREATE TABLE tb_estudiantes(
 	PRIMARY KEY(estudiante_id)
 );
 
-INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES
-(1, 6, '000324471'),
-(1, 6, '000121312');
+INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante) VALUES
+(1, 6, '000324471',4);
+(1, 6, '000121312',4);
 
 
 INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES(
@@ -267,7 +246,7 @@ SELECT rol_id FROM tb_usuarios WHERE usuario ='bnovoa.linux@gmail.com' AND passw
 
 
 
-INSERT INTO `tb_vicerrectorias` (`vicerrectoria_id`, `vicerrectoria`) VALUES
+INSERT INTO `tb_rectorias` (`rectoria_id`, `rectoria`) VALUES
 (1, 'Antioquia Y Eje Cafetero'),
 (2, 'Sede Principal'),
 (3, 'Sede Principal Virtual y a Distancia'),
@@ -286,10 +265,10 @@ INSERT INTO `tb_vicerrectorias` (`vicerrectoria_id`, `vicerrectoria`) VALUES
 
 
 CREATE TABLE tb_encuestas(
-id int(11) NOT NULL AUTO_INCREMENT,
-nombre_encuesta VARCHAR(50) NOT NULL,
+encuesta_id int(11) NOT NULL AUTO_INCREMENT,
+encuesta VARCHAR(50) NOT NULL,
 descripcion VARCHAR(50) NOT NULL,
-PRIMARY KEY(id)
+PRIMARY KEY(encuesta_id)
 );
 
 ---- INICIO DE LOS PROCEDIMIENTOS
@@ -323,16 +302,14 @@ CALL proc_sacar_encuesta(1);
 
 
 
-
-
-
-
 CREATE TABLE tb_preguntas(
-id INT(11) NOT NULL AUTO_INCREMENT,
+pregunta_id INT(11) NOT NULL AUTO_INCREMENT,
 encuesta_id INT(11) NOT NULL,
 pregunta VARCHAR(45),
-PRIMARY KEY(id)
+PRIMARY KEY(pregunta_id)
 );
+
+
 ALTER TABLE tb_preguntas ADD INDEX(encuesta_id);
 ALTER TABLE tb_preguntas ADD FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(id) ON DELETE RESTRICT ON UPDATE RESTRICT ;
 
@@ -380,26 +357,14 @@ SELECT encuesta_id FROM tb_preguntas GROUP BY encuesta_id;
 
 
 
-
-
-
 CREATE TABLE tb_respuestas(
-	id INT(11) NOT NULL AUTO_INCREMENT;
+	respuesta_id INT(11) NOT NULL AUTO_INCREMENT;
 	encuesta_id INT(11) NOT NULL,
 	pregunta_id INT(11) NOT NULL,
 	estudiante_id INT(11) NOT NULL,
 	respuesta VARCHAR(50),
-	PRIMARY KEY(id)
+	PRIMARY KEY(respuesta_id)
 );
-
-
-
-
-
-
-
-
-
 
 
 
