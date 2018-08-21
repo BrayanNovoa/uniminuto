@@ -161,6 +161,8 @@ public final class Login extends javax.swing.JFrame {
         getValues();
         if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
             this.dispose();
+        }else{
+            
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

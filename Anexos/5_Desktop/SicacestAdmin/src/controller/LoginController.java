@@ -69,7 +69,7 @@ public class LoginController implements interfaces.ILogin {
     public boolean verificarAcceso(String usuario, String sede, String rectoria, String password) {
         boolean acceso = false;
         System.out.println("Sede: "+sede+" Rectoría:"+rectoria+" Usuario: "+usuario);
-        String consulta ="SELECT rol_id FROM tb_usuarios WHERE usuario ='"+usuario+"' AND password = '"+password+"' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"');";
+        String consulta ="SELECT rol_id FROM tb_usuarios WHERE usuario ='"+usuario+"' AND password = '"+password+"' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"' AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+rectoria+"'));";
         //String consulta ="SELECT usuario, password FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"')";
         //String consulta ="SELECT facultad FROM tb_facultades;";
         java.sql.Connection cn = entrar.getConexion();

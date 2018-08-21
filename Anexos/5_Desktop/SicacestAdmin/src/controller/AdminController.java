@@ -56,14 +56,12 @@ public class AdminController implements interfaces.IAdmin {
         }
         return false;
     }
-
     
     @Override
     public boolean buscarFacultades(){
         String[] campos={"facultad"};
-        //String[] campos={"sede_id","facultad"};
         String[] registro = new String[campos.length];
-        String sql = "SELECT facultad FROM tb_facultades";
+        String sql = "SELECT facultad FROM tb_facultades WHERE sede_id IN(SELECT sede_id FROM tb_sedes WHERE sede='"+view.Admin.txtSede.getText()+"');";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{
@@ -71,7 +69,7 @@ public class AdminController implements interfaces.IAdmin {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(campos[0]);
-                //registro[1]=rs.getString(campos[1]);
+                view.Admin.cmbFacultades.addItem(registro[0]);
                 model.addRow(registro);
             }
             view.Admin.tbFacultades.setModel(model);
