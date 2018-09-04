@@ -8,7 +8,7 @@
         <option id="taskLabelDown" value=""/>
         <option id="taskLabelLeft" value="advancement"/>
         <option id="taskLabelRight" value="name"/>
-        <timeline><![CDATA[117,129,127,131]]></timeline>
+        <timeline><![CDATA[129,131,127,117]]></timeline>
         <option id="color.recent"><![CDATA[#ffcc00 #ff0000 #cc0000 #339900 #ffcc99 #cccccc #000000 #ffff00 #ccccff #ffff99]]></option>
     </view>
     <view id="resource-table">
@@ -67,10 +67,8 @@
                     <depend id="82" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="79" name="Marco referencial y antecedentes" color="#0000ff" meeting="false" start="2018-07-01" duration="87" complete="70" thirdDate="2018-07-22" thirdDate-constraint="0" expand="true"/>
-                <task id="80" name="Tipo de investigación" color="#0000ff" meeting="false" start="2018-08-04" duration="2" complete="80" thirdDate="2018-08-04" thirdDate-constraint="0" expand="true">
-                    <depend id="81" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="81" name="Muestra" color="#0000ff" meeting="false" start="2018-08-06" duration="5" complete="80" thirdDate="2018-08-06" thirdDate-constraint="0" expand="true"/>
+                <task id="80" name="Tipo de investigación" color="#0000ff" meeting="false" start="2018-08-04" duration="2" complete="80" thirdDate="2018-08-04" thirdDate-constraint="0" expand="true"/>
+                <task id="81" name="Muestra" color="#0000ff" meeting="false" start="2018-09-07" duration="9" complete="80" thirdDate="2018-08-06" thirdDate-constraint="0" expand="true"/>
                 <task id="82" name="Instrumentos / técnicas de recolección de datos" color="#0000ff" meeting="false" start="2018-09-11" duration="4" complete="50" thirdDate="2018-08-11" thirdDate-constraint="0" expand="true">
                     <task id="179" name="Encuesta funcionarios Bienestar" color="#cc0000" meeting="false" start="2018-09-11" duration="1" complete="50" thirdDate="2018-08-22" thirdDate-constraint="0" expand="true"/>
                     <task id="177" name="Encuesta estudiantes antiguos" color="#cc0000" meeting="false" start="2018-09-12" duration="1" complete="50" thirdDate="2018-08-04" thirdDate-constraint="0" expand="true"/>
@@ -96,7 +94,7 @@
                         <task id="85" name="Cronograma" color="#000000" meeting="false" start="2018-07-01" duration="90" complete="90" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true">
                             <task id="134" name="Planeación De la lista de actividades" color="#ffcc99" meeting="false" start="2018-07-01" duration="90" complete="90" thirdDate="2018-07-01" thirdDate-constraint="0" expand="true"/>
                         </task>
-                        <task id="1" name="DOCUMENTACIÓN" color="#000000" meeting="false" start="2018-07-05" duration="77" complete="80" thirdDate="2018-07-02" thirdDate-constraint="0" expand="true">
+                        <task id="1" name="DOCUMENTACIÓN" color="#000000" meeting="false" start="2018-07-05" duration="77" complete="80" thirdDate="2018-07-02" thirdDate-constraint="0" expand="false">
                             <task id="53" name="Historias De Usuario" color="#ffcc99" meeting="false" start="2018-08-21" duration="11" complete="90" thirdDate="2018-08-21" thirdDate-constraint="0" priority="2" expand="true"/>
                             <task id="117" name="Requierimientos" color="#ffcc99" meeting="false" start="2018-08-27" duration="10" complete="90" thirdDate="2018-08-27" thirdDate-constraint="0" expand="true"/>
                             <task id="118" name="UML" color="#ffcc99" meeting="false" start="2018-09-06" duration="14" complete="45" thirdDate="2018-09-10" thirdDate-constraint="0" expand="true">
