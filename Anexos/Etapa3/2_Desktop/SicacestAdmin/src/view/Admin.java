@@ -139,9 +139,9 @@ public final class Admin extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtTipoPregunta = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        txtDescTipoPreg = new javax.swing.JTextField();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         tbTipoPreguntas = new javax.swing.JTable();
@@ -152,7 +152,7 @@ public final class Admin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         cmbEncuestas = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cmbTipoPregunta = new javax.swing.JComboBox<>();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -172,6 +172,11 @@ public final class Admin extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField11 = new javax.swing.JTextField();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jTabbedPane5 = new javax.swing.JTabbedPane();
+        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jTabbedPane7 = new javax.swing.JTabbedPane();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
         IconPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtRectoria = new javax.swing.JLabel();
@@ -794,8 +799,8 @@ public final class Admin extends javax.swing.JFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Agregar Tipo Pregunta");
 
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setText("Tipo Pregunta");
+        txtTipoPregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTipoPregunta.setText("Tipo Pregunta");
 
         jButton7.setText("AGREGAR");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -804,8 +809,8 @@ public final class Admin extends javax.swing.JFrame {
             }
         });
 
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField8.setText("Descripción");
+        txtDescTipoPreg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDescTipoPreg.setText("Descripción");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -816,8 +821,8 @@ public final class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField8))
+                    .addComponent(txtTipoPregunta)
+                    .addComponent(txtDescTipoPreg))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -826,12 +831,12 @@ public final class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescTipoPreg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -903,7 +908,7 @@ public final class Admin extends javax.swing.JFrame {
 
         cmbEncuestas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Encuesta"}));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Pregunta"}));
+        cmbTipoPregunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Pregunta"}));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -916,7 +921,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(txtPregunta, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmbEncuestas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbTipoPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -927,7 +932,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(cmbEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1158,6 +1163,13 @@ public final class Admin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Encuestas", jTabbedPane2);
 
+        jTabbedPane3.addTab("Por Facultad", jTabbedPane5);
+        jTabbedPane3.addTab("Por Programa", jTabbedPane6);
+        jTabbedPane3.addTab("General", jTabbedPane7);
+
+        jTabbedPane1.addTab("Estadísticas", jTabbedPane3);
+        jTabbedPane1.addTab("Reportes", jTabbedPane4);
+
         IconPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         IconPanel.setPreferredSize(new java.awt.Dimension(990, 46));
 
@@ -1201,7 +1213,7 @@ public final class Admin extends javax.swing.JFrame {
         IconPanelLayout.setVerticalGroup(
             IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IconPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
@@ -1274,7 +1286,10 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnGuardarEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEncuestaActionPerformed
         // TODO add your handling code here:
-        enc.guardarEncuesta(txtEncuesta.getText(), txtEncuDescrip.getText());
+        if(enc.guardarEncuesta(txtEncuesta.getText(), txtEncuDescrip.getText())){
+            txtEncuesta.setText("Encuesta");
+            txtEncuDescrip.setText("Descripción");
+        }
     }//GEN-LAST:event_btnGuardarEncuestaActionPerformed
 
     private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed
@@ -1366,6 +1381,10 @@ public final class Admin extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        if(enc.guardarTipoPregunta(txtTipoPregunta.getText(), txtDescTipoPreg.getText())){
+            txtTipoPregunta.setText("Tipo Pregunta");
+            txtDescTipoPreg.setText("Descripción");
+        }
         
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -1462,6 +1481,7 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> cmbEncuestas;
     public static javax.swing.JComboBox<String> cmbEncuestas1;
     public static javax.swing.JComboBox<String> cmbFacultades;
+    public static javax.swing.JComboBox<String> cmbTipoPregunta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1470,7 +1490,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1531,13 +1550,16 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JMenuItem jmiDBA;
     private javax.swing.JMenuItem jmiSalir;
@@ -1549,6 +1571,7 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JTable tbTipoPreguntas;
     private javax.swing.JTextField txtAgno;
     private javax.swing.JTextField txtCiclo;
+    private javax.swing.JTextField txtDescTipoPreg;
     private javax.swing.JTextField txtEncuDescrip;
     private javax.swing.JTextField txtEncuesta;
     private javax.swing.JLabel txtFacultad;
@@ -1561,6 +1584,7 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JLabel txtRectoria;
     public static javax.swing.JLabel txtSede;
     public static javax.swing.JLabel txtSedeEstudiante;
+    private javax.swing.JTextField txtTipoPregunta;
     public static javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

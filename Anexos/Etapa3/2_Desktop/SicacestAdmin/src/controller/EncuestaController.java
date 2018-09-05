@@ -19,10 +19,11 @@ import view.Cargador;
  *
  * @author b41n
  */
-public class EncuestaController {
+public class EncuestaController implements interfaces.IEncuestas{
     DbConnection entrar = new DbConnection();
     DefaultTableModel model;
     
+    @Override
     public boolean guardarEncuesta(String encuesta, String descripcion){
         PreparedStatement pst;
         Connection cn = entrar.getConexion();
@@ -45,6 +46,7 @@ public class EncuestaController {
         return false;
     }
     
+    @Override
     public void buscarEncuestas(){
         int i = 0;
         String [] campos ={"encuesta", "descripcion"};
@@ -77,8 +79,9 @@ public class EncuestaController {
             */
         }
     }
-    public boolean guardarTipoPregunta(String tipoPregunta){
-        String sql = "INSERT INTO tb_tipo_preguntas(tipo_pregunta) VALUES('"+tipoPregunta+"');";
+    @Override
+    public boolean guardarTipoPregunta(String tipoPregunta, String descripcionTipo){
+        String sql = "INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('"+tipoPregunta+"', '"+descripcionTipo+"');";
         try{
             PreparedStatement pst;
             pst = entrar.getConexion().prepareStatement(sql);
@@ -94,9 +97,9 @@ public class EncuestaController {
     }
     
     public void buscarTipoPreguntas(){
-        String[] campos={"Tipo Pregunta"};
+        String[] campos={"Tipo Pregunta", "Descripción"};
         String[] registro =new String [campos.length];
-        String sql = "SELECT tipo_pregunta FROM tb_tipo_preguntas;";
+        String sql = "SELECT tipo_pregunta, tipo_preg_desc FROM tb_tipo_preguntas;";
         model = new DefaultTableModel(null,campos);
         try{
             Connection cn = entrar.getConexion();
@@ -104,8 +107,10 @@ public class EncuestaController {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(1);
+                registro[1]=rs.getString(2);
                 System.out.println(registro[0]);
                 model.addRow(registro);
+                view.Admin.cmbTipoPregunta.addItem(rs.getString("tipo_pregunta"));
             }
             view.Admin.tbTipoPreguntas.setModel(model);
         }catch(SQLException ex){
@@ -113,6 +118,12 @@ public class EncuestaController {
         }
     }
     
+    @Override
+    public void llenarComboTipoEncuestas() {
+        
+    }
+    
+    @Override
     public boolean guardarPregunta(String encuesta, String tipoPregunta, String pregunta){
         Cargador cargador = new Cargador("Guardar Encuesta",1);
         cargador.setVisible(true);
