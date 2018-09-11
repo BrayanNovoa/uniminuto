@@ -18,7 +18,7 @@ import view.Admin;
  */
 public class LoginController implements interfaces.ILogin {
     DbConnection entrar = new DbConnection();
-    DefaultComboBoxModel<Object> model;
+    DefaultComboBoxModel<String> model;
     
     @Override
     public boolean llenarComboRectorias(){
@@ -44,6 +44,7 @@ public class LoginController implements interfaces.ILogin {
     public boolean llenarComboSedes(String rectoria){
         String[] opciones = new String[1];
         String sql ="SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+rectoria+"')";
+        model = new DefaultComboBoxModel<>();
         java.sql.Connection cn = entrar.getConexion();
         try{
             java.sql.Statement st = cn.createStatement();
@@ -53,8 +54,9 @@ public class LoginController implements interfaces.ILogin {
                 //System.out.println(rs.getString(1));
                 //System.out.println(opciones[0]);
                 //view.Login.cmbSede.addItem(rs.getString(1));
-                view.Login.cmbSede.addItem(opciones[0]);
+                model.addElement(opciones[0]);
             }
+            view.Login.cmbSede.setModel(model);
             view.Login.cmbSede.setEnabled(true);
             return true;
         }catch(java.lang.NullPointerException | java.sql.SQLException ex){
@@ -64,19 +66,26 @@ public class LoginController implements interfaces.ILogin {
         view.Login.cmbSede.setEnabled(false);
         return false;
     }
+    
+    @Override
+    public boolean validarCampos(String sede, String rectoria){
+        if(sede.equals("Seleccione...")||rectoria.equals("Seleccione...")){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar Rectoría y Sede.");
+        } else {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean verificarAcceso(String usuario, String sede, String rectoria, String password) {
         boolean acceso = false;
         System.out.println("Sede: "+sede+" Rectoría:"+rectoria+" Usuario: "+usuario);
         String consulta ="SELECT rol_id FROM tb_usuarios WHERE usuario ='"+usuario+"' AND password = '"+password+"' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"' AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+rectoria+"'));";
-        //String consulta ="SELECT usuario, password FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"')";
-        //String consulta ="SELECT facultad FROM tb_facultades;";
         java.sql.Connection cn = entrar.getConexion();
         try{
             java.sql.Statement st = cn.createStatement();
             java.sql.ResultSet rs = st.executeQuery(consulta);
-            //while(rs.next()){
             if(rs.absolute(1)){
                 System.out.println("Acceso Concedido a: "+usuario);
                 System.out.println(rs.getString(1));
@@ -102,7 +111,7 @@ public class LoginController implements interfaces.ILogin {
     public static void main(String[]args){
         LoginController login = new LoginController();
         //login.verificarAcceso("", "", "", "");
-        login.verificarAcceso("bnovoa.linux@gmail.com", "Sede Principal - Administrativa", "Villavicencio", "1234567");
+        //login.verificarAcceso("bnovoa.linux@gmail.com", "Sede Principal - Administrativa", "Villavicencio", "1234567");
         //login.llenarComboSedes("Villavicencio");
     }
     

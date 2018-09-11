@@ -70,7 +70,7 @@ public final class Login extends javax.swing.JFrame {
             }
         });
 
-        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar..."}));
+        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccione..."}));
         cmbRectoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbRectoriaActionPerformed(evt);
@@ -87,7 +87,7 @@ public final class Login extends javax.swing.JFrame {
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPassword.setText("1234567");
 
-        cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar..."}));
+        cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccione..."}));
         cmbSede.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -172,8 +172,10 @@ public final class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         getValues();
-        if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
-            this.dispose();
+        if(logControl.validarCampos(sede, rectoria)){
+            if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
+                this.dispose();
+            }
         }else{
             
         }
@@ -184,7 +186,11 @@ public final class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         rectoria = cmbRectoria.getSelectedItem().toString();
         //cmbSede.setEnabled(true);
-        logControl.llenarComboSedes(rectoria);
+        if(cmbRectoria.getSelectedItem()==("Seleccionar...")){
+            cmbSede.setEnabled(false);
+        } else {
+            logControl.llenarComboSedes(rectoria);
+        }
 
     }//GEN-LAST:event_cmbRectoriaActionPerformed
 

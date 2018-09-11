@@ -11,6 +11,7 @@ package interfaces;
  * @author b41n
  */
 public interface ILogin {
+    public boolean validarCampos(String sede, String rectoria);
     public boolean verificarAcceso(String usuario, String sede,String rectoria, String password);
     public boolean llenarComboRectorias();
     public boolean llenarComboSedes(String rectoria);

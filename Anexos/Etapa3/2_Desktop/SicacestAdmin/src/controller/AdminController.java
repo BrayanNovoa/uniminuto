@@ -81,10 +81,10 @@ public class AdminController implements interfaces.IAdmin {
     }
     
     @Override
-    public boolean buscarProgramas(){
+    public boolean buscarProgramas(String facultad){
         String[]campos={"programa"};
         String[]registro = new String[campos.length];
-        String sql ="SELECT programa FROM tb_programas;";
+        String sql ="select programa FROM tb_programas WHERE facultad_id IN(SELECT facultad_id from tb_facultades WHERE facultad ='"+facultad+"');";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{

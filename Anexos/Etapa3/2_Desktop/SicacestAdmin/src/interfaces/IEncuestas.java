@@ -13,10 +13,7 @@ package interfaces;
 public interface IEncuestas {
     public boolean guardarEncuesta(String encuesta, String descripcion);
     public void buscarEncuestas();
-    public boolean guardarTipoPregunta(String tipoPregunta, String descripcionTipo);
     public void buscarTipoPreguntas();
     public void llenarComboTipoEncuestas();
-    public boolean guardarPregunta(String encuesta, String tipoPregunta, String pregunta);
-    public void buscarPreguntas(String encuesta);
     
 }

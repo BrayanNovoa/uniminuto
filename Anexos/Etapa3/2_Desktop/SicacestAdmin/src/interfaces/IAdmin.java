@@ -11,7 +11,7 @@ package interfaces;
  * @author b41n
  */
 public interface IAdmin {
-    public boolean buscarProgramas();
+    public boolean buscarProgramas(String facultad);
     public boolean buscarFacultades();
     public boolean buscarPeriodos();
     public boolean cargarListaEstudiantes();

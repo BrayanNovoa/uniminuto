@@ -4,12 +4,15 @@
  * dude en escribir al siguiente correo.
  * bnovoa.linux@gmail.com
  */
-package controller;
+package interfaces;
 
 /**
  *
  * @author b41n
  */
-public class ReporteController {
+public interface IReportes {
+    public boolean generarReporte();
+    public boolean mostrarReporte();
+    public boolean guardarReporte();
     
 }

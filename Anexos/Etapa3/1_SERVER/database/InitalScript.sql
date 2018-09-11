@@ -1,6 +1,20 @@
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA tb_tipo_preguntas
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE DATABASE db_caracterizacion;
 USE db_caracterizacion;
 
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 
 CREATE TABLE tb_departamentos (
   departamento_id INT(3) NOT NULL AUTO_INCREMENT,
@@ -44,6 +58,14 @@ INSERT INTO tb_departamentos (departamento_cod, departamento) VALUES(95,'GUAVIAR
 INSERT INTO tb_departamentos (departamento_cod, departamento) VALUES(97,'VAUPES');
 INSERT INTO tb_departamentos (departamento_cod, departamento) VALUES(99,'VICHADA');
 
+
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_ciudades (
 	ciudad_id INT NOT NULL,
 	departamento_cod VARCHAR(3) NOT NULL,
@@ -1177,11 +1199,19 @@ INSERT INTO tb_ciudades (ciudad_id, ciudad_cod, departamento_cod, ciudad) VALUES
 INSERT INTO tb_ciudades (ciudad_id, ciudad_cod, departamento_cod, ciudad) VALUES(1120,'773','99','CUMARIBO');
 
 
+-- Ejemplo de una consulta que obtiene la ciudad correspondiente
+
 SELECT ciudad FROM tb_ciudades WHERE departamento_cod IN (SELECT departamento_cod FROM tb_departamentos  WHERE departamento = 'META' );
 
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 
 CREATE TABLE tb_roles(
 	rol_id INT(3) NOT NULL AUTO_INCREMENT,
@@ -1195,6 +1225,14 @@ INSERT INTO tb_roles(rol_id, rol_nombre) VALUES(3,'Coordinador Bienestar');
 INSERT INTO tb_roles(rol_id, rol_nombre) VALUES(4,'Estudiante');
 INSERT INTO tb_roles(rol_id, rol_nombre) VALUES(5,'Soporte');
 
+
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_permisos(
 	permiso_id INT(3) NOT NULL AUTO_INCREMENT,
 	rol_id INT(3) NOT NULL,
@@ -1216,7 +1254,13 @@ INSERT INTO tb_permisos(permiso_id, rol_id, permiso_nombre) VALUES(9,4,'Llenar E
 
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_roles_permisos(
 	roles_permisos_id INT(10) NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY(roles_permisos_id),
@@ -1231,7 +1275,13 @@ CREATE TABLE tb_roles_permisos(
 
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_periodos(
 	periodo_id INT NOT NULL AUTO_INCREMENT,
 	agno INT(4) NOT NULL,
@@ -1262,7 +1312,13 @@ DROP TABLE tb_rectorias;
 
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_rectorias(
 	rectoria_id INT(3) NOT NULL AUTO_INCREMENT,
 	rectoria VARCHAR(50) NOT NULL,
@@ -1282,10 +1338,31 @@ INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(12,'Ibagué');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(13,'Cali');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(14,'Atlántico');
 
+INSERT INTO `tb_rectorias` (`rectoria_id`, `rectoria`) VALUES
+(1, 'Antioquia Y Eje Cafetero'),
+(2, 'Sede Principal'),
+(3, 'Sede Principal Virtual y a Distancia'),
+(4, 'Bogotá Sur'),
+(5, 'Cundinamarca'),
+(6, 'Nariño'),
+(7, 'Neiva'),
+(8, 'Villavicencio'),
+(9, 'Norte de Santander'),
+(11, 'Bucaramanga'),
+(12, 'Ibagué'),
+(13, 'Cali'),
+(14, 'Atlántico');
 
 
 
 
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_sedes(
 	sede_id INT(3) NOT NULL AUTO_INCREMENT,
 	rectoria_id INT(3) NOT NULL,
@@ -1305,7 +1382,13 @@ SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_recto
 
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_facultades(
 	facultad_id INT(3) NOT NULL AUTO_INCREMENT,
 	sede_id INT(3) NOT NULL,
@@ -1327,7 +1410,13 @@ SELECT facultad FROM tb_facultades WHERE sede_id IN (SELECT sede_id FROM tb_sede
 SELECT facultad FROM tb_facultades WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
 
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_programas(
 	programa_id INT(3) NOT NULL AUTO_INCREMENT,
 	facultad_id INT(3) NOT NULL,
@@ -1347,7 +1436,13 @@ INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(7,3,'Pedago
 INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(8,4,'Cominicación Social');
 INSERT INTO tb_programas (programa_id, facultad_id, programa) VALUES(9,4,'Cominicación Gráfica');
 
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_usuarios(
 	usuario_id INT(3) NOT NULL AUTO_INCREMENT,
 	usuario VARCHAR(50) NOT NULL,
@@ -1364,32 +1459,21 @@ CREATE TABLE tb_usuarios(
 
 
 
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'bnovoa.linux@gmail.com','1234567',1,1);
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'martha.jaime@uniminuto.edu','1234567',1,1);
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (2,'bnovoasalaz@uniminuto.edu.co','1234567',1,1);
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (3,'jchave13@uniminuto.edu.co','1234567',1,1);
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (4,'dgarcia6@uniminuto.edu.co','1234567',1,1);
+INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (5,'magutierrezc.admin@uniminuto.edu.co','1234567',1,1);
 
 
-
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'bnovoa.linux@gmail.com','1234567',1,1);
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (1,'','',,);
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (,'','',);
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (,'','',);
-INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (,'','',);
+--CONSULTAS RELACIONADAS A LA TABLA: tb_usuarios
 
 SELECT rol_id FROM tb_usuarios WHERE usuario ='bnovoa.linux@gmail.com' AND password = '1234567' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
 SELECT rol_id FROM tb_usuarios WHERE usuario ='"+usuario+"' AND password = '"+password+"' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"');
-
-
-
 SELECT rol_id FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+Sede Principal - Administrativa+"');
-
-
-
-
 SELECT rol_id FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
+--CONSULTA REALIZADA POR EL USUARIO PARA EL INICI DE SESIÓN
 SELECT usuario, password FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+Sede Principal - Administrativa+"');
-
-
-
-
 SELECT usuario, password FROM tb_usuarios WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+Sede Principal - Administrativa+"');
 SELECT facultad FROM tb_facultades WHERE sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
 
@@ -1397,7 +1481,14 @@ SELECT facultad FROM tb_facultades WHERE sede_id IN (SELECT sede_id FROM tb_sede
 
 
 
-DROP TABLE tb_estudiantes;
+DROP TABLE tb_estudiantes IF EXIST;
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE TABLE tb_estudiantes(
 	estudiante_id INT(11) NOT NULL AUTO_INCREMENT,
 	programa_id INT(3) NOT NULL,
@@ -1407,6 +1498,9 @@ CREATE TABLE tb_estudiantes(
 	INDEX periodo_ind(periodo_id),
 	FOREIGN KEY(periodo_id) REFERENCES tb_periodos(periodo_id) ON DELETE CASCADE,
 	estudiante VARCHAR(20) NOT NULL UNIQUE,
+	rol_id INT(3) NOT NULL,
+	INDEX rol_ind3 (rol_id),
+	FOREIGN KEY(rol_id) REFERENCES tb_roles(rol_id) ON DELETE CASCADE,
 	PRIMARY KEY(estudiante_id)
 );
 
@@ -1415,37 +1509,22 @@ INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante) VALUES
 (1, 6, '000121312',4);
 
 
-INSERT INTO tb_estudiantes (programa_id, periodo_id, estudiante) VALUES(
-	(SELECT programa_id FROM tb_programas WHERE programa= 'Tecnología en Desarrollo de Software'),
-	(SELECT periodo_id FROM tb_periodos WHERE periodo ='201820'),
-	'1111111')
-;
 
-(1, 6, '000121312');
-
+--CONSULTA QUE SE REALIZA PARA LA INSERCIÓN DE ESTUDIANTES CON SU  RESPECTIVO
+-- PROGRAMA, PERIODO, ROL Y ID DEL ESTUSIANTE
+INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante) VALUES((SELECT programa_id FROM tb_programas WHERE programa= 'Tecnología en Desarrollo de Software'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='2016-1'),4,'000324471');
 
 SELECT rol_id FROM tb_usuarios WHERE usuario ='bnovoa.linux@gmail.com' AND password = '1234567' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
 
 
 
-
-INSERT INTO `tb_rectorias` (`rectoria_id`, `rectoria`) VALUES
-(1, 'Antioquia Y Eje Cafetero'),
-(2, 'Sede Principal'),
-(3, 'Sede Principal Virtual y a Distancia'),
-(4, 'Bogotá Sur'),
-(5, 'Cundinamarca'),
-(6, 'Nariño'),
-(7, 'Neiva'),
-(8, 'Villavicencio'),
-(9, 'Norte de Santander'),
-(11, 'Bucaramanga'),
-(12, 'Ibagué'),
-(13, 'Cali'),
-(14, 'Atlántico');
-
-
-
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA tb_encuestas
+--
+-- Descripción: Se utiliza para almacenar las diferentes encuestas 
+-- necesarias para el proceso de caractyerización de los estudiantes
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 
 CREATE TABLE tb_encuestas(
 encuesta_id int(11) NOT NULL AUTO_INCREMENT,
@@ -1454,17 +1533,209 @@ descripcion VARCHAR(50) NOT NULL,
 PRIMARY KEY(encuesta_id)
 );
 
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Datos Básicos','Contiene la información personal del estudiante');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información de Contacto','Información ');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información de Civienda','Información ');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información de Salud','Información ');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información Financiera','Información ');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información Familiar','Información ');
-INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('Información Socioeconómica','Información ');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('DATOS GENERALES','Información de registro del estudiante');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('DATOS BÁSICOS','Información personal del estudiante');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('SECTOR SALUD','Información del sector Salud');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('SECTOR VIVIENDA','Información del sector Vivienda');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('CONTACTO','Información del sector Contacto');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('SECTOR SOCIOECONOMICO','Información del sector Socioeconómico');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('REDES DE APOYO','Información de las Redes de Apoyo');
+INSERT INTO tb_encuestas (encuesta, descripcion) VALUES ('SECTOR FAMILIAR','Información del sector Familiar');
 
 
----- INICIO DE LOS PROCEDIMIENTOS
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA tb_tipo_preguntas
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
+CREATE TABLE tb_tipo_preguntas(
+tipo_pregunta_id INT(11) NOT NULL AUTO_INCREMENT,
+tipo_pregunta VARCHAR(45)NOT NULL,
+tipo_preg_desc VARCHAR(200)NOT NULL,
+PRIMARY KEY(tipo_pregunta_id)
+);
+---------------------------------------------------------------------
+-- ESTRUCTURA BASE DE LA CONSULTA QUE INSERTA UNA PREGUNTA
+-- Y SU DESCRIPCIÓN
+-- INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('', '');
+---------------------------------------------------------------------
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('ARCHIVO', 'Este dato se obtiene de un archivo .CSV que contenga la información.');
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('TEXTO', 'Sirve para almacenar cualquier tipo de dato en formato de texto. se recomienda para almacenar cifras numéricas que no requieren ningún tipo de operaciónes matemáticas.');
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('DESPLEGABLE', 'Permite al estudiante seleccionar una sola opción posible de una lista desplegable.');
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('MULTIPLE', 'Se usa para permitir al estudiante seleccionar varias posibles respuestas para una misma pregunta.');
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('NUMERO', 'Se usa para almacenar valores numéricos solo en caso de ser requeridos para realizar operaciones matemáticas.');
+INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('RANGO', 'Se usa para guardar valores entre un rango preestablecidos.');
 
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
+CREATE TABLE tb_preguntas(
+pregunta_id INT(11) NOT NULL AUTO_INCREMENT,
+encuesta_id INT(11) NOT NULL,
+INDEX encuesta_ind1 (encuesta_id),
+FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(encuesta_id) ON DELETE CASCADE,
+tipo_pregunta_id INT(11) NOT NULL,
+INDEX tipo_pregunta_ind1 (tipo_pregunta_id),
+FOREIGN KEY (tipo_pregunta_id) REFERENCES tb_tipo_preguntas(tipo_pregunta_id) ON DELETE CASCADE,
+pregunta VARCHAR(45),
+PRIMARY KEY(pregunta_id)
+);
+
+
+
+
+ALTER TABLE tb_preguntas ADD INDEX(encuesta_id);
+ALTER TABLE tb_preguntas ADD FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(id) ON DELETE RESTRICT ON UPDATE RESTRICT ;
+
+ALTER TABLE tb_preguntas ADD COLUMN tipo_pregunta_id INT(11) NOT NULL AFTER encuesta_id;
+ALTER TABLE tb_preguntas ADD INDEX(tipo_pregunta_id);
+ALTER TABLE tb_preguntas ADD FOREIGN KEY (tipo_pregunta_id) REFERENCES tb_tipo_preguntas(tipo_pregunta_id) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+
+--
+--
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS GENERALES'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='ARCHIVO'), 'SEDE');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS GENERALES'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='ARCHIVO'), 'Número de Documento de Identidad (solo el número)');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS GENERALES'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='ARCHIVO'), 'Programa al que pertenece');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS GENERALES'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Si selecciono otro por favor Explique');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS GENERALES'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='ARCHIVO'), 'Modalidad de estudio');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Nombres');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Apellidos');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Departamento de Nacimiento');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Lugar de Nacimiento');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Sexo');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Edad');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='DATOS BÁSICOS'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Tipo de sangre');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Pertenece a SISBEN?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Está afiliado a EPS?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Presenta algún  problema de salud o enfermedad crónica?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Pertenece usted a alguna de las siguientes poblaciones especiales');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Manifiesta algún tipo de dificultad que pueda afectar su vida académica universitaria?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Si consume bebidas alcohólica, por favor indique la frecuencia');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SALUD'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Si fuma por favor indique la frecuencia');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Su vivienda es');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Vive en sector rural o urbano?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Estrato Socioeconómico');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Lugar de Vivienda');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Ciudad');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Localidad');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Barrio');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR VIVIENDA'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Dirección de residencia');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='CONTACTO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Teléfono fijo');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='CONTACTO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Teléfono celular');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='CONTACTO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Correo electrónico');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Medios de pago de la matrícula:');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Quién paga la matrícula?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Actualmente se encuentra laborando?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Sector al que pertenece su trabajo');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'trabaja como idependiente o empleado');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Ingreso mensual suyo');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR SOCIOECONOMICO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Ingreso mensual de su familia');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Usted vive actualmente con');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Estado civil');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Número de hermanos');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Qué lugar ocupa entre los hermanos?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Se encuentra en estado de embarazo?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'En qué mes de embarazo se encuentra.');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='REDES DE APOYO'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Sus padres comparten vivienda con sus abuelos?');
+--  Preguntas de la encuesta:
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), '¿Tiene hijos?');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Es madre cabeza de familia');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Número de hijos');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Edad de los hijos');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Escolaridad del padre');
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='SECTOR FAMILIAR'), (SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta ='TEXTO'), 'Escolaridad de la madre');
+
+
+
+-- INSTRUCCIÓN QUE SETEA EL NUMERO SIGUIENTE DE SU ID INCREMENTAL
+
+ALTER TABLE `tb_encuestas` AUTO_INCREMENT =7;
+
+
+
+SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(
+	SELECT encuesta_id FROM tb_encuestas WHERE encuesta='DATOS GENERALES'
+	)AND
+	TP.tipo_pregunta_id=P.tipo_pregunta_id
+;
+
+SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(
+	SELECT encuesta_id FROM tb_encuestas WHERE encuesta='SECTOR FAMILIAR'
+	)AND
+	TP.tipo_pregunta_id=P.tipo_pregunta_id
+;
+
+
+
+
+
+INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES(
+	(SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='encuesta'),
+	(SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta = 'tipoPregunta'),
+	'pregunta'
+	)
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+-- CREACIÓN DE LA TABLA 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
+CREATE TABLE tb_respuestas(
+	respuesta_id INT(11) NOT NULL AUTO_INCREMENT;
+	encuesta_id INT(11) NOT NULL,
+	pregunta_id INT(11) NOT NULL,
+	estudiante_id INT(11) NOT NULL,
+	respuesta VARCHAR(50),
+	PRIMARY KEY(respuesta_id)
+);
+
+
+
+CREATE TABLE tb_();
+CREATE TABLE tb_();
+
+
+
+
+---------------------------------------------------------------------
+------------------- INICIO DE LOS PROCEDIMIENTOS --------------------
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+-- CREACIÓN DEL PROCEDIMIENTO 
+--
+-- Descripción: Se utiliza para almacenar
+-- 
+-- Responsable: Brayan Novoa. ID: 000344471
+---------------------------------------------------------------------
 CREATE PROCEDURE proc_sacar_estudiantes (IN id_estudiante INT)
  BEGIN
  SELECT * FROM tb_estudiantes WHERE tipo = tipoCliente;
@@ -1493,61 +1764,15 @@ CALL proc_sacar_encuesta(1);
 
 
 
-
-
-CREATE TABLE tb_tipo_preguntas(
-tipo_pregunta_id INT(11) NOT NULL AUTO_INCREMENT,
-tipo_pregunta VARCHAR(45),
-PRIMARY KEY(tipo_pregunta_id)
-);
-
-
-CREATE TABLE tb_preguntas(
-pregunta_id INT(11) NOT NULL AUTO_INCREMENT,
-encuesta_id INT(11) NOT NULL,
-tipo_pregunta_id INT(11) NOT NULL,
-pregunta VARCHAR(45),
-PRIMARY KEY(pregunta_id)
-);
-
-
-ALTER TABLE tb_preguntas ADD INDEX(encuesta_id);
-ALTER TABLE tb_preguntas ADD FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(id) ON DELETE RESTRICT ON UPDATE RESTRICT ;
-
-ALTER TABLE tb_preguntas ADD COLUMN tipo_pregunta_id INT(11) NOT NULL AFTER encuesta_id;
-ALTER TABLE tb_preguntas ADD INDEX(tipo_pregunta_id);
-ALTER TABLE tb_preguntas ADD FOREIGN KEY (tipo_pregunta_id) REFERENCES tb_tipo_preguntas(tipo_pregunta_id) ON DELETE CASCADE ON UPDATE CASCADE ;
-
--- INSTRUCCIÓN QUE SETEA EL NUMERO SIGUIENTE DE SU ID INCREMENTAL
-
-ALTER TABLE `tb_encuestas` AUTO_INCREMENT =7;
-
-
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(1,1,'Nombres');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(2,1,'Primer apellido');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(3,1,'Segundo Apellido');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(4,1,'Documento');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(5,1,'Sexo');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(6,1,'Edad');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(7,1,'Departamento de nacimiento');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(8,1,'Ciudad de nacimiento');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(9,1,'RH');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(10,2,'Teléfono fijo');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(11,2,'Teléfono celular');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(12,2,'Correo Electrónico');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(13,3,'Vive en sector Rural o Urbano?');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(14,3,'Lugar de vivienda');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(15,3,'Departamento');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(16,3,'Ciudad');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(17,3,'Dirección de vivienda');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(18,3,'Barrio');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(19,3,'Estrato');
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(21,4,'Pertenece al SISBEN?');
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+-------------------------INICIO DE LAS CONSULTAS DEL ESTUDIANTE---------------------
+------------------------------------------------------------------------------------
 
 
 
 
-INSERT INTO tb_preguntas(id, encuesta_id, pregunta) VALUES(20,3,'Tipo de vivienda');
+
 -- OBTENE EL NÚMERO DE PREGUNTAS QUE TIENE UNA ENCUESTA POR EL ID DE LA MISMA
 SELECT COUNT(id) FROM tb_preguntas WHERE encuesta_id = 1;
 -- OBTIENE LA LISTA DE PREGUNTAS DE UNA ENCUESTA POR SU ID
@@ -1555,16 +1780,9 @@ SELECT pregunta FROM tb_preguntas WHERE encuesta_id = 1;
 
 SELECT encuesta_id FROM tb_preguntas GROUP BY encuesta_id;
 
-CREATE TABLE tb_respuestas(
-	respuesta_id INT(11) NOT NULL AUTO_INCREMENT;
-	encuesta_id INT(11) NOT NULL,
-	pregunta_id INT(11) NOT NULL,
-	estudiante_id INT(11) NOT NULL,
-	respuesta VARCHAR(50),
-	PRIMARY KEY(respuesta_id)
-);
 
 
 
-CREATE TABLE tb_();
-CREATE TABLE tb_();
+
+
+
