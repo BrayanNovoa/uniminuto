@@ -21,10 +21,6 @@
         <servlet-class>servlet.RegistrarEncuertas</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DatosBasicos</servlet-name>
-        <servlet-class>servlet.DatosBasicos</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginAdministrador</servlet-name>
         <servlet-class>Servlet.LoginAdministrador</servlet-class>
     </servlet>
@@ -33,29 +29,12 @@
         <servlet-class>servlet.BuscarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>InfoContactoSVL</servlet-name>
-        <servlet-class>Servlet.InfoContactoSVL</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LocalizacionSVL</servlet-name>
-        <servlet-class>servlet.LocalizacionSVL</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>InfoSaludSVL</servlet-name>
-        <servlet-class>Servlet.InfoSaludSVL</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ActualizarSVL</servlet-name>
         <servlet-class>servlet.ActualizarSVL</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>GuardarRespuestas</servlet-name>
-        <servlet-class>Servlet.GuardarRespuestas</servlet-class>
+        <servlet-name>GuardaRespu</servlet-name>
+        <servlet-class>servlet.GuardaRespu</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InicioSesion</servlet-name>
@@ -74,10 +53,6 @@
         <url-pattern>/encuestar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DatosBasicos</servlet-name>
-        <url-pattern>/datosBasicos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginAdministrador</servlet-name>
         <url-pattern>/adminlogin</url-pattern>
     </servlet-mapping>
@@ -86,33 +61,17 @@
         <url-pattern>/buscandousuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>InfoContactoSVL</servlet-name>
-        <url-pattern>/insContacto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LocalizacionSVL</servlet-name>
-        <url-pattern>/vivienda</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InfoSaludSVL</servlet-name>
-        <url-pattern>/insSalud</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ActualizarSVL</servlet-name>
         <url-pattern>/actualizarDatos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GuardarRespuestas</servlet-name>
-        <url-pattern>/insRespuestas</url-pattern>
+        <servlet-name>GuardaRespu</servlet-name>
+        <url-pattern>/guardando/Respuestas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>20</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/sicacest.xhtml</welcome-file>
+        <welcome-file>sicacest.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>

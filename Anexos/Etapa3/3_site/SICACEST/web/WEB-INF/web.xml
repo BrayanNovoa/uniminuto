@@ -33,8 +33,8 @@
         <servlet-class>servlet.ActualizarSVL</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>guardando</servlet-name>
-        <servlet-class>servlet.guardaRespu</servlet-class>
+        <servlet-name>GuardaRespu</servlet-name>
+        <servlet-class>servlet.GuardaRespu</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InicioSesion</servlet-name>
@@ -65,7 +65,7 @@
         <url-pattern>/actualizarDatos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>guardando</servlet-name>
+        <servlet-name>GuardaRespu</servlet-name>
         <url-pattern>/guardando/Respuestas</url-pattern>
     </servlet-mapping>
     <session-config>
