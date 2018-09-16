@@ -3,10 +3,10 @@
 <%
     for(int i=1;i<=numEncuestas;i++){
         if(i<numEncuestas){
-            out.println("#container input#tab-"+i+":checked ~ #content #content-"+i+",");
+            out.println("#container input#tab"+i+":checked ~ #encuestas #encuesta"+i+",");
         }
         if(i==numEncuestas){
-            out.print("#container input#tab-"+i+":checked ~ #content #content-"+i);
+            out.print("#container input#tab"+i+":checked ~ #encuestas #encuesta"+i);
             out.print(" {\n");
         }
     }
