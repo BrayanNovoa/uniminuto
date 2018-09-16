@@ -20,6 +20,7 @@
         <title>Sesión De Usuario.</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
+    
     <body>
         <table class="perfil-tabla">
             <tr>
@@ -30,7 +31,7 @@
             <tr>
                 <td>
                     <div class="perfil-form">
-                        <button class="perfil-submit">
+                        <button class="perfil-submit" onclick="window.location.href='encuesta.jsp'">
                             Encuesta
                         </button>
                     </div>
@@ -46,13 +47,19 @@
             <tr>
                 <td colspan="2">
                     <div class="perfil-form">
-                        <button class="perfil-submit">
-                            <a href="logout">Cerrar Sesión</a>
-                        </button>
+                        
+                            <button class="perfil-submit" onclick="window.location.href='logout'">
+                                Cerrar Sesión
+                            </button>
+                        
                     </div>
                 </td>
             </tr>
         </table>
+        <table>
+            
+        </table>
+                
         <!-- -->
                
     </body>

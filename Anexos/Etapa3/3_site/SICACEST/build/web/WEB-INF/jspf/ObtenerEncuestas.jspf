@@ -2,24 +2,18 @@
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
-        Connection con=conexion.getConexion();
-        consulta ="SELECT nombre_encuesta FROM tb_encuestas WHERE id = "+i+";";
+        consulta ="SELECT encuesta FROM tb_encuestas WHERE encuesta_id = "+i+";";
         //System.out.println(consulta);
         st = con.createStatement();
         rs = st.executeQuery(consulta);
         if(rs.absolute(1)){
             nombreEncuesta=rs.getString(1);
-            System.out.println("Encuesta #"+i+": "+nombreEncuesta);
         }
-        st.close();
-        rs.close();
-        //con.close();
         }catch(Exception e){
             System.out.println("ERROR: "+e);
-            System.out.println("No ha sido posible obtener el nombre de la encuesta"+e);
+            System.out.println("No ha sido posible obtener el nombre de la encuesta. \nERROR: "+e);
         }finally{
             try{
-                //if (getConexion()!=null)getConexion().close();
                 if (st!=null)st.close();
                 if (rs!=null)rs.close();
             }catch(Exception e){

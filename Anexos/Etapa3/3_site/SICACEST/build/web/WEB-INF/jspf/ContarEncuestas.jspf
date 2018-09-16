@@ -2,16 +2,15 @@
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
-        Connection con=conexion.getConexion();
         consulta ="SELECT COUNT(*) FROM tb_encuestas;";
         st = con.createStatement();
         rs=st.executeQuery(consulta);
         while(rs.next()){
             numEncuestas=rs.getInt(1);
-            System.out.println("Contando las encuestas existentes\nTotal: "+numEncuestas);
+            //System.out.println("Contando las encuestas existentes\nTotal: "+numEncuestas);
         }
-        st.close();
-        rs.close();
+        //st.close();
+        //rs.close();
         //con.close();
     }catch(Exception e){
         System.out.println("Error: "+e);

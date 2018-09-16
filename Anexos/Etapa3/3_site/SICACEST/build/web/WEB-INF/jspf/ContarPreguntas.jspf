@@ -2,17 +2,16 @@
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
-        Connection con=conexion.getConexion();
         consulta ="SELECT COUNT(*) FROM tb_preguntas WHERE encuesta_id = "+i+";";
-        st = con.createStatement();
+        //st = con.createStatement();
         rs=st.executeQuery(consulta);
-        System.out.println("Contando las preguntas de la encuesta :"+ nombreEncuesta);
-        while(rs.next()){
+        //System.out.println("Contando las preguntas de la encuesta :"+ nombreEncuesta);
+        if(rs.absolute(1)){
             numPreguntas=rs.getInt(1);
-            System.out.println("Cantidad de preguntas: "+numPreguntas);
+            //System.out.println("Cantidad de preguntas: "+numPreguntas);
         }
-        st.close();
-        rs.close();
+        //st.close();
+        //rs.close();
         //con.close();
     }catch(Exception e){
         System.out.println("Error: "+e);

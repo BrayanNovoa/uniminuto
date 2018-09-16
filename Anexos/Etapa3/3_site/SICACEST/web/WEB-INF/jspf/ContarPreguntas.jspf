@@ -3,7 +3,7 @@
 <%
     try{
         consulta ="SELECT COUNT(*) FROM tb_preguntas WHERE encuesta_id = "+i+";";
-        st = con.createStatement();
+        //st = con.createStatement();
         rs=st.executeQuery(consulta);
         //System.out.println("Contando las preguntas de la encuesta :"+ nombreEncuesta);
         if(rs.absolute(1)){
