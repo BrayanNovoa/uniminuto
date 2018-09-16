@@ -158,7 +158,7 @@ public class AdminController implements interfaces.IAdmin {
             System.out.println("Progreso: "+tasa*i);
             view.Cargador.txtPercent.setText(Float.toString(avance));
             view.Cargador.txtElemento.setText(estudiantes[i-1].toString());
-            sql="INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante) VALUES(";
+            sql="INSERT INTO tb_estudiantes (programa_id, periodo_id, rol_id, estudiante_cod) VALUES(";
             sqlPrograma = "(SELECT programa_id FROM tb_programas WHERE programa= '"+programa+"'),";
             sqlPeriodo = "(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+periodo+"'),";
             consulta=sql+sqlPrograma+sqlPeriodo+"4,"+"'"+estudiantes[i-1].toString().trim()+fin;

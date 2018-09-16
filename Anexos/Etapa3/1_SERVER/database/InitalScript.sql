@@ -1464,8 +1464,13 @@ INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES 
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (3,'jchave13@uniminuto.edu.co','1234567',1,1);
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (4,'dgarcia6@uniminuto.edu.co','1234567',1,1);
 INSERT INTO tb_usuarios (usuario_id, usuario, password, sede_id, rol_id) VALUES (5,'magutierrezc.admin@uniminuto.edu.co','1234567',1,1);
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 
 
+=======
+
+
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 --CONSULTAS RELACIONADAS A LA TABLA: tb_usuarios
 
 SELECT rol_id FROM tb_usuarios WHERE usuario ='bnovoa.linux@gmail.com' AND password = '1234567' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = 'Sede Principal - Administrativa');
@@ -1497,7 +1502,12 @@ CREATE TABLE tb_estudiantes(
 	periodo_id INT(3) NOT NULL,
 	INDEX periodo_ind(periodo_id),
 	FOREIGN KEY(periodo_id) REFERENCES tb_periodos(periodo_id) ON DELETE CASCADE,
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+	estudiante_cod VARCHAR(12) NOT NULL,
+	INDEX estudiante_ind1 (estudiante_cod),
+=======
 	estudiante VARCHAR(20) NOT NULL UNIQUE,
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 	rol_id INT(3) NOT NULL,
 	INDEX rol_ind3 (rol_id),
 	FOREIGN KEY(rol_id) REFERENCES tb_roles(rol_id) ON DELETE CASCADE,
@@ -1568,6 +1578,11 @@ INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('MULTIPLE', 
 INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('NUMERO', 'Se usa para almacenar valores numéricos solo en caso de ser requeridos para realizar operaciones matemáticas.');
 INSERT INTO tb_tipo_preguntas(tipo_pregunta, tipo_preg_desc) VALUES('RANGO', 'Se usa para guardar valores entre un rango preestablecidos.');
 
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+
+DROP TABLE tb_preguntas;
+=======
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 ---------------------------------------------------------------------
 -- CREACIÓN DE LA TABLA 
 --
@@ -1583,13 +1598,22 @@ FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(encuesta_id) ON DELETE CASCADE
 tipo_pregunta_id INT(11) NOT NULL,
 INDEX tipo_pregunta_ind1 (tipo_pregunta_id),
 FOREIGN KEY (tipo_pregunta_id) REFERENCES tb_tipo_preguntas(tipo_pregunta_id) ON DELETE CASCADE,
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+pregunta VARCHAR(200),
+=======
 pregunta VARCHAR(45),
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 PRIMARY KEY(pregunta_id)
 );
 
 
 
 
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+
+
+=======
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 ALTER TABLE tb_preguntas ADD INDEX(encuesta_id);
 ALTER TABLE tb_preguntas ADD FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(id) ON DELETE RESTRICT ON UPDATE RESTRICT ;
 
@@ -1666,6 +1690,18 @@ INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES((SELEC
 ALTER TABLE `tb_encuestas` AUTO_INCREMENT =7;
 
 
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta='DATOS GENERALES')AND TP.tipo_pregunta_id=P.tipo_pregunta_id;
+
+
+SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(
+	SELECT encuesta_id FROM tb_encuestas WHERE encuesta='DATOS GENERALES'
+	)AND
+	TP.tipo_pregunta_id=P.tipo_pregunta_id
+;
+
+=======
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 
 SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(
 	SELECT encuesta_id FROM tb_encuestas WHERE encuesta='DATOS GENERALES'
@@ -1680,9 +1716,12 @@ SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP W
 ;
 
 
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+=======
 
 
 
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES(
 	(SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='encuesta'),
 	(SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta = 'tipoPregunta'),
@@ -1702,6 +1741,10 @@ INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES(
 
 
 
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+drop table tb_respuestas;
+=======
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 ---------------------------------------------------------------------
 -- CREACIÓN DE LA TABLA 
 --
@@ -1710,6 +1753,24 @@ INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES(
 -- Responsable: Brayan Novoa. ID: 000344471
 ---------------------------------------------------------------------
 CREATE TABLE tb_respuestas(
+<<<<<<< HEAD:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
+	respuesta_id INT(11) NOT NULL AUTO_INCREMENT,
+	encuesta_id INT(11) NOT NULL,
+	INDEX encuesta_ind2 (encuesta_id),
+	FOREIGN KEY (encuesta_id) REFERENCES tb_encuestas(encuesta_id) ON DELETE CASCADE,
+	pregunta_id INT(11) NOT NULL,
+	INDEX pregunta_ind1 (pregunta_id),
+	FOREIGN KEY (pregunta_id) REFERENCES tb_preguntas(pregunta_id) ON DELETE CASCADE,
+	estudiante_cod VARCHAR(12) NOT NULL,
+	INDEX estudiante_ind1 (estudiante_cod),
+	FOREIGN KEY (estudiante_cod) REFERENCES tb_estudiantes(estudiante_cod) ON DELETE CASCADE,
+	respuesta VARCHAR(100),
+	PRIMARY KEY(respuesta_id)
+);
+
+INSERT INTO tb_respuestas (respuesta_id, encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES (NULL, (SELECT encuesta_id FROM tb_encuestas WHERE encuesta='DATOS GENERALES'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='SEDE'), (SELECT estudiante_id FROM tb_estudiantes WHERE estudiante_cod='324471'), 'Presencial');
+INSERT INTO tb_respuestas (respuesta_id, encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES (NULL, '1', '5', '324471', 'Presencial');
+=======
 	respuesta_id INT(11) NOT NULL AUTO_INCREMENT;
 	encuesta_id INT(11) NOT NULL,
 	pregunta_id INT(11) NOT NULL,
@@ -1719,6 +1780,7 @@ CREATE TABLE tb_respuestas(
 );
 
 
+>>>>>>> 1ba6ec558ed24e1d9ac76bcdc74d159249ad4a93:Anexos/Etapa3/1_SERVER/database/InitalScript.sql
 
 CREATE TABLE tb_();
 CREATE TABLE tb_();
