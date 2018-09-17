@@ -24,7 +24,6 @@ hr{
 #container input{
  height: 2.5em;
  visibility: hidden;
-/* margin-left: 5px;*/
 }
 #container input.login-input, #container input.perfil-submit, #container input.panel{
  visibility: visible;
@@ -38,7 +37,7 @@ background: #000;  /* Fondo de las pestañas */
  font-size: 15px; /*Tamaño del texto de las pestañas*/ 
  height: 2.5em;
 /* line-height: 2.5em;*/
- padding: 5px;
+ padding: 15px;
  text-align: center;
 }
 #container input:hover + label {
@@ -46,11 +45,12 @@ background: #000;  /* Fondo de las pestañas */
  color: #666; /* Color del texto de las pestañas al pasar el cursor por encima */
 }
 #container input:checked + label {
- background: #003366; /* Fondo de las pestañas al presionar */
+ background: #9fa9fb; /* Fondo de las pestañas al presionar */
  color: #fff; /* Color de las pestañas al presionar */
- position: relative;
+ padding: 25px;
  z-index: 6;
 }
+
 #encuesta {
  background: #f1f1f1; /* Fondo del contenido */
  border-radius: 0 .25em .25em .25em;
@@ -68,7 +68,6 @@ position: absolute;
 top: 50px; 
 bottom: 0;
  right: 0;
- 
  margin-left: auto;
  margin-right: auto;
  left: 0;
@@ -79,6 +78,8 @@ bottom: 0;
     /*width: 100%;*/
     margin: 0 auto;
 }
-span.hide{
+
+input.hide{
     visibility: hidden;
+    display: none;
 }

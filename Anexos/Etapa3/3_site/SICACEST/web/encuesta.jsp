@@ -79,7 +79,9 @@
                 //System.out.print("Construyendo las encuestas");
                 //System.out.print("Construyendo la encuesta "+i+": "+nombreEncuesta);
                 out.print("\t<div id=\"encuesta"+i+"\">");
+                //out.print("<a class=\"hide\" name=\"encuesta"+i+"\"> Hola </a>");
                 out.print("\t<form action=\"guardando/Respuestas\" class=\"login\" method=\"\">");
+                out.print("<a class=\"hide\" name=\"encuesta"+i+"\"> Hola </a>");
                 en = en+1;%>
                 <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
                 <%out.print("\t<h1>"+nombreEncuesta+"</h1><hr>");%>
@@ -97,7 +99,7 @@
         <script type="text/javascript">
             <%out.print(jsFunction+jsCode);%>
         </script>
-        <script src="js/inhabilitar.js"></script>
+        
     </body>
 </html>
 <%

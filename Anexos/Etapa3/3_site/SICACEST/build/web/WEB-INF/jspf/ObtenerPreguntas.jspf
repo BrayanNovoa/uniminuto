@@ -20,12 +20,13 @@
             tipoPregunta=rs.getString(2);
             try{
                 if(tipoPregunta.equals("ARCHIVO")){
-                    out.print("<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"login-input\" placeholder=\""+nombrePregunta+"\">\n");
+                    out.print("<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
                 }if(tipoPregunta.equals("MULTIPLE")){
-                    out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"login-input\" placeholder=\""+nombrePregunta+"\">\n");
+                    out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
                 }if(tipoPregunta.equals("TEXTO")){
+                    out.print("<input type=\"text\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
                     jsCode=jsCode+jsPregunta;
-                    out.print("<input type=\"text\" id=\""+pre+"\" name=\"respuestas\" class=\"login-input\" placeholder=\""+nombrePregunta+"\">\n");
+                    out.print("<input type=\"text\" id=\""+pre+"\" name=\"respuestas\" class=\"login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
                 }
             }catch(Exception e){
                 

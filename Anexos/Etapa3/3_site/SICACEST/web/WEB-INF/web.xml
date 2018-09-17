@@ -17,10 +17,6 @@
         <servlet-class>servlet.CerrarSesion</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegistrarEncuertas</servlet-name>
-        <servlet-class>servlet.RegistrarEncuertas</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginAdministrador</servlet-name>
         <servlet-class>Servlet.LoginAdministrador</servlet-class>
     </servlet>
@@ -47,10 +43,6 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegistrarEncuertas</servlet-name>
-        <url-pattern>/encuestar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginAdministrador</servlet-name>

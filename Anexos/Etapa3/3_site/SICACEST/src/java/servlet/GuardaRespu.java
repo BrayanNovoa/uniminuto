@@ -6,12 +6,14 @@
  */
 package servlet;
 
+import controller.Consultas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,12 +32,34 @@ public class GuardaRespu extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession objsesion = request.getSession(false);
+        String sesion= (String)objsesion.getAttribute("SesionUsuario");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String respuestas[] = request.getParameterValues("respuestas");
-            for (int x=0;x<=respuestas.length-1;x++){
-                out.println("<pre>Respuesta: "+respuestas[x]+"</pre>");
+            Consultas con = new Consultas();
+            String pregunta[] = request.getParameterValues("preguntas");
+            String respuesta[] = request.getParameterValues("respuestas");
+            //String nE = request.getParameter("nEncuesta");
+            String ruta="../encuesta.jsp#encuesta3";
+            //String ruta="../encuesta.jsp#encuesta"+nE;
+            //response.sendRedirect(ruta);
+            
+            for (int x=0;x<=respuesta.length-1;x++){
+                out.println("<pre>Pregunta: "+pregunta[x]+"</pre>");
+                out.println("<pre>Respuesta: "+respuesta[x]+"</pre>");
+                out.println(x);
+                
+                if(con.guardarRespuesta(pregunta[x], respuesta[x], sesion)){
+                    //response.sendRedirect(ruta);
+                    if(x<=respuesta.length-1){
+                        //response.sendRedirect(ruta);
+                    }
+                    //response.sendRedirect("registrado.jsp");
+                }else{
+                    response.sendRedirect("../error.jsp");
+                }
             }
+            response.sendRedirect(ruta);
         }
     }
 
