@@ -21,7 +21,15 @@
             try{
                 if(tipoPregunta.equals("ARCHIVO")){
                     out.print("<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
-                }if(tipoPregunta.equals("MULTIPLE")){
+                }if(tipoPregunta.equals("DESPLEGABLE")){
+                    out.print("<select id=\""+pre+"\" name=\"desplegable\" class=\"login-input\" placeholder=\""+nombrePregunta+"\">");%>
+                    <!--OBTENEMOS LAS OPCIONES POSIBLES -->
+                    <option></option>
+                    
+                    <%out.println("</select>");
+                    
+                }
+                if(tipoPregunta.equals("MULTIPLE")){
                     out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
                 }if(tipoPregunta.equals("TEXTO")){
                     out.print("<input type=\"text\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
