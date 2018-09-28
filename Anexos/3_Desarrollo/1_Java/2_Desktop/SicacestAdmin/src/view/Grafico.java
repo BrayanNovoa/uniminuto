@@ -34,6 +34,8 @@ public class Grafico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        pnl_sidebar.setBackground(new java.awt.Color(18, 44, 82));
+
         javax.swing.GroupLayout pnl_sidebarLayout = new javax.swing.GroupLayout(pnl_sidebar);
         pnl_sidebar.setLayout(pnl_sidebarLayout);
         pnl_sidebarLayout.setHorizontalGroup(
@@ -45,6 +47,8 @@ public class Grafico extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        pnl_chart.setBackground(new java.awt.Color(255, 205, 7));
+
         javax.swing.GroupLayout pnl_chartLayout = new javax.swing.GroupLayout(pnl_chart);
         pnl_chart.setLayout(pnl_chartLayout);
         pnl_chartLayout.setHorizontalGroup(
@@ -53,8 +57,10 @@ public class Grafico extends javax.swing.JFrame {
         );
         pnl_chartLayout.setVerticalGroup(
             pnl_chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 226, Short.MAX_VALUE)
+            .addGap(0, 238, Short.MAX_VALUE)
         );
+
+        pnl_table.setBackground(new java.awt.Color(252, 252, 252));
 
         javax.swing.GroupLayout pnl_tableLayout = new javax.swing.GroupLayout(pnl_table);
         pnl_table.setLayout(pnl_tableLayout);
@@ -64,7 +70,7 @@ public class Grafico extends javax.swing.JFrame {
         );
         pnl_tableLayout.setVerticalGroup(
             pnl_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 206, Short.MAX_VALUE)
+            .addGap(0, 218, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -85,9 +91,8 @@ public class Grafico extends javax.swing.JFrame {
             .addComponent(pnl_sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnl_chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnl_table, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_table, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

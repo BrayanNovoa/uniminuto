@@ -9,10 +9,12 @@ package view;
 import controller.AdminController;
 import controller.AdminDbController;
 import controller.EncuestasController;
+import controller.GraficoController;
 import controller.PreguntasController;
 import controller.RespuestasController;
 import java.awt.Color;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -146,6 +148,8 @@ public final class Admin extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tbEncuestas = new javax.swing.JTable();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        txt_Info9 = new javax.swing.JTextPane();
         jPanel8 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -196,17 +200,33 @@ public final class Admin extends javax.swing.JFrame {
         txt_Info4 = new javax.swing.JTextPane();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        pnl_Estadistica = new javax.swing.JPanel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        txt_Info5 = new javax.swing.JTextPane();
-        pnl_Reportes = new javax.swing.JPanel();
-        jScrollPane16 = new javax.swing.JScrollPane();
-        txt_Info6 = new javax.swing.JTextPane();
         pnl_Datos = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbRespuestas = new javax.swing.JTable();
         jScrollPane17 = new javax.swing.JScrollPane();
         txt_Info7 = new javax.swing.JTextPane();
+        pnl_Estadistica = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        txt_Info5 = new javax.swing.JTextPane();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        cmbEncuestasFind1 = new javax.swing.JComboBox<>();
+        cmbPreguntasFind1 = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        btnGraficaPoblacion2 = new javax.swing.JButton();
+        pnl_tb_EstPrograma = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        tbEstProg = new javax.swing.JTable();
+        btnGraficaPoblacion = new javax.swing.JButton();
+        pnlCartEstu = new javax.swing.JPanel();
+        btnGraficaPoblacion1 = new javax.swing.JButton();
+        pnl_Reportes = new javax.swing.JPanel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        txt_Info6 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(224, 255, 255));
@@ -264,14 +284,15 @@ public final class Admin extends javax.swing.JFrame {
         pnl_InfoLayout.setVerticalGroup(
             pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_InfoLayout.createSequentialGroup()
-                .addGroup(pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtRectoria)
+                .addGroup(pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
                         .addComponent(txtUsuario)
                         .addComponent(txtSede)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel3))
+                    .addGroup(pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtRectoria)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -365,7 +386,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(txtAgno)
                     .addComponent(txtCiclo)
                     .addComponent(txtPeriodo1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -530,7 +551,7 @@ public final class Admin extends javax.swing.JFrame {
         jLabel13.setText("Gestionar Programas");
 
         jButton3.setBackground(new java.awt.Color(255, 205, 7));
-        jButton3.setText("Agregar");
+        jButton3.setText("AGREGAR");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -659,7 +680,7 @@ public final class Admin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnl_CargaEstudLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 6, Short.MAX_VALUE)
                         .addGroup(pnl_CargaEstudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
@@ -734,7 +755,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_Programa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_CargaEstud, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnl_CargaEstud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         pnl_EstudiantesLayout.setVerticalGroup(
@@ -849,12 +870,16 @@ public final class Admin extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
+
+        txt_Info9.setEditable(false);
+        txt_Info9.setText("Para agregar una nueva Encuesta primero debe digitar el nombre de la Encuesta y su correspondiente Descripción. Posteriormente se habilitará el botón que permite gusrdar la nueva Encuesta.");
+        jScrollPane19.setViewportView(txt_Info9);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -864,6 +889,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,7 +897,9 @@ public final class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167))
         );
 
         jTabbedPane2.addTab("Encuestas", jPanel5);
@@ -917,7 +945,7 @@ public final class Admin extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(174, 174, 174))
         );
@@ -1178,16 +1206,15 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(cmbEncuestasFind, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel20Layout.createSequentialGroup()
-                            .addComponent(jCheckBox1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel20Layout.createSequentialGroup()
-                            .addComponent(jCheckBox2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(jCheckBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(jCheckBox2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator7)
                     .addComponent(jSeparator8)
@@ -1270,10 +1297,10 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Búsquedas", jPanel15);
+        jTabbedPane2.addTab("Consultas", jPanel15);
 
         javax.swing.GroupLayout pnl_EncuestasLayout = new javax.swing.GroupLayout(pnl_Encuestas);
         pnl_Encuestas.setLayout(pnl_EncuestasLayout);
@@ -1289,48 +1316,6 @@ public final class Admin extends javax.swing.JFrame {
         );
 
         jtp_Modulos.addTab("Gestión de Encuestas", pnl_Encuestas);
-
-        pnl_Estadistica.setBackground(new java.awt.Color(243, 249, 249));
-
-        txt_Info5.setEditable(false);
-        txt_Info5.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
-        jScrollPane15.setViewportView(txt_Info5);
-
-        javax.swing.GroupLayout pnl_EstadisticaLayout = new javax.swing.GroupLayout(pnl_Estadistica);
-        pnl_Estadistica.setLayout(pnl_EstadisticaLayout);
-        pnl_EstadisticaLayout.setHorizontalGroup(
-            pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 1243, Short.MAX_VALUE)
-        );
-        pnl_EstadisticaLayout.setVerticalGroup(
-            pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EstadisticaLayout.createSequentialGroup()
-                .addGap(0, 544, Short.MAX_VALUE)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jtp_Modulos.addTab("Análisis Estadístico", pnl_Estadistica);
-
-        pnl_Reportes.setBackground(new java.awt.Color(243, 249, 249));
-
-        txt_Info6.setEditable(false);
-        txt_Info6.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
-        jScrollPane16.setViewportView(txt_Info6);
-
-        javax.swing.GroupLayout pnl_ReportesLayout = new javax.swing.GroupLayout(pnl_Reportes);
-        pnl_Reportes.setLayout(pnl_ReportesLayout);
-        pnl_ReportesLayout.setHorizontalGroup(
-            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 1243, Short.MAX_VALUE)
-        );
-        pnl_ReportesLayout.setVerticalGroup(
-            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ReportesLayout.createSequentialGroup()
-                .addGap(0, 544, Short.MAX_VALUE)
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jtp_Modulos.addTab("Gestión de Reportes", pnl_Reportes);
 
         pnl_Datos.setBackground(new java.awt.Color(243, 249, 249));
 
@@ -1359,12 +1344,216 @@ public final class Admin extends javax.swing.JFrame {
         pnl_DatosLayout.setVerticalGroup(
             pnl_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_DatosLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jtp_Modulos.addTab("Recopilación de datos", pnl_Datos);
+
+        pnl_Estadistica.setBackground(new java.awt.Color(243, 249, 249));
+
+        txt_Info5.setEditable(false);
+        txt_Info5.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
+        jScrollPane15.setViewportView(txt_Info5);
+
+        jPanel4.setBackground(new java.awt.Color(59, 71, 97));
+
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(224, 255, 255));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-estadísticas-75.png"))); // NOI18N
+        jLabel24.setText("Estadísticas");
+
+        jLabel25.setFont(jLabel25.getFont().deriveFont((jLabel25.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel25.getFont().getSize()+3));
+        jLabel25.setForeground(new java.awt.Color(224, 255, 255));
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-google-web-search-50.png"))); // NOI18N
+        jLabel25.setText("Población General");
+
+        jLabel26.setFont(jLabel26.getFont().deriveFont((jLabel26.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel26.getFont().getSize()+3));
+        jLabel26.setForeground(new java.awt.Color(224, 255, 255));
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-encuesta-50.png"))); // NOI18N
+        jLabel26.setText("Filtrar Encuesta");
+
+        cmbEncuestasFind1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tecnología en Desarrollo de Software", "Item 2", "Item 3", "Item 4" }));
+
+        cmbPreguntasFind1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tecnología en Desarrollo de Software", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel27.setFont(jLabel27.getFont().deriveFont((jLabel27.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel27.getFont().getSize()+3));
+        jLabel27.setForeground(new java.awt.Color(224, 255, 255));
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-estudiante-masculino-50.png"))); // NOI18N
+        jLabel27.setText("Filtrar Estudiante");
+
+        jTextField12.setText("000324471");
+
+        btnGraficaPoblacion2.setBackground(new java.awt.Color(255, 205, 7));
+        btnGraficaPoblacion2.setText("REALIZAR CONSULTA");
+        btnGraficaPoblacion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraficaPoblacion2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbEncuestasFind1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmbPreguntasFind1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnGraficaPoblacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26)
+                .addGap(89, 89, 89)
+                .addComponent(cmbEncuestasFind1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbPreguntasFind1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGraficaPoblacion2)
+                .addContainerGap())
+        );
+
+        pnl_tb_EstPrograma.setBackground(new java.awt.Color(252, 252, 252));
+
+        tbEstProg.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Tecnología en Desarrollo de Software", "80"},
+                {"Redes de Computadoras", "30"},
+                {"Tecnología en Informática", "5"},
+                {"Ingeniría Agroecológica", "60"},
+                {"Administración de empresas", "250"},
+                {"Psicología", "180"},
+                {"Pedagogía Infantil", "130"},
+                {"Cominicación Social", "220"},
+                {"Cominicación Gráfica", "150"}
+            },
+            new String [] {
+                "Programa", "Estudiantes"
+            }
+        ));
+        tbEstProg.getTableHeader().setReorderingAllowed(false);
+        jScrollPane20.setViewportView(tbEstProg);
+        if (tbEstProg.getColumnModel().getColumnCount() > 0) {
+            tbEstProg.getColumnModel().getColumn(0).setMinWidth(50);
+            tbEstProg.getColumnModel().getColumn(0).setPreferredWidth(230);
+            tbEstProg.getColumnModel().getColumn(0).setMaxWidth(270);
+            tbEstProg.getColumnModel().getColumn(1).setMinWidth(50);
+            tbEstProg.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbEstProg.getColumnModel().getColumn(1).setMaxWidth(50);
+        }
+
+        btnGraficaPoblacion.setBackground(new java.awt.Color(255, 205, 7));
+        btnGraficaPoblacion.setText("GRAFICAR");
+        btnGraficaPoblacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraficaPoblacionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnl_tb_EstProgramaLayout = new javax.swing.GroupLayout(pnl_tb_EstPrograma);
+        pnl_tb_EstPrograma.setLayout(pnl_tb_EstProgramaLayout);
+        pnl_tb_EstProgramaLayout.setHorizontalGroup(
+            pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGraficaPoblacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnl_tb_EstProgramaLayout.setVerticalGroup(
+            pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addComponent(btnGraficaPoblacion))
+        );
+
+        pnlCartEstu.setBackground(new java.awt.Color(252, 252, 252));
+        pnlCartEstu.setLayout(new java.awt.BorderLayout());
+
+        btnGraficaPoblacion1.setBackground(new java.awt.Color(255, 205, 7));
+        btnGraficaPoblacion1.setText("GUARDAR COMO IMAGEN");
+
+        javax.swing.GroupLayout pnl_EstadisticaLayout = new javax.swing.GroupLayout(pnl_Estadistica);
+        pnl_Estadistica.setLayout(pnl_EstadisticaLayout);
+        pnl_EstadisticaLayout.setHorizontalGroup(
+            pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(pnl_EstadisticaLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_tb_EstPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlCartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnl_EstadisticaLayout.createSequentialGroup()
+                        .addComponent(btnGraficaPoblacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        pnl_EstadisticaLayout.setVerticalGroup(
+            pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EstadisticaLayout.createSequentialGroup()
+                .addGroup(pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnl_tb_EstPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EstadisticaLayout.createSequentialGroup()
+                        .addComponent(pnlCartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGraficaPoblacion1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jtp_Modulos.addTab("Análisis Estadístico", pnl_Estadistica);
+
+        pnl_Reportes.setBackground(new java.awt.Color(243, 249, 249));
+
+        txt_Info6.setEditable(false);
+        txt_Info6.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
+        jScrollPane16.setViewportView(txt_Info6);
+
+        javax.swing.GroupLayout pnl_ReportesLayout = new javax.swing.GroupLayout(pnl_Reportes);
+        pnl_Reportes.setLayout(pnl_ReportesLayout);
+        pnl_ReportesLayout.setHorizontalGroup(
+            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 1243, Short.MAX_VALUE)
+        );
+        pnl_ReportesLayout.setVerticalGroup(
+            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ReportesLayout.createSequentialGroup()
+                .addGap(0, 544, Short.MAX_VALUE)
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jtp_Modulos.addTab("Gestión de Reportes", pnl_Reportes);
 
         pnl_Principal.add(jtp_Modulos, java.awt.BorderLayout.CENTER);
 
@@ -1386,107 +1575,37 @@ public final class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed
+    private void btnGraficaPoblacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficaPoblacionActionPerformed
         // TODO add your handling code here:
-        adc.guardarEstudiantes(estudiantes, txtPeriodo.getText(),txtPrograma.getText());
-    }//GEN-LAST:event_btnGuardarEstudiantesActionPerformed
+        
+    }//GEN-LAST:event_btnGraficaPoblacionActionPerformed
 
-    private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
+    private void btnGuardarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPreguntaActionPerformed
         // TODO add your handling code here:
-        JButton abrir = new JButton();
-        JFileChooser jfc = new JFileChooser();
-        jfc.setCurrentDirectory(new File("/home/b41n/Escritorio"));
-        jfc.setDialogTitle("Cargar Lista De Estudiantes");
-        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if(jfc.showOpenDialog(abrir) == JFileChooser.APPROVE_OPTION){
-            String ruta = jfc.getSelectedFile().getAbsolutePath();
-            System.out.println("Ruta Del Archivo: "+ruta);
-            File archivo = new File(ruta);
-            try {
-                BufferedReader buffer = new BufferedReader(new FileReader(archivo));
-                String primerLinea = buffer.readLine().trim();
-                String[] titulos = primerLinea.split(",");
-                model = (DefaultTableModel)tbEstudiantes.getModel();
-                model.setColumnIdentifiers(titulos);
-
-                estudiantes = buffer.lines().toArray();
-                for(int i = 0; i < estudiantes.length; i++){
-                    String linea = estudiantes[i].toString().trim();
-                    String[] datosFila = linea.split(",");
-                    model.addRow(datosFila);
-                }
-                btnGuardarEstudiantes.setVisible(true);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        String encuesta = cmbEncuestas.getSelectedItem().toString();
+        String tipop = cmbTipoPregunta.getSelectedItem().toString();
+        String pregunta =  txtPregunta.getText();
+        if(preg.guardarPregunta(encuesta, tipop, pregunta)){
+            preg.buscarPreguntas(encuesta);
         }
-    }//GEN-LAST:event_btnCargarListaActionPerformed
+    }//GEN-LAST:event_btnGuardarPreguntaActionPerformed
 
-    private void tbPeriodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeriodosMouseClicked
+    private void cmbEncuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEncuestasActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        int column = source.columnAtPoint( evt.getPoint() );
-        String periodo=source.getModel().getValueAt(row, column)+"";
-        if(periodo==null){
-            periodo="";
-        }
-        if(column==0){
-            adc.buscarFacultades();
-            txtPeriodo.setText(periodo);
+        if(cmbEncuestas.getSelectedItem()!=("Seleccione...")){
+            lblEncuesta.setText(cmbEncuestas.getSelectedItem().toString());
+            cmbTipoPregunta.setEnabled(true);
+            preg.buscarPreguntas(cmbEncuestas.getSelectedItem().toString());
+        }else{
+            cmbTipoPregunta.setEnabled(false);
         }
 
-    }//GEN-LAST:event_tbPeriodosMouseClicked
+    }//GEN-LAST:event_cmbEncuestasActionPerformed
 
-    private void tbFacultadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacultadesMouseClicked
+    private void txtPreguntaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPreguntaMouseClicked
         // TODO add your handling code here:
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        int column = source.columnAtPoint( evt.getPoint() );
-        String facultad=source.getModel().getValueAt(row, column)+"";
-        if(facultad==null){
-            facultad="";
-        }
-        if(column==0){
-            adc.buscarProgramas(facultad);
-            txtFacultad.setText(facultad);
-        }
-    }//GEN-LAST:event_tbFacultadesMouseClicked
-
-    private void tbProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProgramasMouseClicked
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-        int row = source.rowAtPoint( evt.getPoint() );
-        int column = source.columnAtPoint( evt.getPoint() );
-        String programa=source.getModel().getValueAt(row, column)+"";
-        if(programa==null){
-            programa="";
-        }
-        if(column==0){
-            txtPrograma.setText(programa);
-            btnCargarLista.setEnabled(true);
-        }
-    }//GEN-LAST:event_tbProgramasMouseClicked
-
-    private void txtAgnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgnoMouseClicked
-        // TODO add your handling code here:
-        txtAgno.setText("");
-    }//GEN-LAST:event_txtAgnoMouseClicked
-
-    private void txtCicloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCicloMouseClicked
-        // TODO add your handling code here:
-        txtCiclo.setText("");
-    }//GEN-LAST:event_txtCicloMouseClicked
-
-    private void txtPeriodo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPeriodo1MouseClicked
-        // TODO add your handling code here:
-        txtPeriodo1.setText("");
-    }//GEN-LAST:event_txtPeriodo1MouseClicked
+        txtPregunta.setText("");
+    }//GEN-LAST:event_txtPreguntaMouseClicked
 
     private void txtEncuDescripKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEncuDescripKeyTyped
         // TODO add your handling code here:
@@ -1529,32 +1648,117 @@ public final class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEncuestaFocusLost
 
-    private void txtPreguntaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPreguntaMouseClicked
+    private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
         // TODO add your handling code here:
-        txtPregunta.setText("");
-    }//GEN-LAST:event_txtPreguntaMouseClicked
+        JButton abrir = new JButton();
+        JFileChooser jfc = new JFileChooser();
+        jfc.setCurrentDirectory(new File("/home/b41n/Escritorio"));
+        jfc.setDialogTitle("Cargar Lista De Estudiantes");
+        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if(jfc.showOpenDialog(abrir) == JFileChooser.APPROVE_OPTION){
+            String ruta = jfc.getSelectedFile().getAbsolutePath();
+            System.out.println("Ruta Del Archivo: "+ruta);
+            File archivo = new File(ruta);
+            try {
+                BufferedReader buffer = new BufferedReader(new FileReader(archivo));
+                String primerLinea = buffer.readLine().trim();
+                String[] titulos = primerLinea.split(",");
+                model = (DefaultTableModel)tbEstudiantes.getModel();
+                model.setColumnIdentifiers(titulos);
 
-    private void cmbEncuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEncuestasActionPerformed
-        // TODO add your handling code here:
-        if(cmbEncuestas.getSelectedItem()!=("Seleccione...")){   
-            lblEncuesta.setText(cmbEncuestas.getSelectedItem().toString());
-            cmbTipoPregunta.setEnabled(true);
-            preg.buscarPreguntas(cmbEncuestas.getSelectedItem().toString());
-        }else{
-            cmbTipoPregunta.setEnabled(false);
+                estudiantes = buffer.lines().toArray();
+                for(int i = 0; i < estudiantes.length; i++){
+                    String linea = estudiantes[i].toString().trim();
+                    String[] datosFila = linea.split(",");
+                    model.addRow(datosFila);
+                }
+                btnGuardarEstudiantes.setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+    }//GEN-LAST:event_btnCargarListaActionPerformed
+
+    private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed
+        // TODO add your handling code here:
+        adc.guardarEstudiantes(estudiantes, txtPeriodo.getText(),txtPrograma.getText());
+    }//GEN-LAST:event_btnGuardarEstudiantesActionPerformed
+
+    private void tbProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProgramasMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = source.columnAtPoint( evt.getPoint() );
+        String programa=source.getModel().getValueAt(row, column)+"";
+        if(programa==null){
+            programa="";
+        }
+        if(column==0){
+            txtPrograma.setText(programa);
+            btnCargarLista.setEnabled(true);
+        }
+    }//GEN-LAST:event_tbProgramasMouseClicked
+
+    private void tbFacultadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacultadesMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = source.columnAtPoint( evt.getPoint() );
+        String facultad=source.getModel().getValueAt(row, column)+"";
+        if(facultad==null){
+            facultad="";
+        }
+        if(column==0){
+            adc.buscarProgramas(facultad);
+            txtFacultad.setText(facultad);
+        }
+    }//GEN-LAST:event_tbFacultadesMouseClicked
+
+    private void txtPeriodo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPeriodo1MouseClicked
+        // TODO add your handling code here:
+        txtPeriodo1.setText("");
+    }//GEN-LAST:event_txtPeriodo1MouseClicked
+
+    private void txtCicloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCicloMouseClicked
+        // TODO add your handling code here:
+        txtCiclo.setText("");
+    }//GEN-LAST:event_txtCicloMouseClicked
+
+    private void txtAgnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAgnoMouseClicked
+        // TODO add your handling code here:
+        txtAgno.setText("");
+    }//GEN-LAST:event_txtAgnoMouseClicked
+
+    private void tbPeriodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeriodosMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+        int row = source.rowAtPoint( evt.getPoint() );
+        int column = source.columnAtPoint( evt.getPoint() );
+        String periodo=source.getModel().getValueAt(row, column)+"";
+        if(periodo==null){
+            periodo="";
+        }
+        if(column==0){
+            adc.buscarFacultades();
+            txtPeriodo.setText(periodo);
+        }
+    }//GEN-LAST:event_tbPeriodosMouseClicked
+
+    private void btnGraficaPoblacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficaPoblacion2ActionPerformed
+        // TODO add your handling code here:
+        String sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
+        GraficoController grafc = new GraficoController(1, "");
+        grafc.obtenerDatos(sql);
+        //pnlCartEstu.removeAll();
+        //pnlCartEstu.add(chartPanel, BorderLayout.CENTER);
+        //pnlCartEstu.validate();
         
-    }//GEN-LAST:event_cmbEncuestasActionPerformed
-
-    private void btnGuardarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPreguntaActionPerformed
-        // TODO add your handling code here:
-        String encuesta = cmbEncuestas.getSelectedItem().toString();
-        String tipop = cmbTipoPregunta.getSelectedItem().toString();
-        String pregunta =  txtPregunta.getText();
-        if(preg.guardarPregunta(encuesta, tipop, pregunta)){
-            preg.buscarPreguntas(encuesta);
-        }
-    }//GEN-LAST:event_btnGuardarPreguntaActionPerformed
+    }//GEN-LAST:event_btnGraficaPoblacion2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1594,14 +1798,19 @@ public final class Admin extends javax.swing.JFrame {
     public Object[] estudiantes;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarLista;
+    private javax.swing.JButton btnGraficaPoblacion;
+    private javax.swing.JButton btnGraficaPoblacion1;
+    private javax.swing.JButton btnGraficaPoblacion2;
     private javax.swing.JButton btnGuardarEncuesta;
     public static javax.swing.JButton btnGuardarEstudiantes;
     private javax.swing.JButton btnGuardarPregunta;
     private javax.swing.JButton btnGuardarRespuesta;
     public static javax.swing.JComboBox<String> cmbEncuestas;
     private javax.swing.JComboBox<String> cmbEncuestasFind;
+    private javax.swing.JComboBox<String> cmbEncuestasFind1;
     public static javax.swing.JComboBox<String> cmbFacultades;
     private javax.swing.JComboBox<String> cmbPreguntasFind;
+    private javax.swing.JComboBox<String> cmbPreguntasFind1;
     public static javax.swing.JComboBox<String> cmbTipoPregunta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1610,6 +1819,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1625,6 +1835,10 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1642,6 +1856,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -1657,7 +1872,9 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1678,9 +1895,11 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTabbedPane jtp_Modulos;
     private javax.swing.JLabel lblEncuesta;
     private javax.swing.JLabel lblPregunta;
+    public static javax.swing.JPanel pnlCartEstu;
     private javax.swing.JPanel pnl_CargaEstud;
     private javax.swing.JPanel pnl_Datos;
     private javax.swing.JPanel pnl_Encuestas;
@@ -1692,7 +1911,9 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_Principal;
     private javax.swing.JPanel pnl_Programa;
     private javax.swing.JPanel pnl_Reportes;
+    private javax.swing.JPanel pnl_tb_EstPrograma;
     public static javax.swing.JTable tbEncuestas;
+    public static javax.swing.JTable tbEstProg;
     public static javax.swing.JTable tbEstudiantes;
     public static javax.swing.JTable tbFacultades;
     public static javax.swing.JTable tbPeriodos;
@@ -1723,5 +1944,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTextPane txt_Info6;
     private javax.swing.JTextPane txt_Info7;
     private javax.swing.JTextPane txt_Info8;
+    private javax.swing.JTextPane txt_Info9;
     // End of variables declaration//GEN-END:variables
 }

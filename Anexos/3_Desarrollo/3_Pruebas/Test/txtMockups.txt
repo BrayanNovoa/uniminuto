@@ -1,0 +1,178 @@
+Codigo Respuesta | Encuesta | Pregunta | Respuesta | ID Estudiante
+1 | DATOS GENERALES | SEDE | Regional Llanos Orinoquia | 000324471
+2 | DATOS GENERALES | Número de Documento de Identidad (solo el número) | 1121871348 | 000324471
+3 | DATOS GENERALES | Programa al que pertenece | Tecnología en desarrollo de Software | 000324471
+4 | DATOS GENERALES | Si selecciono otro por favor Explique | null | 000324471
+5 | DATOS GENERALES | Modalidad de estudio | Presencial | 000324471
+6 | DATOS BÁSICOS | Nombres | Brayan Mauricio | 000324471
+7 | DATOS BÁSICOS | Apellidos | Novoa Salazar | 000324471
+8 | DATOS BÁSICOS | Departamento de Nacimiento | Cundinamarca | 000324471
+9 | DATOS BÁSICOS | Lugar de Nacimiento | Bogotá | 000324471
+10 | DATOS BÁSICOS | Sexo | M | 000324471
+11 | DATOS BÁSICOS | Edad | 28 | 000324471
+12 | DATOS BÁSICOS | Tipo de sangre | O+ | 000324471
+13 | SECTOR SALUD | ¿Pertenece a SISBEN? | NO | 000324471
+14 | SECTOR SALUD | ¿Está afiliado a EPS? | SI | 000324471
+15 | SECTOR SALUD | ¿Presenta algún  problema de salud o enfermedad crónica? | NO APLICA | 000324471
+16 | SECTOR SALUD | Pertenece usted a alguna de las siguientes poblaciones especiales | NO APLICA | 000324471
+17 | SECTOR SALUD | Manifiesta algún tipo de dificultad que pueda afectar su vida académica universitaria? | NO APLICA | 000324471
+18 | SECTOR SALUD | Si consume bebidas alcohólica, por favor indique la frecuencia | Casi nunca | 000324471
+19 | SECTOR SALUD | Si fuma por favor indique la frecuencia | 1 caja al día | 000324471
+20 | SECTOR VIVIENDA | Su vivienda es | Familiar | 000324471
+21 | SECTOR VIVIENDA | ¿Vive en sector rural o urbano? | Urbano | 000324471
+22 | SECTOR VIVIENDA | Estrato Socioeconómico | 3 | 000324471
+23 | SECTOR VIVIENDA | Lugar de Vivienda | Casa | 000324471
+24 | SECTOR VIVIENDA | Ciudad | Villavicencio | 000324471
+25 | SECTOR VIVIENDA | Localidad | Villavicencio | 000324471
+26 | SECTOR VIVIENDA | Barrio | Serramomnte | 000324471
+27 | SECTOR VIVIENDA | Dirección de residencia | Calle 14 Sur N49 A-79 | 000324471
+28 | CONTACTO | Teléfono fijo | 6848008 | 000324471
+29 | CONTACTO | Teléfono celular | 3197467681 | 000324471
+30 | CONTACTO | Correo electrónico | bnovoasalaz@uniminuto.edu.co | 000324471
+31 | SECTOR SOCIOECONOMICO | Medios de pago de la matrícula: | Efectivo | 000324471
+32 | SECTOR SOCIOECONOMICO | ¿Quién paga la matrícula? | Estudiante | 000324471
+33 | SECTOR SOCIOECONOMICO | ¿Actualmente se encuentra laborando? | SI | 000324471
+34 | SECTOR SOCIOECONOMICO | Sector al que pertenece su trabajo | Ingeniería | 000324471
+35 | SECTOR SOCIOECONOMICO | trabaja como idependiente o empleado | Independiente | 000324471
+36 | SECTOR SOCIOECONOMICO | Ingreso mensual suyo | 1200000 | 000324471
+37 | SECTOR SOCIOECONOMICO | Ingreso mensual de su familia | 3600000 | 000324471
+38 | REDES DE APOYO | Usted vive actualmente con | Solo | 000324471
+39 | REDES DE APOYO | Estado civil | Feliz mente soltero | 000324471
+40 | REDES DE APOYO | Número de hermanos | 1 | 000324471
+41 | REDES DE APOYO | ¿Qué lugar ocupa entre los hermanos? | 2 | 000324471
+42 | REDES DE APOYO | Se encuentra en estado de embarazo? | NO APLICA | 000324471
+43 | REDES DE APOYO | En qué mes de embarazo se encuentra. | NO APLICA | 000324471
+44 | REDES DE APOYO | ¿Sus padres comparten vivienda con sus abuelos? | NO | 000324471
+45 | SECTOR FAMILIAR | ¿Tiene hijos? | NO | 000324471
+46 | SECTOR FAMILIAR | Es madre cabeza de familia | NO APLICA | 000324471
+47 | SECTOR FAMILIAR | Número de hijos | 0 | 000324471
+48 | SECTOR FAMILIAR | Edad de los hijos | NO APLICA | 000324471
+49 | SECTOR FAMILIAR | Escolaridad del padre | Primaria | 000324471
+50 | SECTOR FAMILIAR | Escolaridad de la madre | Bachiller | 000324471
+
+
+
+Periodo Académico
+2015-1
+2015-2
+2016-1
+2016-2
+2017-1
+2017-2
+2018-1
+2018-2
+
+
+
+Facultades
+
+Ingeniería Y Ciencias Básicas
+Administración
+Psicología
+Comunicación
+
+
+
+Programas
+
+Tecnología en Desarrollo de Software
+Redes de Computadoras
+Tecnología en Informática
+Ingeniría Ambiental
+Administración de empresas
+Psicología
+Pedagogía Infantil
+Cominicación Social
+Cominicación Gráfica
+
+
+
+
+Estudiantes:
+
+
+000324471
+537245
+394887
+376576
+469852
+567643
+546546
+545361
+153435
+376571
+354546
+354556
+346461
+323755
+656531
+487421
+965385
+675671
+654366
+431468
+867971
+547832
+543345
+236757
+342545
+435371
+475659
+534561
+783296
+246501
+
+
+
+
+Encuesta | Descripción
+DATOS GENERALES | Información de registro del estudiante
+DATOS BÁSICOS | Información personal del estudiante
+SECTOR SALUD | Información del sector Salud
+SECTOR VIVIENDA | Información del sector Vivienda
+CONTACTO | Información del sector Contacto
+SECTOR SOCIOECONOMICO | Información del sector Socioeconómico
+REDES DE APOYO | Información de las Redes de Apoyo
+SECTOR FAMILIAR | Información del sector Familiar
+
+
+Tipo de preguntas
+
+Tipo de Pregunta | Descripción
+ARCHIVO | Este dato se obtiene de un archivo .CSV que contenga la información.
+TEXTO | Sirve para almacenar cualquier tipo de texto. se recomienda para almacenar números que no requieran operaciónes matemáticas.
+DESPLEGABLE | Permite al estudiante seleccionar una sola opción posible de una lista desplegable.
+MULTIPLE | Se usa para permitir al estudiante seleccionar varias posibles respuestas para una misma pregunta.
+NUMERO | Se usa para almacenar valores numéricos solo en caso de ser requeridos para realizar operaciones matemáticas.
+RANGO | Se usa para guardar valores entre un rango preestablecidos.
+
+
+
+
+
+preguntas
+
+Pregunta | Tipo de Pregunta | Este dato se Grafica?
+Trabaja actualmente? | SI/NO | SI
+sector laboral | DESPLEGABLE | SI
+Que tecnologias maneja? | DESPLEGABLE | SI
+
+
+Respuestas
+
+Encuesta | Pregunta | Tipo de Pregunta | Respuestas
+
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | XLS-XLSX
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | DOC-DOCX
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | C++
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | C#
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | VB
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | HTML
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | CSS
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | JS
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | SQL
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | PHP
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | RUBY
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | JSP
+SECTOR LABORAL | Qué tecnologías maneja? | DESPLEGABLE | XML
+
