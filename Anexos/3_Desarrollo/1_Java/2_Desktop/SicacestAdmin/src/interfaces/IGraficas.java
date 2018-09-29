@@ -14,8 +14,8 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public interface IGraficas {
     public void obtenerDatos(String sql);
-    public void generarDataSet(String [] registro);
+    //public void generarDataSet(String [] registro);
     public void generarTabla(String [] registro);
-    public void graficarDatos(DefaultPieDataset data);
+    public void graficarDatos(/*DefaultPieDataset data*/);
     public void guardarImagen();
 }

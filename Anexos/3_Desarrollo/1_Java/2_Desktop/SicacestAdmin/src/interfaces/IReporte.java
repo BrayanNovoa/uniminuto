@@ -6,13 +6,13 @@
  */
 package interfaces;
 
+import java.io.File;
+
 /**
  *
  * @author b41n
  */
-public interface IReportes {
+public interface IReporte {
     public boolean generarReporte();
-    public boolean mostrarReporte();
-    public boolean guardarReporte();
-    
+    public void mostrarReporte(File archivo);
 }

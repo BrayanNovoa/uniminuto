@@ -76,7 +76,7 @@ public final class Login extends javax.swing.JFrame {
         });
 
         cmbRectoria.setBackground(new java.awt.Color(0, 82, 155));
-        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccione..."}));
+        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionear Rectoría..."}));
         cmbRectoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbRectoriaActionPerformed(evt);
@@ -99,7 +99,7 @@ public final class Login extends javax.swing.JFrame {
         txtPassword.setText("1234567");
 
         cmbSede.setBackground(new java.awt.Color(0, 82, 155));
-        cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccione..."}));
+        cmbSede.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar Sede..."}));
         cmbSede.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
