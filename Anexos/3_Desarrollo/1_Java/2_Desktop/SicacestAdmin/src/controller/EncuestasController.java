@@ -61,21 +61,13 @@ public class EncuestasController implements interfaces.IEncuestas{
                 registro[0]=rs.getString(campos[0]);
                 registro[1]=rs.getString(campos[1]);
                 model.addRow(registro);
-                //view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
+                view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
                 System.out.println("Encuesta: "+i+" "+registro[0]);
             }
             i=0;
-            //view.Admin.tbEncuestas.setModel(model);
+            view.Admin.tbEncuestas.setModel(model);
         }catch(NullPointerException | SQLException ex){
             System.out.println("ERROR: "+ex);
-            /*
-            if(ex.equals("NullPointerException")){
-                System.out.println("ERROR: "+ex);
-            }
-            if(ex.equals(ex)){
-                System.out.println("ERROR: "+ex);
-            }
-            */
         }
     }
     
@@ -94,9 +86,9 @@ public class EncuestasController implements interfaces.IEncuestas{
                 registro[1]=rs.getString(2);
                 System.out.println(registro[0]);
                 model.addRow(registro);
-                //view.Admin.cmbTipoPregunta.addItem(rs.getString("tipo_pregunta"));
+                view.Admin.cmbTipoPregunta.addItem(rs.getString("tipo_pregunta"));
             }
-            //view.Admin.tbTipoPreguntas.setModel(model);
+            view.Admin.tbTipoPreguntas.setModel(model);
         }catch(SQLException ex){
             System.out.println("ERROR: "+ex);
         }
@@ -108,7 +100,7 @@ public class EncuestasController implements interfaces.IEncuestas{
     }
     
     public static void main(String [] args){
-        EncuestasController enc = new EncuestasController();
+        //EncuestasController enc = new EncuestasController();
         //enc.buscarEncuestas();
         //enc.guardarEncuesta("Prueba desde Java", "Prueba desde Java");
         //enc.guardarPregunta("Datos Básicos", "Texto", "Pregunta Prueba EncuestasController");

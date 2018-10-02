@@ -49,7 +49,7 @@ public class AdminController implements interfaces.IAdmin {
             System.out.println(registro[0]);
             model.addRow(registro);
             }
-            //view.Admin.tbPeriodos.setModel(model);
+            view.Admin.tbPeriodos.setModel(model);
         } catch (java.sql.SQLException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,10 +68,10 @@ public class AdminController implements interfaces.IAdmin {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(campos[0]);
-                //view.Admin.cmbFacultades.addItem(registro[0]);
+                view.Admin.cmbFacultades.addItem(registro[0]);
                 model.addRow(registro);
             }
-            //view.Admin.tbFacultades.setModel(model);
+            view.Admin.tbFacultades.setModel(model);
             return true;
         }catch(SQLException ex){
             System.out.println("ERROR: "+ex);
@@ -93,7 +93,7 @@ public class AdminController implements interfaces.IAdmin {
                 registro[0]=rs.getString(campos[0]);
                 model.addRow(registro);
             }
-            //view.Admin.tbProgramas.setModel(model);
+            view.Admin.tbProgramas.setModel(model);
             
         }catch(SQLException ex){
             System.out.println("ERROR: "+ex);
@@ -116,7 +116,7 @@ public class AdminController implements interfaces.IAdmin {
                 BufferedReader buffer = new BufferedReader(new FileReader(archivo));
                 String primerLinea = buffer.readLine().trim();
                 String[] titulos = primerLinea.split(",");
-                //model = (DefaultTableModel)view.Admin.tbEstudiantes.getModel();
+                model = (DefaultTableModel)view.Admin.tbEstudiantes.getModel();
                 model.setColumnIdentifiers(titulos);
 
                 estudiantes = buffer.lines().toArray();
@@ -125,7 +125,7 @@ public class AdminController implements interfaces.IAdmin {
                     String[] datosFila = linea.split(",");
                     model.addRow(datosFila);
                 }
-                //view.Admin.btnGuardarEstudiantes.setVisible(true);
+                view.Admin.btnGuardarEstudiantes.setVisible(true);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

@@ -6,7 +6,17 @@
  */
 package controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,6 +24,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
@@ -27,6 +39,7 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import view.Grafica;
 
 
 /**
@@ -35,6 +48,9 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 public class GraficoController implements interfaces.IGraficas{
     DbConnection entrar = new DbConnection();
+    public String sql;
+    //sString sql;
+    
     DefaultTableModel model;
     String titulo, tx,ty;
     public final static int LINEAL = 1;
@@ -48,17 +64,27 @@ public class GraficoController implements interfaces.IGraficas{
     public final static int PIECHART = 9;
     public final static int PIECHART3D = 10;
     
-    public GraficoController (String titulo){
+    public final static int GENERAL = 1;
+    public final static int PERIODOS = 2;
+    public final static int FACULTADES = 3;
+    public final static int PROGRAMAS = 4;
+    public final static int ENCUESTAS = 5;
+    public final static int ESTUDIANTES = 6;
+    public final static int FACULTAD_ESTUDIANTES = 7;
+    public final static int FACULTAD_PROGRAMA = 8;
+    public final static int PROGRAMA_ESTUDIANTES = 9;
+    
+    public GraficoController(String titulo){
         this.titulo = titulo;
     }
     DefaultPieDataset data;
-    JFreeChart grafico;
+    public JFreeChart grafico;
     ChartPanel chartPanel;
     XYSeriesCollection datos;
     XYSeriesCollection dataxy;
     
     @Override
-    public void obtenerDatos(String sql){
+    public boolean obtenerDatos(String sql){
         data = new DefaultPieDataset();
         dataxy = new XYSeriesCollection();
         XYSeries xySerie = new XYSeries("Estudiantes por Programa");
@@ -71,9 +97,8 @@ public class GraficoController implements interfaces.IGraficas{
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                i=i+1;
-                registro[0]=rs.getString(campos[0]);
-                registro[1]=rs.getString(campos[1]);
+                registro[0]=rs.getString(1);
+                registro[1]=rs.getString(2);
                 data.setValue(registro[0], Integer.parseInt(registro[1]));
                 xySerie.addOrUpdate(i, Integer.parseInt(registro[1]));
                 model.addRow(registro);
@@ -81,21 +106,17 @@ public class GraficoController implements interfaces.IGraficas{
             }
             System.out.println("Enviando el Registro.");
             generarTabla(registro);
+            //tipoGrafico(10);
+            return true;
         }catch(NullPointerException | SQLException ex){
             System.out.println("ERROR: "+ex);
         }
+        return false;
     }
     @Override
     public void generarTabla(String [] registro){
-        //view.Admin.tbEstProg.setModel(model);
+        view.Admin.tbEstProg.setModel(model);
         System.out.println("Generando la Tabla");
-    }
-    public static void main(String []args){
-        /*
-        GraficoController graf = new GraficoController(PASO, "Estudiantes por Programa");
-        String sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
-        graf.obtenerDatos(sql);
-        */
     }
     /*
     @Override
@@ -105,23 +126,9 @@ public class GraficoController implements interfaces.IGraficas{
     */
     @Override
     public void graficarDatos(/*DefaultPieDataset data*/){
-        //grafico = ChartFactory.createPieChart(titulo, data);
-        //grafico = ChartFactory.createPieChart3D(titulo, data);
-         /*titulo,
-         data, 
-         true, 
-         true, 
-         false);
-        */
-        // Creamos el Panel del Grafico con ChartPanel
         chartPanel = new ChartPanel(grafico);
-        //view.Admin.pnlChartEstu.removeAll();
-        //view.Admin.pnlChartEstu.add(chartPanel, BorderLayout.CENTER);
-        //view.Admin.pnlChartEstu.validate();
-        //Grafica gra = new Grafica(chartPanel);
-        //gra.setVisible(true);
-        //guardarImagen();
-        
+        Grafica gra = new Grafica(chartPanel);
+        gra.setVisible(true);
     }
     @Override
     public void guardarImagen(){
@@ -141,43 +148,175 @@ public class GraficoController implements interfaces.IGraficas{
     public final void tipoGrafico(int tipo){
         switch(tipo){
             case LINEAL:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createXYLineChart(titulo, "Programas", "Estudiantes", dataxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case POLAR:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createPolarChart(titulo, dataxy, true, true, true);
                 break;
             case DISPERSION:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createScatterPlot(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case AREA:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createXYAreaChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case LOGARITMICA:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createXYLineChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
                 XYPlot ejes=grafico.getXYPlot();
                 NumberAxis rango = new LogarithmicAxis(ty);
                 ejes.setRangeAxis(rango);
                 break;
             case SERIETIEMPO:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createTimeSeriesChart(titulo, tx, ty, dataxy, true, true, true);
                 break;
             case PASO:
                 grafico = ChartFactory.createXYStepChart(titulo, ty, tx, dataxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case PASOAREA:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createXYStepAreaChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case PIECHART:
+                System.out.println("GEnerando gráfica");
                 grafico = ChartFactory.createPieChart(titulo, data, true, true, true);
                 break;
             case PIECHART3D:
+                System.out.println("GEnerando gráfica 3D.\nDatos: "+data);
                 grafico = ChartFactory.createPieChart3D(titulo, data, true, true, true);
                 break;
         }
         chartPanel = new ChartPanel(grafico);
-        //view.Admin.pnlChartEstu.removeAll();
-        //view.Admin.pnlChartEstu.add(chartPanel, BorderLayout.CENTER);
-        //view.Admin.pnlChartEstu.validate();
+        view.Admin.pnlChartEstu.removeAll();
+        view.Admin.pnlChartEstu.add(chartPanel, BorderLayout.CENTER);
+        view.Admin.pnlChartEstu.validate();
+        view.Admin.btnReportGen.setEnabled(true);
+    }
+    
+    public final String realizarConsulta(int consulta){
+        //GraficoController grafc = new GraficoController("Titulo de pruebas Consulta");
+        //String sql;
+        switch (consulta){
+            case GENERAL:
+                sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
+                obtenerDatos(sql);
+                JOptionPane.showMessageDialog(null, "Consulta Realizada");
+                break;
+            case PERIODOS:
+                sql ="SELECT periodo, periodo_id FROM tb_periodos;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+            case FACULTADES:
+                sql="select facultad, sede_id FROM tb_facultades;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+            case PROGRAMAS:
+                sql="SELECT programa, facultad_id FROM tb_programas;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+            case ENCUESTAS:
+                sql="SELECT encuesta, encuesta_id FROM tb_encuestas;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+            case ESTUDIANTES:
+                sql="SELECT estudiante_cod, estudiante_id FROM tb_estudiantes;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+            case FACULTAD_ESTUDIANTES:
+                sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
+                obtenerDatos(sql);
+                msgConsultaOK();
+                break;
+        }
+        return sql;
+    }
+    public void msgConsultaOK(){
+        JOptionPane.showMessageDialog(null, "Consulta Realizada");
+    }
+    public boolean generarReporte(String ruta){
+        try{
+            String line ="";
+            for(int i =0;i<=77;i++){
+                line+="_";
+            }
+            FileOutputStream archivo;
+            File file= new File(ruta);
+            archivo = new FileOutputStream(file);
+            Document documento = new Document();
+            PdfWriter.getInstance(documento, archivo);
+            Paragraph pEncabezado = new Paragraph();
+            Paragraph encabezado = new Paragraph();
+            documento.open();
+            try {
+                PdfPTable tablaEncabezado = new PdfPTable(2);
+                tablaEncabezado.addCell("Programa Académico");
+                tablaEncabezado.addCell("Estudiantes");
+                tablaEncabezado.addCell("TDS");
+                tablaEncabezado.addCell("81");
+                encabezado.setAlignment(Element.ALIGN_CENTER);
+                encabezado.add("Reporte General de la Población Estudiantil");
+                encabezado.add(line+"\n");
+                Image img =  Image.getInstance("src/img/logo.png");
+                img.setAlignment(Element.ALIGN_CENTER);
+                img.scaleToFit(100, 100);
+                encabezado.add(img);
+                encabezado.add(line+"\n");
+                documento.add(encabezado);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"Error obteniendo la imagen. "+ex);
+                Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pEncabezado.add("Vicerrectoría: "+"Regionall Llanos\n");
+            pEncabezado.add("Sede: "+"Villavicencio\n");
+            pEncabezado.add("Reporte generado poren: "+"Regional Orinoquía\n");
+            PdfPTable tbRepo = new PdfPTable(2);
+            tbRepo.addCell("Programa Académico");
+            tbRepo.addCell("Estudiantes");
+            tbRepo.addCell("TDS");
+            tbRepo.addCell("81");
+            //documento.add(encabezado);
+            documento.add(pEncabezado);
+            documento.add(tbRepo);
+            documento.close();
+            archivo.close();
+            mostrarReporte(file);
+            return true;
+        }catch(DocumentException | FileNotFoundException e){
+            System.out.println("ERROR: "+e);
+        } catch (IOException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public void mostrarReporte(File archivo){
+        try{
+            Desktop.getDesktop().open(archivo);
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null,"ERROR: "+e);
+        }
+    }
+
+    public static void main(String []args){
+        /*
+        GraficoController graficoCon = new GraficoController("Titulo de pruebas Consulta");
+        graficoCon.realizarConsulta(GraficoController.GENERAL);
+            System.out.println("Consulta Realizada.");
+        
+        /*
+        GraficoController graf = new GraficoController(PASO, "Estudiantes por Programa");
+        String sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
+        graf.obtenerDatos(sql);
+        */
     }
 
 }

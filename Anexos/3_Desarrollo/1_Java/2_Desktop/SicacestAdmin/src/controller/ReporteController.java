@@ -32,14 +32,14 @@ public class ReporteController implements interfaces.IReporte{
         
     }
     @Override
-    public boolean generarReporte(){
+    public boolean generarReporte(String ruta){
         try{
             String line ="";
             for(int i =0;i<=77;i++){
                 line+="_";
             }
             FileOutputStream archivo;
-            File file= new File("reporte.pdf");
+            File file= new File(ruta);
             archivo = new FileOutputStream(file);
             Document documento = new Document();
             PdfWriter.getInstance(documento, archivo);
@@ -97,9 +97,11 @@ public class ReporteController implements interfaces.IReporte{
         }
     }
     public static void main(String[] args){
+        /*
         ReporteController repo = new ReporteController(null, null);
-        if(repo.generarReporte()){
+        if(repo.generarReporte("/home/b41n/Escritorio/nuevo.pdf")){
             //JOptionPane.showMessageDialog(null, "Reporte "+"generado");
         }
+        */
     }
 }

@@ -3,6 +3,13 @@ gris #EDE9E3
 
 Azul Claro NB #9fa9fb
 
+#f44336 Rojo Error
+
+
+Vrede OK1 #8BC34A
+Vrede OK2 #4caf50
+
+
 [252,252,252] blanco FCFCFC
 [252,252,252] blancoNB #abcdef
 [252,252,252] blanco2 ECF3F5
@@ -54,3 +61,4 @@ Login Input Old
 background: #2b3e5d;
   border: 1px solid #15243b;
   border-top-color: #0d1827;
+

@@ -44,7 +44,7 @@ public class Grafica extends javax.swing.JFrame{
         pnlChartEstu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlChartEstu.setLayout(new java.awt.BorderLayout());
 

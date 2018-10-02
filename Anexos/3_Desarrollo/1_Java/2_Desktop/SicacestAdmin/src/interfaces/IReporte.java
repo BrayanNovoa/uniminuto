@@ -13,6 +13,6 @@ import java.io.File;
  * @author b41n
  */
 public interface IReporte {
-    public boolean generarReporte();
+    public boolean generarReporte(String ruta);
     public void mostrarReporte(File archivo);
 }

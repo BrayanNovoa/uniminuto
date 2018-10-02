@@ -11,21 +11,19 @@ import controller.AdminDbController;
 import controller.EncuestasController;
 import controller.GraficoController;
 import controller.PreguntasController;
+import controller.ReporteController;
 import controller.RespuestasController;
-import java.awt.Color;
 import java.awt.Toolkit;
-import static java.awt.image.ImageObserver.WIDTH;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,6 +38,7 @@ public final class Admin extends javax.swing.JFrame {
     PreguntasController preg = new PreguntasController();
     RespuestasController respc = new RespuestasController();
     GraficoController grafc = new GraficoController("");
+    private String sql;
     DefaultTableModel model;
 
     /**
@@ -88,6 +87,9 @@ public final class Admin extends javax.swing.JFrame {
         cmbFindFacultad.setEnabled(false);
         cmbFindEncuestas.setEnabled(false);
         cmbFindPrograma.setEnabled(false);
+        btnReportGen.setEnabled(false);
+        btnChartTable.setEnabled(false);
+        btnChartTableWindow.setEnabled(false);
     }
 
     /**
@@ -251,13 +253,13 @@ public final class Admin extends javax.swing.JFrame {
         pnl_tb_EstPrograma = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
         tbEstProg = new javax.swing.JTable();
-        btnGraficaPoblacion = new javax.swing.JButton();
+        btnReportGen = new javax.swing.JButton();
         cmbTipoGrafica = new javax.swing.JComboBox<>();
+        btnChartTableWindow = new javax.swing.JButton();
+        btnChartTable = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
         pnlChartEstu = new javax.swing.JPanel();
         btnGraficaPoblacion1 = new javax.swing.JButton();
-        pnl_Reportes = new javax.swing.JPanel();
-        jScrollPane16 = new javax.swing.JScrollPane();
-        txt_Info6 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(224, 255, 255));
@@ -1600,45 +1602,75 @@ public final class Admin extends javax.swing.JFrame {
             tbEstProg.getColumnModel().getColumn(1).setMaxWidth(50);
         }
 
-        btnGraficaPoblacion.setBackground(new java.awt.Color(255, 205, 7));
-        btnGraficaPoblacion.setText("GRAFICAR");
-        btnGraficaPoblacion.addActionListener(new java.awt.event.ActionListener() {
+        btnReportGen.setBackground(new java.awt.Color(255, 205, 7));
+        btnReportGen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pdf-100(2).png"))); // NOI18N
+        btnReportGen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGraficaPoblacionActionPerformed(evt);
+                btnReportGenActionPerformed(evt);
             }
         });
 
         cmbTipoGrafica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione tipo de gráfico...", "Lineal", "Torta2D", "Barras", "Puntos" }));
 
+        btnChartTableWindow.setBackground(new java.awt.Color(255, 205, 7));
+        btnChartTableWindow.setText("GRAFICAR EN UNA VENTANA");
+        btnChartTableWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChartTableWindowActionPerformed(evt);
+            }
+        });
+
+        btnChartTable.setBackground(new java.awt.Color(255, 205, 7));
+        btnChartTable.setText("GRAFICAR TABLA");
+        btnChartTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChartTableActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Generar Archivo PDF");
+
         javax.swing.GroupLayout pnl_tb_EstProgramaLayout = new javax.swing.GroupLayout(pnl_tb_EstPrograma);
         pnl_tb_EstPrograma.setLayout(pnl_tb_EstProgramaLayout);
         pnl_tb_EstProgramaLayout.setHorizontalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGraficaPoblacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbTipoGrafica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(cmbTipoGrafica, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnChartTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_tb_EstProgramaLayout.setVerticalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbTipoGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnGraficaPoblacion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnChartTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnChartTableWindow)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel31)
+                .addGap(2, 2, 2)
+                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlChartEstu.setBackground(new java.awt.Color(252, 252, 252));
         pnlChartEstu.setLayout(new java.awt.BorderLayout());
 
         btnGraficaPoblacion1.setBackground(new java.awt.Color(255, 205, 7));
-        btnGraficaPoblacion1.setText("GUARDAR COMO IMAGEN");
+        btnGraficaPoblacion1.setText("GUARDAR GRÁFICA COMO IMAGEN");
         btnGraficaPoblacion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGraficaPoblacion1ActionPerformed(evt);
@@ -1677,27 +1709,6 @@ public final class Admin extends javax.swing.JFrame {
 
         jtp_Modulos.addTab("Análisis Estadístico", pnl_Estadistica);
 
-        pnl_Reportes.setBackground(new java.awt.Color(243, 249, 249));
-
-        txt_Info6.setEditable(false);
-        txt_Info6.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
-        jScrollPane16.setViewportView(txt_Info6);
-
-        javax.swing.GroupLayout pnl_ReportesLayout = new javax.swing.GroupLayout(pnl_Reportes);
-        pnl_Reportes.setLayout(pnl_ReportesLayout);
-        pnl_ReportesLayout.setHorizontalGroup(
-            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 1305, Short.MAX_VALUE)
-        );
-        pnl_ReportesLayout.setVerticalGroup(
-            pnl_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ReportesLayout.createSequentialGroup()
-                .addGap(0, 557, Short.MAX_VALUE)
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jtp_Modulos.addTab("Gestión de Reportes", pnl_Reportes);
-
         pnl_Principal.add(jtp_Modulos, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1722,13 +1733,6 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         grafc.guardarImagen();
     }//GEN-LAST:event_btnGraficaPoblacion1ActionPerformed
-
-    private void btnGraficaPoblacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficaPoblacionActionPerformed
-        // TODO add your handling code here:
-        grafc.tipoGrafico(GraficoController.PIECHART3D);
-        //grafc.graficarDatos();
-
-    }//GEN-LAST:event_btnGraficaPoblacionActionPerformed
 
     private void chkProgramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkProgramaMouseClicked
         // TODO add your handling code here:
@@ -1787,13 +1791,52 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
         // TODO add your handling code here:
-        String sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
-        grafc.obtenerDatos(sql);
+        //grafc.tipoGrafico(GraficoController.PIECHART3D);
+        //btnChartTableWindow.setEnabled(true);
+        
+        
+        //consc.realizarConsulta(ConsultaController.PROGRAMA_ESTUDIANTES);
+        if(chkGeneral.isSelected()){
+            grafc.realizarConsulta(GraficoController.GENERAL);
+            //grafc.tipoGrafico(GraficoController.PIECHART3D);
+            activeBtnChart();
+            //sql="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
+        }else if(chkPeriodo.isSelected()){
+            grafc.realizarConsulta(GraficoController.PERIODOS);
+            activeBtnChart();
+        }else if(chkFacultad.isSelected()){
+            grafc.realizarConsulta(GraficoController.FACULTADES);
+            activeBtnChart();
+        }else if(chkPrograma.isSelected()){
+            grafc.realizarConsulta(GraficoController.PROGRAMAS);
+            activeBtnChart();
+        }else if(chkEncuesta.isSelected()){
+            grafc.realizarConsulta(GraficoController.ENCUESTAS);
+            activeBtnChart();
+        }else if(chkEstudiante.isSelected()){
+            grafc.realizarConsulta(GraficoController.ESTUDIANTES);
+            activeBtnChart();
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
+        }
+        /*
+        if(grafc.obtenerDatos(sql)){
+            //JOptionPane.showMessageDialog(null, "Consulta: "+ sql);
+            btnChartTable.setEnabled(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Error realizando la consulta");
+        }
+        */
         //pnlCartEstu.removeAll();
         //pnlCartEstu.add(chartPanel, BorderLayout.CENTER);
         //pnlCartEstu.validate();
     }//GEN-LAST:event_btnConsultaActionPerformed
 
+    public void activeBtnChart(){
+        btnChartTable.setEnabled(true);
+        //btnChartTableWindow.setEnabled(true);
+        //btnReportGen.setEnabled(true);
+    }
     private void chkEncuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkEncuestaMouseClicked
         // TODO add your handling code here:
         if(chkEncuesta.isSelected()){
@@ -1973,6 +2016,35 @@ public final class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbPeriodosMouseClicked
 
+    private void btnChartTableWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartTableWindowActionPerformed
+        // TODO add your handling code here:
+        //grafc.graficarDatos();
+        grafc.graficarDatos();
+    }//GEN-LAST:event_btnChartTableWindowActionPerformed
+
+    private void btnReportGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportGenActionPerformed
+        // TODO add your handling code here:
+        JButton abrir = new JButton();
+        JFileChooser jfc = new JFileChooser();
+        jfc.setCurrentDirectory(new File("/home/b41n/Escritorio"));
+        jfc.setDialogTitle("Guardar Reporte");
+        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if(jfc.showOpenDialog(abrir) == JFileChooser.APPROVE_OPTION){
+            String ruta = jfc.getSelectedFile().getAbsolutePath();
+            System.out.println("Ruta Del Archivo: "+ruta);
+            File archivo = new File(ruta);
+            //ReporteController reportar = new ReporteController(archivo,"");
+            grafc.generarReporte(ruta);
+        }
+    }//GEN-LAST:event_btnReportGenActionPerformed
+
+    private void btnChartTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartTableActionPerformed
+        // TODO add your handling code here:
+        grafc.tipoGrafico(GraficoController.PIECHART3D);
+        btnChartTableWindow.setEnabled(true);
+        //grafc.graficarDatos();
+    }//GEN-LAST:event_btnChartTableActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2011,29 +2083,31 @@ public final class Admin extends javax.swing.JFrame {
     public Object[] estudiantes;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarLista;
+    public static javax.swing.JButton btnChartTable;
+    private javax.swing.JButton btnChartTableWindow;
     private javax.swing.JButton btnConsulta;
-    private javax.swing.JButton btnGraficaPoblacion;
     private javax.swing.JButton btnGraficaPoblacion1;
     private javax.swing.JButton btnGuardarEncuesta;
-    private javax.swing.JButton btnGuardarEstudiantes;
+    public static javax.swing.JButton btnGuardarEstudiantes;
     private javax.swing.JButton btnGuardarPregunta;
     private javax.swing.JButton btnGuardarRespuesta;
+    public static javax.swing.JButton btnReportGen;
     private javax.swing.JCheckBox chkEncuesta;
     private javax.swing.JCheckBox chkEstudiante;
     private javax.swing.JCheckBox chkFacultad;
     private javax.swing.JCheckBox chkGeneral;
     private javax.swing.JCheckBox chkPeriodo;
     private javax.swing.JCheckBox chkPrograma;
-    private javax.swing.JComboBox<String> cmbEncuestas;
+    public static javax.swing.JComboBox<String> cmbEncuestas;
     private javax.swing.JComboBox<String> cmbEncuestasFind;
-    private javax.swing.JComboBox<String> cmbFacultades;
+    public static javax.swing.JComboBox<String> cmbFacultades;
     private javax.swing.JComboBox<String> cmbFindEncuestas;
     private javax.swing.JComboBox<String> cmbFindFacultad;
     private javax.swing.JComboBox<String> cmbFindPrograma;
     private javax.swing.JComboBox<String> cmbPeriodo;
     private javax.swing.JComboBox<String> cmbPreguntasFind;
     private javax.swing.JComboBox<String> cmbTipoGrafica;
-    private javax.swing.JComboBox<String> cmbTipoPregunta;
+    public static javax.swing.JComboBox<String> cmbTipoPregunta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2064,6 +2138,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2093,7 +2168,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
-    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
@@ -2116,13 +2190,13 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
+    public static javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTabbedPane jtp_Modulos;
     private javax.swing.JLabel lblEncuesta;
     private javax.swing.JLabel lblPregunta;
-    private javax.swing.JPanel pnlChartEstu;
+    public static javax.swing.JPanel pnlChartEstu;
     private javax.swing.JPanel pnl_CargaEstud;
     private javax.swing.JPanel pnl_Datos;
     private javax.swing.JPanel pnl_Encuestas;
@@ -2133,17 +2207,16 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_Periodo;
     private javax.swing.JPanel pnl_Principal;
     private javax.swing.JPanel pnl_Programa;
-    private javax.swing.JPanel pnl_Reportes;
     private javax.swing.JPanel pnl_tb_EstPrograma;
-    private javax.swing.JTable tbEncuestas;
-    private javax.swing.JTable tbEstProg;
-    private javax.swing.JTable tbEstudiantes;
-    private javax.swing.JTable tbFacultades;
-    private javax.swing.JTable tbPeriodos;
-    private javax.swing.JTable tbPreguntas;
-    private javax.swing.JTable tbProgramas;
-    private javax.swing.JTable tbRespuestas;
-    private javax.swing.JTable tbTipoPreguntas;
+    public static javax.swing.JTable tbEncuestas;
+    public static javax.swing.JTable tbEstProg;
+    public static javax.swing.JTable tbEstudiantes;
+    public static javax.swing.JTable tbFacultades;
+    public static javax.swing.JTable tbPeriodos;
+    public static javax.swing.JTable tbPreguntas;
+    public static javax.swing.JTable tbProgramas;
+    public static javax.swing.JTable tbRespuestas;
+    public static javax.swing.JTable tbTipoPreguntas;
     private javax.swing.JTextField txtAgno;
     private javax.swing.JTextField txtCiclo;
     private javax.swing.JTextField txtEncuDescrip;
@@ -2158,14 +2231,13 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrograma1;
     public static javax.swing.JLabel txtRectoria;
     public static javax.swing.JLabel txtSede;
-    private javax.swing.JLabel txtSedeEstudiante;
+    public static javax.swing.JLabel txtSedeEstudiante;
     public static javax.swing.JLabel txtUsuario;
     private javax.swing.JTextPane txt_Info1;
     private javax.swing.JTextPane txt_Info2;
     private javax.swing.JTextPane txt_Info3;
     private javax.swing.JTextPane txt_Info4;
     private javax.swing.JTextPane txt_Info5;
-    private javax.swing.JTextPane txt_Info6;
     private javax.swing.JTextPane txt_Info7;
     private javax.swing.JTextPane txt_Info8;
     private javax.swing.JTextPane txt_Info9;
