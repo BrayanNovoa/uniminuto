@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -50,6 +51,8 @@ public class GraficoController implements interfaces.IGraficas{
     DbConnection entrar = new DbConnection();
     public String sql;
     //sString sql;
+    
+    public Object dataTB;
     
     DefaultTableModel model;
     String titulo, tx,ty;
@@ -82,6 +85,8 @@ public class GraficoController implements interfaces.IGraficas{
     ChartPanel chartPanel;
     XYSeriesCollection datos;
     XYSeriesCollection dataxy;
+    OutputStream out;
+    PdfPTable tbRepo;
     
     @Override
     public boolean obtenerDatos(String sql){
@@ -96,9 +101,19 @@ public class GraficoController implements interfaces.IGraficas{
         try{
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int numcol= rsmd.getColumnCount();
+            tbRepo = new PdfPTable(numcol);
+            tbRepo.addCell("Programa Académico");
+            tbRepo.addCell("Estudiantes");
             while(rs.next()){
+                i=i+1;
                 registro[0]=rs.getString(1);
                 registro[1]=rs.getString(2);
+                
+                tbRepo.addCell(rs.getString(1));
+                tbRepo.addCell(rs.getString(2));
+                
                 data.setValue(registro[0], Integer.parseInt(registro[1]));
                 xySerie.addOrUpdate(i, Integer.parseInt(registro[1]));
                 model.addRow(registro);
@@ -129,20 +144,6 @@ public class GraficoController implements interfaces.IGraficas{
         chartPanel = new ChartPanel(grafico);
         Grafica gra = new Grafica(chartPanel);
         gra.setVisible(true);
-    }
-    @Override
-    public void guardarImagen(){
-        try {   
-            OutputStream out = new FileOutputStream("grafico.png");
-            ChartUtilities.writeChartAsPNG(out,
-                    grafico,
-                    chartPanel.getWidth(),
-                    chartPanel.getHeight());
-            JOptionPane.showMessageDialog(null,"Imágen de la gráfica guardada.");
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
-        }
-        
     }
     
     public final void tipoGrafico(int tipo){
@@ -239,52 +240,86 @@ public class GraficoController implements interfaces.IGraficas{
         }
         return sql;
     }
+    
     public void msgConsultaOK(){
         JOptionPane.showMessageDialog(null, "Consulta Realizada");
     }
+    
+        @Override
+    public void guardarImagen(){
+        try {   
+            out = new FileOutputStream("grafico.png");
+            ChartUtilities.writeChartAsPNG(out,
+                    grafico,
+                    chartPanel.getWidth(),
+                    chartPanel.getHeight());
+            JOptionPane.showMessageDialog(null,"Imágen de la gráfica guardada.");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
+        }
+        
+    }
+    
     public boolean generarReporte(String ruta){
         try{
             String line ="";
             for(int i =0;i<=77;i++){
                 line+="_";
             }
+            Paragraph encabezado = new Paragraph();
+            encabezado.setAlignment(Element.ALIGN_CENTER);
+            encabezado.add("Reporte General de la Población Estudiantil");
+            encabezado.add(line+"\n");
             FileOutputStream archivo;
             File file= new File(ruta);
             archivo = new FileOutputStream(file);
             Document documento = new Document();
             PdfWriter.getInstance(documento, archivo);
+            Paragraph pLogo = new Paragraph();
             Paragraph pEncabezado = new Paragraph();
-            Paragraph encabezado = new Paragraph();
+            Paragraph pGrafico = new Paragraph();
+            PdfPTable tbEncabezado = new PdfPTable(2);
             documento.open();
             try {
-                PdfPTable tablaEncabezado = new PdfPTable(2);
-                tablaEncabezado.addCell("Programa Académico");
-                tablaEncabezado.addCell("Estudiantes");
-                tablaEncabezado.addCell("TDS");
-                tablaEncabezado.addCell("81");
-                encabezado.setAlignment(Element.ALIGN_CENTER);
-                encabezado.add("Reporte General de la Población Estudiantil");
-                encabezado.add(line+"\n");
-                Image img =  Image.getInstance("src/img/logo.png");
+                pEncabezado.add("Reporte generado por: "
+                        +view.Admin.txtUsuario.getText()+"\n");
+                pEncabezado.add("Rectoría: "
+                        +view.Admin.txtRectoria.getText()+"\n");
+                pEncabezado.add("Sede: "
+                        +view.Admin.txtSede.getText()+"\n");
+                tbEncabezado.addCell(pEncabezado);
+                
+                Image img =  Image.getInstance("src/img/logorepo.png");
                 img.setAlignment(Element.ALIGN_CENTER);
-                img.scaleToFit(100, 100);
-                encabezado.add(img);
+                //img.scaleToFit(100, 100);
+                //pLogo.add(img);
+                tbEncabezado.addCell(img);
+                try {   
+                    out = new FileOutputStream("grafico.png");
+                    ChartUtilities.writeChartAsPNG(out, grafico, 550, 550);
+                    Image imgChart = Image.getInstance("grafico.png");
+                    imgChart.setAlignment(Element.ALIGN_CENTER);
+                    imgChart.scaleToFit(450, 450);
+                    pGrafico.add(imgChart);
+                    JOptionPane.showMessageDialog(null,"Imágen de la gráfica guardada.");
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
+                }
+                
+                //encabezado.add(img);
                 encabezado.add(line+"\n");
                 documento.add(encabezado);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,"Error obteniendo la imagen. "+ex);
                 Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            pEncabezado.add("Vicerrectoría: "+"Regionall Llanos\n");
-            pEncabezado.add("Sede: "+"Villavicencio\n");
-            pEncabezado.add("Reporte generado poren: "+"Regional Orinoquía\n");
-            PdfPTable tbRepo = new PdfPTable(2);
-            tbRepo.addCell("Programa Académico");
-            tbRepo.addCell("Estudiantes");
-            tbRepo.addCell("TDS");
-            tbRepo.addCell("81");
+            
+            
             //documento.add(encabezado);
-            documento.add(pEncabezado);
+            //documento.add(pEncabezado);
+            documento.add(tbEncabezado);
+            documento.add(pGrafico);
+            
             documento.add(tbRepo);
             documento.close();
             archivo.close();
