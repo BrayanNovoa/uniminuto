@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import view.Cargador;
 
 /**
  *
@@ -26,7 +25,6 @@ public class EncuestasController implements interfaces.IEncuestas{
     @Override
     public boolean guardarEncuesta(String encuesta, String descripcion){
         PreparedStatement pst;
-        Connection cn = entrar.getConexion();
         try{
             String sql = "INSERT INTO tb_encuestas (encuesta, descripcion)VALUES(?,?)";
             pst = entrar.getConexion().prepareStatement(sql);
@@ -94,16 +92,4 @@ public class EncuestasController implements interfaces.IEncuestas{
         }
     }
     
-    @Override
-    public void llenarComboTipoEncuestas() {
-        
-    }
-    
-    public static void main(String [] args){
-        //EncuestasController enc = new EncuestasController();
-        //enc.buscarEncuestas();
-        //enc.guardarEncuesta("Prueba desde Java", "Prueba desde Java");
-        //enc.guardarPregunta("Datos Básicos", "Texto", "Pregunta Prueba EncuestasController");
-        //enc.buscarTipoPreguntas();
-    }
 }

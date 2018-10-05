@@ -30,7 +30,6 @@ public class PreguntasController implements interfaces.IPreguntas{
         view.Cargador.txtAccion.setText("Guardando");
         try{
             PreparedStatement pst;
-            Connection cn = entrar.getConexion();
             view.Cargador.txtElemento.setText(pregunta);
             String sql ="INSERT INTO tb_preguntas (encuesta_id, tipo_pregunta_id, pregunta) VALUES(";
             String sqlEncuesta="(SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='"+encuesta+"'),";
@@ -57,7 +56,6 @@ public class PreguntasController implements interfaces.IPreguntas{
         String [] campos={"Pregunta", "Tipo Pregunta"};
         String [] registro = new String[campos.length];
         String sql = "SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta='"+encuesta+"') AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
-        //String sql = "SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta='"+encuesta+"') AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
         model = new DefaultTableModel(null,campos);
         try{
             Connection cn = entrar.getConexion();
@@ -72,14 +70,6 @@ public class PreguntasController implements interfaces.IPreguntas{
         }catch(SQLException ex){
             System.out.println("ERROR"+ex);
         }
-    }
-    
-    public static void main(String [] args){
-        PreguntasController enc = new PreguntasController();
-        //enc.buscarEncuestas();
-        //enc.guardarEncuesta("Prueba desde Java", "Prueba desde Java");
-        enc.guardarPregunta("Pruebas Controladores", "Preguntas Script Testing", "Pregunta Prueba EncuestaController1");
-        //enc.buscarTipoPreguntas();
     }
     
 }

@@ -50,7 +50,6 @@ import view.Grafica;
 public class GraficoController implements interfaces.IGraficas{
     DbConnection entrar = new DbConnection();
     public String sql;
-    //sString sql;
     
     public Object dataTB;
     
@@ -113,7 +112,6 @@ public class GraficoController implements interfaces.IGraficas{
                 
                 tbRepo.addCell(rs.getString(1));
                 tbRepo.addCell(rs.getString(2));
-                
                 data.setValue(registro[0], Integer.parseInt(registro[1]));
                 xySerie.addOrUpdate(i, Integer.parseInt(registro[1]));
                 model.addRow(registro);
@@ -121,7 +119,6 @@ public class GraficoController implements interfaces.IGraficas{
             }
             System.out.println("Enviando el Registro.");
             generarTabla(registro);
-            //tipoGrafico(10);
             return true;
         }catch(NullPointerException | SQLException ex){
             System.out.println("ERROR: "+ex);
@@ -133,14 +130,9 @@ public class GraficoController implements interfaces.IGraficas{
         view.Admin.tbEstProg.setModel(model);
         System.out.println("Generando la Tabla");
     }
-    /*
+    
     @Override
-    public void generarDataSet(String [] registro){
-        
-    }
-    */
-    @Override
-    public void graficarDatos(/*DefaultPieDataset data*/){
+    public void graficarDatos(){
         chartPanel = new ChartPanel(grafico);
         Grafica gra = new Grafica(chartPanel);
         gra.setVisible(true);
@@ -199,8 +191,6 @@ public class GraficoController implements interfaces.IGraficas{
     }
     
     public final String realizarConsulta(int consulta){
-        //GraficoController grafc = new GraficoController("Titulo de pruebas Consulta");
-        //String sql;
         switch (consulta){
             case GENERAL:
                 sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
@@ -257,7 +247,6 @@ public class GraficoController implements interfaces.IGraficas{
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
         }
-        
     }
     
     public boolean generarReporte(String ruta){
@@ -275,7 +264,6 @@ public class GraficoController implements interfaces.IGraficas{
             archivo = new FileOutputStream(file);
             Document documento = new Document();
             PdfWriter.getInstance(documento, archivo);
-            Paragraph pLogo = new Paragraph();
             Paragraph pEncabezado = new Paragraph();
             Paragraph pGrafico = new Paragraph();
             PdfPTable tbEncabezado = new PdfPTable(2);
@@ -291,8 +279,6 @@ public class GraficoController implements interfaces.IGraficas{
                 
                 Image img =  Image.getInstance("src/img/logorepo.png");
                 img.setAlignment(Element.ALIGN_CENTER);
-                //img.scaleToFit(100, 100);
-                //pLogo.add(img);
                 tbEncabezado.addCell(img);
                 try {   
                     out = new FileOutputStream("grafico.png");
@@ -305,21 +291,14 @@ public class GraficoController implements interfaces.IGraficas{
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
                 }
-                
-                //encabezado.add(img);
                 encabezado.add(line+"\n");
                 documento.add(encabezado);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,"Error obteniendo la imagen. "+ex);
-                Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
-            //documento.add(encabezado);
-            //documento.add(pEncabezado);
             documento.add(tbEncabezado);
             documento.add(pGrafico);
-            
             documento.add(tbRepo);
             documento.close();
             archivo.close();
@@ -328,7 +307,7 @@ public class GraficoController implements interfaces.IGraficas{
         }catch(DocumentException | FileNotFoundException e){
             System.out.println("ERROR: "+e);
         } catch (IOException ex) {
-            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -339,19 +318,6 @@ public class GraficoController implements interfaces.IGraficas{
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"ERROR: "+e);
         }
-    }
-
-    public static void main(String []args){
-        /*
-        GraficoController graficoCon = new GraficoController("Titulo de pruebas Consulta");
-        graficoCon.realizarConsulta(GraficoController.GENERAL);
-            System.out.println("Consulta Realizada.");
-        
-        /*
-        GraficoController graf = new GraficoController(PASO, "Estudiantes por Programa");
-        String sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
-        graf.obtenerDatos(sql);
-        */
     }
 
 }

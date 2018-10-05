@@ -7,11 +7,9 @@
 package view;
 
 import controller.AdminController;
-import controller.AdminDbController;
 import controller.EncuestasController;
 import controller.GraficoController;
 import controller.PreguntasController;
-import controller.ReporteController;
 import controller.RespuestasController;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -32,7 +30,6 @@ import javax.swing.table.DefaultTableModel;
  * @author b41n
  */
 public final class Admin extends javax.swing.JFrame {
-    AdminDbController adbc = new AdminDbController();
     AdminController adc = new AdminController();
     EncuestasController enc = new EncuestasController();
     PreguntasController preg = new PreguntasController();
@@ -56,8 +53,6 @@ public final class Admin extends javax.swing.JFrame {
         btnGuardarEncuesta.setEnabled(false);
         btnCargarLista.setEnabled(false);
         adc.buscarPeriodos();
-        //adc.buscarFacultades();
-        //adc.buscarProgramas();
         enc.buscarEncuestas();
         enc.buscarTipoPreguntas();
         cmbTipoPregunta.setEnabled(false);
@@ -1791,16 +1786,9 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
         // TODO add your handling code here:
-        //grafc.tipoGrafico(GraficoController.PIECHART3D);
-        //btnChartTableWindow.setEnabled(true);
-        
-        
-        //consc.realizarConsulta(ConsultaController.PROGRAMA_ESTUDIANTES);
         if(chkGeneral.isSelected()){
             grafc.realizarConsulta(GraficoController.GENERAL);
-            //grafc.tipoGrafico(GraficoController.PIECHART3D);
             activeBtnChart();
-            //sql="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
         }else if(chkPeriodo.isSelected()){
             grafc.realizarConsulta(GraficoController.PERIODOS);
             activeBtnChart();
@@ -1819,23 +1807,10 @@ public final class Admin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
         }
-        /*
-        if(grafc.obtenerDatos(sql)){
-            //JOptionPane.showMessageDialog(null, "Consulta: "+ sql);
-            btnChartTable.setEnabled(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Error realizando la consulta");
-        }
-        */
-        //pnlCartEstu.removeAll();
-        //pnlCartEstu.add(chartPanel, BorderLayout.CENTER);
-        //pnlCartEstu.validate();
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     public void activeBtnChart(){
         btnChartTable.setEnabled(true);
-        //btnChartTableWindow.setEnabled(true);
-        //btnReportGen.setEnabled(true);
     }
     private void chkEncuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkEncuestaMouseClicked
         // TODO add your handling code here:
@@ -1955,7 +1930,6 @@ public final class Admin extends javax.swing.JFrame {
 
     private void tbProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProgramasMouseClicked
         // TODO add your handling code here:
-        // TODO add your handling code here:
         JTable source = (JTable)evt.getSource();
         int row = source.rowAtPoint( evt.getPoint() );
         int column = source.columnAtPoint( evt.getPoint() );
@@ -1970,7 +1944,6 @@ public final class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tbProgramasMouseClicked
 
     private void tbFacultadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacultadesMouseClicked
-        // TODO add your handling code here:
         // TODO add your handling code here:
         JTable source = (JTable)evt.getSource();
         int row = source.rowAtPoint( evt.getPoint() );
@@ -2002,7 +1975,6 @@ public final class Admin extends javax.swing.JFrame {
 
     private void tbPeriodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPeriodosMouseClicked
         // TODO add your handling code here:
-        // TODO add your handling code here:
         JTable source = (JTable)evt.getSource();
         int row = source.rowAtPoint( evt.getPoint() );
         int column = source.columnAtPoint( evt.getPoint() );
@@ -2033,7 +2005,6 @@ public final class Admin extends javax.swing.JFrame {
             String ruta = jfc.getSelectedFile().getAbsolutePath();
             System.out.println("Ruta Del Archivo: "+ruta);
             File archivo = new File(ruta);
-            //ReporteController reportar = new ReporteController(archivo,"");
             grafc.generarReporte(ruta);
         }
     }//GEN-LAST:event_btnReportGenActionPerformed
@@ -2042,7 +2013,6 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         grafc.tipoGrafico(GraficoController.PIECHART3D);
         btnChartTableWindow.setEnabled(true);
-        //grafc.graficarDatos();
     }//GEN-LAST:event_btnChartTableActionPerformed
 
     /**

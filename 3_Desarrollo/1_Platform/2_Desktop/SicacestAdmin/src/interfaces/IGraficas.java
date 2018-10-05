@@ -6,16 +6,13 @@
  */
 package interfaces;
 
-import org.jfree.data.general.DefaultPieDataset;
-
 /**
  *
  * @author b41n
  */
 public interface IGraficas {
     public boolean obtenerDatos(String sql);
-    //public void generarDataSet(String [] registro);
     public void generarTabla(String [] registro);
-    public void graficarDatos(/*DefaultPieDataset data*/);
+    public void graficarDatos();
     public void guardarImagen();
 }

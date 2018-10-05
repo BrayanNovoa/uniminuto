@@ -162,12 +162,10 @@ public class AdminController implements interfaces.IAdmin {
             sqlPrograma = "(SELECT programa_id FROM tb_programas WHERE programa= '"+programa+"'),";
             sqlPeriodo = "(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+periodo+"'),";
             consulta=sql+sqlPrograma+sqlPeriodo+"4,"+"'"+estudiantes[i-1].toString().trim()+fin;
-            //System.out.println(consulta);
             try{
                 pst = entrar.getConexion().prepareStatement(consulta);
                 if(pst!=null){
                     pst.execute(consulta);
-                    //System.out.println("Estudiante Guardado: "+estudiantes[i-1]);
                     view.Cargador.txtStatus.setText("OK.");
                 }else{
                     JOptionPane.showMessageDialog(null, "ERROR");
@@ -175,7 +173,6 @@ public class AdminController implements interfaces.IAdmin {
             }catch(SQLException ex){
                 if(ex.equals("Duplicate entry '000324471' for key 'estudiante'")){
                     System.err.println("ERROR :"+ex);
-                    //JOptionPane.showMessageDialog(null, "Estudiante "+estudiantes[i-1]+" ya se encuentra registrado.");
                 }
                 System.err.println("ERROR:"+ex);
                 view.Cargador.txtStatus.setText("ERROR: "+ex);
@@ -189,12 +186,6 @@ public class AdminController implements interfaces.IAdmin {
             }
         }
         return false;
-    }
-    
-    public static void main(String [] args){
-        AdminController adc = new AdminController();
-        //adc.buscarFacultades();
-        //adc.buscarPeriodos();
     }
     
 }

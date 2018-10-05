@@ -27,8 +27,6 @@ public class RespuestasController implements interfaces.IRespuestas{
     public void obtenerRespuestas(String param){
         String sql="SELECT * FROM tb_respuestas";
         Connection connection = dbcon.getConexion();
-        int x = 0;
-        int c =0;
         try {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);

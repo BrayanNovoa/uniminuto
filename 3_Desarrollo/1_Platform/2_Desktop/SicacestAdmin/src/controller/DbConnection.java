@@ -48,9 +48,4 @@ public class DbConnection {
         System.out.println("Conexión cerrada");
         return null;
     }
-    /*public static void main(String[] args){
-        DbConnection cn= new DbConnection();
-        cn.getConexion();
-        cn.closeConexion();
-    }*/
 }

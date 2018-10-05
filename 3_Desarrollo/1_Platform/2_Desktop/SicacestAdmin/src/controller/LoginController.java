@@ -10,8 +10,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import view.Admin;
 
-
-
 /**
  *
  * @author b41n
@@ -61,14 +59,12 @@ public class LoginController implements interfaces.ILogin {
     
     @Override
     public boolean llenarComboRectorias(){
-        //String[] opciones = new String[1];
         String sql ="SELECT rectoria FROM tb_rectorias;";
         java.sql.Connection cn = entrar.getConexion();
         try{
             java.sql.Statement st = cn.createStatement();
             java.sql.ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                //System.out.println(rs.getString(1));
                 view.Login.cmbRectoria.addItem(rs.getString(1));
             }
             return true;
@@ -90,9 +86,6 @@ public class LoginController implements interfaces.ILogin {
             java.sql.ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 opciones[0]=rs.getString(1);
-                //System.out.println(rs.getString(1));
-                //System.out.println(opciones[0]);
-                //view.Login.cmbSede.addItem(rs.getString(1));
                 model.addElement(opciones[0]);
             }
             view.Login.cmbSede.setModel(model);
@@ -108,19 +101,12 @@ public class LoginController implements interfaces.ILogin {
     
     @Override
     public boolean validarCampos(String sede, String rectoria){
-        if(sede.equals("Seleccione...")||rectoria.equals("Seleccione...")){
+        if(sede.equals("Seleccionar Rectoría...")||rectoria.equals("Seleccionar Sede...")){
             JOptionPane.showMessageDialog(null, "Debe seleccionar Rectoría y Sede.");
+            return false;
         } else {
             return true;
         }
-        return false;
-    }
-    
-    public static void main(String[]args){
-        LoginController login = new LoginController();
-        //login.verificarAcceso("", "", "", "");
-        //login.verificarAcceso("bnovoa.linux@gmail.com", "Sede Principal - Administrativa", "Villavicencio", "1234567");
-        //login.llenarComboSedes("Villavicencio");
     }
     
 }
