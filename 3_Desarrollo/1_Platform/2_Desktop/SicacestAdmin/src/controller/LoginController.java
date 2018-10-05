@@ -88,14 +88,14 @@ public class LoginController implements interfaces.ILogin {
                 opciones[0]=rs.getString(1);
                 model.addElement(opciones[0]);
             }
-            view.Login.cmbSede.setModel(model);
-            view.Login.cmbSede.setEnabled(true);
+            //view.Login.cmbSede.setModel(model);
+            //view.Login.cmbSede.setEnabled(true);
             return true;
         }catch(java.lang.NullPointerException | java.sql.SQLException ex){
             javax.swing.JOptionPane.showMessageDialog(null, "ERROR: "+ex);
             System.out.println(ex);
         }
-        view.Login.cmbSede.setEnabled(false);
+        //view.Login.cmbSede.setEnabled(false);
         return false;
     }
     

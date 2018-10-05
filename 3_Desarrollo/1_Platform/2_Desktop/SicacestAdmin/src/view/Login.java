@@ -250,7 +250,7 @@ public final class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> cmbRectoria;
-    private javax.swing.JComboBox<String> cmbSede;
+    public static javax.swing.JComboBox<String> cmbSede;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
