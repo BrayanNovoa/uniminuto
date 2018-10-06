@@ -35,7 +35,6 @@ public final class Admin extends javax.swing.JFrame {
     PreguntasController preg = new PreguntasController();
     RespuestasController respc = new RespuestasController();
     GraficoController grafc = new GraficoController("");
-    private String sql;
     DefaultTableModel model;
 
     /**

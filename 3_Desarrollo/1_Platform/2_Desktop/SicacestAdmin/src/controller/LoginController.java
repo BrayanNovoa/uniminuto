@@ -78,7 +78,9 @@ public class LoginController implements interfaces.ILogin {
     @Override
     public boolean llenarComboSedes(String rectoria){
         String[] opciones = new String[1];
-        String sql ="SELECT sede FROM tb_sedes WHERE rectoria_id IN (SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+rectoria+"')";
+        String sql ="SELECT sede FROM tb_sedes WHERE rectoria_id IN "
+                + "(SELECT rectoria_id FROM tb_rectorias WHERE rectoria = '"+
+                rectoria+"')";
         model = new DefaultComboBoxModel<>();
         java.sql.Connection cn = entrar.getConexion();
         try{
@@ -88,25 +90,24 @@ public class LoginController implements interfaces.ILogin {
                 opciones[0]=rs.getString(1);
                 model.addElement(opciones[0]);
             }
-            //view.Login.cmbSede.setModel(model);
-            //view.Login.cmbSede.setEnabled(true);
+            view.Login.cmbSede.setModel(model);
+            view.Login.cmbSede.setEnabled(true);
             return true;
         }catch(java.lang.NullPointerException | java.sql.SQLException ex){
             javax.swing.JOptionPane.showMessageDialog(null, "ERROR: "+ex);
             System.out.println(ex);
         }
-        //view.Login.cmbSede.setEnabled(false);
+        view.Login.cmbSede.setEnabled(false);
         return false;
     }
     
     @Override
     public boolean validarCampos(String sede, String rectoria){
-        if(sede.equals("Seleccionar Rectoría...")||rectoria.equals("Seleccionar Sede...")){
+        if(rectoria.equals("Seleccionar Rectoría...")||sede.equals("Seleccionar Sede...")){
             JOptionPane.showMessageDialog(null, "Debe seleccionar Rectoría y Sede.");
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
     
 }

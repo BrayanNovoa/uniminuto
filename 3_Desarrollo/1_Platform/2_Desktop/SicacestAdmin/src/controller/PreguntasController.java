@@ -13,19 +13,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Preguntas;
 import view.Cargador;
 
 /**
  *
  * @author b41n
  */
-public class PreguntasController implements interfaces.IPreguntas{
+public class PreguntasController extends Preguntas implements interfaces.IPreguntas{
     DbConnection entrar = new DbConnection();
     DefaultTableModel model;
     
     @Override
     public boolean guardarPregunta(String encuesta, String tipoPregunta, String pregunta){
-        Cargador cargador = new Cargador("Guardar Encuesta",1);
+        Cargador cargador = new Cargador("Guardar Pregunta",1);
         cargador.setVisible(true);
         view.Cargador.txtAccion.setText("Guardando");
         try{

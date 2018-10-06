@@ -11,9 +11,9 @@ package interfaces;
  * @author Brayan Novoa
  */
 public interface IAdmin {
-    public boolean buscarProgramas(String facultad);
-    public boolean buscarFacultades();
     public boolean buscarPeriodos();
+    public boolean buscarFacultades();
+    public boolean buscarProgramas(String facultad);
     public boolean cargarListaEstudiantes();
     public boolean guardarEstudiantes(Object estudiantes[],
             String periodo,

@@ -204,7 +204,6 @@ public final class Login extends javax.swing.JFrame {
     private void cmbRectoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRectoriaActionPerformed
         // TODO add your handling code here:
         rectoria = cmbRectoria.getSelectedItem().toString();
-        //cmbSede.setEnabled(true);
         if(cmbRectoria.getSelectedItem()==("Seleccionar...")){
             cmbSede.setEnabled(false);
         } else {
