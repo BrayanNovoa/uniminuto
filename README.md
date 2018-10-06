@@ -1,18 +1,11 @@
-This site was built using [GitHub Pages](https://pages.github.com/).
+# Repositorio usado para almacenar el Proyecto de Grado
 
-### Proyecto De Grado
+#Estudiante : ## Brayan Mauricio Novoa Salazar
 
-## Brayan Mauricio Novoa Salazar
-# Uniminuto Llanos
-
-
-
-Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
+Usuario de GitHub: [BrayanNovoa](https://github.com/BrayanNovoa).
 # Proyecto De Grado.
-## Lista de actividades.
+## Lista de items contenidos como requisito para la presentación del Informe Final
 
-
-# Documentación del proceso / Informe Final.
 - [x] Título del proyecto
 - [x] Tabla de contenido.
 - [x] Lista de tablas.
@@ -37,8 +30,10 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 - [ ] Resumen analítico especializado con fines de publicación RAE.
 
 
+## Metodología de Desarrollo de Software.
 
-#  Software Documentation
+### Análisis
+ Software Documentation
 - [x] Levantamiento de requerimientos
 - [x] DDL
 - [x] DML
@@ -59,6 +54,18 @@ Repositorio [BrayanNovoa/uniminuto](https://github.com/BrayanNovoa/uniminuto).
 
 # Domain & Server
 - [x] Acquisition of the Domain
+
+### Diseño
+### Desarrollo
+### Pruebas
+### Implementación
+
+
+## Manual de usuario
+
+
+
+
 
 
 
