@@ -14,6 +14,7 @@ import controller.CargadorController;
  */
 public final class Cargador extends javax.swing.JFrame {
     CargadorController carc = new CargadorController();
+    String proceso;
     int total;
     /**
      * Creates new form Cargador

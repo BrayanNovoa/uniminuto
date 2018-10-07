@@ -11,15 +11,16 @@ package model;
  * @author b41n
  */
 public class Respuestas extends Preguntas {
+    
+    Estudiantes est = new Estudiantes();
     String respuestaId;
-    String encuestaId;
-    String estudianteCod;
+    String estudianteCod= est.estudianteCod;
     String respuesta;
 
     public Respuestas(String respuestaId, String encuestaId, String preguntaId, String estudianteCod, String respuesta) {
-        super(preguntaId);
+        this.preguntaId=super.preguntaId;
         this.respuestaId = respuestaId;
-        this.encuestaId = encuestaId;
+        this.encuestaId = super.encuestaId;
         this.estudianteCod = estudianteCod;
         this.respuesta = respuesta;
     }

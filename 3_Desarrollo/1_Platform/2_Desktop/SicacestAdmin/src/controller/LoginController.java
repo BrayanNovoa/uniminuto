@@ -47,7 +47,6 @@ public class LoginController implements interfaces.ILogin {
                 acceso = true;
             }else{
                 System.out.println("Verifique sus credenciales de acceso.");
-                JOptionPane.showMessageDialog(null,"Verifique sus credenciales de acceso.");
             }
             return acceso;
         }catch(java.sql.SQLException ex){

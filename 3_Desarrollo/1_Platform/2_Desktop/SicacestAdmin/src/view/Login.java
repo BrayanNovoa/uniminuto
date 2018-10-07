@@ -7,6 +7,7 @@
 package view;
 
 import controller.LoginController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,16 @@ public final class Login extends javax.swing.JFrame {
         sede = cmbSede.getSelectedItem().toString();
         usuario = txtUsuario.getText();
         password = txtPassword.getText();
+    }
+    
+    public void attempLogin(){
+        if(logControl.validarCampos(sede, rectoria)){
+            if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
+                this.dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Verifique sus credenciales de acceso.");
+        }
     }
 
     /**
@@ -191,13 +202,7 @@ public final class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         getValues();
-        if(logControl.validarCampos(sede, rectoria)){
-            if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
-                this.dispose();
-            }
-        }else{
-            
-        }
+        attempLogin();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

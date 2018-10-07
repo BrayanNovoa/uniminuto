@@ -20,13 +20,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EncuestasController implements interfaces.IEncuestas{
     DbConnection entrar = new DbConnection();
+    Connection cn;
     DefaultTableModel model;
+    String sql;
+    String [] campos;
+    String [] registro;
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
     
     @Override
     public boolean guardarEncuesta(String encuesta, String descripcion){
-        PreparedStatement pst;
         try{
-            String sql = "INSERT INTO tb_encuestas (encuesta, descripcion)VALUES(?,?)";
+            sql = "INSERT INTO tb_encuestas (encuesta, descripcion)VALUES(?,?)";
             pst = entrar.getConexion().prepareStatement(sql);
             pst.setString(1, encuesta);
             pst.setString(2, descripcion);
@@ -46,14 +52,13 @@ public class EncuestasController implements interfaces.IEncuestas{
     @Override
     public void buscarEncuestas(){
         int i = 0;
-        String [] campos ={"encuesta", "descripcion"};
-        String [] registro = new String[2];
-        String sql ="SELECT encuesta, descripcion FROM tb_encuestas;";
+        campos =new String[] {"encuesta", "descripcion"};
+        registro = new String[campos.length];
+        sql ="SELECT encuesta, descripcion FROM tb_encuestas;";
         model = new DefaultTableModel(null, campos);
-        Connection cn = entrar.getConexion();
         try{
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
             while(rs.next()){
                 i=i+1;
                 registro[0]=rs.getString(campos[0]);
@@ -62,7 +67,6 @@ public class EncuestasController implements interfaces.IEncuestas{
                 view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
                 System.out.println("Encuesta: "+i+" "+registro[0]);
             }
-            i=0;
             view.Admin.tbEncuestas.setModel(model);
         }catch(NullPointerException | SQLException ex){
             System.out.println("ERROR: "+ex);
@@ -71,14 +75,14 @@ public class EncuestasController implements interfaces.IEncuestas{
     
     @Override
     public void buscarTipoPreguntas(){
-        String[] campos={"Tipo Pregunta", "Descripción"};
-        String[] registro =new String [campos.length];
-        String sql = "SELECT tipo_pregunta, tipo_preg_desc FROM tb_tipo_preguntas;";
+        campos= new String[] {"Tipo Pregunta", "Descripción"};
+        registro =new String [campos.length];
+        sql = "SELECT tipo_pregunta, tipo_preg_desc FROM tb_tipo_preguntas;";
         model = new DefaultTableModel(null,campos);
         try{
-            Connection cn = entrar.getConexion();
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            cn = entrar.getConexion();
+            st = cn.createStatement();
+            rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(1);
                 registro[1]=rs.getString(2);

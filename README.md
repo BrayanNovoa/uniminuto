@@ -33,52 +33,52 @@ Usuario de GitHub: [BrayanNovoa](https://github.com/BrayanNovoa).
 ## Metodología de Desarrollo de Software.
 
 ### Análisis
- Software Documentation
 - [x] Levantamiento de requerimientos
-- [x] DDL
-- [x] DML
+- [x] Historias de usuario
+- [x] Diagramas de Casos de Uso
 
-
-
-
-# Database
-- [x] 
-
-- # Java Desktop Application Para Administrativos.
-- [x] 
-- [x] 
-
-- # Java Web Application para Estudiantes.
-- [x] 
-- [x] 
-
-# Domain & Server
-- [x] Acquisition of the Domain
 
 ### Diseño
+- [x] MER
+- [x] MOCKUPS
+- [x] Diagramas de Clases
+
+
 ### Desarrollo
-### Pruebas
-### Implementación
+- [x] Plataforma de Desarrollo
+##Java
+#### Ejemplos de segmentos de código
+- [x] Diccionario de Datos
+#### Plan de Pruebas:
+##### Pruebas Java Desktop Application Para Administrativos.
+- [x] Instalación de la base de datos.
+- [x] Inicio de sesión Administrativos.
+- [x] Pruebas de la interfaz principal.
+- [x] Pruebas de la interfaz Encuestas.
+- [x] Pruebas de la Interfaz Recopilación de Datos
+- [x] Pruebas de la Interfaz Análisis estadístico
+- [x] Pruebas de la generación de las gráficas
+- [x] Pruebas del proceso de guardado del reporte.pdf
+
+##### Java Web Application Para Administrativos.
+- [x] Pruebas Inicio Sesión Estudiante
+- [x] Pruebas proceso de guardado de respuestas
+- [x] pruebas ver perfil
 
 
 ## Manual de usuario
 
+#### Java Web Application para Estudiantes.
+- [x] 
+## Manual de usuario
+
+### Pruebas
+- [x] 
+
+### Implementación
+- [ ] Will not be implemented.
 
 
 
 
 
-
-- # SicacestApp.
-- [ ] @Codeneitor, #MrBrayan, [links](), **Autor**, and <del>Uniminuto</del> supported
-- [ ] list syntax required (any unordered or ordered list supported)
-- [ ] this is a complete item
-- [ ] this is an incomplete item
-- [ ] SicacestApp
-- [ ] Aplicación Móbil en [GooglePlayStore](https://googleplay), **Autor:** Brayan Mauricio Novoa Salazar
-
-# Anexos.
-![](https://github.com/BrayanNovoa/uniminuto/blob/master/ProyectoGrado/Cronograma/CRONOGRAMA2.png).
-- [ ] Encuesta Equipo Caracterización
-- [ ] Encuesta Coordinadora Bienestar
-- [ ] CD-ROM con Proyecto de Grado :cd:  :cd:  :cd:  :cd:  :cd:

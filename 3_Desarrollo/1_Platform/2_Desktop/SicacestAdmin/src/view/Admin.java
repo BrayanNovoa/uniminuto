@@ -1908,8 +1908,8 @@ public final class Admin extends javax.swing.JFrame {
                 model.setColumnIdentifiers(titulos);
 
                 estudiantes = buffer.lines().toArray();
-                for(int i = 0; i < estudiantes.length; i++){
-                    String linea = estudiantes[i].toString().trim();
+                for (Object estudiante : estudiantes) {
+                    String linea = estudiante.toString().trim();
                     String[] datosFila = linea.split(",");
                     model.addRow(datosFila);
                 }

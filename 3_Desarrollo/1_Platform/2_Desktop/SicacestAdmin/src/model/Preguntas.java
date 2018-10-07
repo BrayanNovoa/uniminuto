@@ -14,6 +14,7 @@ public class Preguntas extends Encuestas{
     String preguntaId;
     String tipoPregunta;
     String pregunta;
+    String encuestaId;
     
     public Preguntas(){
         
@@ -24,7 +25,7 @@ public class Preguntas extends Encuestas{
     }
     
     public Preguntas(String preguntaId,String encuestaId,String tipoPregunta, String pregunta){
-        super(encuestaId);
+        this.encuestaId=super.encuestaID;
         this.preguntaId=preguntaId;
         this.tipoPregunta = tipoPregunta;
         this.pregunta =pregunta;
