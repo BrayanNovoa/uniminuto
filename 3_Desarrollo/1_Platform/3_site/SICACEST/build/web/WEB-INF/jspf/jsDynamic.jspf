@@ -1,6 +1,0 @@
-<%-- 
-    Archivo que genera dinámicamente las opciones de guardar las
-    Preguntas correspondientes a cada Encuesta
---%>
-<%@ page pageEncoding="UTF-8" %>
-    <%//jsCode=jsCode+jsPregunta;%>
