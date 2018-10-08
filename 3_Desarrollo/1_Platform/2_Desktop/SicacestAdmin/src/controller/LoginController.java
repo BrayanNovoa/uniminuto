@@ -26,7 +26,7 @@ public class LoginController implements interfaces.ILogin {
         System.out.println("Sede: "+sede+
                 " Rectoría: "+rectoria+
                 " Usuario: "+usuario);
-        String consulta ="SELECT rol_id FROM tb_usuarios WHERE usuario ='"+
+        String consulta ="SELECT usuario FROM tb_usuarios WHERE usuario ='"+
                 usuario+"' AND password = '"+password+
                 "' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+
                 sede+"' AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias"

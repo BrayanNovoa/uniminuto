@@ -67,7 +67,6 @@ public class AdminController implements interfaces.IAdmin {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
             registro[0]= rs.getString(campos[0]);
-            System.out.println(registro[0]);
             model.addRow(registro);
             }
             view.Admin.tbPeriodos.setModel(model);

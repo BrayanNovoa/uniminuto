@@ -37,6 +37,8 @@ public final class Admin extends javax.swing.JFrame {
     GraficoController grafc = new GraficoController("");
     DefaultTableModel model;
     private String tipoPregunta;
+    private String pregunta;
+    
 
     /**
      * Creates new form SicacestAdmin
@@ -197,7 +199,7 @@ public final class Admin extends javax.swing.JFrame {
         lblTipoPregunta = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tbPosiblesRespuestas = new javax.swing.JTable();
         jScrollPane13 = new javax.swing.JScrollPane();
         txt_Info3 = new javax.swing.JTextPane();
         jScrollPane18 = new javax.swing.JScrollPane();
@@ -1091,6 +1093,11 @@ public final class Admin extends javax.swing.JFrame {
 
         btnRespuestaSave.setBackground(new java.awt.Color(255, 205, 7));
         btnRespuestaSave.setText("AGREGAR");
+        btnRespuestaSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRespuestaSaveActionPerformed(evt);
+            }
+        });
 
         lblEncuesta.setForeground(new java.awt.Color(224, 255, 255));
         lblEncuesta.setText("Encuesta:");
@@ -1136,7 +1143,7 @@ public final class Admin extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(59, 71, 97));
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tbPosiblesRespuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1144,7 +1151,7 @@ public final class Admin extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane9.setViewportView(jTable4);
+        jScrollPane9.setViewportView(tbPosiblesRespuestas);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1385,8 +1392,7 @@ public final class Admin extends javax.swing.JFrame {
         pnl_DatosLayout.setVerticalGroup(
             pnl_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_DatosLayout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1840,7 +1846,7 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String encuesta = cmbEncuestas.getSelectedItem().toString();
         String tipop = cmbTipoPregunta.getSelectedItem().toString();
-        String pregunta =  txtPregunta.getText();
+        pregunta =  txtPregunta.getText();
         if(preg.guardarPregunta(encuesta, tipop, pregunta)){
             preg.buscarPreguntas(encuesta);
         }
@@ -2020,7 +2026,7 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String agno,periodo;
         agno= (String) Integer.toString(jYCAgno.getYear());
-        periodo = agno+cmbPeriodoSave.getSelectedItem().toString();
+        periodo = agno+"-"+cmbPeriodoSave.getSelectedItem().toString();
         adc.guardarPeriodo(periodo);
         adc.buscarPeriodos();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -2064,7 +2070,7 @@ public final class Admin extends javax.swing.JFrame {
             tipoPregunta="";
         }
         if(column==1){
-            String pregunta=source.getModel().getValueAt(row, column-1)+"";
+            pregunta=source.getModel().getValueAt(row, column-1)+"";
             switch (tipoPregunta) {
                 case "ARCHIVO":
                     unActiveTipoPreguntaSave();
@@ -2093,12 +2099,22 @@ public final class Admin extends javax.swing.JFrame {
                     break;
             }
             
-            adc.buscarProgramas(tipoPregunta);
+            //adc.buscarProgramas(tipoPregunta);
             //preg.buscarOpcionesTipoPreguntas(tipoPregunta);
+            respc.buscarPosiblesRespuestas(pregunta);
             //lbl.setText(tipoPregunta);
             txtPrograma.setText("Seleccione...");
         }
     }//GEN-LAST:event_tbPreguntasMouseClicked
+
+    private void btnRespuestaSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRespuestaSaveActionPerformed
+        // TODO add your handling code here:
+        pregunta=lblPregunta.getText();
+        String posibleRespuesta = txtRespuestaSave.getText();
+        if(respc.guardarPosiblesRespuestas(pregunta, posibleRespuesta)){
+        }
+        
+    }//GEN-LAST:event_btnRespuestaSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2246,7 +2262,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable3;
-    public static javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField11;
     private com.toedter.calendar.JYearChooser jYCAgno;
     private javax.swing.JTabbedPane jtp_Modulos;
@@ -2271,6 +2286,7 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JTable tbEstudiantes;
     public static javax.swing.JTable tbFacultades;
     public static javax.swing.JTable tbPeriodos;
+    public static javax.swing.JTable tbPosiblesRespuestas;
     public static javax.swing.JTable tbPreguntas;
     public static javax.swing.JTable tbProgramas;
     public static javax.swing.JTable tbRespuestas;

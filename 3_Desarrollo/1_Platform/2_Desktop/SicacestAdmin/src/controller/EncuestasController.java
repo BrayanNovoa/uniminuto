@@ -66,7 +66,6 @@ public class EncuestasController implements interfaces.IEncuestas{
                 registro[1]=rs.getString(campos[1]);
                 model.addRow(registro);
                 view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
-                System.out.println("Encuesta: "+i+" "+registro[0]);
             }
             System.out.println("Añadiendo la tabla Encuestas");
             view.Admin.tbEncuestas.setModel(model);
@@ -88,7 +87,6 @@ public class EncuestasController implements interfaces.IEncuestas{
             while(rs.next()){
                 registro[0]=rs.getString(1);
                 registro[1]=rs.getString(2);
-                System.out.println(registro[0]);
                 model.addRow(registro);
                 view.Admin.cmbTipoPregunta.addItem(rs.getString("tipo_pregunta"));
             }

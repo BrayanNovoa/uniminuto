@@ -7,8 +7,10 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,21 +22,65 @@ import javax.swing.table.DefaultTableModel;
  * @author b41n
  */
 public class RespuestasController implements interfaces.IRespuestas{
-    DbConnection dbcon = new DbConnection();
+    DbConnection entrar = new DbConnection();
     DefaultTableModel model;
+    String sql;
+    String [] campos;
+    String [] registro;
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    @Override
+    public boolean guardarPosiblesRespuestas(String pregunta, String posibleRespuesta){
+        try{
+            sql = "INSERT INTO tb_posibles_respuestas (pregunta_id, posible_respuesta)VALUES((SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+pregunta+"'),?)";
+            pst = entrar.getConexion().prepareStatement(sql);
+            pst.setString(1, posibleRespuesta);
+            if(pst.executeUpdate()==1){
+                System.out.println("Posible respuesta "+posibleRespuesta+
+                        " guardada con éxito");
+                //buscarPosiblesRespuestas(pregunta);
+                JOptionPane.showMessageDialog(null, "Posible respuesta :"+posibleRespuesta+". Guardada correctamente." );
+                return true;
+            }
+        }catch(SQLException ex){
+            System.err.println("ERROR :"+ex);
+        }
+        return false;
+    }
+    
+    public void buscarPosiblesRespuestas(String pregunta){
+        campos = new String[]{"Pregunta", "Posibles Respuestas"};
+        registro = new String[campos.length];
+        sql = "SELECT p.pregunta, r.posible_respuesta FROM tb_preguntas AS p, tb_posibles_respuestas AS r WHERE p.pregunta='"+pregunta+"';";
+        model = new DefaultTableModel(null,campos);
+        try{
+            Connection cn = entrar.getConexion();
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                registro[0] = rs.getString(1);
+                registro[1] = rs.getString(2);
+                model.addRow(registro);
+            }
+            view.Admin.tbPosiblesRespuestas.setModel(model);
+        }catch(SQLException ex){
+            System.out.println("ERROR"+ex);
+        }
+    }
     
     @Override
     public void obtenerRespuestas(String param){
-        String sql="SELECT * FROM tb_respuestas";
-        Connection connection = dbcon.getConexion();
+        sql="SELECT R.respuesta_id AS CODIGO_RESP, E.encuesta, P.pregunta, R.respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id;";
+        Connection connection = entrar.getConexion();
         try {
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            st = connection.createStatement();
+            rs = st.executeQuery(sql);
             ResultSetMetaData rsmd = rs.getMetaData();
             int numberOfColumns = rsmd.getColumnCount();
-            String campos[] = new String[numberOfColumns];
-            String[] registro = new String[campos.length];
-            String columnName = null;
+            campos = new String[numberOfColumns];
+            registro = new String[campos.length];
+            String columnName;
             model = new DefaultTableModel(null,campos);
             
             for (int i = 1; i < numberOfColumns + 1; i++) {

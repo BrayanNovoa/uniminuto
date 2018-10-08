@@ -36,7 +36,7 @@ public class PreguntasController extends Preguntas implements interfaces.IPregun
             String sqlEncuesta="(SELECT encuesta_id FROM tb_encuestas WHERE encuesta ='"+encuesta+"'),";
             String sqlTipoPregunta="(SELECT tipo_pregunta_id FROM tb_tipo_preguntas WHERE tipo_pregunta = '"+tipoPregunta+"'),'"+pregunta+"');\n";
             String consulta = sql+sqlEncuesta+sqlTipoPregunta;
-            System.out.println(consulta);
+            //System.out.println(consulta);
             pst = entrar.getConexion().prepareStatement(consulta);
             if(pst.executeUpdate()==1){
                 view.Cargador.txtStatus.setText("OK.");
