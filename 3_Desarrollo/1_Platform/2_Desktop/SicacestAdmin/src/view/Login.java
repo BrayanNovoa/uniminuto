@@ -43,6 +43,8 @@ public final class Login extends javax.swing.JFrame {
         if(logControl.validarCampos(sede, rectoria)){
             if(logControl.verificarAcceso(usuario, sede, rectoria, password)){
                 this.dispose();
+            }else{
+            JOptionPane.showMessageDialog(null,"Verifique sus credenciales de acceso.");
             }
         }else{
             JOptionPane.showMessageDialog(null,"Verifique sus credenciales de acceso.");

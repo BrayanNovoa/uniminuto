@@ -56,6 +56,7 @@ public class EncuestasController implements interfaces.IEncuestas{
         registro = new String[campos.length];
         sql ="SELECT encuesta, descripcion FROM tb_encuestas;";
         model = new DefaultTableModel(null, campos);
+        cn = entrar.getConexion();
         try{
             st = cn.createStatement();
             rs = st.executeQuery(sql);
@@ -67,6 +68,7 @@ public class EncuestasController implements interfaces.IEncuestas{
                 view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
                 System.out.println("Encuesta: "+i+" "+registro[0]);
             }
+            System.out.println("Añadiendo la tabla Encuestas");
             view.Admin.tbEncuestas.setModel(model);
         }catch(NullPointerException | SQLException ex){
             System.out.println("ERROR: "+ex);

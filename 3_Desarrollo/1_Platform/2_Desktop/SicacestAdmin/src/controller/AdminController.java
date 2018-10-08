@@ -34,11 +34,32 @@ public class AdminController implements interfaces.IAdmin {
     CargadorController carc = new CargadorController();
     DbConnection entrar = new DbConnection();
     public Object[] estudiantes;
+    String sql;
+    PreparedStatement pst;
+    
+    @Override
+    public boolean guardarPeriodo(String periodo){
+        try{
+            sql = "INSERT INTO tb_periodos (periodo)VALUES(?)";
+            pst = entrar.getConexion().prepareStatement(sql);
+            pst.setString(1, periodo);
+            if(pst.executeUpdate()==1){
+                System.out.println("Periodo "+periodo+" guardado con éxito.");
+                JOptionPane.showMessageDialog(null, "Periodo "+periodo
+                        +" guardado correctamente." );
+                return true;
+            }
+        }catch(SQLException ex){
+            System.err.println("ERROR :"+ex);
+            JOptionPane.showMessageDialog(null, "Error guardando el periodo " );
+        }
+        return false;
+    }
     
     @Override public boolean buscarPeriodos(){
         String [] campos = {"periodo"};
         String [] registro = new String [campos.length];
-        String sql ="SELECT periodo FROM tb_periodos;";
+        sql ="SELECT periodo FROM tb_periodos;";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try {
@@ -58,10 +79,31 @@ public class AdminController implements interfaces.IAdmin {
     }
     
     @Override
+    public boolean guardarFacultad(String facultad, String sede){
+        try{
+            sql = "INSERT INTO tb_facultades (sede_id, facultad)VALUES((select sede_id from tb_sedes where sede = '"+sede+"'),?)";
+            pst = entrar.getConexion().prepareStatement(sql);
+            pst.setString(1, facultad);
+            if(pst.executeUpdate()==1){
+                System.out.println("Facultad "+facultad+" guardada con éxito.");
+                JOptionPane.showMessageDialog(null, "Periodo "+facultad
+                        +" guardado correctamente." );
+                return true;
+            }
+        }catch(SQLException ex){
+            System.err.println("ERROR :"+ex);
+            JOptionPane.showMessageDialog(null, "Error guardando el periodo " );
+        }
+        return false;
+    }
+    
+    @Override
     public boolean buscarFacultades(){
         String[] campos={"facultad"};
         String[] registro = new String[campos.length];
-        String sql = "SELECT facultad FROM tb_facultades WHERE sede_id IN(SELECT sede_id FROM tb_sedes WHERE sede='"+view.Admin.txtSede.getText()+"');";
+        sql = "SELECT facultad FROM tb_facultades WHERE sede_id IN"+
+                "(SELECT sede_id FROM tb_sedes WHERE sede='"+
+                view.Admin.txtSede.getText()+"');";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{
@@ -69,7 +111,6 @@ public class AdminController implements interfaces.IAdmin {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 registro[0]=rs.getString(campos[0]);
-                view.Admin.cmbFacultades.addItem(registro[0]);
                 model.addRow(registro);
             }
             view.Admin.tbFacultades.setModel(model);
@@ -80,11 +121,32 @@ public class AdminController implements interfaces.IAdmin {
         return false;
     }
     
+    public boolean guardarPrograma(String facultad, String programa){
+        try{
+            sql = "INSERT INTO tb_programas (facultad_id, programa)VALUES("+
+                    "(SELECT facultad_id FROM tb_facultades WHERE facultad = '"+
+                    facultad+"'),?)";
+            pst = entrar.getConexion().prepareStatement(sql);
+            pst.setString(1, programa);
+            if(pst.executeUpdate()==1){
+                System.out.println("Programa "+programa+" guardado con éxito.");
+                JOptionPane.showMessageDialog(null, "Programa "+programa
+                        +" guardado correctamente." );
+                return true;
+            }
+        }catch(SQLException ex){
+            System.err.println("ERROR :"+ex);
+            JOptionPane.showMessageDialog(null, "Error guardando el periodo " );
+        }
+        return false;
+    }
+    
     @Override
     public boolean buscarProgramas(String facultad){
         String[]campos={"programa"};
         String[]registro = new String[campos.length];
-        String sql ="select programa FROM tb_programas WHERE facultad_id IN(SELECT facultad_id from tb_facultades WHERE facultad ='"+facultad+"');";
+        sql ="select programa FROM tb_programas WHERE facultad_id IN"+
+                "(SELECT facultad_id from tb_facultades WHERE facultad ='"+facultad+"');";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{
@@ -143,9 +205,7 @@ public class AdminController implements interfaces.IAdmin {
         float tasa = 100/total;
         float avance;
         System.out.println(tasa);
-        PreparedStatement pst;
         String consulta;
-        String sql;
         String sqlPrograma;
         String sqlPeriodo;
         String fin = "');\n";
@@ -171,9 +231,6 @@ public class AdminController implements interfaces.IAdmin {
                     JOptionPane.showMessageDialog(null, "ERROR");
                 }
             }catch(SQLException ex){
-                if(ex.equals("Duplicate entry '000324471' for key 'estudiante'")){
-                    System.err.println("ERROR :"+ex);
-                }
                 System.err.println("ERROR:"+ex);
                 view.Cargador.txtStatus.setText("ERROR: "+ex);
                 JOptionPane.showMessageDialog(null, "ERROR: "+ex);
