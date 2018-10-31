@@ -16,7 +16,7 @@
             <form class="errors" method="post" id="formlogin">
                 <h1>No hay sesión iniciada.</h1>
                 <h2>Inice sesión.</h2>
-                <p class="login-help"><a href="login.jsp">Iniciar Sesion</a></p>
+                <p class="login-help"><a href="index.jsp">Iniciar Sesion</a></p>
             </form>
     </body>
 </html>

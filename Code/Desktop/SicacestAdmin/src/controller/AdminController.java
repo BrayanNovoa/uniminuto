@@ -299,5 +299,4 @@ public class AdminController implements interfaces.IAdmin {
             System.out.println("ERROR: "+ex);
         }
     }
-    
 }

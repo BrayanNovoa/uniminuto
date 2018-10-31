@@ -89,7 +89,7 @@ public final class Login extends javax.swing.JFrame {
         });
 
         cmbRectoria.setBackground(new java.awt.Color(0, 82, 155));
-        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionear Rectoría..."}));
+        cmbRectoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Seleccionar Rectoría..."}));
         cmbRectoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbRectoriaActionPerformed(evt);

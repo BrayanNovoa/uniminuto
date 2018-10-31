@@ -22,6 +22,7 @@ hr{
  margin-right: auto;
 }
 #container input{
+    color: #fff;
  height: 2.5em;
  visibility: hidden;
 }
@@ -40,13 +41,23 @@ background: #122C52;  /* Fondo de las pestañas */
  padding: 15px;
  text-align: center;
 }
-#container input:hover + label {
+#container input.label-btn:hover + label.label-btn {
  background: #00529B; /* Fondo de las pestañas al pasar el cursor por encima */
  color: #E0FFFF; /* Color del texto de las pestañas al pasar el cursor por encima */
 }
-#container input:checked + label {
+#container input.label-btn:checked + label.label-btn {
  background: #FFCD07; /* Fondo de las pestañas al presionar */
  color: #122C52; /* Color de las pestañas al presionar */
+ padding: 25px;
+ z-index: 6;
+}
+#container input.form-control:hover{
+ background: #FFCD07; /* Fondo de las pestañas al pasar el cursor por encima */
+ color: #000; /* Color del texto de las pestañas al pasar el cursor por encima */
+}
+#container input.form-control:checked{
+ background: #fff; /* Fondo de las pestañas al presionar */
+ color: #fff; /* Color de las pestañas al presionar */
  padding: 25px;
  z-index: 6;
 }

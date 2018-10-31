@@ -39,11 +39,10 @@ public class InicioSesion extends HttpServlet {
         
         Consultas co=new Consultas();
         if(co.Autenticacion(id_usuario, pass_usuario)){
-            
             HttpSession objsesion = request.getSession(true);
             objsesion.setAttribute("SesionUsuario",id_usuario);
             
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("home.jsp");
         }else{
             response.sendRedirect("error/login.jsp");
         }

@@ -23,13 +23,14 @@ public class Consultas extends ConexionDB{
         PreparedStatement pst = null;
         ResultSet rs = null;
         try{
-            String consulta ="SELECT * FROM tb_estudiantes WHERE estudiante_cod= ? ";//AND pass_user = ?
+            String consulta ="SELECT programa_id FROM tb_estudiantes WHERE estudiante_cod= ? ";//AND pass_user = ?
             pst= getConexion().prepareStatement(consulta);
             pst.setString(1,usuario);
-            //pst.setString(2,contrasena);
             rs=pst.executeQuery();
-            if(rs.absolute(1)){
+            if(!rs.wasNull()){
                 return true;
+            }else if(rs.absolute(0)){
+                return false;
             }
         }catch(SQLException e){
             System.err.println("ERROR :"+e);

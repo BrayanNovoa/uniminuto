@@ -19,7 +19,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, nav, section{
   display: block;
 }
 body {
@@ -98,13 +98,13 @@ q:before, q:after {
   border: 0;
 }
 :-moz-placeholder {
-  color: #bcc0c8 !important;
+  color: #fff !important;
 }
 ::-webkit-input-placeholder {
-  color: #bcc0c8;
+  color: #fff;
 }
 :-ms-input-placeholder {
-  color: #bcc0c8 !important;
+  color: #fff !important;
 }
 body {
   font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
@@ -164,7 +164,7 @@ input, textarea, select, label {
   height: 37px;
   margin-bottom: 12px;
   padding: 0 9px;
-  color: white;
+  color: #fff;
   text-shadow: 0 1px black;
   background: #122C52;
   border: 1px solid #15243b;
@@ -318,4 +318,8 @@ background-image:url(img/CabezoteCest.png);
 }
 form.login {
     width: 700px;
+}
+.imgIcon{
+    width: 25px;
+    height: 25px;
 }

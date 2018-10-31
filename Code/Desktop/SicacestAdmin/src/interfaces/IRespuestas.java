@@ -12,7 +12,7 @@ package interfaces;
  */
 public interface IRespuestas {
     public boolean guardarPosiblesRespuestas(String pregunta, String posibleRespuesta);
+    public void buscarPosiblesRespuestas(String pregunta);
     public void obtenerRespuestas(String param);
-    public void llenarTabla();
     
 }

@@ -12,14 +12,9 @@ import controller.GraficoController;
 import controller.PreguntasController;
 import controller.RespuestasController;
 import java.awt.Toolkit;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -37,6 +32,7 @@ public final class Admin extends javax.swing.JFrame {
     GraficoController grafc = new GraficoController("");
     DefaultTableModel model;
     private String tipoPregunta;
+    private int tipoGrafica;
     private String pregunta;
     
 
@@ -260,6 +256,7 @@ public final class Admin extends javax.swing.JFrame {
         btnChartTableWindow = new javax.swing.JButton();
         btnChartTable = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
+        cmbChart = new javax.swing.JComboBox<>();
         pnlChartEstu = new javax.swing.JPanel();
         btnGraficaPoblacion1 = new javax.swing.JButton();
 
@@ -1634,6 +1631,13 @@ public final class Admin extends javax.swing.JFrame {
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Generar Archivo PDF");
 
+        cmbChart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gráfica de torta", "Gráfica de torta 3D", "Gráfica de barras", "Gráfica lineal", "Gráfica tipo área", "Gráfica tipo dispersión", "Gráfica tipo polar", "Gráfica tipo paso", "Gráfica tipo paso-área", "Gráfica tipo serie-tiempo", "Gráfica logarítmica"}));
+        cmbChart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbChartMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnl_tb_EstProgramaLayout = new javax.swing.GroupLayout(pnl_tb_EstPrograma);
         pnl_tb_EstPrograma.setLayout(pnl_tb_EstProgramaLayout);
         pnl_tb_EstProgramaLayout.setHorizontalGroup(
@@ -1641,19 +1645,23 @@ public final class Admin extends javax.swing.JFrame {
             .addComponent(btnChartTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
             .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(cmbChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         pnl_tb_EstProgramaLayout.setVerticalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnChartTable)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnChartTableWindow)
@@ -1976,7 +1984,46 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnChartTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartTableActionPerformed
         // TODO add your handling code here:
-        grafc.tipoGrafico(GraficoController.PIECHART3D);
+        String row = cmbChart.getSelectedItem().toString();
+        switch (row) {
+            case "Gráfica de torta":
+                tipoGrafica=GraficoController.PIECHART;
+                break;
+            case "Gráfica de torta 3D":
+                tipoGrafica=GraficoController.PIECHART3D;
+                break;
+            case "Gráfica de barras":
+                tipoGrafica=GraficoController.BARCHART;
+                break;
+            case "Gráfica lineal":
+                tipoGrafica=GraficoController.LINEAL;
+                break;
+            case "Gráfica tipo área":
+                tipoGrafica=GraficoController.AREA;
+                break;
+            case "Gráfica tipo dispersión":
+                tipoGrafica=GraficoController.DISPERSION;
+                break;
+            case "Gráfica tipo polar":
+                tipoGrafica=GraficoController.POLAR;
+                break;
+            case "Gráfica tipo paso":
+                tipoGrafica=GraficoController.PASO;
+                break;
+            case "Gráfica tipo paso-área":
+                tipoGrafica=GraficoController.PASOAREA;
+                break;
+            case "Gráfica tipo serie-tiempo":
+                tipoGrafica=GraficoController.SERIETIEMPO;
+                break;
+            case "Gráfica logarítmica":
+                tipoGrafica=GraficoController.LOGARITMICA;
+                break;
+            default:
+                grafc.tipoGrafico(tipoGrafica);
+                break;
+        }
+        grafc.tipoGrafico(tipoGrafica);
         btnChartTableWindow.setEnabled(true);
     }//GEN-LAST:event_btnChartTableActionPerformed
 
@@ -2086,6 +2133,53 @@ public final class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGenConsultasActionPerformed
 
+    private void cmbChartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbChartMouseClicked
+        // TODO add your handling code here:
+        JComboBox source = (JComboBox)evt.getSource();
+        String row = source.getSelectedItem().toString();
+        switch (row) {
+            case "Gráfica de torta":
+                tipoGrafica=GraficoController.PIECHART;
+                System.out.println("Gráfica Seleccionada: "+row);
+                System.out.println("Opción: "+tipoGrafica);
+                break;
+            case "Gráfica de torta 3D":
+                tipoGrafica=GraficoController.PIECHART3D;
+                break;
+            case "Gráfica de barras":
+                tipoGrafica=GraficoController.BARCHART;
+                break;
+            case "Gráfica lineal":
+                tipoGrafica=GraficoController.LINEAL;
+                break;
+            case "Gráfica tipo área":
+                tipoGrafica=GraficoController.AREA;
+                break;
+            case "Gráfica tipo dispersión":
+                tipoGrafica=GraficoController.DISPERSION;
+                break;
+            case "Gr+afica tipo polar":
+                tipoGrafica=GraficoController.POLAR;
+                break;
+            case "Gráfica tipo paso":
+                tipoGrafica=GraficoController.PASO;
+                break;
+            case "Gráfica tipo paso-área":
+                tipoGrafica=GraficoController.PASOAREA;
+                break;
+            case "Gráfica tipo serie-tiempo":
+                tipoGrafica=GraficoController.SERIETIEMPO;
+                break;
+            case "Gráfica logarítmica":
+                tipoGrafica=GraficoController.LOGARITMICA;
+                break;
+            default:
+                grafc.tipoGrafico(tipoGrafica);
+                break;
+        }
+        //grafc.tipoGrafico(tipoGrafica);
+    }//GEN-LAST:event_cmbChartMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2102,15 +2196,12 @@ public final class Admin extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        
         //</editor-fold>
         //</editor-fold>
 
@@ -2144,6 +2235,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkGeneral;
     private javax.swing.JCheckBox chkPeriodo;
     private javax.swing.JCheckBox chkPrograma;
+    private javax.swing.JComboBox<String> cmbChart;
     public static javax.swing.JComboBox<String> cmbEncuestas;
     public static javax.swing.JComboBox<String> cmbEncuestasFind;
     private javax.swing.JComboBox<String> cmbFindEncuestas;

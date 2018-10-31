@@ -14,10 +14,9 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Desktop;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,7 +29,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
@@ -39,9 +37,14 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.LogarithmicAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.PolarPlot;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.DefaultPolarItemRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import view.Grafica;
@@ -70,6 +73,7 @@ public class GraficoController implements interfaces.IGraficas{
     public final static int PASOAREA = 8;
     public final static int PIECHART = 9;
     public final static int PIECHART3D = 10;
+    public final static int BARCHART = 11;
     
     public final static int GENERAL = 1;
     public final static int PERIODOS = 2;
@@ -84,19 +88,20 @@ public class GraficoController implements interfaces.IGraficas{
     public GraficoController(String titulo){
         this.titulo = titulo;
     }
+    DefaultCategoryDataset dataset;
     DefaultPieDataset data;
     public JFreeChart grafico;
     ChartPanel chartPanel;
-    XYSeriesCollection datos;
-    XYSeriesCollection dataxy;
+    XYSeries xyseries;
+    XYDataset datasetxy;
     OutputStream out;
     PdfPTable tbRepo;
     
     @Override
     public boolean obtenerDatos(String sql){
         data = new DefaultPieDataset();
-        dataxy = new XYSeriesCollection();
-        XYSeries xySerie = new XYSeries("Estudiantes por Programa");
+        dataset = new DefaultCategoryDataset();
+        xyseries = new XYSeries("Titulo de la Gráfica");
         int i = 0;
         String [] campos ={"Programa", "Estudiantes"};
         String [] registro = new String[campos.length];
@@ -117,11 +122,14 @@ public class GraficoController implements interfaces.IGraficas{
                 
                 tbRepo.addCell(rs.getString(1));
                 tbRepo.addCell(rs.getString(2));
+                dataset.setValue(Integer.parseInt(registro[1]), "Estudiantes", registro[0]);
+                xyseries.add(i,Integer.parseInt(registro[1]));
                 data.setValue(registro[0], Integer.parseInt(registro[1]));
-                xySerie.addOrUpdate(i, Integer.parseInt(registro[1]));
+                //xySerie.addOrUpdate(i, Integer.parseInt(registro[1]));
                 model.addRow(registro);
                 System.out.println("Programa: "+i+" "+registro[0]);
             }
+            datasetxy = new XYSeriesCollection(xyseries);
             System.out.println("Enviando el Registro.");
             generarTabla(registro);
             return true;
@@ -146,46 +154,59 @@ public class GraficoController implements interfaces.IGraficas{
     public final void tipoGrafico(int tipo){
         switch(tipo){
             case LINEAL:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createXYLineChart(titulo, "Programas", "Estudiantes", dataxy, PlotOrientation.VERTICAL, true, true, true);
+                System.out.println("Generando gráfica tipo LINEAL");
+                grafico = ChartFactory.createXYLineChart(titulo, "Programas", "Estudiantes", datasetxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case POLAR:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createPolarChart(titulo, dataxy, true, true, true);
+                System.out.println("Generando gráfica tipo POLAR");
+                grafico = ChartFactory.createPolarChart(titulo, datasetxy, true, true, true);
+                PolarPlot polatplot = new PolarPlot();
+                polatplot.setDataset(datasetxy);
+                NumberAxis rangeAxis = new NumberAxis();
+                rangeAxis.setAxisLineVisible(false);
+                rangeAxis.setTickMarksVisible(false);
+                polatplot.setAxis(rangeAxis);
+                polatplot.setRenderer(new DefaultPolarItemRenderer());
                 break;
             case DISPERSION:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createScatterPlot(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
+                System.out.println("Generando gráfica tipo Dispersión");
+                grafico = ChartFactory.createScatterPlot(titulo, tx, ty, datasetxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case AREA:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createXYAreaChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
+                System.out.println("Generando gráfica tipo AREA");
+                grafico = ChartFactory.createXYAreaChart(titulo, tx, ty, datasetxy, PlotOrientation.VERTICAL, true, false, false);
                 break;
             case LOGARITMICA:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createXYLineChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
+                System.out.println("Generando gráfica");
+                grafico = ChartFactory.createXYLineChart(titulo, tx, ty, datasetxy, PlotOrientation.VERTICAL, true, false, false);
                 XYPlot ejes=grafico.getXYPlot();
                 NumberAxis rango = new LogarithmicAxis(ty);
                 ejes.setRangeAxis(rango);
                 break;
             case SERIETIEMPO:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createTimeSeriesChart(titulo, tx, ty, dataxy, true, true, true);
+                System.out.println("Generando gráfica");
+                grafico = ChartFactory.createTimeSeriesChart(titulo, tx, ty, datasetxy, true, true, true);
                 break;
             case PASO:
-                grafico = ChartFactory.createXYStepChart(titulo, ty, tx, dataxy, PlotOrientation.VERTICAL, true, true, true);
+                grafico = ChartFactory.createXYStepChart(titulo, ty, tx, datasetxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case PASOAREA:
-                System.out.println("GEnerando gráfica");
-                grafico = ChartFactory.createXYStepAreaChart(titulo, tx, ty, dataxy, PlotOrientation.VERTICAL, true, true, true);
+                System.out.println("Generando gráfica");
+                grafico = ChartFactory.createXYStepAreaChart(titulo, tx, ty, datasetxy, PlotOrientation.VERTICAL, true, true, true);
                 break;
             case PIECHART:
-                System.out.println("GEnerando gráfica");
+                System.out.println("Generando gráfica");
                 grafico = ChartFactory.createPieChart(titulo, data, true, true, true);
                 break;
             case PIECHART3D:
-                System.out.println("GEnerando gráfica 3D.\nDatos: "+data);
+                System.out.println("Generando gráfica 3D.\nDatos: "+data);
                 grafico = ChartFactory.createPieChart3D(titulo, data, true, true, true);
+                break;
+            case BARCHART:
+                System.out.println("Generando gráfica se barras.\nDatos: "+data);
+                grafico = ChartFactory.createBarChart("Título de la gráfica","Programas","Estudiantes", dataset,PlotOrientation.VERTICAL, false, true,false);
+                CategoryPlot plot = grafico.getCategoryPlot();
+                plot.setRangeGridlinePaint(Color.BLACK);
                 break;
         }
         chartPanel = new ChartPanel(grafico);
@@ -255,7 +276,6 @@ public class GraficoController implements interfaces.IGraficas{
     }
     
     public boolean generarReporte(String ruta){
-        byte[] person_img = null;
         try{
             String line ="";
             for(int i =0;i<=77;i++){

@@ -7,11 +7,7 @@
         rs=st.executeQuery(consulta);
         while(rs.next()){
             numEncuestas=rs.getInt(1);
-            //System.out.println("Contando las encuestas existentes\nTotal: "+numEncuestas);
         }
-        //st.close();
-        //rs.close();
-        //con.close();
     }catch(Exception e){
         System.out.println("Error: "+e);
     }
