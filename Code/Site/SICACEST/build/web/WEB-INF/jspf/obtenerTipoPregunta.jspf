@@ -1,0 +1,27 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    try{
+        consulta ="SELECT tipo_pregunta FROM tb_tipo_preguntas WHERE tipo_pregunta_id IN(SELECT tipo_pregunta_id FROM tb_preguntas WHERE pregunta ='"+nombrePregunta+"');";
+        //System.out.println(consulta);
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        while(rs.next()){
+            tipoPregunta=rs.getString(1);
+            System.out.println("Pregunta #"+i+": "+ tipoPregunta);
+            //out.print(tipoPregunta);
+        }
+        //st.close();
+        //rs.close();
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el Tipo de la pregunta. "+e);
+        }/**finally{
+            try{
+                if (st!=null)st.close();
+                if (rs!=null)rs.close();
+            }catch(Exception e){
+                System.err.println("ERROR cerrando la conexión :"+e);
+            }
+        }**/
+%>

@@ -1,0 +1,6 @@
+<%-- 
+    Este Fragment se encarga de obtener las preguntas que no son modificables
+    por el usuario pues, estos datos ya existen en la BBDD.
+--%>
+<%@ page pageEncoding="UTF-8" %>
+<h2>Hello World!</h2>
