@@ -17,6 +17,7 @@
                     out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\" readonly=\"readonly\"/>\n");
                 }else if(tipoPregunta.equals("DESPLEGABLE")){
                     out.print("\t<label for=\""+pre+"\" name=\"preguntas\">"+nombrePregunta+"</label>\n");
+                    out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
                     out.print("\t<select id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\">");%>
                     <!--OBTENEMOS LAS OPCIONES POSIBLES -->
                     <option>Seleccione...</option>
