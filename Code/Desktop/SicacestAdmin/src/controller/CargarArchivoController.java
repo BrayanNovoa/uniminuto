@@ -34,7 +34,7 @@ public class CargarArchivoController implements ICargarArchivo{
     public Object[] estudiantes;
     Object datoArchivo;
     String sql;
-    PreparedStatement pst;
+    PreparedStatement pst,pstR;
     
     @Override
     public boolean cargarListaEstudiantes(){
@@ -101,7 +101,7 @@ public class CargarArchivoController implements ICargarArchivo{
             System.out.println("Progreso: "+tasa*i);
             view.Cargador.txtPercent.setText(Float.toString(avance));
             view.Cargador.txtElemento.setText(""+estudiantes.length);
-            // Lo primero que hacemos es INSERTAR el código del estudiente, el correo,
+            // Lo primero que hacemos es insertar el código del estudiente, el correo,
             // su programa y el periodo de registro
             sql="INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('"+model.getValueAt(i-1, 0)+"' ,'"+model.getValueAt(i-1, 1)+"' ,(SELECT programa_id FROM tb_programas WHERE programa= '"+model.getValueAt(i-1, 4)+"'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='2019-01'));";
             //System.out.println("Consulta SQL: "+ sql);
@@ -110,24 +110,6 @@ public class CargarArchivoController implements ICargarArchivo{
                 if(pst!=null){
                     pst.execute(sql);
                     //view.Cargador.txtStatus.setText("OK.");
-                    // Inicio de carga de los datos de Archivo:
-                    for(int j=2;j<model.getColumnCount();j++){
-                        consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(2)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(2)+"'),'"+model.getValueAt(i-1, 0)+"','"+model.getValueAt(i-1, j)+"');";
-                        try{
-                            pst = entrar.getConexion().prepareStatement(consulta);
-                            if(pst!=null){
-                                pst.execute(sql);
-                            }
-                        }catch(SQLException ex){
-                            System.err.println("ERROR:"+ex);
-                            JOptionPane.showMessageDialog(null, "ERROR: "+ex);
-                            return false;
-                        }
-                        
-                        //Object m =  model.getValueAt(1, 5);
-                        //System.out.println(model.getValueAt(i-1, j));
-                        System.out.println("Consulta SQL: "+consulta);
-                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "ERROR");
                 }
@@ -137,6 +119,27 @@ public class CargarArchivoController implements ICargarArchivo{
                 JOptionPane.showMessageDialog(null, "ERROR: "+ex);
                 return false;
             }
+            //// Inicio de carga de los datos de Archivo:
+            //for(int r=1; r<= total;r++){
+                for(int j=2;j<model.getColumnCount();j++){
+                    consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(j)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(j)+"'),'"+model.getValueAt(i-1, 0)+"','"+model.getValueAt(i-1, j)+"');";
+                    try{
+                        pstR = entrar.getConexion().prepareStatement(consulta);
+                        if(pstR!=null){
+                            pstR.execute(consulta);
+                            System.out.println("Consulta SQL: "+consulta);
+                        }
+                    }catch(SQLException ex){
+                        System.err.println("ERROR:"+ex);
+                        JOptionPane.showMessageDialog(null, "ERROR: "+ex);
+                        return false;
+                    }
+                    //Object m =  model.getValueAt(1, 5);
+                    //System.out.println(model.getValueAt(i-1, j));
+                    //System.out.println("Consulta SQL: "+consulta);
+                }
+                
+            //}
             if(i==estudiantes.length){
                 JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+i);
                 System.out.println("Estudiantes Guardados: "+i);

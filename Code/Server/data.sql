@@ -6237,4 +6237,11 @@ INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) 
 INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= 'Escolaridad de la madre'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='Escolaridad de la madre'),'000246501','Universidad');
 
 
+INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= 'SEDE'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='SEDE'),'000123321','Regional Llanos Orinoquía');
+
+
+
+SELECT R.respuesta_id AS CODIGO_RESP, R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';
+SELECT R.respuesta_id AS CODIGO_RESP, R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';
+
 
