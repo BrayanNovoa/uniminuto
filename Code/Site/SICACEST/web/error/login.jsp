@@ -15,8 +15,8 @@
     <body>
         <form class="errors" method="post" id="formlogin">
             <h1>Error Iniciando Sesión</h1>
-            <p class="login-help"><a href="resetpass.jsp">Olvidó su contraseña?</a></p>
-            <p class="login-help"><a href="../login.jsp">Volver al inicio</a></p>
+            <!--<p class="login-help"><a href="resetpass.jsp">Olvidó su contraseña?</a></p>-->
+            <p class="login-help"><a href="../index.jsp">Volver al inicio</a></p>
         </form>
     </body>
 </html>

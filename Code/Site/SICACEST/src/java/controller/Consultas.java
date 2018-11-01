@@ -19,15 +19,15 @@ import java.util.LinkedList;
  */
 public class Consultas extends ConexionDB{
     
-    public boolean Autenticacion(String usuario, String contrasena){
+    public boolean Autenticacion(String usuarioMail, String contrasena){
         PreparedStatement pst = null;
         ResultSet rs = null;
         try{
             String consulta ="SELECT programa_id FROM tb_estudiantes WHERE estudiante_cod= ? ";//AND pass_user = ?
             pst= getConexion().prepareStatement(consulta);
-            pst.setString(1,usuario);
+            pst.setString(1,contrasena);
             rs=pst.executeQuery();
-            if(!rs.wasNull()){
+            if(rs.next()){
                 return true;
             }else if(rs.absolute(0)){
                 return false;
@@ -39,7 +39,7 @@ public class Consultas extends ConexionDB{
                 if (getConexion()!=null)getConexion().close();
                 if (pst!=null)pst.close();
                 if (rs!=null)rs.close();
-                System.out.println("El usuario identificado con id: "+usuario+" inicia sesión.");
+                System.out.println("El usuario identificado como: "+usuarioMail+" inicia sesión.");
             }catch(SQLException e){
                 System.err.println("ERROR :"+e);
             }

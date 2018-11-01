@@ -69,7 +69,7 @@
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Sicacest</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">Sistema de Caracterización Estudiantil.</h2>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
           Iniciar Sesión
         </button>
         </div>
@@ -82,8 +82,8 @@
               <div class="col-xl-5 col-lg-5">
                 <h2 class="text-white mb-4">Que es SICACEST?</h2>
                 <p class="text-white-50">SICACEST es un sistema que permite a las Instituciones de Educación Superior(<a href="http://startbootstrap.com/template-overviews/grayscale/">IES</a>),
-                  Administrar el proceso de Caracterizacion Estudiantil usando herramientas WEB.</p>
-                <p class="text-white-50 mb-2">Esta herramienta</p>
+                  administrar el proceso de caracterizacion estudiantil usando su propia herramienta web.</p>
+                <p class="text-white-50 mb-2">Esta herramienta permite a los estudiantes actualizar sus datos en cualquier momento.</p>
               </div>
               <div class="col-xl-7 col-lg-5">
                 <img src="img/empresa.svg" class="img-fluid mb-5 col-xl-12" alt="">
@@ -128,11 +128,11 @@
     <section id="login" class="login-section">
       <div class="container">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
           Iniciar Sesión
         </button>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -142,16 +142,15 @@
                 </button>
               </div>
               <div class="modal-body">
-                  <form action="https://www.google.com" method="get">
-                      <input type="email" name="mail_User"  class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Correo Institucional...">
-                      <input type="password" name="id_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPass" placeholder="Contraseña" id="txtid" autocomplete="off" maxlength="9"/>
+                  
+                      <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
+                      <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
+                      <!--<input type="password" name="id_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPass" placeholder="Contraseña" id="id_User" autocomplete="off" maxlength="9"/>-->
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" id="btnlogin" class="btn btn-primary" onclick="window.location.href='ingreso?id_User='+'000324471'">Iniciar Sesión</button>
-                        <!--<button type="button" id="btnlogin" class="btn btn-primary" onclick="window.location.href='ingreso?id_User'+'000324471'">Iniciar Sesión</button>-->
-                        <!--<button type="button" id="btnlogin" class="btn btn-primary" onclick="window.location.href='ingreso?id_User'+'000324471';">Iniciar Sesión</button>-->
+                        <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>
                       </div>
-                  </form>
+                  
               </div>
             </div>
           </div>
@@ -272,6 +271,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="themes/grayscale/js/grayscale.min.js"></script>
+    <script src="js/index.js"></script>
 
   </body>
 

@@ -33,15 +33,14 @@ public class InicioSesion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String id_usuario = request.getParameter("id_User");
-        String pass_usuario = request.getParameter("pass_User");
-        
+        String mailUsuario = request.getParameter("mail_User");
+        String passUsuario = request.getParameter("pass_User");
+        System.out.println("Mail: "+mailUsuario);
+        System.out.println("Pass: "+passUsuario);
         Consultas co=new Consultas();
-        if(co.Autenticacion(id_usuario, pass_usuario)){
+        if(co.Autenticacion(mailUsuario, passUsuario)){
             HttpSession objsesion = request.getSession(true);
-            objsesion.setAttribute("SesionUsuario",id_usuario);
-            
+            objsesion.setAttribute("SesionUsuario",passUsuario);
             response.sendRedirect("home.jsp");
         }else{
             response.sendRedirect("error/login.jsp");
