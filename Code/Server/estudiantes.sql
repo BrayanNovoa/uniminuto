@@ -1,0 +1,1 @@
+INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('000123321' ,'000123321@uniminuto.edu.co' ,(SELECT programa_id FROM tb_programas WHERE programa= 'Tecnología en Desarrollo de Software'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='2019-01'));

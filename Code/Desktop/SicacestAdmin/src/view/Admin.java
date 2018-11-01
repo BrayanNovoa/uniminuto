@@ -1904,9 +1904,12 @@ public final class Admin extends javax.swing.JFrame {
 
     private void btnCargarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarListaActionPerformed
         // TODO add your handling code here:
+        CargarArchivo carga = new CargarArchivo();
+        carga.setVisible(true);
+        /*
         if(adc.cargarListaEstudiantes()){
             JOptionPane.showMessageDialog(null, "Archivo de estudiantes cargado.");
-        }
+        }*/
     }//GEN-LAST:event_btnCargarListaActionPerformed
 
     private void btnGuardarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstudiantesActionPerformed

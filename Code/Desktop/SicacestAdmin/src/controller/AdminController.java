@@ -254,6 +254,7 @@ public class AdminController implements interfaces.IAdmin {
         }
         return false;
     }
+    
     public void filtroGeneral(){
         String[]campos={"Programa", "Estudiantes"};
         String[]registro = new String[campos.length];

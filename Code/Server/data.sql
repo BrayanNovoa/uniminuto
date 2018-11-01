@@ -6232,3 +6232,9 @@ INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) 
 INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= 'Escolaridad del padre'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='Escolaridad del padre'),'000246501','Bachiller');
 INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= 'Escolaridad de la madre'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='Escolaridad de la madre'),'000246501','Universidad');
 #  Datos de pruebas almacenados correctamente.
+
+
+INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= 'Escolaridad de la madre'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='Escolaridad de la madre'),'000246501','Universidad');
+
+
+
