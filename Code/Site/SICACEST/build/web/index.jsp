@@ -144,7 +144,6 @@
               <div class="modal-body">
                   <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
                   <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
-                  <!--<input type="password" name="id_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPass" placeholder="Contraseña" id="id_User" autocomplete="off" maxlength="9"/>-->
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>

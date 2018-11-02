@@ -1631,7 +1631,7 @@ public final class Admin extends javax.swing.JFrame {
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Generar Archivo PDF");
 
-        cmbChart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gráfica de torta", "Gráfica de torta 3D", "Gráfica de barras", "Gráfica lineal", "Gráfica tipo área", "Gráfica tipo dispersión", "Gráfica tipo polar", "Gráfica tipo paso", "Gráfica tipo paso-área", "Gráfica tipo serie-tiempo", "Gráfica logarítmica"}));
+        cmbChart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gráfica de torta", "Gráfica de torta 3D", "Gráfica de barras", "Gráfica lineal"/*, "Gráfica tipo área", "Gráfica tipo dispersión", "Gráfica tipo polar", "Gráfica tipo paso", "Gráfica tipo paso-área", "Gráfica tipo serie-tiempo", "Gráfica logarítmica"*/}));
         cmbChart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbChartMouseClicked(evt);

@@ -2712,7 +2712,7 @@
                     <Component class="javax.swing.JComboBox" name="cmbChart">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Gr&#xe1;fica de torta&quot;, &quot;Gr&#xe1;fica de torta 3D&quot;, &quot;Gr&#xe1;fica de barras&quot;, &quot;Gr&#xe1;fica lineal&quot;, &quot;Gr&#xe1;fica tipo &#xe1;rea&quot;, &quot;Gr&#xe1;fica tipo dispersi&#xf3;n&quot;, &quot;Gr&#xe1;fica tipo polar&quot;, &quot;Gr&#xe1;fica tipo paso&quot;, &quot;Gr&#xe1;fica tipo paso-&#xe1;rea&quot;, &quot;Gr&#xe1;fica tipo serie-tiempo&quot;, &quot;Gr&#xe1;fica logar&#xed;tmica&quot;})" type="code"/>
+                          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Gr&#xe1;fica de torta&quot;, &quot;Gr&#xe1;fica de torta 3D&quot;, &quot;Gr&#xe1;fica de barras&quot;, &quot;Gr&#xe1;fica lineal&quot;/*, &quot;Gr&#xe1;fica tipo &#xe1;rea&quot;, &quot;Gr&#xe1;fica tipo dispersi&#xf3;n&quot;, &quot;Gr&#xe1;fica tipo polar&quot;, &quot;Gr&#xe1;fica tipo paso&quot;, &quot;Gr&#xe1;fica tipo paso-&#xe1;rea&quot;, &quot;Gr&#xe1;fica tipo serie-tiempo&quot;, &quot;Gr&#xe1;fica logar&#xed;tmica&quot;*/})" type="code"/>
                         </Property>
                       </Properties>
                       <Events>
