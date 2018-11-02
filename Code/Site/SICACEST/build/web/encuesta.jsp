@@ -20,7 +20,7 @@
         String nombreEncuesta=null;
         String nombrePregunta=null;
         String tipoPregunta = null;
-        //String encuesta;
+        String nombreRespuesta;
         int numEncuestas=0;
         int numPreguntas=0;
         ConexionDB conexion = new ConexionDB();
@@ -92,17 +92,17 @@
                             }
                         }%>
                         <!--Contenido a mostrar/ocultar-->
-                        <div id="encuesta" class="form-group container panel-body">
+                        <div id="encuesta" class="form-group container">
                             <!--Creación dinámica de formularios-->
                             <%
                         for(int i=1;i<=numEncuestas;i++){%>
                             <%@include file="WEB-INF/jspf/ObtenerEncuestas.jspf"%>
                             <%
                             out.print("\t<div id=\"encuesta"+i+"\">");
-                            out.print("\t<form class=\"login\" action=\"guardando/Respuestas\" method=\"\">");
+                            out.print("\t<form class=\"login card\" action=\"guardando/Respuestas\" method=\"\">");
                             en = en+1;%>
                             <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
-                            <h2 class="text-center"><%out.print(nombreEncuesta);%></h2>
+                            <h2 class="text-center text-white"><%out.print(nombreEncuesta);%></h2>
                             <%@include file="WEB-INF/jspf/ObtenerPreguntas.jspf"%>
                             <%}%>
                         </div><!--CIERRE DEL CONTENEDOR DE LAS ENCUESTAS-->

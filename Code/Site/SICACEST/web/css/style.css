@@ -166,7 +166,7 @@ input, textarea, select, label {
   padding: 0 9px;
   color: #fff;
   text-shadow: 0 1px black;
-  background: #122C52;
+  background: #32486d;
   border: 1px solid #15243b;
   border-top-color: #0d1827;
   border-radius: 4px;
@@ -318,6 +318,10 @@ background-image:url(img/CabezoteCest.png);
 }
 form.login {
     width: 700px;
+}
+form.login h2 {
+    font-size: 1.5em;
+    font-weight: 830;
 }
 .imgIcon{
     width: 25px;

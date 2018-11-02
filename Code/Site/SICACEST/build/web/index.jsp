@@ -80,7 +80,7 @@
       <div class="container">
             <div class="row align-items-center no-gutters mb-4 col-lg-12 ">
               <div class="col-xl-5 col-lg-5">
-                <h2 class="text-white mb-4">Que es SICACEST?</h2>
+                <h2 class="text-white mb-4">Qué es SICACEST?</h2>
                 <p class="text-white-50">SICACEST es un sistema que permite a las Instituciones de Educación Superior(<a href="http://startbootstrap.com/template-overviews/grayscale/">IES</a>),
                   administrar el proceso de caracterizacion estudiantil usando su propia herramienta web.</p>
                 <p class="text-white-50 mb-2">Esta herramienta permite a los estudiantes actualizar sus datos en cualquier momento.</p>
@@ -97,18 +97,18 @@
         <div class="container">
             <div class="card-deck">
               <div class="card">
-                <img class="card-img-top" src="..." alt="Inicie Sesión.">
+                  <img class="card-img-top" src="img/login.png" alt="Inicie Sesión.">
                 <div class="card-body">
                   <h5 class="card-title">Inicie Sesión</h5>
-                  <p class="card-text">Ingrese con sus credenciales de acceso .</p>
+                  <p class="card-text">Ingrese con sus credenciales de acceso.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
               <div class="card">
-                <img class="card-img-top" src="..." alt="Diligencie las Encuestas.">
+                <img class="card-img-top" src="img/encuestas.png" alt="Diligencie las Encuestas.">
                 <div class="card-body">
                   <h5 class="card-title">Diligencie las Encuestas</h5>
-                  <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su Universidad .</p>
+                  <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su Universidad.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
@@ -142,15 +142,13 @@
                 </button>
               </div>
               <div class="modal-body">
-                  
-                      <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
-                      <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
-                      <!--<input type="password" name="id_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPass" placeholder="Contraseña" id="id_User" autocomplete="off" maxlength="9"/>-->
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>
-                      </div>
-                  
+                  <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
+                  <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
+                  <!--<input type="password" name="id_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPass" placeholder="Contraseña" id="id_User" autocomplete="off" maxlength="9"/>-->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>
+                  </div>
               </div>
             </div>
           </div>
@@ -163,13 +161,12 @@
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-center text-lg-left text-white">
               <h4>Estudiantes</h4>
-              <p class="text-white-50 mb-0">Asegúrese de tener sus credenciales de acceso antes de ingresar!</p>
+              <p class="text-white-50 mb-0">Asegúrese de tener sus credenciales de acceso antes de ingresar.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- Signup Section -->
     <section id="signup" class="signup-section">
       <div class="container">
@@ -201,7 +198,7 @@
                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                 <h4 class="text-uppercase m-0">Address</h4>
                 <hr class="my-4">
-                <div class="small text-black-50">Serramonte, Villavicencio-Meta</div>
+                <div class="small text-black-50">Villavicencio-Meta</div>
               </div>
             </div>
           </div>

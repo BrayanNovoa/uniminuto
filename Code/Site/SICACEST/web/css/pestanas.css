@@ -22,7 +22,6 @@ hr{
  margin-right: auto;
 }
 #container input{
-    color: #fff;
  height: 2.5em;
  visibility: hidden;
 }
@@ -52,7 +51,7 @@ background: #122C52;  /* Fondo de las pestañas */
  z-index: 6;
 }
 #container input.form-control:hover{
- background: #FFCD07; /* Fondo de las pestañas al pasar el cursor por encima */
+ background: #32486d; /* Fondo de las pestañas al pasar el cursor por encima */
  color: #000; /* Color del texto de las pestañas al pasar el cursor por encima */
 }
 #container input.form-control:checked{

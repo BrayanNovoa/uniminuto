@@ -6242,6 +6242,9 @@ INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) 
 
 
 SELECT R.respuesta_id AS CODIGO_RESP, R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';
-SELECT R.respuesta_id AS CODIGO_RESP, R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';
+SELECT R.respuesta AS Respuesta FROM tb_estudiantes AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';
 
+SELECT respuesta_id FROM tb_respuestas WHERE estudiante_cod ='000123321';
+SELECT respuesta FROM tb_respuestas WHERE estudiante_cod ='000123321' AND pregunta_id = 1;
+SELECT respuesta FROM tb_respuestas WHERE estudiante_cod ='000123321' AND pregunta_id IN(SELECT pregunta_id FROM tb_preguntas WHERE pregunta='SEDE');
 
