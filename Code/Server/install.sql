@@ -3,9 +3,9 @@ DROP DATABASE db_caracterizacion;
 CREATE DATABASE db_caracterizacion;
 USE db_caracterizacion;
 # Creación de la Tabla: tb_departamentos
-CREATE TABLE tb_departamentos (departamento_id INT(3) NOT NULL AUTO_INCREMENT, departamento_cod VARCHAR(3) NOT NULL, departamento VARCHAR(45) NOT NULL, PRIMARY KEY (departamento_id), KEY departamento_cod(departamento_cod) );
+#CREATE TABLE tb_departamentos (departamento_id INT(3) NOT NULL AUTO_INCREMENT, departamento_cod VARCHAR(3) NOT NULL, departamento VARCHAR(45) NOT NULL, PRIMARY KEY (departamento_id), KEY departamento_cod(departamento_cod) );
 # Creación de la Tabla: tb_ciudades
-CREATE TABLE tb_ciudades (	ciudad_id INT NOT NULL,	departamento_cod VARCHAR(3) NOT NULL,	ciudad VARCHAR(45) NOT NULL,	ciudad_cod VARCHAR(3) NOT NULL,	PRIMARY KEY (ciudad_id),	INDEX departamento_ind (departamento_cod),    FOREIGN KEY (departamento_cod) REFERENCES tb_departamentos(departamento_cod) ON DELETE CASCADE);
+#CREATE TABLE tb_ciudades (	ciudad_id INT NOT NULL,	departamento_cod VARCHAR(3) NOT NULL,	ciudad VARCHAR(45) NOT NULL,	ciudad_cod VARCHAR(3) NOT NULL,	PRIMARY KEY (ciudad_id),	INDEX departamento_ind (departamento_cod),    FOREIGN KEY (departamento_cod) REFERENCES tb_departamentos(departamento_cod) ON DELETE CASCADE);
 # Creación de la Tabla: tb_periodos
 CREATE TABLE tb_periodos(periodo_id INT NOT NULL AUTO_INCREMENT, periodo VARCHAR(20) NOT NULL, PRIMARY KEY(periodo_id));
 # Creación de la Tabla: tb_rectorias
