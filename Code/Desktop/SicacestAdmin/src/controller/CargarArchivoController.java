@@ -103,8 +103,8 @@ public class CargarArchivoController implements ICargarArchivo{
             view.Cargador.txtElemento.setText(""+estudiantes.length);
             // Lo primero que hacemos es insertar el código del estudiente, el correo,
             // su programa y el periodo de registro
-            sql="INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('"+model.getValueAt(i-1, 0)+"' ,'"+model.getValueAt(i-1, 1)+"' ,(SELECT programa_id FROM tb_programas WHERE programa= '"+model.getValueAt(i-1, 4)+"'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='2019-01'));";
-            //System.out.println("Consulta SQL: "+ sql);
+            sql="INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('"+model.getValueAt(i-1, 0)+"' ,'"+model.getValueAt(i-1, 1)+"' ,(SELECT programa_id FROM tb_programas WHERE programa= '"+model.getValueAt(i-1, 5)+"'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+model.getValueAt(i-1, 2)+"'));";
+            System.out.println("Consulta SQL: "+ sql);
             try{
                 pst = entrar.getConexion().prepareStatement(sql);
                 if(pst!=null){
@@ -121,7 +121,7 @@ public class CargarArchivoController implements ICargarArchivo{
             }
             //// Inicio de carga de los datos de Archivo:
             //for(int r=1; r<= total;r++){
-                for(int j=2;j<model.getColumnCount();j++){
+                for(int j=3;j<model.getColumnCount();j++){
                     consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(j)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(j)+"'),'"+model.getValueAt(i-1, 0)+"','"+model.getValueAt(i-1, j)+"');";
                     try{
                         pstR = entrar.getConexion().prepareStatement(consulta);
