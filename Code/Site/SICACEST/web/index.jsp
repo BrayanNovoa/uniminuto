@@ -8,8 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SICACEST - Sistema de Caracterización Estudiantil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -44,16 +43,16 @@
               <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Qué Es?</a>
+              <a class="nav-link js-scroll-trigger" href="#about">¿Qué es?</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#procces">Cómo funciona?</a>
+              <a class="nav-link js-scroll-trigger" href="#procces">¿Cómo funciona?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signup">Inquietudes?</a>
+              <a class="nav-link js-scroll-trigger" href="#signup">¿Alguna pregunta?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
@@ -80,7 +79,7 @@
       <div class="container">
             <div class="row align-items-center no-gutters mb-4 col-lg-12 ">
               <div class="col-xl-5 col-lg-5">
-                <h2 class="text-white mb-4">Qué es SICACEST?</h2>
+                <h2 class="text-white mb-4">¿Qué es SICACEST?</h2>
                 <p class="text-white-50">SICACEST es un sistema que permite a las Instituciones de Educación Superior(<a href="http://startbootstrap.com/template-overviews/grayscale/">IES</a>),
                   administrar el proceso de caracterizacion estudiantil usando su propia herramienta web.</p>
                 <p class="text-white-50 mb-2">Esta herramienta permite a los estudiantes actualizar sus datos en cualquier momento.</p>
@@ -108,7 +107,7 @@
                 <img class="card-img-top" src="img/encuestas.png" alt="Diligencie las Encuestas.">
                 <div class="card-body">
                   <h5 class="card-title">Diligencie las Encuestas</h5>
-                  <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su Universidad.</p>
+                  <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su universidad.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
@@ -116,7 +115,7 @@
                 <img class="card-img-top" src="..." alt="Actualice sus datos">
                 <div class="card-body">
                   <h5 class="card-title">Actualice sus datos</h5>
-                  <p class="card-text">Mantenga actualizada su información para que su Universidad le pueda ofrecer un mejor servicio.</p>
+                  <p class="card-text">Mantenga actualizada su información para que su universidad le pueda ofrecer un mejor servicio.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
@@ -173,11 +172,11 @@
           <div class="col-md-10 col-lg-8 mx-auto text-center">
 
             <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-            <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+            <h2 class="text-white mb-5">Déjanos tus inquietudes!</h2>
 
             <form class="form-inline d-flex">
-              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-              <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
+              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Ingresa tu correo...">
+              <button type="submit" class="btn btn-primary mx-auto">Enviar</button>
             </form>
 
           </div>

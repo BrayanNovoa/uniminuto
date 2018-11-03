@@ -40,6 +40,9 @@ background: #122C52;  /* Fondo de las pestañas */
  padding: 15px;
  text-align: center;
 }
+#container label.control-label{
+    background: #000;
+}
 #container input.label-btn:hover + label.label-btn {
  background: #00529B; /* Fondo de las pestañas al pasar el cursor por encima */
  color: #E0FFFF; /* Color del texto de las pestañas al pasar el cursor por encima */
@@ -52,7 +55,7 @@ background: #122C52;  /* Fondo de las pestañas */
 }
 #container input.form-control:hover{
  background: #32486d; /* Fondo de las pestañas al pasar el cursor por encima */
- color: #000; /* Color del texto de las pestañas al pasar el cursor por encima */
+ color: #fff; /* Color del texto de las pestañas al pasar el cursor por encima */
 }
 #container input.form-control:checked{
  background: #fff; /* Fondo de las pestañas al presionar */

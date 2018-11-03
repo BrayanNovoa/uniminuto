@@ -27,15 +27,22 @@
                 }else if(tipoPregunta.equals("MULTIPLE")){
                     out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control \" placeholder=\""+nombrePregunta+"\"/>\n");
                 }else if(tipoPregunta.equals("TEXTO")){
-                    out.print("\t<label for=\""+pre+"\">"+nombrePregunta+"</label>\n<img src=\"../img/actualizar.png\" class=\"imgIcon\" />\n");
-                    out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
-                    out.print("<input type=\"text\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
-                }
+                    //out.print("\t<label for=\""+pre+"\">"+nombrePregunta+"</label>\n<img src=\"../img/actualizar.png\" class=\"imgIcon\" />\n");
+                    //out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
+                    //out.print("<input type=\"text\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
+                    %>
+                    <!--<label for="<%//out.print(pre);%>"><%//out.print(nombrePregunta);%></label>-->
+                    <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                    <!--<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>-->
+                    <!--<img src="../img/actualizar.png" class="imgIcon"/>-->
+                    <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                    <input type="text" id="<%out.print(pre);%>" name="respuestas" class="form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}
             }catch(Exception e){
                 System.out.println("ERROR: "+e);
             }
         }
-        out.print("<input type=\"submit\" class=\"perfil-submit\" value=\"Guardar\" />");
+        out.print("<input type=\"submit\" class=\"perfil-submit\" value=\"Siguiente\" />");
         out.print("<p class=\"bg-black text-center text-white\">Copyright &copy; sicacest.com 2018</p>\n</form>\n</div>");
         p=0;
         //st.close();

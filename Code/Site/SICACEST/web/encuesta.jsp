@@ -13,7 +13,8 @@
 <% 
     HttpSession objsesion = request.getSession(false);
     String sesion= (String)objsesion.getAttribute("SesionUsuario");
-    String usurioId = request.getParameter("id_User");
+    String usurioId = sesion;//request.getParameter("id_User");
+    //out.print(usurioId);
     if(sesion==null){
         request.getRequestDispatcher("sessionerror.jsp").forward(request, response);
     }else{
@@ -45,12 +46,15 @@
         <meta name="description" content="Sistema de Caracterización Estudiantil">
         <meta name="author" content="Brayan Novoa">
         
-        <!-- Bootstrap core CSS -->
+        <!-- Bootstrap core CSS
+        -->
         <link href="themes/grayscale/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!--<link href="themes/grayscale/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
         <!--<link href="css/bootstrap3-3-7.css" rel="stylesheet">-->
 
         <!-- Custom fonts for this template -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        
         <link href="themes/grayscale/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -69,7 +73,9 @@
     </style>
     </head>
     <body>
+        
         <div class="container">
+            
         <div class="panel panel-default">
             <div class="panel-body">
                 <section id="contact" class="panel-body">
@@ -99,8 +105,9 @@
                             <%@include file="WEB-INF/jspf/ObtenerEncuestas.jspf"%>
                             <%
                             out.print("\t<div id=\"encuesta"+i+"\">");
-                            out.print("\t<form class=\"login card\" action=\"guardando/Respuestas\" method=\"\">");
+                            out.print("\t<form class=\"main-center\" action=\"guardando/Respuestas\" method=\"\">");
                             en = en+1;%>
+                            
                             <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
                             <h2 class="text-center text-white"><%out.print(nombreEncuesta);%></h2>
                             <%@include file="WEB-INF/jspf/ObtenerPreguntas.jspf"%>
