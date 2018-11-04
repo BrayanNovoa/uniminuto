@@ -103,11 +103,9 @@
                             <%
                         for(int i=1;i<=numEncuestas;i++){%>
                             <%@include file="WEB-INF/jspf/ObtenerEncuestas.jspf"%>
-                            <%
-                            out.print("\t<div id=\"encuesta"+i+"\">");
+                            <%out.print("\t<div id=\"encuesta"+i+"\">");
                             out.print("\t<form class=\"main-center\" action=\"guardando/Respuestas\" method=\"\">");
                             en = en+1;%>
-                            
                             <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
                             <h2 class="text-center text-white"><%out.print(nombreEncuesta);%></h2>
                             <%@include file="WEB-INF/jspf/ObtenerPreguntas.jspf"%>
@@ -120,11 +118,14 @@
         </div>
         <!-- Bootstrap core JavaScript -->
         <script src="themes/grayscale/vendor/jquery/jquery.min.js"></script>
+        
         <script src="themes/grayscale/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Plugin JavaScript -->
         <script src="themes/grayscale/vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Custom scripts for this template -->
         <script src="themes/grayscale/js/grayscale.min.js"></script>
+        <!-- Encuestas JavaScript -->
+        <script src="js/encuesta.js"></script>
   </body>
 </html>
 <%}//END OF MAIN ELSE.%>

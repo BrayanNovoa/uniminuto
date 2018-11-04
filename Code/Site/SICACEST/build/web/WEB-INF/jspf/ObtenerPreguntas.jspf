@@ -12,31 +12,53 @@
             nombrePregunta=rs.getString(1);
             tipoPregunta=rs.getString(2);
             try{
-                if(tipoPregunta.equals("ARCHIVO")){
-                    //out.print("\t<label for=\""+pre+"\">"+nombrePregunta+"</label>\n");
-                    //out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\" readonly=\"readonly\"/>\n");
-                    %><%@include file="ObtenerDeArchivo.jspf"%>
+                if(tipoPregunta.equals("ARCHIVO")){%>
+                    <%@include file="ObtenerDeArchivo.jspf"%>
                 <%}else if(tipoPregunta.equals("DESPLEGABLE")){
                     out.print("\t<label for=\""+pre+"\" name=\"preguntas\">"+nombrePregunta+"</label>\n");
                     out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
                     out.print("\t<select id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\">");%>
-                    <!--OBTENEMOS LAS OPCIONES POSIBLES -->
                     <option>Seleccione...</option>
                     <%@include file="ObtenerPosiblesRespuestas.jspf"%>
-                    <%out.println("\t</select>");
+                <%out.print("\t</select>");
                 }else if(tipoPregunta.equals("MULTIPLE")){
                     out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control \" placeholder=\""+nombrePregunta+"\"/>\n");
-                }else if(tipoPregunta.equals("TEXTO")){
-                    //out.print("\t<label for=\""+pre+"\">"+nombrePregunta+"</label>\n<img src=\"../img/actualizar.png\" class=\"imgIcon\" />\n");
-                    //out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
-                    //out.print("<input type=\"text\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\"/>\n");
-                    %>
-                    <!--<label for="<%//out.print(pre);%>"><%//out.print(nombrePregunta);%></label>-->
+                }else if(tipoPregunta.equals("TEXTO")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <input type="text" id="<%out.print(pre);%>" name="respuestas" class="form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}else if(tipoPregunta.equals("NUMERO")){
+                    if(nombrePregunta.equals("Edad")){%>
+                        <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                        <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                        <input type="text" id="<%out.print(pre);%>" name="respuestas" class="edad form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                    <%}else if(nombrePregunta.equals("Teléfono fijo")){%>    
                     <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
-                    <!--<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>-->
-                    <!--<img src="../img/actualizar.png" class="imgIcon"/>-->
                     <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
-                    <input type="text" id="<%out.print(pre);%>" name="respuestas" class="form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                    <input type="text" id="<%out.print(pre);%>" name="respuestas" class="fijo form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                    <%}else if(nombrePregunta.equals("Teléfono celular")){%>
+                    <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                    <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                    <input type="text" id="<%out.print(pre);%>" name="respuestas" class="celular form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}
+                }else if(tipoPregunta.equals("EMAIL")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <input type="text" id="<%out.print(pre);%>" name="respuestas" class="email form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}else if(tipoPregunta.equals("DEPARTAMENTO")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <select id="<%out.print(pre);%>" name="respuestas" class="departamento form-control login-input" placeholder="<%out.print(nombrePregunta);%>">
+                <option>Seleccione...</option>
+                <%@include file="Departamentos.jspf"%>
+                </select>
+                <%}else if(tipoPregunta.equals("CIUDAD")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <select id="<%out.print(pre);%>" name="respuestas" class="ciudad form-control login-input" placeholder="<%out.print(nombrePregunta);%>">
+                <option>Seleccione...</option>
+                <%@include file="Ciudades.jspf"%>
+                </select>
                 <%}
             }catch(Exception e){
                 System.out.println("ERROR: "+e);
@@ -45,8 +67,6 @@
         out.print("<input type=\"submit\" class=\"perfil-submit\" value=\"Siguiente\" />");
         out.print("<p class=\"bg-black text-center text-white\">Copyright &copy; sicacest.com 2018</p>\n</form>\n</div>");
         p=0;
-        //st.close();
-        //rs.close();
         }catch(Exception e){
             System.out.println("ERROR: "+e);
             System.out.println("No ha sido posible obtener el nombre de la pregunta. "+e);

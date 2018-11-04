@@ -279,9 +279,9 @@ public class AdminController implements interfaces.IAdmin {
     }
     
     public void filtroEstudiante(String estudianteCod){
-        String[]campos={"CODIGO_RESP", "Estudiante", "Encuesta", "Pregunta", "Respuesta"};
+        String[]campos={"Estudiante", "Encuesta", "Pregunta", "Respuesta"};
         String[]registro = new String[campos.length];
-        sql="SELECT R.respuesta_id AS CODIGO_RESP, R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"';";
+        sql="SELECT R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"'  ORDER BY R.pregunta_id, R.estudiante_cod;";
         model = new DefaultTableModel(null,campos);
         Connection cn = entrar.getConexion();
         try{
@@ -292,7 +292,6 @@ public class AdminController implements interfaces.IAdmin {
                 registro[1]=rs.getString(campos[1]);
                 registro[2]=rs.getString(campos[2]);
                 registro[3]=rs.getString(campos[3]);
-                registro[4]=rs.getString(campos[4]);
                 model.addRow(registro);
             }
             view.Admin.tbConsultas.setModel(model);

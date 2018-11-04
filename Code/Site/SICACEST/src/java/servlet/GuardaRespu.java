@@ -27,10 +27,11 @@ public class GuardaRespu extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @return false if any question can not be saved
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected boolean processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession objsesion = request.getSession(false);
         String sesion= (String)objsesion.getAttribute("SesionUsuario");
@@ -39,28 +40,25 @@ public class GuardaRespu extends HttpServlet {
             Consultas con = new Consultas();
             String pregunta[] = request.getParameterValues("preguntas");
             String respuesta[] = request.getParameterValues("respuestas");
-            //String nE = request.getParameter("nEncuesta");
-            String ruta="../encuesta.jsp#encuesta3";
-            //String ruta="../encuesta.jsp#encuesta"+nE;
-            //response.sendRedirect(ruta);
-            
+            String ruta="../encuesta.jsp";
             for (int x=0;x<=respuesta.length-1;x++){
                 out.println("<pre>Pregunta: "+pregunta[x]+"</pre>");
                 out.println("<pre>Respuesta: "+respuesta[x]+"</pre>");
                 out.println(x);
                 
                 if(con.guardarRespuesta(pregunta[x], respuesta[x], sesion)){
-                    //response.sendRedirect(ruta);
-                    if(x<=respuesta.length-1){
-                        //response.sendRedirect(ruta);
-                    }
-                    //response.sendRedirect("registrado.jsp");
+                    System.out.println("Respuesta Guardada: +respuesta[x]");
                 }else{
                     response.sendRedirect("../error.jsp");
+                    return false;
                 }
             }
             response.sendRedirect(ruta);
+            return true;
+        }catch(Exception e){
+            System.err.print("Error: "+e);
         }
+        return false;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

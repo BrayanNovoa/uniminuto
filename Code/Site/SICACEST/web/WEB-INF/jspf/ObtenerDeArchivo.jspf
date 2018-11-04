@@ -1,12 +1,11 @@
 <%-- 
     Este Fragment se encarga de obtener las preguntas que no son modificables
-    por el usuario pues, estos datos ya existen en la BBDD.
+    por el usuario, pues estos datos son cargados por el administrador.
 --%>
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
         consulta ="SELECT respuesta FROM tb_respuestas WHERE estudiante_cod ='"+usurioId+"' AND pregunta_id IN(SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+nombrePregunta+"');";
-        //System.out.println(consulta);
         st = con.createStatement();
         rspr = st.executeQuery(consulta);
         while(rspr.next()){
@@ -14,7 +13,6 @@
             out.print("\t<label for=\""+pre+"\">"+nombrePregunta+"</label>\n");
             out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"archivo\" class=\"form-control login-input\" placeholder=\""+nombreRespuesta+"\" readonly=\"readonly\"/>\n");
         }
-        
         }catch(Exception e){
             System.out.println("ERROR: "+e);
             System.out.println("No ha sido posible obtener la pregunta. \nERROR: "+e);
