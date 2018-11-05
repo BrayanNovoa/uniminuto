@@ -38,7 +38,7 @@
                 </td>
                 <td>
                     <div class="perfil-form">
-                        <button class="perfil-submit" onclick="window.location.href='perfil.jsp'">
+                        <button class="perfil-submit" onclick="window.location.href='estudiante.jsp'">
                             Perfil
                         </button>
                     </div>

@@ -40,30 +40,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Encuesta de caracterizacion estudiantil UNIMINUTO.">
         <title>Encuesta de caracterización estudiantil UNIMINUTO.</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Sistema de Caracterización Estudiantil">
         <meta name="author" content="Brayan Novoa">
-        
         <!-- Bootstrap core CSS
         -->
         <link href="themes/grayscale/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
         <!--<link href="themes/grayscale/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
         <!--<link href="css/bootstrap3-3-7.css" rel="stylesheet">-->
-
         <!-- Custom fonts for this template -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-        
         <link href="themes/grayscale/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-        <!-- Personal Styles
-         -->
+        <!-- Personal Styles -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/pestanas.css">
-        
         <!-- Custom styles for this template -->
         <link href="themes/grayscale/css/grayscale.css" rel="stylesheet">
         <link href="themes/grayscale/css/grayscale.min.css" rel="stylesheet">
@@ -99,8 +92,8 @@
                         }%>
                         <!--Contenido a mostrar/ocultar-->
                         <div id="encuesta" class="form-group container">
-                            <!--Creación dinámica de formularios-->
-                            <%
+                        <!--Creación dinámica de formularios-->
+                        <%
                         for(int i=1;i<=numEncuestas;i++){%>
                             <%@include file="WEB-INF/jspf/ObtenerEncuestas.jspf"%>
                             <%out.print("\t<div id=\"encuesta"+i+"\">");
@@ -109,7 +102,7 @@
                             <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
                             <h2 class="text-center text-white"><%out.print(nombreEncuesta);%></h2>
                             <%@include file="WEB-INF/jspf/ObtenerPreguntas.jspf"%>
-                            <%}%>
+                        <%}%>
                         </div><!--CIERRE DEL CONTENEDOR DE LAS ENCUESTAS-->
                     </div><!--CIERRE DEL CONTENEDOR PRINCIPAL-->
                 </section>
