@@ -17,9 +17,12 @@ public final class estudiante_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants = new java.util.ArrayList<String>(5);
     _jspx_dependants.add("/WEB-INF/jspf/ContarEncuestas.jspf");
     _jspx_dependants.add("/WEB-INF/jspf/ObtenerEncuestas.jspf");
+    _jspx_dependants.add("/WEB-INF/jspf/ContarPreguntas.jspf");
+    _jspx_dependants.add("/WEB-INF/jspf/LlenarPerfil.jspf");
+    _jspx_dependants.add("/WEB-INF/jspf/ArchivoPerfil.jspf");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -89,22 +92,19 @@ public final class estudiante_jsp extends org.apache.jasper.runtime.HttpJspBase
         int en =0;
         int g=0;
       out.write("\n");
-      out.write("<html>\n");
+      out.write("<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n");
+      out.write("<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>\n");
+      out.write("<script src=\"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n");
       out.write("<head>\n");
-      out.write("    <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\n");
-      out.write("    <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>\n");
-      out.write("    <script src=\"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n");
-      out.write("    <!------ Include the above in your HEAD tag ---------->\n");
-      out.write("  <title>Perfil del estudiante");
+      out.write("<title>Perfil del estudiante");
 out.println(" "+usurioId);
       out.write("</title>\n");
-      out.write("  <meta charset=\"utf-8\">\n");
-      out.write("  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-      out.write("  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n");
-      out.write("  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
-      out.write("  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
-      out.write("  <script src=\"js/perfil.js\"></script>\n");
-      out.write("  ");
+      out.write("<meta charset=\"utf-8\">\n");
+      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n");
+      out.write("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+      out.write("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+      out.write("<script src=\"js/perfil.js\"></script>\n");
       out.write('\n');
       out.write('\n');
 
@@ -162,7 +162,7 @@ out.println(" "+usurioId);
                 for(int i=1; i<=numEncuestas;i++){
                     if(i==1){
       out.write("\n");
-      out.write("                        ");
+      out.write("                    ");
       out.write('\n');
       out.write('\n');
 
@@ -187,7 +187,7 @@ out.println(" "+usurioId);
         }
 
       out.write("\n");
-      out.write("                        <li class=\"active\"><a data-toggle=\"tab\" href=\"#");
+      out.write("                    <li class=\"active\"><a data-toggle=\"tab\" href=\"#");
 out.print(tabId+i);
       out.write('"');
       out.write('>');
@@ -198,7 +198,7 @@ out.print(nombreEncuesta);
                     }
                     if(i>1){
       out.write("\n");
-      out.write("                        ");
+      out.write("                    ");
       out.write('\n');
       out.write('\n');
 
@@ -223,8 +223,8 @@ out.print(nombreEncuesta);
         }
 
       out.write("\n");
-      out.write("                        <!--Construcción de las Pestañas-->\n");
-      out.write("                        <li class=\"active\"><a data-toggle=\"tab\" href=\"#");
+      out.write("                    <!--Construcción de las Pestañas-->\n");
+      out.write("                    <li><a data-toggle=\"tab\" href=\"#");
 out.print(tabId+i);
       out.write('"');
       out.write('>');
@@ -236,199 +236,330 @@ out.print(nombreEncuesta);
                 }
       out.write("\n");
       out.write("                </ul>\n");
-      out.write("\n");
+      out.write("                <!--Contenido a mostrar/ocultar-->\n");
       out.write("                <div class=\"tab-content\">\n");
-      out.write("                    <div class=\"tab-pane active\" id=\"home\">\n");
+      out.write("                ");
+
+                for(int i=1;i<=numEncuestas;i++){
+                    if(i==1){
+      out.write("\n");
+      out.write("                    ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT encuesta FROM tb_encuestas WHERE encuesta_id = "+i+";";
+        //System.out.println(consulta);
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        if(rs.absolute(1)){
+            nombreEncuesta=rs.getString(1);
+        }
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el nombre de la encuesta. \nERROR: "+e);
+        }finally{
+            try{
+                if (st!=null)st.close();
+                if (rs!=null)rs.close();
+            }catch(Exception e){
+                System.err.println("ERROR :"+e);
+            }
+        }
+
+      out.write("\n");
+      out.write("                    <div class=\"tab-pane active\" id=\"");
+out.print(tabId+i);
+      out.write("\">\n");
       out.write("                        <hr>\n");
-      out.write("                          <form class=\"form\" action=\"##\" method=\"post\" id=\"registrationForm\">\n");
-      out.write("                              <div class=\"form-group\">\n");
+      out.write("                        <form class=\"form\" action=\"##\" method=\"post\" id=\"actaliceForm\">\n");
+      out.write("                            ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT COUNT(*) FROM tb_preguntas WHERE encuesta_id = "+i+";";
+        rs=st.executeQuery(consulta);
+        if(rs.absolute(1)){
+            numPreguntas=rs.getInt(1);
+        }
+    }catch(Exception e){
+        System.out.println("Error: "+e);
+    }
+
       out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"first_name\"><h4>Sede</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"first_name\" value=\"Sede Principal - Administrativa\" placeholder=\"Sede\" title=\"Sede donde estudia.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
+      out.write("                            <div class=\"form-group\">\n");
+      out.write("                                <h4>");
+out.print(nombreEncuesta);
+      out.write("</h4>\n");
+      out.write("                                <div class=\"col-xs-6\">\n");
+      out.write("                                    ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        String q = consulta;
+        int p =0;
+        q ="SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta_id="+i+")AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
+        st = con.createStatement();
+        rs = st.executeQuery(q);
+        while(rs.next()){
+            p= p+1;
+            pre="enc"+en+"pre"+p;
+            nombrePregunta=rs.getString(1);
+            tipoPregunta=rs.getString(2);
+            try{
+                if(tipoPregunta.equals("ARCHIVO")){
       out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"last_name\"><h4>Documento</h4></label>\n");
-      out.write("                                    <input type=\"text\" class=\"form-control\" name=\"last_name\" id=\"last_name\" value=\"1121871348\" placeholder=\"last name\" title=\"enter your last name if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
+      out.write("                ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT respuesta FROM tb_respuestas WHERE estudiante_cod ='"+usurioId+"' AND pregunta_id IN(SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+nombrePregunta+"');";
+        st = con.createStatement();
+        rspr = st.executeQuery(consulta);
+        while(rspr.next()){
+            nombreRespuesta=rspr.getString(1);
       out.write("\n");
-      out.write("                              <div class=\"form-group\">\n");
+      out.write("            <div class=\"col-xs-6\">\n");
+      out.write("                <label for=\"");
+out.print(pre);
+      out.write("\"><h4>");
+out.print(nombrePregunta);
+      out.write("</h4></label>\n");
+      out.write("                <input type=\"text\" id=\"");
+out.print(pre);
+      out.write("\" class=\"form-control\" name=\"archivo\" value=\"");
+out.print(nombreRespuesta);
+      out.write("\" placeholder=\"");
+out.print(nombrePregunta);
+      out.write("\" title=\"");
+out.print(nombrePregunta);
+      out.write("\" readonly=\"readonly\">\n");
+      out.write("            </div>\n");
+      out.write("        ");
+}
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener la pregunta. \nERROR: "+e);
+        }
+
+      out.write('\n');
       out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"phone\"><h4>Programa</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"phone\" id=\"phone\" value=\"Tecnología en Desarrollo de Software\" placeholder=\"enter phone\" title=\"enter your phone number if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("DESPLEGABLE")){
       out.write("\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                     <label for=\"mobile\"><h4>Modalidad de estudio</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"mobile\" id=\"mobile\" value=\"Presencial\" placeholder=\"enter mobile number\" title=\"enter your mobile number if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
+      out.write("                \n");
+      out.write("                ");
+}else if(tipoPregunta.equals("MULTIPLE")){
       out.write("\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("                                   <div class=\"col-xs-12\">\n");
-      out.write("                                        <br>\n");
-      out.write("                                        <button class=\"btn btn-lg btn-success\" type=\"submit\"><i class=\"glyphicon glyphicon-ok-sign\"></i> Save</button>\n");
-      out.write("                                        <button class=\"btn btn-lg\" type=\"reset\"><i class=\"glyphicon glyphicon-repeat\"></i> Reset</button>\n");
-      out.write("                                    </div>\n");
-      out.write("                              </div>\n");
+      out.write("\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("TEXTO")){
+      out.write("\n");
+      out.write("                <label for=\"");
+out.print(pre);
+      out.write("\"><h4>");
+out.print(nombrePregunta);
+      out.write("</h4></label>\n");
+      out.write("                <input type=\"text\" id=\"");
+out.print(pre);
+      out.write("\" class=\"form-control\" name=\"updateObject\" placeholder=\"l");
+out.print(nombrePregunta);
+      out.write("\" title=\"enter your last name if any.\">\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("NUMERO")){
+      out.write("\n");
+      out.write("\n");
+      out.write("                ");
+}
+      out.write("\n");
+      out.write("            ");
+}catch(Exception e){
+                System.out.println("ERROR: "+e);
+            }
+        }
+        p=0;
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el nombre de la pregunta. "+e);
+        }
+
+      out.write("\n");
+      out.write("                                    <!--<input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"first_name\" value=\"Sede Principal - Administrativa\" placeholder=\"Sede\" title=\"Sede donde estudia.\">-->\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
       out.write("                        </form>\n");
-      out.write("\n");
-      out.write("                      <hr>\n");
-      out.write("\n");
-      out.write("                     </div><!--/tab-pane-->\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                     <div class=\"tab-pane\" id=\"messages\">\n");
-      out.write("\n");
-      out.write("                       <h2></h2>\n");
-      out.write("\n");
-      out.write("                       <hr>\n");
-      out.write("                          <form class=\"form\" action=\"##\" method=\"post\" id=\"registrationForm\">\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"first_name\"><h4>First name</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"first_name\" value=\"\" placeholder=\"first name\" title=\"enter your first name if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"last_name\"><h4>Last name</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"last_name\" id=\"last_name\" value=\"\" placeholder=\"last name\" title=\"enter your last name if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"phone\"><h4>Phone</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"phone\" id=\"phone\" value=\"\" placeholder=\"enter phone\" title=\"enter your phone number if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                     <label for=\"mobile\"><h4>Mobile</h4></label>\n");
-      out.write("                                      <input type=\"text\" class=\"form-control\" name=\"mobile\" id=\"mobile\" value=\"\" placeholder=\"enter mobile number\" title=\"enter your mobile number if any.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"email\"><h4>Email</h4></label>\n");
-      out.write("                                      <input type=\"email\" class=\"form-control\" name=\"email\" id=\"email\" value=\"\" placeholder=\"you@email.com\" title=\"enter your email.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"email\"><h4>Location</h4></label>\n");
-      out.write("                                      <input type=\"email\" class=\"form-control\" id=\"location\" value=\"\" placeholder=\"somewhere\" title=\"enter a location\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                      <label for=\"password\"><h4>Password</h4></label>\n");
-      out.write("                                      <input type=\"password\" class=\"form-control\" name=\"password\" id=\"password\" value=\"\" placeholder=\"password\" title=\"enter your password.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                  <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"password2\"><h4>Verify</h4></label>\n");
-      out.write("                                      <input type=\"password\" class=\"form-control\" name=\"password2\" id=\"password2\" value=\"\" placeholder=\"password2\" title=\"enter your password2.\">\n");
-      out.write("                                  </div>\n");
-      out.write("                              </div>\n");
-      out.write("                              <div class=\"form-group\">\n");
-      out.write("                                   <div class=\"col-xs-12\">\n");
-      out.write("                                        <br>\n");
-      out.write("                                        <button class=\"btn btn-lg btn-success\" type=\"submit\"><i class=\"glyphicon glyphicon-ok-sign\"></i> Save</button>\n");
-      out.write("                                        <button class=\"btn btn-lg\" type=\"reset\"><i class=\"glyphicon glyphicon-repeat\"></i> Reset</button>\n");
-      out.write("                                    </div>\n");
-      out.write("                              </div>\n");
-      out.write("                        </form>\n");
-      out.write("\n");
+      out.write("                        <hr>\n");
       out.write("                    </div><!--/tab-pane-->\n");
-      out.write("                    <div class=\"tab-pane\" id=\"settings\">\n");
+      out.write("                        ");
+
+                    }
+                    if(i>1){
+      out.write("\n");
+      out.write("                    ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT encuesta FROM tb_encuestas WHERE encuesta_id = "+i+";";
+        //System.out.println(consulta);
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        if(rs.absolute(1)){
+            nombreEncuesta=rs.getString(1);
+        }
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el nombre de la encuesta. \nERROR: "+e);
+        }finally{
+            try{
+                if (st!=null)st.close();
+                if (rs!=null)rs.close();
+            }catch(Exception e){
+                System.err.println("ERROR :"+e);
+            }
+        }
+
+      out.write("\n");
+      out.write("                    <div class=\"tab-pane\" id=\"");
+out.print(tabId+i);
+      out.write("\">\n");
       out.write("                        <hr>\n");
-      out.write("                        <form class=\"form\" action=\"##\" method=\"post\" id=\"registrationForm\">\n");
+      out.write("                        <form class=\"form\" action=\"##\" method=\"post\" id=\"actaliceForm\">\n");
+      out.write("                            ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT COUNT(*) FROM tb_preguntas WHERE encuesta_id = "+i+";";
+        rs=st.executeQuery(consulta);
+        if(rs.absolute(1)){
+            numPreguntas=rs.getInt(1);
+        }
+    }catch(Exception e){
+        System.out.println("Error: "+e);
+    }
+
+      out.write("\n");
       out.write("                            <div class=\"form-group\">\n");
+      out.write("                                <h4>");
+out.print(nombreEncuesta);
+      out.write("</h4>\n");
+      out.write("                                ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        String q = consulta;
+        int p =0;
+        q ="SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta_id="+i+")AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
+        st = con.createStatement();
+        rs = st.executeQuery(q);
+        while(rs.next()){
+            p= p+1;
+            pre="enc"+en+"pre"+p;
+            nombrePregunta=rs.getString(1);
+            tipoPregunta=rs.getString(2);
+            try{
+                if(tipoPregunta.equals("ARCHIVO")){
+      out.write("\n");
+      out.write("                ");
+      out.write('\n');
+      out.write('\n');
+
+    try{
+        consulta ="SELECT respuesta FROM tb_respuestas WHERE estudiante_cod ='"+usurioId+"' AND pregunta_id IN(SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+nombrePregunta+"');";
+        st = con.createStatement();
+        rspr = st.executeQuery(consulta);
+        while(rspr.next()){
+            nombreRespuesta=rspr.getString(1);
+      out.write("\n");
+      out.write("            <div class=\"col-xs-6\">\n");
+      out.write("                <label for=\"");
+out.print(pre);
+      out.write("\"><h4>");
+out.print(nombrePregunta);
+      out.write("</h4></label>\n");
+      out.write("                <input type=\"text\" id=\"");
+out.print(pre);
+      out.write("\" class=\"form-control\" name=\"archivo\" value=\"");
+out.print(nombreRespuesta);
+      out.write("\" placeholder=\"");
+out.print(nombrePregunta);
+      out.write("\" title=\"");
+out.print(nombrePregunta);
+      out.write("\" readonly=\"readonly\">\n");
+      out.write("            </div>\n");
+      out.write("        ");
+}
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener la pregunta. \nERROR: "+e);
+        }
+
+      out.write('\n');
+      out.write("\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("DESPLEGABLE")){
+      out.write("\n");
+      out.write("                \n");
+      out.write("                ");
+}else if(tipoPregunta.equals("MULTIPLE")){
+      out.write("\n");
+      out.write("\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("TEXTO")){
+      out.write("\n");
+      out.write("                <label for=\"");
+out.print(pre);
+      out.write("\"><h4>");
+out.print(nombrePregunta);
+      out.write("</h4></label>\n");
+      out.write("                <input type=\"text\" id=\"");
+out.print(pre);
+      out.write("\" class=\"form-control\" name=\"updateObject\" placeholder=\"l");
+out.print(nombrePregunta);
+      out.write("\" title=\"enter your last name if any.\">\n");
+      out.write("                ");
+}else if(tipoPregunta.equals("NUMERO")){
+      out.write("\n");
+      out.write("\n");
+      out.write("                ");
+}
+      out.write("\n");
+      out.write("            ");
+}catch(Exception e){
+                System.out.println("ERROR: "+e);
+            }
+        }
+        p=0;
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el nombre de la pregunta. "+e);
+        }
+
       out.write("\n");
       out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"first_name\"><h4>First name</h4></label>\n");
-      out.write("                                    <input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"first_name\" value=\"\" placeholder=\"first name\" title=\"enter your first name if any.\">\n");
+      out.write("                                    \n");
+      out.write("                                    <!--<input type=\"text\" class=\"form-control\" name=\"first_name\" id=\"first_name\" value=\"Sede Principal - Administrativa\" placeholder=\"Sede\" title=\"Sede donde estudia.\">-->\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
+      out.write("                        </form>\n");
+      out.write("                        <hr>\n");
+      out.write("                    </div><!--/tab-pane-->\n");
+      out.write("                        ");
+
+                    }
+                
+                
       out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                  <label for=\"last_name\"><h4>Last name</h4></label>\n");
-      out.write("                                    <input type=\"text\" class=\"form-control\" name=\"last_name\" id=\"last_name\" value=\"\" placeholder=\"last name\" title=\"enter your last name if any.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
+      out.write("                    \n");
+      out.write("                    ");
+}
       out.write("\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"phone\"><h4>Phone</h4></label>\n");
-      out.write("                                    <input type=\"text\" class=\"form-control\" name=\"phone\" id=\"phone\" value=\"\" placeholder=\"enter phone\" title=\"enter your phone number if any.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                   <label for=\"mobile\"><h4>Mobile</h4></label>\n");
-      out.write("                                    <input type=\"text\" class=\"form-control\" name=\"mobile\" id=\"mobile\" value=\"\" placeholder=\"enter mobile number\" title=\"enter your mobile number if any.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"email\"><h4>Email</h4></label>\n");
-      out.write("                                    <input type=\"email\" class=\"form-control\" name=\"email\" id=\"email\" value=\"\" placeholder=\"you@email.com\" title=\"enter your email.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"email\"><h4>Location</h4></label>\n");
-      out.write("                                    <input type=\"email\" class=\"form-control\" id=\"location\" value=\"\" placeholder=\"somewhere\" title=\"enter a location\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                    <label for=\"password\"><h4>Password</h4></label>\n");
-      out.write("                                    <input type=\"password\" class=\"form-control\" name=\"password\" id=\"password\" value=\"\" placeholder=\"password\" title=\"enter your password.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("\n");
-      out.write("                                <div class=\"col-xs-6\">\n");
-      out.write("                                  <label for=\"password2\"><h4>Verify</h4></label>\n");
-      out.write("                                    <input type=\"password\" class=\"form-control\" name=\"password2\" id=\"password2\" value=\"\" placeholder=\"password2\" title=\"enter your password2.\">\n");
-      out.write("                                </div>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"form-group\">\n");
-      out.write("                                 <div class=\"col-xs-12\">\n");
-      out.write("                                      <br>\n");
-      out.write("                                      <button class=\"btn btn-lg btn-success pull-right\" type=\"submit\"><i class=\"glyphicon glyphicon-ok-sign\"></i> Save</button>\n");
-      out.write("                                      <!--<button class=\"btn btn-lg\" type=\"reset\"><i class=\"glyphicon glyphicon-repeat\"></i> Reset</button>-->\n");
-      out.write("                                  </div>\n");
-      out.write("                            </div>\n");
-      out.write("                      </form>\n");
-      out.write("                    </div>\n");
+      out.write("                </div><!--/tab-pane-->\n");
       out.write("                </div><!--/tab-pane-->\n");
       out.write("            </div><!--/tab-content-->\n");
       out.write("        </div><!--/col-9-->\n");

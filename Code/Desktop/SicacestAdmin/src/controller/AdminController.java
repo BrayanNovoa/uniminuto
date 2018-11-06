@@ -173,7 +173,6 @@ public class AdminController implements interfaces.IAdmin {
         int a = model.getRowCount()-1;
         for (int i = a; i >= 0; i--) {          
             model.removeRow(model.getRowCount()-1);
-            view.Admin.tbEstudiantes.setModel(model);
         }
         JButton abrir = new JButton();
         JFileChooser jfc = new JFileChooser();
@@ -198,7 +197,6 @@ public class AdminController implements interfaces.IAdmin {
                     model.addRow(datosFila);
                 }
                 view.Admin.tbEstudiantes.setModel(model);
-                view.Admin.btnGuardarEstudiantes.setVisible(true);
                 return true;
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);

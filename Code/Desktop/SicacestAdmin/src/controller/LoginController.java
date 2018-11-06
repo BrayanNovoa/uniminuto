@@ -41,7 +41,6 @@ public class LoginController implements interfaces.ILogin {
                 Admin admin = new Admin();
                 admin.setVisible(true);
                 view.Admin.txtSede.setText(sede);
-                view.Admin.txtSedeEstudiante.setText(sede);
                 view.Admin.txtRectoria.setText(rectoria);
                 view.Admin.txtUsuario.setText(usuario);
                 acceso = true;

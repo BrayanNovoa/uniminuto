@@ -2,7 +2,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
-        int p =0;
         consulta ="SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta_id="+i+")AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
         st = con.createStatement();
         rs = st.executeQuery(consulta);
@@ -14,6 +13,19 @@
             try{
                 if(tipoPregunta.equals("ARCHIVO")){%>
                 <%@include file="ArchivoPerfil.jspf"%>
+                <%}else if(tipoPregunta.equals("DESPLEGABLE")){%>
+                <div class="col-xs-6">
+                    <label for="<%out.print(pre);%>"><h4><%out.print(nombrePregunta);%></h4></label>
+                    <select id="<%out.print(pre);%>" name="respuestas" class="form-control">
+                        <option>Seleccione...</option>
+                        <%@include file="DatosPerfil.jspf"%>
+                    </select>
+                </div>
+                <%}else if(tipoPregunta.equals("TEXTO")){%>
+                <label for="<%out.print(pre);%>"><h4><%out.print(nombrePregunta);%></h4></label>
+                <input type="text" id="<%out.print(pre);%>" class="form-control" name="updateObject" placeholder="l<%out.print(nombrePregunta);%>" title="enter your last name if any.">
+                <%}else if(tipoPregunta.equals("NUMERO")){%>
+
                 <%}
             }catch(Exception e){
                 System.out.println("ERROR: "+e);
