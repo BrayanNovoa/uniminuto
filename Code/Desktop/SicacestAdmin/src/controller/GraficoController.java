@@ -213,7 +213,7 @@ public class GraficoController implements interfaces.IGraficas{
         view.Admin.pnlChartEstu.removeAll();
         view.Admin.pnlChartEstu.add(chartPanel, BorderLayout.CENTER);
         view.Admin.pnlChartEstu.validate();
-        //view.Admin.btnReportGen.setEnabled(true);
+        view.Admin.btnReportGen.setEnabled(true);
     }
     
     public final String realizarConsulta(int consulta){
@@ -221,37 +221,37 @@ public class GraficoController implements interfaces.IGraficas{
             case GENERAL:
                 sql ="SELECT prog.programa AS Programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog ORDER BY Programa;";
                 obtenerDatos(sql);
-                JOptionPane.showMessageDialog(null, "Consulta Realizada");
+                //msgConsultaOK();
                 break;
             case PERIODOS:
                 sql ="SELECT periodo, periodo_id FROM tb_periodos;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
             case FACULTADES:
                 sql="select facultad, sede_id FROM tb_facultades;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
             case PROGRAMAS:
                 sql="SELECT programa, facultad_id FROM tb_programas;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
             case ENCUESTAS:
                 sql="SELECT encuesta, encuesta_id FROM tb_encuestas;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
             case ESTUDIANTES:
                 sql="SELECT estudiante_cod, estudiante_id FROM tb_estudiantes;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
             case FACULTAD_ESTUDIANTES:
                 sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
                 obtenerDatos(sql);
-                msgConsultaOK();
+                //msgConsultaOK();
                 break;
         }
         return sql;

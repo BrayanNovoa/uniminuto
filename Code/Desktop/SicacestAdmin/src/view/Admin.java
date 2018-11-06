@@ -43,7 +43,6 @@ public final class Admin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         cargar();
-        
     }
      
     private void cargar(){
@@ -54,15 +53,14 @@ public final class Admin extends javax.swing.JFrame {
         cmbTipoPregunta.setEnabled(false);
         respc.obtenerRespuestas("");
         txtEstChart.setEnabled(false);
-        
         btnPreguntaSave.setEnabled(false);
-        
         txtRespuestaSave.setEnabled(false);
         btnRespuestaSave.setEnabled(false);
         lockAllInGraphicPanel();
     }
     
     private void lockAllInGraphicPanel(){
+        txtEstChart.setEnabled(false);
         btnConsulta.setEnabled(false);
         chkGeneral.setSelected(false);
         chkPeriodo.setSelected(false);
@@ -71,7 +69,6 @@ public final class Admin extends javax.swing.JFrame {
         chkEncuesta.setSelected(false);
         chkEstudiante.setSelected(false);
         btnReportGen.setEnabled(false);
-        btnChartTable.setEnabled(false);
         btnChartTableWindow.setEnabled(false);
     }
 
@@ -172,7 +169,7 @@ public final class Admin extends javax.swing.JFrame {
         txt_Info3 = new javax.swing.JTextPane();
         jScrollPane18 = new javax.swing.JScrollPane();
         txt_Info8 = new javax.swing.JTextPane();
-        jPanel15 = new javax.swing.JPanel();
+        pnl_Consultas = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         cmbEncuestasFind = new javax.swing.JComboBox<>();
         txtEstudianteCons = new javax.swing.JTextField();
@@ -193,11 +190,6 @@ public final class Admin extends javax.swing.JFrame {
         txt_Info4 = new javax.swing.JTextPane();
         jScrollPane10 = new javax.swing.JScrollPane();
         tbConsultas = new javax.swing.JTable();
-        pnl_Datos = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tbRespuestas = new javax.swing.JTable();
-        jScrollPane17 = new javax.swing.JScrollPane();
-        txt_Info7 = new javax.swing.JTextPane();
         pnl_Estadistica = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
         txt_Info5 = new javax.swing.JTextPane();
@@ -224,7 +216,6 @@ public final class Admin extends javax.swing.JFrame {
         pnl_tb_EstPrograma = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
         tbEstProg = new javax.swing.JTable();
-        btnChartTable = new javax.swing.JButton();
         pnlChartEstu = new javax.swing.JPanel();
         btnGraficaPoblacion1 = new javax.swing.JButton();
 
@@ -682,7 +673,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
         );
 
-        jtp_Modulos.addTab("Gestión de Estudiantes", pnl_Estudiantes);
+        jtp_Modulos.addTab("Registro", pnl_Estudiantes);
 
         pnl_Encuestas.setBackground(new java.awt.Color(59, 71, 97));
 
@@ -1086,8 +1077,23 @@ public final class Admin extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Preguntas & Respuestas", jPanel9);
 
-        jPanel15.setBackground(new java.awt.Color(243, 249, 249));
-        jPanel15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        javax.swing.GroupLayout pnl_EncuestasLayout = new javax.swing.GroupLayout(pnl_Encuestas);
+        pnl_Encuestas.setLayout(pnl_EncuestasLayout);
+        pnl_EncuestasLayout.setHorizontalGroup(
+            pnl_EncuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane2)
+        );
+        pnl_EncuestasLayout.setVerticalGroup(
+            pnl_EncuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EncuestasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jtp_Modulos.addTab("Encuestas", pnl_Encuestas);
+
+        pnl_Consultas.setBackground(new java.awt.Color(243, 249, 249));
+        pnl_Consultas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jPanel20.setBackground(new java.awt.Color(59, 71, 97));
         jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1154,7 +1160,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                         .addComponent(chkConsEst)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
+                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
                     .addComponent(cmbPreguntasFind, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1212,77 +1218,28 @@ public final class Admin extends javax.swing.JFrame {
         ));
         jScrollPane10.setViewportView(tbConsultas);
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_ConsultasLayout = new javax.swing.GroupLayout(pnl_Consultas);
+        pnl_Consultas.setLayout(pnl_ConsultasLayout);
+        pnl_ConsultasLayout.setHorizontalGroup(
+            pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_ConsultasLayout.createSequentialGroup()
                 .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        pnl_ConsultasLayout.setVerticalGroup(
+            pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_ConsultasLayout.createSequentialGroup()
+                .addGroup(pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                     .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Consultas", jPanel15);
-
-        javax.swing.GroupLayout pnl_EncuestasLayout = new javax.swing.GroupLayout(pnl_Encuestas);
-        pnl_Encuestas.setLayout(pnl_EncuestasLayout);
-        pnl_EncuestasLayout.setHorizontalGroup(
-            pnl_EncuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
-        );
-        pnl_EncuestasLayout.setVerticalGroup(
-            pnl_EncuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EncuestasLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jtp_Modulos.addTab("Gestión de Encuestas", pnl_Encuestas);
-
-        pnl_Datos.setBackground(new java.awt.Color(243, 249, 249));
-
-        tbRespuestas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tbRespuestas.setOpaque(false);
-        jScrollPane5.setViewportView(tbRespuestas);
-
-        txt_Info7.setEditable(false);
-        txt_Info7.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
-        jScrollPane17.setViewportView(txt_Info7);
-
-        javax.swing.GroupLayout pnl_DatosLayout = new javax.swing.GroupLayout(pnl_Datos);
-        pnl_Datos.setLayout(pnl_DatosLayout);
-        pnl_DatosLayout.setHorizontalGroup(
-            pnl_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1305, Short.MAX_VALUE)
-            .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-        );
-        pnl_DatosLayout.setVerticalGroup(
-            pnl_DatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_DatosLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jtp_Modulos.addTab("Recopilación de datos", pnl_Datos);
+        jtp_Modulos.addTab("Consultas", pnl_Consultas);
 
         pnl_Estadistica.setBackground(new java.awt.Color(243, 249, 249));
 
@@ -1296,19 +1253,19 @@ public final class Admin extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(224, 255, 255));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-estadísticas-75.png"))); // NOI18N
-        jLabel24.setText("Estadísticas");
+        jLabel24.setText("Reportes");
 
         jLabel25.setFont(jLabel25.getFont().deriveFont((jLabel25.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel25.getFont().getSize()-3));
         jLabel25.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel25.setText("Población General");
+        jLabel25.setText("Población general");
 
         jLabel26.setFont(jLabel26.getFont().deriveFont((jLabel26.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel26.getFont().getSize()-3));
         jLabel26.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel26.setText("Encuesta");
+        jLabel26.setText("Población madres cabeza de familia por periodo");
 
         jLabel27.setFont(jLabel27.getFont().deriveFont((jLabel27.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel27.getFont().getSize()-3));
         jLabel27.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel27.setText("Filtrar Estudiante");
+        jLabel27.setText("Buscar los datos de un estudiante por su ID");
 
         txtEstChart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEstChart.setText("000324471");
@@ -1342,7 +1299,7 @@ public final class Admin extends javax.swing.JFrame {
 
         jLabel28.setFont(jLabel28.getFont().deriveFont((jLabel28.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel28.getFont().getSize()-3));
         jLabel28.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel28.setText("Periodo");
+        jLabel28.setText("Población general por periodo");
 
         chkPeriodo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1352,7 +1309,7 @@ public final class Admin extends javax.swing.JFrame {
 
         jLabel29.setFont(jLabel29.getFont().deriveFont((jLabel29.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel29.getFont().getSize()-3));
         jLabel29.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel29.setText("Facultad");
+        jLabel29.setText("Población de facultad por programa por periodo");
 
         chkFacultad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1362,7 +1319,7 @@ public final class Admin extends javax.swing.JFrame {
 
         jLabel30.setFont(jLabel30.getFont().deriveFont((jLabel30.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel30.getFont().getSize()-3));
         jLabel30.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel30.setText("Programa");
+        jLabel30.setText("Población madres cabeza de familia por periodo");
 
         chkPrograma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1391,7 +1348,7 @@ public final class Admin extends javax.swing.JFrame {
         jLabel31.setText("Generar Archivo PDF");
 
         btnReportGen.setBackground(new java.awt.Color(255, 205, 7));
-        btnReportGen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pdf-100(2).png"))); // NOI18N
+        btnReportGen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pdf-50.png"))); // NOI18N
         btnReportGen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportGenActionPerformed(evt);
@@ -1405,28 +1362,28 @@ public final class Admin extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEstChart, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(chkGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(chkPeriodo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(chkPrograma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkFacultad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(chkFacultad, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(chkEncuesta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1439,38 +1396,38 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(176, 176, 176)
+                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkFacultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkEncuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEstChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1479,10 +1436,11 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(btnConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnChartTableWindow)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel31)
-                .addGap(2, 2, 2)
-                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pnl_tb_EstPrograma.setBackground(new java.awt.Color(252, 252, 252));
@@ -1498,30 +1456,17 @@ public final class Admin extends javax.swing.JFrame {
         tbEstProg.getTableHeader().setReorderingAllowed(false);
         jScrollPane20.setViewportView(tbEstProg);
 
-        btnChartTable.setBackground(new java.awt.Color(255, 205, 7));
-        btnChartTable.setText("GRAFICAR TABLA");
-        btnChartTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChartTableActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnl_tb_EstProgramaLayout = new javax.swing.GroupLayout(pnl_tb_EstPrograma);
         pnl_tb_EstPrograma.setLayout(pnl_tb_EstProgramaLayout);
         pnl_tb_EstProgramaLayout.setHorizontalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnChartTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_tb_EstProgramaLayout.setVerticalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_tb_EstProgramaLayout.createSequentialGroup()
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnChartTable)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane20)
         );
 
         pnlChartEstu.setBackground(new java.awt.Color(252, 252, 252));
@@ -1565,7 +1510,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jtp_Modulos.addTab("Análisis Estadístico", pnl_Estadistica);
+        jtp_Modulos.addTab("Reportes", pnl_Estadistica);
 
         pnl_Principal.add(jtp_Modulos, java.awt.BorderLayout.CENTER);
 
@@ -1592,9 +1537,6 @@ public final class Admin extends javax.swing.JFrame {
         grafc.guardarImagen();
     }//GEN-LAST:event_btnGraficaPoblacion1ActionPerformed
 
-    public void activeBtnChart(){
-        btnChartTable.setEnabled(true);
-    }
     private void btnPreguntaSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntaSaveActionPerformed
         // TODO add your handling code here:
         String encuesta = cmbEncuestas.getSelectedItem().toString();
@@ -1715,51 +1657,6 @@ public final class Admin extends javax.swing.JFrame {
             adc.buscarFacultades();
         }
     }//GEN-LAST:event_tbPeriodosMouseClicked
-
-    private void btnChartTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartTableActionPerformed
-        // TODO add your handling code here:
-        String row = cmbChart.getSelectedItem().toString();
-        switch (row) {
-            case "Gráfica de torta":
-                tipoGrafica=GraficoController.PIECHART;
-                break;
-            case "Gráfica de torta 3D":
-                tipoGrafica=GraficoController.PIECHART3D;
-                break;
-            case "Gráfica de barras":
-                tipoGrafica=GraficoController.BARCHART;
-                break;
-            case "Gráfica lineal":
-                tipoGrafica=GraficoController.LINEAL;
-                break;
-            case "Gráfica tipo área":
-                tipoGrafica=GraficoController.AREA;
-                break;
-            case "Gráfica tipo dispersión":
-                tipoGrafica=GraficoController.DISPERSION;
-                break;
-            case "Gráfica tipo polar":
-                tipoGrafica=GraficoController.POLAR;
-                break;
-            case "Gráfica tipo paso":
-                tipoGrafica=GraficoController.PASO;
-                break;
-            case "Gráfica tipo paso-área":
-                tipoGrafica=GraficoController.PASOAREA;
-                break;
-            case "Gráfica tipo serie-tiempo":
-                tipoGrafica=GraficoController.SERIETIEMPO;
-                break;
-            case "Gráfica logarítmica":
-                tipoGrafica=GraficoController.LOGARITMICA;
-                break;
-            default:
-                grafc.tipoGrafico(tipoGrafica);
-                break;
-        }
-        grafc.tipoGrafico(tipoGrafica);
-        btnChartTableWindow.setEnabled(true);
-    }//GEN-LAST:event_btnChartTableActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1967,6 +1864,7 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(chkEstudiante.isSelected()){
             lockAllInGraphicPanel();
+            txtEstChart.setEnabled(true);
             chkEstudiante.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
@@ -1989,25 +1887,60 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(chkGeneral.isSelected()){
             grafc.realizarConsulta(GraficoController.GENERAL);
-            activeBtnChart();
         }else if(chkPeriodo.isSelected()){
             grafc.realizarConsulta(GraficoController.PERIODOS);
-            activeBtnChart();
         }else if(chkFacultad.isSelected()){
             grafc.realizarConsulta(GraficoController.FACULTADES);
-            activeBtnChart();
         }else if(chkPrograma.isSelected()){
             grafc.realizarConsulta(GraficoController.PROGRAMAS);
-            activeBtnChart();
         }else if(chkEncuesta.isSelected()){
             grafc.realizarConsulta(GraficoController.ENCUESTAS);
-            activeBtnChart();
         }else if(chkEstudiante.isSelected()){
             grafc.realizarConsulta(GraficoController.ESTUDIANTES);
-            activeBtnChart();
         }else{
             JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
         }
+        String row = cmbChart.getSelectedItem().toString();
+        switch (row) {
+            case "Gráfica de torta":
+                tipoGrafica=GraficoController.PIECHART;
+                break;
+            case "Gráfica de torta 3D":
+                tipoGrafica=GraficoController.PIECHART3D;
+                break;
+            case "Gráfica de barras":
+                tipoGrafica=GraficoController.BARCHART;
+                break;
+            case "Gráfica lineal":
+                tipoGrafica=GraficoController.LINEAL;
+                break;
+            case "Gráfica tipo área":
+                tipoGrafica=GraficoController.AREA;
+                break;
+            case "Gráfica tipo dispersión":
+                tipoGrafica=GraficoController.DISPERSION;
+                break;
+            case "Gráfica tipo polar":
+                tipoGrafica=GraficoController.POLAR;
+                break;
+            case "Gráfica tipo paso":
+                tipoGrafica=GraficoController.PASO;
+                break;
+            case "Gráfica tipo paso-área":
+                tipoGrafica=GraficoController.PASOAREA;
+                break;
+            case "Gráfica tipo serie-tiempo":
+                tipoGrafica=GraficoController.SERIETIEMPO;
+                break;
+            case "Gráfica logarítmica":
+                tipoGrafica=GraficoController.LOGARITMICA;
+                break;
+            default:
+                grafc.tipoGrafico(tipoGrafica);
+                break;
+        }
+        grafc.tipoGrafico(tipoGrafica);
+        btnChartTableWindow.setEnabled(true);
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     private void chkEncuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkEncuestaMouseClicked
@@ -2056,7 +1989,6 @@ public final class Admin extends javax.swing.JFrame {
     public Object[] estudiantes;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarLista;
-    public static javax.swing.JButton btnChartTable;
     private javax.swing.JButton btnChartTableWindow;
     private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnGenConsultas;
@@ -2115,7 +2047,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel22;
@@ -2133,14 +2064,12 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
-    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
@@ -2158,7 +2087,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTipoPregunta;
     public static javax.swing.JPanel pnlChartEstu;
     private javax.swing.JPanel pnl_CargaEstud;
-    private javax.swing.JPanel pnl_Datos;
+    private javax.swing.JPanel pnl_Consultas;
     private javax.swing.JPanel pnl_Encuestas;
     private javax.swing.JPanel pnl_Estadistica;
     private javax.swing.JPanel pnl_Estudiantes;
@@ -2177,7 +2106,6 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JTable tbPosiblesRespuestas;
     public static javax.swing.JTable tbPreguntas;
     public static javax.swing.JTable tbProgramas;
-    public static javax.swing.JTable tbRespuestas;
     public static javax.swing.JTable tbTipoPreguntas;
     private javax.swing.JTextField txtEncuDescrip;
     private javax.swing.JTextField txtEncuesta;
@@ -2195,7 +2123,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTextPane txt_Info3;
     private javax.swing.JTextPane txt_Info4;
     private javax.swing.JTextPane txt_Info5;
-    private javax.swing.JTextPane txt_Info7;
     private javax.swing.JTextPane txt_Info8;
     private javax.swing.JTextPane txt_Info9;
     // End of variables declaration//GEN-END:variables

@@ -56,7 +56,6 @@ public class RespuestasController implements interfaces.IRespuestas{
                 model.addRow(registro);
             }
             model.setColumnIdentifiers(campos);
-            view.Admin.tbRespuestas.setModel(model);
         } catch (java.sql.SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error");
             Logger.getLogger(RespuestasController.class.getName()).log(Level.SEVERE, null, ex);
