@@ -31,7 +31,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnl_Info" alignment="0" pref="1319" max="32767" attributes="0"/>
+          <Component id="pnl_Info" alignment="0" pref="1355" max="32767" attributes="0"/>
           <Component id="pnl_Principal" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -67,7 +67,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtRectoria" pref="320" max="32767" attributes="0"/>
+                  <Component id="txtRectoria" pref="356" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -446,7 +446,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="430" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="466" max="32767" attributes="0"/>
                           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -522,7 +522,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel12" alignment="0" pref="426" max="32767" attributes="0"/>
+                              <Component id="jLabel12" alignment="0" pref="462" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1092,7 +1092,7 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane7" alignment="0" pref="995" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" alignment="0" pref="1031" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
@@ -1193,7 +1193,7 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane11" alignment="0" pref="1291" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane11" alignment="0" pref="1327" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
@@ -1587,7 +1587,7 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane9" alignment="0" pref="1042" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane9" alignment="0" pref="1078" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
@@ -1741,7 +1741,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="chkConsEst" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel19" pref="367" max="32767" attributes="0"/>
+                                      <Component id="jLabel19" pref="403" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="cmbPreguntasFind" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -1983,7 +1983,7 @@
                               <Component id="pnlChartEstu" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="btnGraficaPoblacion1" min="-2" pref="556" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2034,92 +2034,85 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel31" max="32767" attributes="0"/>
-                                  <Component id="btnConsulta" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEstChart" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="chkGeneral" max="32767" attributes="0"/>
-                                          <Component id="chkPeriodo" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel25" max="32767" attributes="0"/>
-                                          <Component id="jLabel28" min="-2" pref="359" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                                      <Component id="btnReportGen" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="chkPrograma" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="chkFacultad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel29" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel30" min="-2" pref="358" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel31" max="32767" attributes="0"/>
+                                          <Component id="btnConsulta" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtEstChart" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="cmbChart" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnChartTableWindow" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="chkGENPER" max="32767" attributes="0"/>
+                                                  <Component id="chkGENERAL" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="chkMADCABFAMPER" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="chkGESPER" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="chkESTUDIANTE" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="chkFACPROPER" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblGENERAL" max="32767" attributes="0"/>
+                                                  <Component id="lblGENPER" max="32767" attributes="0"/>
+                                                  <Component id="lblFACPROPER" alignment="0" pref="371" max="32767" attributes="0"/>
+                                                  <Component id="lblMADCABFAMPER" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lblGESPER" max="32767" attributes="0"/>
+                                                  <Component id="lblESTUDIANTE" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="chkEncuesta" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel26" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="chkEstudiante" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel27" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="cmbChart" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnChartTableWindow" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                              <Component id="btnReportGen" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel24" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="jLabel24" min="-2" pref="66" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkGeneral" max="32767" attributes="0"/>
-                                  <Component id="jLabel25" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkGENERAL" max="32767" attributes="0"/>
+                                  <Component id="lblGENERAL" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkPeriodo" max="32767" attributes="0"/>
-                                  <Component id="jLabel28" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkGENPER" max="32767" attributes="0"/>
+                                  <Component id="lblGENPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkFacultad" max="32767" attributes="0"/>
-                                  <Component id="jLabel29" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkFACPROPER" max="32767" attributes="0"/>
+                                  <Component id="lblFACPROPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkPrograma" max="32767" attributes="0"/>
-                                  <Component id="jLabel30" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkMADCABFAMPER" max="32767" attributes="0"/>
+                                  <Component id="lblMADCABFAMPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkEncuesta" max="32767" attributes="0"/>
-                                  <Component id="jLabel26" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkGESPER" max="32767" attributes="0"/>
+                                  <Component id="lblGESPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkEstudiante" max="32767" attributes="0"/>
-                                  <Component id="jLabel27" min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="chkESTUDIANTE" max="32767" attributes="0"/>
+                                  <Component id="lblESTUDIANTE" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtEstChart" min="-2" max="-2" attributes="0"/>
@@ -2133,7 +2126,7 @@
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnReportGen" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace pref="59" max="32767" attributes="0"/>
+                              <EmptySpace pref="71" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2149,49 +2142,52 @@
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/icons8-estad&#xed;sticas-75.png"/>
+                          <Image iconType="3" name="/img/icons8-pdf-50.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Reportes"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel25">
+                    <Component class="javax.swing.JLabel" name="lblGENERAL">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel25" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n general"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGENERALMouseClicked"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel26">
+                    <Component class="javax.swing.JLabel" name="lblGESPER">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel26" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n madres cabeza de familia por periodo"/>
+                        <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n gestantes por periodo"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGESPERMouseClicked"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel27">
+                    <Component class="javax.swing.JLabel" name="lblESTUDIANTE">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel27" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Buscar los datos de un estudiante por su ID"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblESTUDIANTEMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEstChart">
                       <Properties>
@@ -2199,9 +2195,9 @@
                         <Property name="text" type="java.lang.String" value="000324471"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkEncuesta">
+                    <Component class="javax.swing.JCheckBox" name="chkGESPER">
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkEncuestaMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkGESPERMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnConsulta">
@@ -2215,71 +2211,74 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkGeneral">
+                    <Component class="javax.swing.JCheckBox" name="chkGENERAL">
                       <Properties>
                         <Property name="selected" type="boolean" value="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkGeneralMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkGENERALMouseClicked"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkEstudiante">
+                    <Component class="javax.swing.JCheckBox" name="chkESTUDIANTE">
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkEstudianteMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkESTUDIANTEMouseClicked"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel28">
+                    <Component class="javax.swing.JLabel" name="lblGENPER">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel28" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n general por periodo"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkPeriodo">
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkPeriodoMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGENPERMouseClicked"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel29">
+                    <Component class="javax.swing.JCheckBox" name="chkGENPER">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkGENPERMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblFACPROPER">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel29" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n de facultad por programa por periodo"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkFacultad">
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkFacultadMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblFACPROPERMouseClicked"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel30">
+                    <Component class="javax.swing.JCheckBox" name="chkFACPROPER">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkFACPROPERMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblMADCABFAMPER">
                       <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
-                          <FontInfo relative="true">
-                            <Font bold="true" component="jLabel30" italic="true" property="font" relativeSize="true" size="-3"/>
-                          </FontInfo>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="14" style="3"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="e0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n madres cabeza de familia por periodo"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkPrograma">
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkProgramaMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMADCABFAMPERMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="chkMADCABFAMPER">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkMADCABFAMPERMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbChart">

@@ -11,7 +11,7 @@ package interfaces;
  * @author b41n
  */
 public interface IGraficas {
-    public boolean obtenerDatos(String sql);
+    public boolean obtenerDatos(String sql, String column1, String column2, String titleChart, int consulta);
     public void generarTabla(String [] registro);
     public void graficarDatos();
     public void guardarImagen();

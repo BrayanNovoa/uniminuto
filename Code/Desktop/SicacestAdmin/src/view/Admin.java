@@ -11,11 +11,13 @@ import controller.EncuestasController;
 import controller.GraficoController;
 import controller.PreguntasController;
 import controller.RespuestasController;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -62,12 +64,12 @@ public final class Admin extends javax.swing.JFrame {
     private void lockAllInGraphicPanel(){
         txtEstChart.setEnabled(false);
         btnConsulta.setEnabled(false);
-        chkGeneral.setSelected(false);
-        chkPeriodo.setSelected(false);
-        chkFacultad.setSelected(false);
-        chkPrograma.setSelected(false);
-        chkEncuesta.setSelected(false);
-        chkEstudiante.setSelected(false);
+        chkGENERAL.setSelected(false);
+        chkGENPER.setSelected(false);
+        chkFACPROPER.setSelected(false);
+        chkMADCABFAMPER.setSelected(false);
+        chkGESPER.setSelected(false);
+        chkESTUDIANTE.setSelected(false);
         btnReportGen.setEnabled(false);
         btnChartTableWindow.setEnabled(false);
     }
@@ -195,20 +197,20 @@ public final class Admin extends javax.swing.JFrame {
         txt_Info5 = new javax.swing.JTextPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        lblGENERAL = new javax.swing.JLabel();
+        lblGESPER = new javax.swing.JLabel();
+        lblESTUDIANTE = new javax.swing.JLabel();
         txtEstChart = new javax.swing.JTextField();
-        chkEncuesta = new javax.swing.JCheckBox();
+        chkGESPER = new javax.swing.JCheckBox();
         btnConsulta = new javax.swing.JButton();
-        chkGeneral = new javax.swing.JCheckBox();
-        chkEstudiante = new javax.swing.JCheckBox();
-        jLabel28 = new javax.swing.JLabel();
-        chkPeriodo = new javax.swing.JCheckBox();
-        jLabel29 = new javax.swing.JLabel();
-        chkFacultad = new javax.swing.JCheckBox();
-        jLabel30 = new javax.swing.JLabel();
-        chkPrograma = new javax.swing.JCheckBox();
+        chkGENERAL = new javax.swing.JCheckBox();
+        chkESTUDIANTE = new javax.swing.JCheckBox();
+        lblGENPER = new javax.swing.JLabel();
+        chkGENPER = new javax.swing.JCheckBox();
+        lblFACPROPER = new javax.swing.JLabel();
+        chkFACPROPER = new javax.swing.JCheckBox();
+        lblMADCABFAMPER = new javax.swing.JLabel();
+        chkMADCABFAMPER = new javax.swing.JCheckBox();
         cmbChart = new javax.swing.JComboBox<>();
         btnChartTableWindow = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
@@ -263,7 +265,7 @@ public final class Admin extends javax.swing.JFrame {
             .addGroup(pnl_InfoLayout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRectoria, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(txtRectoria, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -441,7 +443,7 @@ public final class Admin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,7 +466,7 @@ public final class Admin extends javax.swing.JFrame {
         pnl_Facultad.setLayout(pnl_FacultadLayout);
         pnl_FacultadLayout.setHorizontalGroup(
             pnl_FacultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -773,7 +775,7 @@ public final class Admin extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 995, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1031, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -826,7 +828,7 @@ public final class Admin extends javax.swing.JFrame {
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1291, Short.MAX_VALUE)
+            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1327, Short.MAX_VALUE)
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1028,7 +1030,7 @@ public final class Admin extends javax.swing.JFrame {
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1042, Short.MAX_VALUE)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1078, Short.MAX_VALUE)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1160,7 +1162,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                         .addComponent(chkConsEst)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
+                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
                     .addComponent(cmbPreguntasFind, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1252,27 +1254,42 @@ public final class Admin extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(224, 255, 255));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-estadísticas-75.png"))); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pdf-50.png"))); // NOI18N
         jLabel24.setText("Reportes");
 
-        jLabel25.setFont(jLabel25.getFont().deriveFont((jLabel25.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel25.getFont().getSize()-3));
-        jLabel25.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel25.setText("Población general");
+        lblGENERAL.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblGENERAL.setForeground(new java.awt.Color(224, 255, 255));
+        lblGENERAL.setText("Población general");
+        lblGENERAL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGENERALMouseClicked(evt);
+            }
+        });
 
-        jLabel26.setFont(jLabel26.getFont().deriveFont((jLabel26.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel26.getFont().getSize()-3));
-        jLabel26.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel26.setText("Población madres cabeza de familia por periodo");
+        lblGESPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblGESPER.setForeground(new java.awt.Color(224, 255, 255));
+        lblGESPER.setText("Población gestantes por periodo");
+        lblGESPER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGESPERMouseClicked(evt);
+            }
+        });
 
-        jLabel27.setFont(jLabel27.getFont().deriveFont((jLabel27.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel27.getFont().getSize()-3));
-        jLabel27.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel27.setText("Buscar los datos de un estudiante por su ID");
+        lblESTUDIANTE.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblESTUDIANTE.setForeground(new java.awt.Color(224, 255, 255));
+        lblESTUDIANTE.setText("Buscar los datos de un estudiante por su ID");
+        lblESTUDIANTE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblESTUDIANTEMouseClicked(evt);
+            }
+        });
 
         txtEstChart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEstChart.setText("000324471");
 
-        chkEncuesta.addMouseListener(new java.awt.event.MouseAdapter() {
+        chkGESPER.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkEncuestaMouseClicked(evt);
+                chkGESPERMouseClicked(evt);
             }
         });
 
@@ -1284,46 +1301,61 @@ public final class Admin extends javax.swing.JFrame {
             }
         });
 
-        chkGeneral.setSelected(true);
-        chkGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
+        chkGENERAL.setSelected(true);
+        chkGENERAL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkGeneralMouseClicked(evt);
+                chkGENERALMouseClicked(evt);
             }
         });
 
-        chkEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
+        chkESTUDIANTE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkEstudianteMouseClicked(evt);
+                chkESTUDIANTEMouseClicked(evt);
             }
         });
 
-        jLabel28.setFont(jLabel28.getFont().deriveFont((jLabel28.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel28.getFont().getSize()-3));
-        jLabel28.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel28.setText("Población general por periodo");
-
-        chkPeriodo.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblGENPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblGENPER.setForeground(new java.awt.Color(224, 255, 255));
+        lblGENPER.setText("Población general por periodo");
+        lblGENPER.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkPeriodoMouseClicked(evt);
+                lblGENPERMouseClicked(evt);
             }
         });
 
-        jLabel29.setFont(jLabel29.getFont().deriveFont((jLabel29.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel29.getFont().getSize()-3));
-        jLabel29.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel29.setText("Población de facultad por programa por periodo");
-
-        chkFacultad.addMouseListener(new java.awt.event.MouseAdapter() {
+        chkGENPER.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkFacultadMouseClicked(evt);
+                chkGENPERMouseClicked(evt);
             }
         });
 
-        jLabel30.setFont(jLabel30.getFont().deriveFont((jLabel30.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel30.getFont().getSize()-3));
-        jLabel30.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel30.setText("Población madres cabeza de familia por periodo");
-
-        chkPrograma.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblFACPROPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblFACPROPER.setForeground(new java.awt.Color(224, 255, 255));
+        lblFACPROPER.setText("Población de facultad por programa por periodo");
+        lblFACPROPER.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkProgramaMouseClicked(evt);
+                lblFACPROPERMouseClicked(evt);
+            }
+        });
+
+        chkFACPROPER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkFACPROPERMouseClicked(evt);
+            }
+        });
+
+        lblMADCABFAMPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        lblMADCABFAMPER.setForeground(new java.awt.Color(224, 255, 255));
+        lblMADCABFAMPER.setText("Población madres cabeza de familia por periodo");
+        lblMADCABFAMPER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMADCABFAMPERMouseClicked(evt);
+            }
+        });
+
+        chkMADCABFAMPER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkMADCABFAMPERMouseClicked(evt);
             }
         });
 
@@ -1360,74 +1392,69 @@ public final class Admin extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtEstChart, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(chkGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkPeriodo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(chkPrograma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkFacultad, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEstChart, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cmbChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(chkEncuesta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(chkEstudiante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cmbChart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chkGENERAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(chkMADCABFAMPER)
+                                            .addComponent(chkGESPER)
+                                            .addComponent(chkESTUDIANTE)
+                                            .addComponent(chkFACPROPER))
+                                        .addGap(18, 18, 18)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblGENERAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblFACPROPER, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                                    .addComponent(lblMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblGESPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkGENERAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGENERAL, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGENPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkFacultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkFACPROPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFACPROPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMADCABFAMPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkEncuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkGESPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGESPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblESTUDIANTE, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEstChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1440,7 +1467,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pnl_tb_EstPrograma.setBackground(new java.awt.Color(252, 252, 252));
@@ -1494,7 +1521,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(pnlChartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnl_EstadisticaLayout.createSequentialGroup()
                         .addComponent(btnGraficaPoblacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 6, Short.MAX_VALUE))))
         );
         pnl_EstadisticaLayout.setVerticalGroup(
             pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1518,7 +1545,7 @@ public final class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_Info, javax.swing.GroupLayout.DEFAULT_SIZE, 1319, Short.MAX_VALUE)
+            .addComponent(pnl_Info, javax.swing.GroupLayout.DEFAULT_SIZE, 1355, Short.MAX_VALUE)
             .addComponent(pnl_Principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -1827,133 +1854,256 @@ public final class Admin extends javax.swing.JFrame {
         //grafc.tipoGrafico(tipoGrafica);
     }//GEN-LAST:event_cmbChartMouseClicked
 
-    private void chkProgramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkProgramaMouseClicked
+    private void chkMADCABFAMPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkMADCABFAMPERMouseClicked
         // TODO add your handling code here:
-        if(chkPrograma.isSelected()){
+        if(chkMADCABFAMPER.isSelected()){
             lockAllInGraphicPanel();
-            chkPrograma.setSelected(true);
+            chkMADCABFAMPER.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkProgramaMouseClicked
+        setLblColor(lblMADCABFAMPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+    }//GEN-LAST:event_chkMADCABFAMPERMouseClicked
 
-    private void chkFacultadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkFacultadMouseClicked
+    private void lblMADCABFAMPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMADCABFAMPERMouseClicked
         // TODO add your handling code here:
-        if(chkFacultad.isSelected()){
+        lockAllInGraphicPanel();
+        chkMADCABFAMPER.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblMADCABFAMPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+    }//GEN-LAST:event_lblMADCABFAMPERMouseClicked
+
+    private void chkFACPROPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkFACPROPERMouseClicked
+        // TODO add your handling code here:
+        if(chkFACPROPER.isSelected()){
             lockAllInGraphicPanel();
-            chkFacultad.setSelected(true);
+            chkFACPROPER.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkFacultadMouseClicked
+        setLblColor(lblFACPROPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_chkFACPROPERMouseClicked
 
-    private void chkPeriodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkPeriodoMouseClicked
+    private void lblFACPROPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFACPROPERMouseClicked
         // TODO add your handling code here:
-        if(chkPeriodo.isSelected()){
+        lockAllInGraphicPanel();
+        chkFACPROPER.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblFACPROPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_lblFACPROPERMouseClicked
+
+    private void chkGENPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkGENPERMouseClicked
+        // TODO add your handling code here:
+        if(chkGENPER.isSelected()){
             lockAllInGraphicPanel();
-            chkPeriodo.setSelected(true);
+            chkGENPER.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkPeriodoMouseClicked
+        setLblColor(lblGENPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_chkGENPERMouseClicked
 
-    private void chkEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkEstudianteMouseClicked
+    private void lblGENPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGENPERMouseClicked
         // TODO add your handling code here:
-        if(chkEstudiante.isSelected()){
+        lockAllInGraphicPanel();
+        chkGENPER.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblGENPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_lblGENPERMouseClicked
+
+    private void chkESTUDIANTEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkESTUDIANTEMouseClicked
+        // TODO add your handling code here:
+        if(chkESTUDIANTE.isSelected()){
             lockAllInGraphicPanel();
             txtEstChart.setEnabled(true);
-            chkEstudiante.setSelected(true);
+            chkESTUDIANTE.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkEstudianteMouseClicked
+        setLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_chkESTUDIANTEMouseClicked
 
-    private void chkGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkGeneralMouseClicked
+    private void chkGENERALMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkGENERALMouseClicked
         // TODO add your handling code here:
-        if(chkGeneral.isSelected()){
+        if(chkGENERAL.isSelected()){
             lockAllInGraphicPanel();
-            chkGeneral.setSelected(true);
+            chkGENERAL.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkGeneralMouseClicked
+        setLblColor(lblGENERAL);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_chkGENERALMouseClicked
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
         // TODO add your handling code here:
-        if(chkGeneral.isSelected()){
-            grafc.realizarConsulta(GraficoController.GENERAL);
-        }else if(chkPeriodo.isSelected()){
-            grafc.realizarConsulta(GraficoController.PERIODOS);
-        }else if(chkFacultad.isSelected()){
-            grafc.realizarConsulta(GraficoController.FACULTADES);
-        }else if(chkPrograma.isSelected()){
-            grafc.realizarConsulta(GraficoController.PROGRAMAS);
-        }else if(chkEncuesta.isSelected()){
-            grafc.realizarConsulta(GraficoController.ENCUESTAS);
-        }else if(chkEstudiante.isSelected()){
-            grafc.realizarConsulta(GraficoController.ESTUDIANTES);
-        }else{
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
-        }
         String row = cmbChart.getSelectedItem().toString();
         switch (row) {
             case "Gráfica de torta":
-                tipoGrafica=GraficoController.PIECHART;
-                break;
+            tipoGrafica=GraficoController.PIECHART;
+            break;
             case "Gráfica de torta 3D":
-                tipoGrafica=GraficoController.PIECHART3D;
-                break;
+            tipoGrafica=GraficoController.PIECHART3D;
+            break;
             case "Gráfica de barras":
-                tipoGrafica=GraficoController.BARCHART;
-                break;
+            tipoGrafica=GraficoController.BARCHART;
+            break;
             case "Gráfica lineal":
-                tipoGrafica=GraficoController.LINEAL;
-                break;
+            tipoGrafica=GraficoController.LINEAL;
+            break;
             case "Gráfica tipo área":
-                tipoGrafica=GraficoController.AREA;
-                break;
+            tipoGrafica=GraficoController.AREA;
+            break;
             case "Gráfica tipo dispersión":
-                tipoGrafica=GraficoController.DISPERSION;
-                break;
+            tipoGrafica=GraficoController.DISPERSION;
+            break;
             case "Gráfica tipo polar":
-                tipoGrafica=GraficoController.POLAR;
-                break;
+            tipoGrafica=GraficoController.POLAR;
+            break;
             case "Gráfica tipo paso":
-                tipoGrafica=GraficoController.PASO;
-                break;
+            tipoGrafica=GraficoController.PASO;
+            break;
             case "Gráfica tipo paso-área":
-                tipoGrafica=GraficoController.PASOAREA;
-                break;
+            tipoGrafica=GraficoController.PASOAREA;
+            break;
             case "Gráfica tipo serie-tiempo":
-                tipoGrafica=GraficoController.SERIETIEMPO;
-                break;
+            tipoGrafica=GraficoController.SERIETIEMPO;
+            break;
             case "Gráfica logarítmica":
-                tipoGrafica=GraficoController.LOGARITMICA;
-                break;
+            tipoGrafica=GraficoController.LOGARITMICA;
+            break;
             default:
-                grafc.tipoGrafico(tipoGrafica);
-                break;
+            break;
         }
-        grafc.tipoGrafico(tipoGrafica);
+        if(chkGENERAL.isSelected()){
+            grafc.elegirConsulta(GraficoController.GENERAL);
+            grafc.tipoGrafico(tipoGrafica);
+        }else if(chkGENPER.isSelected()){
+            grafc.elegirConsulta(GraficoController.GENPER);
+            grafc.tipoGrafico(tipoGrafica);
+        }else if(chkFACPROPER.isSelected()){
+            grafc.elegirConsulta(GraficoController.FACPROPER);
+            grafc.tipoGrafico(tipoGrafica);
+        }else if(chkMADCABFAMPER.isSelected()){
+            grafc.elegirConsulta(GraficoController.MADCABFAMPER);
+        }else if(chkGESPER.isSelected()){
+            grafc.elegirConsulta(GraficoController.GESPER);
+        }else if(chkESTUDIANTE.isSelected()){
+            grafc.elegirConsulta(GraficoController.ESTUDIANTE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
+        }
+        
+        //grafc.tipoGrafico(tipoGrafica);
         btnChartTableWindow.setEnabled(true);
     }//GEN-LAST:event_btnConsultaActionPerformed
 
-    private void chkEncuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkEncuestaMouseClicked
+    private void chkGESPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkGESPERMouseClicked
         // TODO add your handling code here:
-        if(chkEncuesta.isSelected()){
+        if(chkGESPER.isSelected()){
             lockAllInGraphicPanel();
-            chkEncuesta.setSelected(true);
+            chkGESPER.setSelected(true);
             btnConsulta.setEnabled(true);
         }else{
             btnConsulta.setEnabled(false);
         }
-    }//GEN-LAST:event_chkEncuestaMouseClicked
+        setLblColor(lblGESPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_chkGESPERMouseClicked
 
+    private void lblESTUDIANTEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblESTUDIANTEMouseClicked
+        // TODO add your handling code here:
+        lockAllInGraphicPanel();
+        chkESTUDIANTE.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_lblESTUDIANTEMouseClicked
+
+    private void lblGESPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGESPERMouseClicked
+        // TODO add your handling code here:
+        lockAllInGraphicPanel();
+        chkGESPER.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblGESPER);
+        resetLblColor(lblGENERAL);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_lblGESPERMouseClicked
+
+    private void lblGENERALMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGENERALMouseClicked
+        // TODO add your handling code here:
+        lockAllInGraphicPanel();
+        chkGENERAL.setSelected(true);
+        btnConsulta.setEnabled(true);
+        setLblColor(lblGENERAL);
+        resetLblColor(lblESTUDIANTE);
+        resetLblColor(lblGESPER);
+        resetLblColor(lblGENPER);
+        resetLblColor(lblFACPROPER);
+        resetLblColor(lblMADCABFAMPER);
+    }//GEN-LAST:event_lblGENERALMouseClicked
+
+    public void setLblColor(JLabel lbl){
+        lbl.setForeground(new Color(48, 201,235));
+    }
+    public void resetLblColor(JLabel lbl){
+        lbl.setForeground(new Color(224,255,255));
+    }
     /**
      * @param args the command line arguments
      */
@@ -1996,17 +2146,17 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarEncuesta;
     private javax.swing.JButton btnPreguntaSave;
     private javax.swing.JButton btnProgramaSave;
-    public static javax.swing.JButton btnReportGen;
+    private javax.swing.JButton btnReportGen;
     private javax.swing.JButton btnRespuestaSave;
     private javax.swing.JCheckBox chkConsEnc;
     private javax.swing.JCheckBox chkConsEst;
     private javax.swing.JCheckBox chkConsGen;
-    private javax.swing.JCheckBox chkEncuesta;
-    private javax.swing.JCheckBox chkEstudiante;
-    private javax.swing.JCheckBox chkFacultad;
-    private javax.swing.JCheckBox chkGeneral;
-    private javax.swing.JCheckBox chkPeriodo;
-    private javax.swing.JCheckBox chkPrograma;
+    private javax.swing.JCheckBox chkESTUDIANTE;
+    private javax.swing.JCheckBox chkFACPROPER;
+    private javax.swing.JCheckBox chkGENERAL;
+    private javax.swing.JCheckBox chkGENPER;
+    private javax.swing.JCheckBox chkGESPER;
+    private javax.swing.JCheckBox chkMADCABFAMPER;
     private javax.swing.JComboBox<String> cmbChart;
     public static javax.swing.JComboBox<String> cmbEncuestas;
     public static javax.swing.JComboBox<String> cmbEncuestasFind;
@@ -2027,13 +2177,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
@@ -2081,8 +2225,14 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private com.toedter.calendar.JYearChooser jYCAgno;
     private javax.swing.JTabbedPane jtp_Modulos;
+    private javax.swing.JLabel lblESTUDIANTE;
     private javax.swing.JLabel lblEncuesta;
+    private javax.swing.JLabel lblFACPROPER;
     private javax.swing.JLabel lblFacultad;
+    private javax.swing.JLabel lblGENERAL;
+    private javax.swing.JLabel lblGENPER;
+    private javax.swing.JLabel lblGESPER;
+    private javax.swing.JLabel lblMADCABFAMPER;
     private javax.swing.JLabel lblPregunta;
     private javax.swing.JLabel lblTipoPregunta;
     public static javax.swing.JPanel pnlChartEstu;
