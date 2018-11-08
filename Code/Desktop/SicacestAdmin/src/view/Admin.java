@@ -2144,7 +2144,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarEncuesta;
     private javax.swing.JButton btnPreguntaSave;
     private javax.swing.JButton btnProgramaSave;
-    private javax.swing.JButton btnReportGen;
+    public static javax.swing.JButton btnReportGen;
     private javax.swing.JButton btnRespuestaSave;
     private javax.swing.JCheckBox chkConsEnc;
     private javax.swing.JCheckBox chkConsEst;
