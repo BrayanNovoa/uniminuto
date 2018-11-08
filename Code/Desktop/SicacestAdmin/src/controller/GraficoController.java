@@ -249,7 +249,7 @@ public class GraficoController implements interfaces.IGraficas{
         view.Admin.pnlChartEstu.removeAll();
         view.Admin.pnlChartEstu.add(chartPanel, BorderLayout.CENTER);
         view.Admin.pnlChartEstu.validate();
-        //view.Admin.btnReportGen.setEnabled(true);
+        view.Admin.btnReportGen.setEnabled(true);
     }
     
     public final String elegirConsulta(int consulta){
