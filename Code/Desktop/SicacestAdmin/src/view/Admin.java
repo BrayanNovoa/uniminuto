@@ -230,6 +230,16 @@ public final class Admin extends javax.swing.JFrame {
         pnl_Info.setBackground(new java.awt.Color(59, 71, 97));
         pnl_Info.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pnl_Info.setPreferredSize(new java.awt.Dimension(990, 46));
+        pnl_Info.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnl_InfoMouseDragged(evt);
+            }
+        });
+        pnl_Info.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnl_InfoMousePressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 205, 7));
@@ -287,7 +297,7 @@ public final class Admin extends javax.swing.JFrame {
                     .addGroup(pnl_InfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(txtRectoria)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         pnl_Principal.setBackground(new java.awt.Color(59, 71, 97));
@@ -1549,7 +1559,7 @@ public final class Admin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnl_Info, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_Info, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 662, Short.MAX_VALUE))
         );
@@ -2095,6 +2105,21 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_lblGENERALMouseClicked
+
+    int xx;
+    int xy;
+    private void pnl_InfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_InfoMousePressed
+        // TODO add your handling code here:
+        xx =evt.getX();
+        xy =evt.getY();
+    }//GEN-LAST:event_pnl_InfoMousePressed
+
+    private void pnl_InfoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_InfoMouseDragged
+        // TODO add your handling code here:
+        int x=evt.getXOnScreen();
+        int y=evt.getXOnScreen();
+        this.setLocation(x - xx, y - xy);
+    }//GEN-LAST:event_pnl_InfoMouseDragged
 
     public void setLblColor(JLabel lbl){
         lbl.setForeground(new Color(48, 201,235));
