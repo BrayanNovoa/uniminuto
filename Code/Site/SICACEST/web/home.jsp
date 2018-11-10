@@ -3,15 +3,13 @@
     Created on : 29/03/2017, 10:34:11 AM
     Author     : b41n
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     HttpSession objsesion = request.getSession(false);
     String usuario= (String)objsesion.getAttribute("SesionUsuario");
-    
     if(usuario==null){
         request.getRequestDispatcher("sessionerror.jsp").forward(request, response);
-    }
+    }else{
 %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +36,7 @@
                 </td>
                 <td>
                     <div class="perfil-form">
-                        <button class="perfil-submit" onclick="window.location.href='estudiante.jsp'">
+                        <button class="perfil-submit" onclick="window.location.href='perfil.jsp'">
                             Perfil
                         </button>
                     </div>
@@ -57,10 +55,8 @@
             </tr>
         </table>
         <table>
-            
         </table>
-                
-        <!-- -->
-               
+        <!-- -->    
     </body>
 </html>
+<%}%>
