@@ -1981,15 +1981,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="pnl_tb_EstPrograma" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnl_tb_EstPrograma" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pnlChartEstu" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="btnGraficaPoblacion1" min="-2" pref="556" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="pnlChartEstu" min="-2" pref="424" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1999,11 +1993,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel4" max="32767" attributes="0"/>
                               <Component id="pnl_tb_EstPrograma" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="pnlChartEstu" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnGraficaPoblacion1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="pnlChartEstu" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane15" min="-2" max="-2" attributes="0"/>
@@ -2048,24 +2038,17 @@
                                   <Component id="btnChartTableWindow" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="chkGENPER" max="32767" attributes="0"/>
+                                          <Component id="chkGENPER" pref="28" max="32767" attributes="0"/>
                                           <Component id="chkGENERAL" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="chkMADCABFAMPER" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="chkGESPER" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="chkESTUDIANTE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="chkFACPROPER" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="chkMADCABFAMPER" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="chkGESPER" max="32767" attributes="0"/>
+                                          <Component id="chkESTUDIANTE" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblGENERAL" max="32767" attributes="0"/>
                                           <Component id="lblGENPER" max="32767" attributes="0"/>
-                                          <Component id="lblFACPROPER" alignment="0" pref="371" max="32767" attributes="0"/>
-                                          <Component id="lblMADCABFAMPER" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblMADCABFAMPER" alignment="0" pref="365" max="32767" attributes="0"/>
                                           <Component id="lblGESPER" max="32767" attributes="0"/>
                                           <Component id="lblESTUDIANTE" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -2094,12 +2077,7 @@
                                   <Component id="chkGENPER" max="32767" attributes="0"/>
                                   <Component id="lblGENPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="chkFACPROPER" max="32767" attributes="0"/>
-                                  <Component id="lblFACPROPER" min="-2" pref="24" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="chkMADCABFAMPER" max="32767" attributes="0"/>
                                   <Component id="lblMADCABFAMPER" min="-2" pref="24" max="-2" attributes="0"/>
@@ -2126,7 +2104,7 @@
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnReportGen" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace pref="71" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2243,25 +2221,6 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkGENPERMouseClicked"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblFACPROPER">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Ubuntu" size="14" style="3"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="e0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n de facultad por programa por periodo"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblFACPROPERMouseClicked"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkFACPROPER">
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkFACPROPERMouseClicked"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblMADCABFAMPER">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2348,10 +2307,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jScrollPane20" min="-2" pref="320" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane20" alignment="1" pref="476" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -2400,17 +2356,6 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                 </Container>
-                <Component class="javax.swing.JButton" name="btnGraficaPoblacion1">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="7" green="cd" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="GUARDAR GR&#xc1;FICA COMO IMAGEN"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGraficaPoblacion1ActionPerformed"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

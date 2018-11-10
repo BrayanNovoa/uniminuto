@@ -66,7 +66,6 @@ public final class Admin extends javax.swing.JFrame {
         btnConsulta.setEnabled(false);
         chkGENERAL.setSelected(false);
         chkGENPER.setSelected(false);
-        chkFACPROPER.setSelected(false);
         chkMADCABFAMPER.setSelected(false);
         chkGESPER.setSelected(false);
         chkESTUDIANTE.setSelected(false);
@@ -207,8 +206,6 @@ public final class Admin extends javax.swing.JFrame {
         chkESTUDIANTE = new javax.swing.JCheckBox();
         lblGENPER = new javax.swing.JLabel();
         chkGENPER = new javax.swing.JCheckBox();
-        lblFACPROPER = new javax.swing.JLabel();
-        chkFACPROPER = new javax.swing.JCheckBox();
         lblMADCABFAMPER = new javax.swing.JLabel();
         chkMADCABFAMPER = new javax.swing.JCheckBox();
         cmbChart = new javax.swing.JComboBox<>();
@@ -219,7 +216,6 @@ public final class Admin extends javax.swing.JFrame {
         jScrollPane20 = new javax.swing.JScrollPane();
         tbEstProg = new javax.swing.JTable();
         pnlChartEstu = new javax.swing.JPanel();
-        btnGraficaPoblacion1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(224, 255, 255));
@@ -1339,21 +1335,6 @@ public final class Admin extends javax.swing.JFrame {
             }
         });
 
-        lblFACPROPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
-        lblFACPROPER.setForeground(new java.awt.Color(224, 255, 255));
-        lblFACPROPER.setText("Población de facultad por programa por periodo");
-        lblFACPROPER.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblFACPROPERMouseClicked(evt);
-            }
-        });
-
-        chkFACPROPER.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                chkFACPROPERMouseClicked(evt);
-            }
-        });
-
         lblMADCABFAMPER.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         lblMADCABFAMPER.setForeground(new java.awt.Color(224, 255, 255));
         lblMADCABFAMPER.setText("Población madres cabeza de familia por periodo");
@@ -1412,21 +1393,16 @@ public final class Admin extends javax.swing.JFrame {
                     .addComponent(btnChartTableWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                             .addComponent(chkGENERAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkMADCABFAMPER)
-                                    .addComponent(chkGESPER)
-                                    .addComponent(chkESTUDIANTE)
-                                    .addComponent(chkFACPROPER))
-                                .addGap(18, 18, 18)))
+                            .addComponent(chkMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkGESPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblGENERAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblFACPROPER, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                            .addComponent(lblMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                             .addComponent(lblGESPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
@@ -1447,10 +1423,6 @@ public final class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblGENPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkFACPROPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblFACPROPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1475,7 +1447,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pnl_tb_EstPrograma.setBackground(new java.awt.Color(252, 252, 252));
@@ -1495,9 +1467,7 @@ public final class Admin extends javax.swing.JFrame {
         pnl_tb_EstPrograma.setLayout(pnl_tb_EstProgramaLayout);
         pnl_tb_EstProgramaLayout.setHorizontalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_tb_EstProgramaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
         );
         pnl_tb_EstProgramaLayout.setVerticalGroup(
             pnl_tb_EstProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1507,14 +1477,6 @@ public final class Admin extends javax.swing.JFrame {
         pnlChartEstu.setBackground(new java.awt.Color(252, 252, 252));
         pnlChartEstu.setLayout(new java.awt.BorderLayout());
 
-        btnGraficaPoblacion1.setBackground(new java.awt.Color(255, 205, 7));
-        btnGraficaPoblacion1.setText("GUARDAR GRÁFICA COMO IMAGEN");
-        btnGraficaPoblacion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGraficaPoblacion1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnl_EstadisticaLayout = new javax.swing.GroupLayout(pnl_Estadistica);
         pnl_Estadistica.setLayout(pnl_EstadisticaLayout);
         pnl_EstadisticaLayout.setHorizontalGroup(
@@ -1523,13 +1485,9 @@ public final class Admin extends javax.swing.JFrame {
             .addGroup(pnl_EstadisticaLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_tb_EstPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnl_tb_EstPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlChartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnl_EstadisticaLayout.createSequentialGroup()
-                        .addComponent(btnGraficaPoblacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE))))
+                .addComponent(pnlChartEstu, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_EstadisticaLayout.setVerticalGroup(
             pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1537,10 +1495,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addGroup(pnl_EstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnl_tb_EstPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EstadisticaLayout.createSequentialGroup()
-                        .addComponent(pnlChartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGraficaPoblacion1)))
+                    .addComponent(pnlChartEstu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1566,11 +1521,6 @@ public final class Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnGraficaPoblacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficaPoblacion1ActionPerformed
-        // TODO add your handling code here:
-        grafc.guardarImagen();
-    }//GEN-LAST:event_btnGraficaPoblacion1ActionPerformed
 
     private void btnPreguntaSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntaSaveActionPerformed
         // TODO add your handling code here:
@@ -1802,7 +1752,7 @@ public final class Admin extends javax.swing.JFrame {
         jfc.setDialogTitle("Guardar Reporte");
         jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
         if(jfc.showOpenDialog(abrir) == JFileChooser.APPROVE_OPTION){
-            String ruta = jfc.getSelectedFile().getAbsolutePath();
+            String ruta = jfc.getSelectedFile().getAbsolutePath()+".pdf";
             System.out.println("Ruta Del Archivo: "+ruta);
             File archivo = new File(ruta);
             grafc.generarReporte(ruta);
@@ -1876,7 +1826,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGESPER);
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
     }//GEN-LAST:event_chkMADCABFAMPERMouseClicked
 
     private void lblMADCABFAMPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMADCABFAMPERMouseClicked
@@ -1889,38 +1838,7 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGESPER);
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
     }//GEN-LAST:event_lblMADCABFAMPERMouseClicked
-
-    private void chkFACPROPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkFACPROPERMouseClicked
-        // TODO add your handling code here:
-        if(chkFACPROPER.isSelected()){
-            lockAllInGraphicPanel();
-            chkFACPROPER.setSelected(true);
-            btnConsulta.setEnabled(true);
-        }else{
-            btnConsulta.setEnabled(false);
-        }
-        setLblColor(lblFACPROPER);
-        resetLblColor(lblGENERAL);
-        resetLblColor(lblGESPER);
-        resetLblColor(lblESTUDIANTE);
-        resetLblColor(lblGENPER);
-        resetLblColor(lblMADCABFAMPER);
-    }//GEN-LAST:event_chkFACPROPERMouseClicked
-
-    private void lblFACPROPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFACPROPERMouseClicked
-        // TODO add your handling code here:
-        lockAllInGraphicPanel();
-        chkFACPROPER.setSelected(true);
-        btnConsulta.setEnabled(true);
-        setLblColor(lblFACPROPER);
-        resetLblColor(lblGENERAL);
-        resetLblColor(lblGESPER);
-        resetLblColor(lblESTUDIANTE);
-        resetLblColor(lblGENPER);
-        resetLblColor(lblMADCABFAMPER);
-    }//GEN-LAST:event_lblFACPROPERMouseClicked
 
     private void chkGENPERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkGENPERMouseClicked
         // TODO add your handling code here:
@@ -1935,7 +1853,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblGESPER);
         resetLblColor(lblESTUDIANTE);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_chkGENPERMouseClicked
 
@@ -1948,7 +1865,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblGESPER);
         resetLblColor(lblESTUDIANTE);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_lblGENPERMouseClicked
 
@@ -1966,7 +1882,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblGESPER);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_chkESTUDIANTEMouseClicked
 
@@ -1983,7 +1898,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGESPER);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_chkGENERALMouseClicked
 
@@ -2033,14 +1947,17 @@ public final class Admin extends javax.swing.JFrame {
         }else if(chkGENPER.isSelected()){
             grafc.elegirConsulta(GraficoController.GENPER);
             grafc.tipoGrafico(tipoGrafica);
-        }else if(chkFACPROPER.isSelected()){
-            grafc.elegirConsulta(GraficoController.FACPROPER);
-            grafc.tipoGrafico(tipoGrafica);
         }else if(chkMADCABFAMPER.isSelected()){
+            pnlChartEstu.removeAll();
+            pnlChartEstu.repaint();
             grafc.elegirConsulta(GraficoController.MADCABFAMPER);
         }else if(chkGESPER.isSelected()){
+            pnlChartEstu.removeAll();
+            pnlChartEstu.repaint();
             grafc.elegirConsulta(GraficoController.GESPER);
         }else if(chkESTUDIANTE.isSelected()){
+            pnlChartEstu.removeAll();
+            pnlChartEstu.repaint();
             grafc.elegirConsulta(GraficoController.ESTUDIANTE);
         }else{
             JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
@@ -2063,7 +1980,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_chkGESPERMouseClicked
 
@@ -2076,7 +1992,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblGESPER);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_lblESTUDIANTEMouseClicked
 
@@ -2089,7 +2004,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblGENERAL);
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_lblGESPERMouseClicked
 
@@ -2102,7 +2016,6 @@ public final class Admin extends javax.swing.JFrame {
         resetLblColor(lblESTUDIANTE);
         resetLblColor(lblGESPER);
         resetLblColor(lblGENPER);
-        resetLblColor(lblFACPROPER);
         resetLblColor(lblMADCABFAMPER);
     }//GEN-LAST:event_lblGENERALMouseClicked
 
@@ -2165,7 +2078,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnChartTableWindow;
     private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnGenConsultas;
-    private javax.swing.JButton btnGraficaPoblacion1;
     private javax.swing.JButton btnGuardarEncuesta;
     private javax.swing.JButton btnPreguntaSave;
     private javax.swing.JButton btnProgramaSave;
@@ -2175,7 +2087,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkConsEst;
     private javax.swing.JCheckBox chkConsGen;
     private javax.swing.JCheckBox chkESTUDIANTE;
-    private javax.swing.JCheckBox chkFACPROPER;
     private javax.swing.JCheckBox chkGENERAL;
     private javax.swing.JCheckBox chkGENPER;
     private javax.swing.JCheckBox chkGESPER;
@@ -2250,7 +2161,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jtp_Modulos;
     private javax.swing.JLabel lblESTUDIANTE;
     private javax.swing.JLabel lblEncuesta;
-    private javax.swing.JLabel lblFACPROPER;
     private javax.swing.JLabel lblFacultad;
     private javax.swing.JLabel lblGENERAL;
     private javax.swing.JLabel lblGENPER;

@@ -77,11 +77,13 @@ public class GraficoController implements interfaces.IGraficas{
     
     public final static int GENERAL = 1;
     public final static int GENPER = 2;
-    public final static int FACPROPER = 3;
-    public final static int MADCABFAMPER = 4;
-    public final static int GESPER = 5;
-    public final static int FACULTAD_ESTUDIANTES = 6;
-    public final static int ESTUDIANTE = 7;
+    public final static int MADCABFAMPER = 3;
+    public final static int GESPER = 4;
+    public final static int FACULTAD_ESTUDIANTES = 5;
+    public final static int ESTUDIANTE = 6;
+    
+    public final static int CHARTNO =1;
+    public final static int CHARTSI =2;
     
     public GraficoController(String titulo){
         this.titulo = titulo;
@@ -94,29 +96,29 @@ public class GraficoController implements interfaces.IGraficas{
     XYDataset datasetxy;
     OutputStream out;
     PdfPTable tbRepo;
+    int tpRepo=0;
     
     @Override
-    public boolean obtenerDatos(String sql, String column1, String column2, String titleChart, int consulta){
+    public boolean obtenerDatos(String sql, String[] campos,  String titleChart, int consulta){
         data = new DefaultPieDataset();
         dataset = new DefaultCategoryDataset();
         xyseries = new XYSeries("Titulo de la Gráfica");
         int i = 0;
-        String [] campos ={column1, column2};
+        //String [] campos ={column1, column2};
         String [] registro = new String[campos.length];
         model = new DefaultTableModel(null, campos);
         Connection cn = entrar.getConexion();
         switch (consulta) {
             case GENERAL:
             case GENPER:
-            case FACPROPER:
                 try{
                     Statement st = cn.createStatement();
                     ResultSet rs = st.executeQuery(sql);
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int numcol= rsmd.getColumnCount();
                     tbRepo = new PdfPTable(numcol);
-                    tbRepo.addCell(column1);
-                    tbRepo.addCell(column2);
+                    tbRepo.addCell(campos[0]);
+                    tbRepo.addCell(campos[1]);
                     while(rs.next()){
                         i=i+1;
                         registro[0]=rs.getString(1);
@@ -132,38 +134,53 @@ public class GraficoController implements interfaces.IGraficas{
                     datasetxy = new XYSeriesCollection(xyseries);
                     System.out.println("Enviando el Registro.");
                     generarTabla(registro);
+                    tpRepo=CHARTSI;
                     return true;
                 }catch(NullPointerException | SQLException ex){
                     System.out.println("ERROR: "+ex);
                 }
                 break;
-            case ESTUDIANTE:
             case MADCABFAMPER:
             case GESPER:
-                JOptionPane.showMessageDialog(null,"Consulta sin gráfica.");
+            case ESTUDIANTE:
+                //JOptionPane.showMessageDialog(null,"Consulta sin gráfica.");
+                System.out.println("Consulta sin gráfica.");
                 try{
                     Statement st = cn.createStatement();
                     ResultSet rs = st.executeQuery(sql);
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int numcol= rsmd.getColumnCount();
                     tbRepo = new PdfPTable(numcol);
-                    tbRepo.addCell("Programa Académico");
-                    tbRepo.addCell("Estudiantes");
+                    if(consulta==ESTUDIANTE){
+                        tbRepo.addCell(campos[0]);
+                        tbRepo.addCell(campos[1]);
+                    }else{
+                        tbRepo.addCell(campos[0]);
+                        tbRepo.addCell(campos[1]);
+                        tbRepo.addCell(campos[2]);
+                    }
                     while(rs.next()){
                         i=i+1;
-                        registro[0]=rs.getString(1);
-                        registro[1]=rs.getString(2);
-                        tbRepo.addCell(rs.getString(1));
-                        tbRepo.addCell(rs.getString(2));
-                        //dataset.setValue(Integer.parseInt(registro[1]), "Estudiantes", registro[0]);
-                        //xyseries.add(i,Integer.parseInt(registro[1]));
-                        //data.setValue(registro[0], Integer.parseInt(registro[1]));
+                        if(consulta==ESTUDIANTE){
+                            registro[0]=rs.getString(1);
+                            registro[1]=rs.getString(2);
+                            tbRepo.addCell(rs.getString(1));
+                            tbRepo.addCell(rs.getString(2));
+                        }else{
+                            registro[0]=rs.getString(1);
+                            registro[1]=rs.getString(2);
+                            registro[2]=rs.getString(3);
+                            tbRepo.addCell(rs.getString(1));
+                            tbRepo.addCell(rs.getString(2));
+                            tbRepo.addCell(rs.getString(3));
+                        }
                         model.addRow(registro);
                         System.out.println("Programa: "+i+" "+registro[0]);
                     }
-                    //datasetxy = new XYSeriesCollection(xyseries);
                     System.out.println("Enviando el Registro.");
-                    generarTabla(registro);
+                    view.Admin.tbEstProg.setModel(model);
+                    view.Admin.btnReportGen.setEnabled(true);
+                    tpRepo=CHARTNO;
                     return true;
                 }catch(NullPointerException | SQLException ex){
                     System.out.println("ERROR: "+ex);
@@ -253,40 +270,52 @@ public class GraficoController implements interfaces.IGraficas{
     }
     
     public final String elegirConsulta(int consulta){
+        //String [] columns= {"Programa","Estudiantes"};
+        String[] columns;
+        columns = new String[2];
         switch (consulta){
             case GENERAL:
                 sql ="SELECT prog.programa AS Programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog ORDER BY Programa;";
-                obtenerDatos(sql, "Programa", "Estudiantes", "Reporte general de la población estudiantil", GENERAL);
+                columns[0]="Programa";
+                columns[1]="Inscritos";
+                obtenerDatos(sql, columns, "Reporte general de la población estudiantil", GENERAL);
                 //msgConsultaOK();
                 break;
             case GENPER:
-                sql ="SELECT periodo, periodo_id FROM tb_periodos;";
-                obtenerDatos(sql, "Pograma", "Estudiantes", "Reporte general de la población estudiantil por periodo", GENPER);
-                //msgConsultaOK();
-                break;
-            case FACPROPER:
-                sql="SELECT programa, facultad_id FROM tb_programas;";
-                obtenerDatos(sql, "Programa", "", "Reporte de estudiantes por programa por facultad", FACPROPER);
+                columns[0]="Periodo";
+                columns[1]="Inscritos";
+                sql ="SELECT peri.periodo AS Periodo, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.periodo_id = peri.periodo_id ) AS Estudiantes FROM tb_periodos AS peri ORDER BY peri.periodo_id ;";
+                obtenerDatos(sql, columns, "Reporte general de la población estudiantil por periodo", GENPER);
                 //msgConsultaOK();
                 break;
             case MADCABFAMPER:
-                sql="SELECT estudiante_cod, estudiante_id FROM tb_estudiantes;";
-                obtenerDatos(sql, "Programa", "Estudiante", "Reporte de estudiantes Madres cabeza de familia por periodo.", MADCABFAMPER);
+                columns = new String[3];
+                columns[0]="Periodo";
+                columns[1]="Estudiante";
+                columns[2]="Cabeza Familia";
+                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND P.pregunta='¿Es madre/padre cabeza de familia?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
+                obtenerDatos(sql, columns, "Reporte de estudiantes Madres cabeza de familia por periodo.", MADCABFAMPER);
                 //msgConsultaOK();
                 break;
             case GESPER:
-                sql="SELECT estudiante_cod, estudiante_id FROM tb_estudiantes;";
-                obtenerDatos(sql, "Programa", "Estudiante", "Reporte estudiantes gestantes por periodo", GESPER);
+                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND P.pregunta='¿Se encuentra en estado de embarazo?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
+                columns = new String[3];
+                columns[0]="Periodo";
+                columns[1]="Estudiante";
+                columns[2]="Gestante";
+                obtenerDatos(sql, columns, "Reporte estudiantes gestantes por periodo", GESPER);
                 //msgConsultaOK();
                 break;
             case ESTUDIANTE:
+                columns[0]="Pregunta";
+                columns[1]="Respuesta";
                 sql="SELECT P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='000324471'ORDER BY R.pregunta_id, R.estudiante_cod;";
-                obtenerDatos(sql, "Pregunta", "Respuesta", "Reporte de los datos poroporcionados por el estudiante", ESTUDIANTE);
+                obtenerDatos(sql, columns, "Reporte de los datos poroporcionados por el estudiante", ESTUDIANTE);
                 //msgConsultaOK();
                 break;
             case FACULTAD_ESTUDIANTES:
                 sql ="SELECT programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog;";
-                obtenerDatos(sql, "", "", "",FACULTAD_ESTUDIANTES);
+                //obtenerDatos(sql, "", "", "",FACULTAD_ESTUDIANTES);
                 //msgConsultaOK();
                 break;
         }
@@ -345,13 +374,15 @@ public class GraficoController implements interfaces.IGraficas{
                 documento.add(pLine);
                 documento.add(image);
                 documento.add(pLine);
-                try {   
+                try {
                     out = new FileOutputStream("grafico.png");
-                    ChartUtilities.writeChartAsPNG(out, grafico, 550, 550);
-                    Image imgChart = Image.getInstance("grafico.png");
-                    imgChart.setAlignment(Element.ALIGN_CENTER);
-                    imgChart.scaleToFit(450, 450);
-                    pGrafico.add(imgChart);
+                    if(tpRepo==CHARTSI){
+                        ChartUtilities.writeChartAsPNG(out, grafico, 550, 550);
+                        Image imgChart = Image.getInstance("grafico.png");
+                        imgChart.setAlignment(Element.ALIGN_CENTER);
+                        imgChart.scaleToFit(450, 450);
+                        pGrafico.add(imgChart);
+                    }
                     JOptionPane.showMessageDialog(null,"Reporte guardado correctamente.");
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
@@ -363,7 +394,9 @@ public class GraficoController implements interfaces.IGraficas{
                 Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
             }
             documento.add(tbEncabezado);
-            documento.add(pGrafico);
+            if(tpRepo==CHARTSI){
+                documento.add(pGrafico);
+            }
             documento.add(tbRepo);
             documento.close();
             archivo.close();
