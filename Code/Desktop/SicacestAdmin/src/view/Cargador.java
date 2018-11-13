@@ -12,7 +12,7 @@ import controller.CargadorController;
  *
  * @author b41n
  */
-public final class Cargador extends javax.swing.JFrame {
+public final class Cargador extends javax.swing.JFrame implements Runnable {
     CargadorController carc = new CargadorController();
     String proceso;
     int total;
@@ -26,8 +26,15 @@ public final class Cargador extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle(proceso);
-        carc.calcularTasa(total);
+        run();
     }
+    @Override
+    public void run() {
+        //carc.calcularTasa(total);
+        int max = 100;
+        float tasa = total/max;
+    }
+    
     //float avance =tasa;
     
     /**
@@ -77,7 +84,7 @@ public final class Cargador extends javax.swing.JFrame {
             .addGroup(panCargadorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panCargadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(progress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panCargadorLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -91,7 +98,7 @@ public final class Cargador extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCargadorLayout.createSequentialGroup()
-                        .addComponent(txtAccion, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addComponent(txtAccion, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtElemento, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -170,6 +177,7 @@ public final class Cargador extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Cargador("Proceso", 0).setVisible(true);
             }
@@ -187,4 +195,5 @@ public final class Cargador extends javax.swing.JFrame {
     public static javax.swing.JLabel txtPercent;
     public static javax.swing.JLabel txtStatus;
     // End of variables declaration//GEN-END:variables
+
 }

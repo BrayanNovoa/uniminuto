@@ -4,15 +4,17 @@
  * dude en escribir al siguiente correo.
  * bnovoa.linux@gmail.com
  */
-package interfaces;
+package controller;
 
 /**
  *
  * @author b41n
  */
-public interface ICargarArchivo {
-    public boolean cargarListaEstudiantes();
-    //public boolean guardarEstudiantes();
-    public int guardarEstudiantes();
+public class GuardaEstudiantes implements Runnable{
+    
+    @Override
+    public void run(){
+        
+    }
     
 }

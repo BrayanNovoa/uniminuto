@@ -2192,7 +2192,7 @@ public final class Admin extends javax.swing.JFrame {
     public static javax.swing.JTable tbTipoPreguntas;
     private javax.swing.JTextField txtEncuDescrip;
     private javax.swing.JTextField txtEncuesta;
-    private javax.swing.JTextField txtEstChart;
+    public static javax.swing.JTextField txtEstChart;
     private javax.swing.JTextField txtEstudianteCons;
     private javax.swing.JTextField txtFacultadSave;
     private javax.swing.JTextField txtPregunta;

@@ -8,13 +8,15 @@ package view;
 
 import controller.CargarArchivoController;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /**
  *
  * @author b41n
  */
 public class CargarArchivo extends javax.swing.JFrame {
-    CargarArchivoController carga = new CargarArchivoController();
+    JProgressBar bar;
+    CargarArchivoController carga = new CargarArchivoController(bar);
 
     /**
      * Creates new form CargarArchivo
@@ -128,7 +130,10 @@ public class CargarArchivo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        carga.guardarEstudiantes("2019-1");
+        //carga.guardarEstudiantes();
+        Thread t = new Thread(new CargarArchivoController(bar));  
+        t.start();
+        //carga.hiloGuardar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

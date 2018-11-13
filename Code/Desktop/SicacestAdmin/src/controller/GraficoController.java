@@ -309,7 +309,7 @@ public class GraficoController implements interfaces.IGraficas{
             case ESTUDIANTE:
                 columns[0]="Pregunta";
                 columns[1]="Respuesta";
-                sql="SELECT P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='000324471'ORDER BY R.pregunta_id, R.estudiante_cod;";
+                sql="SELECT P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+view.Admin.txtEstChart.getText()+"'ORDER BY R.pregunta_id, R.estudiante_cod;";
                 obtenerDatos(sql, columns, "Reporte de los datos poroporcionados por el estudiante", ESTUDIANTE);
                 //msgConsultaOK();
                 break;
