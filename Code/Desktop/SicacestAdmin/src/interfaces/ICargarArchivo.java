@@ -11,8 +11,5 @@ package interfaces;
  * @author b41n
  */
 public interface ICargarArchivo {
-    public boolean cargarListaEstudiantes();
-    //public boolean guardarEstudiantes();
-    public int guardarEstudiantes();
     
 }

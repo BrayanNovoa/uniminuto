@@ -1594,10 +1594,6 @@ public final class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CargarArchivo carga = new CargarArchivo();
         carga.setVisible(true);
-        /*
-        if(adc.cargarListaEstudiantes()){
-            JOptionPane.showMessageDialog(null, "Archivo de estudiantes cargado.");
-        }*/
     }//GEN-LAST:event_btnCargarListaActionPerformed
 
     private void tbProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProgramasMouseClicked
