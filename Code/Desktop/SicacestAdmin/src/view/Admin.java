@@ -172,27 +172,6 @@ public final class Admin extends javax.swing.JFrame {
         txt_Info3 = new javax.swing.JTextPane();
         jScrollPane18 = new javax.swing.JScrollPane();
         txt_Info8 = new javax.swing.JTextPane();
-        pnl_Consultas = new javax.swing.JPanel();
-        jPanel20 = new javax.swing.JPanel();
-        cmbEncuestasFind = new javax.swing.JComboBox<>();
-        txtEstudianteCons = new javax.swing.JTextField();
-        btnGenConsultas = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        cmbPreguntasFind = new javax.swing.JComboBox<>();
-        chkConsGen = new javax.swing.JCheckBox();
-        jLabel19 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel21 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        chkConsEnc = new javax.swing.JCheckBox();
-        jSeparator7 = new javax.swing.JSeparator();
-        jLabel23 = new javax.swing.JLabel();
-        chkConsEst = new javax.swing.JCheckBox();
-        jSeparator8 = new javax.swing.JSeparator();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        txt_Info4 = new javax.swing.JTextPane();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tbConsultas = new javax.swing.JTable();
         pnl_Estadistica = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
         txt_Info5 = new javax.swing.JTextPane();
@@ -1104,155 +1083,6 @@ public final class Admin extends javax.swing.JFrame {
 
         jtp_Modulos.addTab("Encuestas", pnl_Encuestas);
 
-        pnl_Consultas.setBackground(new java.awt.Color(243, 249, 249));
-        pnl_Consultas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jPanel20.setBackground(new java.awt.Color(59, 71, 97));
-        jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        cmbEncuestasFind.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Encuesta..." }));
-
-        txtEstudianteCons.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtEstudianteCons.setText("000324471");
-
-        btnGenConsultas.setBackground(new java.awt.Color(255, 205, 7));
-        btnGenConsultas.setText("REALIZAR CONSULTA");
-        btnGenConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenConsultasActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-busqueda-75.png"))); // NOI18N
-        jLabel17.setText("Consultas");
-
-        cmbPreguntasFind.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar pregunta..." }));
-
-        jLabel19.setFont(jLabel19.getFont().deriveFont((jLabel19.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel19.getFont().getSize()+3));
-        jLabel19.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-estudiante-masculino-50.png"))); // NOI18N
-        jLabel19.setText("Filtrar Estudiante");
-
-        jLabel21.setFont(jLabel21.getFont().deriveFont((jLabel21.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel21.getFont().getSize()+3));
-        jLabel21.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-google-web-search-50.png"))); // NOI18N
-        jLabel21.setText("Filtro General");
-
-        jLabel23.setFont(jLabel23.getFont().deriveFont((jLabel23.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel23.getFont().getSize()+3));
-        jLabel23.setForeground(new java.awt.Color(224, 255, 255));
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-encuesta-50.png"))); // NOI18N
-        jLabel23.setText("Filtrar Encuesta");
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator6)
-                    .addComponent(jSeparator5)
-                    .addComponent(cmbEncuestasFind, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGenConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(chkConsGen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(chkConsEnc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtEstudianteCons, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator7)
-                    .addComponent(jSeparator8)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                        .addComponent(chkConsEst)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
-                    .addComponent(cmbPreguntasFind, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkConsGen)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkConsEnc)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbEncuestasFind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbPreguntasFind, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(chkConsEst)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEstudianteCons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGenConsultas))
-        );
-
-        txt_Info4.setEditable(false);
-        txt_Info4.setText("Para cargar el archivo .CSV que contiene la lista de estudiantes, primero debe seleccionar un periodo, seguido por la facultad y programa al que pertenecen los estudiantes. Una vez Realizado el precedimiento anterior, se habilitará el botón en la esquina inferior derecha del apartado Estudiantes, con el cual podrá cargar el archivo. Una ves seleccionado el archivo, aparecerá el botón que permite guardar los datos cargados a la tabla.");
-        jScrollPane14.setViewportView(txt_Info4);
-
-        tbConsultas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane10.setViewportView(tbConsultas);
-
-        javax.swing.GroupLayout pnl_ConsultasLayout = new javax.swing.GroupLayout(pnl_Consultas);
-        pnl_Consultas.setLayout(pnl_ConsultasLayout);
-        pnl_ConsultasLayout.setHorizontalGroup(
-            pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_ConsultasLayout.createSequentialGroup()
-                .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-        );
-        pnl_ConsultasLayout.setVerticalGroup(
-            pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_ConsultasLayout.createSequentialGroup()
-                .addGroup(pnl_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        jtp_Modulos.addTab("Consultas", pnl_Consultas);
-
         pnl_Estadistica.setBackground(new java.awt.Color(243, 249, 249));
 
         txt_Info5.setEditable(false);
@@ -1742,19 +1572,6 @@ public final class Admin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRespuestaSaveActionPerformed
 
-    private void btnGenConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenConsultasActionPerformed
-        // TODO add your handling code here:
-        if(chkConsGen.isSelected()){
-            adc.filtroGeneral();
-        }else if(chkConsEnc.isSelected()){
-            adc.filtroEncuesta();
-        }else if(chkConsEst.isSelected()){
-            adc.filtroEstudiante(txtEstudianteCons.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una consulta.");
-        }
-    }//GEN-LAST:event_btnGenConsultasActionPerformed
-
     private void btnReportGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportGenActionPerformed
         // TODO add your handling code here:
         JButton abrir = new JButton();
@@ -2107,15 +1924,11 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnCargarLista;
     private javax.swing.JButton btnChartTableWindow;
     private javax.swing.JButton btnConsulta;
-    private javax.swing.JButton btnGenConsultas;
     private javax.swing.JButton btnGuardarEncuesta;
     private javax.swing.JButton btnPreguntaSave;
     private javax.swing.JButton btnProgramaSave;
     public static javax.swing.JButton btnReportGen;
     private javax.swing.JButton btnRespuestaSave;
-    private javax.swing.JCheckBox chkConsEnc;
-    private javax.swing.JCheckBox chkConsEst;
-    private javax.swing.JCheckBox chkConsGen;
     private javax.swing.JCheckBox chkESTUDIANTE;
     private javax.swing.JCheckBox chkGENERAL;
     private javax.swing.JCheckBox chkGENPER;
@@ -2123,9 +1936,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkMADCABFAMPER;
     private javax.swing.JComboBox<String> cmbChart;
     public static javax.swing.JComboBox<String> cmbEncuestas;
-    public static javax.swing.JComboBox<String> cmbEncuestasFind;
     public static javax.swing.JComboBox<String> cmbPeriodoSave;
-    public static javax.swing.JComboBox<String> cmbPreguntasFind;
     public static javax.swing.JComboBox<String> cmbTipoPregunta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2136,11 +1947,7 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel31;
@@ -2157,7 +1964,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2167,11 +1973,9 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
@@ -2183,10 +1987,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTabbedPane jTabbedPane2;
     private com.toedter.calendar.JYearChooser jYCAgno;
     private javax.swing.JTabbedPane jtp_Modulos;
@@ -2202,7 +2002,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTipoPregunta;
     public static javax.swing.JPanel pnlChartEstu;
     private javax.swing.JPanel pnl_CargaEstud;
-    private javax.swing.JPanel pnl_Consultas;
     private javax.swing.JPanel pnl_Encuestas;
     private javax.swing.JPanel pnl_Estadistica;
     private javax.swing.JPanel pnl_Estudiantes;
@@ -2212,7 +2011,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_Principal;
     private javax.swing.JPanel pnl_Programa;
     private javax.swing.JPanel pnl_tb_EstPrograma;
-    public static javax.swing.JTable tbConsultas;
     public static javax.swing.JTable tbEncuestas;
     public static javax.swing.JTable tbEstProg;
     public static javax.swing.JTable tbEstudiantes;
@@ -2225,7 +2023,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField txtEncuDescrip;
     private javax.swing.JTextField txtEncuesta;
     public static javax.swing.JTextField txtEstChart;
-    private javax.swing.JTextField txtEstudianteCons;
     private javax.swing.JTextField txtFacultadSave;
     private javax.swing.JTextField txtPregunta;
     private javax.swing.JTextField txtProgramaSave;
@@ -2236,7 +2033,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JTextPane txt_Info1;
     private javax.swing.JTextPane txt_Info2;
     private javax.swing.JTextPane txt_Info3;
-    private javax.swing.JTextPane txt_Info4;
     private javax.swing.JTextPane txt_Info5;
     private javax.swing.JTextPane txt_Info8;
     private javax.swing.JTextPane txt_Info9;

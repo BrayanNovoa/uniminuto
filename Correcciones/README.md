@@ -1,44 +1,41 @@
-##### Lista de correcciones.
-### Fecha: 19-11-2018
+# Lista de correcciones.
+## Fecha: 19-11-2018
 
 - [X] Salto de línea a la tabla del reporte
 
 - [X] Botón cerrar Aplicación administrador
 
-- [X] Botón Cerrar sesión 1
+- [X] Botón Cerrar sesión
 
-- [X] Navegación entre páginas 2
+- [X] Navegación entre páginas
 
-- [ ] Validación de inicio de sesión estudiante con JQuery o AJAX 3
+- [X] Arreglar los selectores
 
-- [ ] traer los tipos numéricos 4
-
-- [ ] Arreglar los selectores 5
-
-- [ ] Mostrar botón de actualización 6
-
-- [ ] coregir ningun archivo seleccionado 7
+- [X] coregir ningun archivo seleccionado
 
 - [X] quitar foto del estudiante
 
-- [ ] validar estructura del correo en login y perfil y encuesta 8
+- [X] Pasar ID al campo de búsqueda -- No se implementa pues genera más problemas de validación
 
-- [ ] cambiar en BD Sede Principal - Administrativa por Villavicencio 9
+- [X] Consultas -- Eliminado
 
-- [ ] modificar tabla respuestas 10
+- [X] Encriptar contraseña --  se deja anotado en las recomendaciones pues de nada sirve sin SSL
 
-- [ ] validar estudiantes antes de registrar 11
+- [X] Implementar un log de actividad de usuario -- se deja anotado en las recomendaciones
 
-- [ ] Validar estudiantes nuevos o antiguos 12
+- [M] cambiar en BD Sede Principal - Administrativa por Villavicencio
 
+- [M] traer los tipos numéricos
 
-- [ ] Pasar ID al campo de búsqueda 13
-- [ ] Consultas 14
-- [ ] Cambiar open por guardar en el reporte 15
+- [M] Mostrar botón de actualización
 
-- [ ] Revisión de la base de Datos Ing. Arley 17
+- [M] validar estructura del correo en login y perfil y encuesta
 
-- [ ] Implementar un log de actividad de usuario 16
+- [C] validar estudiantes antes de registrar
+
+- [C] Validación de inicio de sesión estudiante con JQuery o AJAX
+
+- [ ] Revisión de la base de Datos Ing. Arley
 
 Ensayo viernes 23 Noviembre
 
