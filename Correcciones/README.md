@@ -1,40 +1,44 @@
-### Salto de línea a la tabla del reporte
+##### Lista de correcciones.
+### Fecha: 19-11-2018
 
-### Botón cerrar Aplicación administrador
+- [X] Salto de línea a la tabla del reporte
 
-# Botón Cerrar sesión 1
+- [X] Botón cerrar Aplicación administrador
 
-# Navegación entre páginas 2
+- [X] Botón Cerrar sesión 1
 
-Validación de inicio de seción estudiante con JQuery o AJAX 3
+- [X] Navegación entre páginas 2
 
-traer los tipos numéricos 4
+- [ ] Validación de inicio de sesión estudiante con JQuery o AJAX 3
 
-Arreglar los selectores 5
+- [ ] traer los tipos numéricos 4
 
-Mostrar botón de actualización 6
+- [ ] Arreglar los selectores 5
 
-coregir ningun archivo seleccionado 7
-quitar foto del estudiante
+- [ ] Mostrar botón de actualización 6
 
-validar estructura del correo en login y perfil y encuesta 8
+- [ ] coregir ningun archivo seleccionado 7
 
-cambiar en BD Sede Principal - Administrativa por Villavicencio 9
+- [X] quitar foto del estudiante
 
-modificar tabla respuestas 10
+- [ ] validar estructura del correo en login y perfil y encuesta 8
 
-validar estudiantes antes de registrar 11
+- [ ] cambiar en BD Sede Principal - Administrativa por Villavicencio 9
 
-Validar estudiantes nuevos o antiguos 12
+- [ ] modificar tabla respuestas 10
+
+- [ ] validar estudiantes antes de registrar 11
+
+- [ ] Validar estudiantes nuevos o antiguos 12
 
 
-Pasar ID al campo de búsqueda 13
-Consultas 14
-Cambiar open por guardar en el reporte 15
+- [ ] Pasar ID al campo de búsqueda 13
+- [ ] Consultas 14
+- [ ] Cambiar open por guardar en el reporte 15
 
-Revisión de la base de Datos Ing. Arley 17
+- [ ] Revisión de la base de Datos Ing. Arley 17
 
-Implementar un log de actividad de usuario 16
+- [ ] Implementar un log de actividad de usuario 16
 
 Ensayo viernes 23 Noviembre
 

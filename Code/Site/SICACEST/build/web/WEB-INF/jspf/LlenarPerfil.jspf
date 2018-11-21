@@ -2,6 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%
     try{
+        con=conexion.getConexion();
         consulta ="SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta_id="+i+")AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
         st = con.createStatement();
         rs = st.executeQuery(consulta);
@@ -29,7 +30,7 @@
                 <div class="col-xs-6">
                     <label for="<%out.print(pre);%>"><h4><%out.print(nombrePregunta);%></h4></label>
                     <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
-                    <input type="text" id="<%out.print(pre);%>" class="edad form-control" name="updateObject" value="<%out.print("");%>" placeholder="<%out.print(nombrePregunta);%>" title="<%out.print(nombrePregunta);%>">
+                    <input type="text" id="<%out.print(pre);%>" class="edad form-control" name="respuestas" value="<%out.print("");%>" placeholder="<%out.print(nombrePregunta);%>" title="<%out.print(nombrePregunta);%>">
                 </div>
                         <%}else if(nombrePregunta.equals("Teléfono fijo")){%>    
                     <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>

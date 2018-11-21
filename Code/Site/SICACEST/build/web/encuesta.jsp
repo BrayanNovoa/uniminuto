@@ -1,5 +1,5 @@
 <%-- 
-    Document   : encuestaDinamica
+    Document   : encuesta
     Created on : 22/11/2017, 03:30:46 PM
     Author     : b41n
 --%>
@@ -120,4 +120,3 @@
   </body>
 </html>
 <%}//END OF MAIN ELSE.%>
-    
