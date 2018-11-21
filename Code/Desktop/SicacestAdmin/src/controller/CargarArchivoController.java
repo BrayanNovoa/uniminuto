@@ -8,9 +8,11 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +44,7 @@ public class CargarArchivoController extends Thread{
     public void run(){
         model = (DefaultTableModel)view.CargarArchivo.tbEstudiantes.getModel();
         int a = (model.getRowCount()*0)-1;
-        int i=a;
+        int i;
         //System.out.println("Valor de a antes de borrar la tabla"+a);
         //System.out.println("Valor de i antes de borrar la tabla"+i);
         try{
@@ -52,8 +54,6 @@ public class CargarArchivoController extends Thread{
             }
             //System.out.println("Valor de a al final de borrar la tabla"+a);
             //System.out.println("Valor de i al final de borrar la tabla"+i);
-            i=0;
-            //a = model.getRowCount()+1;
         } catch(ArrayIndexOutOfBoundsException ex){
                 Logger.getLogger(CargarArchivoController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -65,9 +65,12 @@ public class CargarArchivoController extends Thread{
         if(jfc.showOpenDialog(abrir) == JFileChooser.APPROVE_OPTION){
             String ruta = jfc.getSelectedFile().getAbsolutePath();
             System.out.println("Ruta Del Archivo: "+ruta);
+            
             File archivo = new File(ruta);
+            BufferedReader buffer;
             try {
-                BufferedReader buffer = new BufferedReader(new FileReader(archivo));
+                buffer = new BufferedReader(new InputStreamReader(new FileInputStream(archivo),"UTF-8"));
+                //BufferedReader buffer = new BufferedReader(new FileReader(archivo));
                 String primerLinea = buffer.readLine().trim();
                 String[] titulos = primerLinea.split(",");
                 model.setColumnIdentifiers(titulos);
@@ -100,7 +103,6 @@ public class CargarArchivoController extends Thread{
                             if(pst!=null){
                                 Cargador.txtElemento.setText(""+j);
                                 pst.execute(sql);
-                                Thread.sleep(0);
                             }else{
                                 JOptionPane.showMessageDialog(null, "ERROR");
                             }
@@ -108,32 +110,27 @@ public class CargarArchivoController extends Thread{
                             System.err.println("ERROR:"+ex);
                             Cargador.txtStatus.setText("ERROR: "+ex);
                             JOptionPane.showMessageDialog(null, "ERROR: "+ex);
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(CargarArchivoController.class.getName()).log(Level.SEVERE, null, ex);
-                            JOptionPane.showMessageDialog(null,"Error en la ejecución del hilo");
                         }
                         int k;
                         for(k=3;k<model.getColumnCount();k++){
-                            consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(k)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(k)+"'),'"+model.getValueAt(k-1, 0)+"','"+model.getValueAt(j-1, k)+"');";
+                            consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(k)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(k)+"'),'"+model.getValueAt(j-1, 0)+"','"+model.getValueAt(j-1, k)+"');";
                             try{
                                 pstR = entrar.getConexion().prepareStatement(consulta);
                                 if(pstR!=null){
-                                    pstR.execute(consulta);
                                     //System.out.println("Consulta SQL: "+consulta);
+                                    pstR.execute(consulta);
                                 }
                             }catch(SQLException ex){
                                 System.err.println("ERROR:"+ex);
                                 JOptionPane.showMessageDialog(null, "ERROR: "+ex);
                             }
                         }
-                        k=3;
                         if(j==estudiantes.length){
                             //JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+j);
                             System.out.println("Estudiantes Guardados: "+j);
                             Thread.interrupted();
                         }
                     }
-                    j=1;
                 view.CargarArchivo.tbEstudiantes.setModel(model);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(CargarArchivoController.class.getName()).log(Level.SEVERE, null, ex);

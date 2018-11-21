@@ -293,12 +293,12 @@ public class GraficoController implements interfaces.IGraficas{
                 columns[0]="Periodo";
                 columns[1]="Estudiante";
                 columns[2]="Cabeza Familia";
-                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND P.pregunta='¿Es madre/padre cabeza de familia?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
+                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z, tb_estudiantes AS X WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod=X.estudiante_cod AND X.periodo_id=Z.periodo_id AND P.pregunta='¿Es madre/padre cabeza de familia?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
                 obtenerDatos(sql, columns, "Reporte de estudiantes Madres cabeza de familia por periodo.", MADCABFAMPER);
                 //msgConsultaOK();
                 break;
             case GESPER:
-                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND P.pregunta='¿Se encuentra en estado de embarazo?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
+                sql="SELECT Z.periodo AS Periodo, R.estudiante_cod AS Estudiante, R.respuesta AS Gestante FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R, tb_periodos AS Z, tb_estudiantes AS X WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod=X.estudiante_cod AND X.periodo_id=Z.periodo_id AND P.pregunta='¿Se encuentra en estado de embarazo?'AND R.respuesta='SI'ORDER BY R.pregunta_id, R.estudiante_cod;";
                 columns = new String[3];
                 columns[0]="Periodo";
                 columns[1]="Estudiante";
@@ -340,15 +340,20 @@ public class GraficoController implements interfaces.IGraficas{
         }
     }
     
-    public boolean generarReporte(String ruta){
+    public boolean generarReporte(String ruta, String nomRepo){
         try{
+            int np;
             String line ="";
             for(int i =0;i<=77;i++){
                 line+="_";
             }
+            String nPage="Pág. ";
+            Paragraph page= new Paragraph();
+            page.setAlignment(Element.ALIGN_RIGHT);
             Paragraph encabezado = new Paragraph();
             encabezado.setAlignment(Element.ALIGN_CENTER);
-            encabezado.add("Reporte General de la Población Estudiantil");
+            //encabezado.add("Reporte General de la Población Estudiantil");
+            encabezado.add(nomRepo);
             FileOutputStream archivo;
             File file= new File(ruta);
             archivo = new FileOutputStream(file);
@@ -360,6 +365,7 @@ public class GraficoController implements interfaces.IGraficas{
             pLine.add(line+"\n");
             documento.open();
             try {
+                np=1;
                 tbEncabezado.addCell("Reporte generado por: ");
                 tbEncabezado.addCell(view.Admin.txtUsuario.getText());
                 tbEncabezado.addCell("Rectoría: ");
@@ -371,9 +377,11 @@ public class GraficoController implements interfaces.IGraficas{
                 image.setAlignment(Element.ALIGN_CENTER);
                 
                 //java.awt.Image image = new ImageIcon(this.getClass().getResource("/images/bell-icon16.png")).getImage();
-                documento.add(pLine);
-                documento.add(image);
-                documento.add(pLine);
+                page.add(nPage+np);
+                documento.add(page);
+                encabezado.add(pLine);
+                encabezado.add(image);
+                encabezado.add(pLine);
                 try {
                     out = new FileOutputStream("grafico.png");
                     if(tpRepo==CHARTSI){
@@ -387,7 +395,7 @@ public class GraficoController implements interfaces.IGraficas{
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
                 }
-                encabezado.add(line+"\n\n\n");
+                documento.add(new Paragraph(""));
                 documento.add(encabezado);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,"Error obteniendo la imagen. "+ex);
@@ -397,6 +405,12 @@ public class GraficoController implements interfaces.IGraficas{
             if(tpRepo==CHARTSI){
                 documento.add(pGrafico);
             }
+            documento.newPage();
+            Paragraph page2= new Paragraph("Pág. 2");
+            page2.setAlignment(Element.ALIGN_RIGHT);
+            documento.add(page2);
+            documento.add(encabezado);
+            documento.add(tbEncabezado);
             documento.add(tbRepo);
             documento.close();
             archivo.close();

@@ -1,0 +1,15 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    try{
+        consulta="SELECT r.posible_respuesta FROM tb_preguntas AS p, tb_posibles_respuestas AS r WHERE p.pregunta_id=r.pregunta_id AND p.pregunta='"+nombrePregunta+"';";
+        stpr = con.createStatement();
+        rspr = stpr.executeQuery(consulta);
+        while(rspr.next()){
+            posibleRespuesta=rspr.getString(1);
+            out.print("<option>"+posibleRespuesta+"</option>");
+        }
+        }catch(Exception e){
+        System.out.println("Error: "+e);
+    }
+%>

@@ -14,12 +14,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sesión De Usuario.</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Usuario: <%out.println(usuario);%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="themes/grayscale/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="themes/grayscale/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="themes/grayscale/css/grayscale.css" rel="stylesheet">
     
-    <body>
+    <link href="themes/grayscale/css/grayscale.min.css" rel="stylesheet">
+    <!-- 
+    
+    <link rel="stylesheet" href="css/style.css">
+    -->
+    <!-- -->
+    </head>
+    <body id="page-top">
+        <%@include file="WEB-INF/jspf/navbar.jspf"%>
+        <%@include file="WEB-INF/jspf/header.jspf"%>
         <table class="perfil-tabla">
             <tr>
                 <th colspan="2" class="perfil-tabla">
@@ -56,7 +77,20 @@
         </table>
         <table>
         </table>
-        <!-- -->    
+        <!-- -->
+        <%@include file="WEB-INF/jspf/contact.jspf"%>
+        <%@include file="WEB-INF/jspf/footer.jspf"%>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="themes/grayscale/vendor/jquery/jquery.min.js"></script>
+        <script src="themes/grayscale/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="themes/grayscale/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="themes/grayscale/js/grayscale.min.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>
 <%}%>

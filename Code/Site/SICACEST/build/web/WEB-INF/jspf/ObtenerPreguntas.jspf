@@ -19,7 +19,7 @@
                     out.print("\t<input type=\"text\" id=\""+pre+"\" name=\"preguntas\" class=\"hide\" value=\""+nombrePregunta+"\"/>\n");
                     out.print("\t<select id=\""+pre+"\" name=\"respuestas\" class=\"form-control login-input\" placeholder=\""+nombrePregunta+"\">");%>
                     <option>Seleccione...</option>
-                    <%@include file="ObtenerPosiblesRespuestas.jspf"%>
+                    <%@include file="PosiblesRespuestas.jspf"%>
                 <%out.print("\t</select>");
                 }else if(tipoPregunta.equals("MULTIPLE")){
                     out.print("<input type=\""+tipoPregunta+"\" id=\""+pre+"\" name=\"respuestas\" class=\"form-control \" placeholder=\""+nombrePregunta+"\"/>\n");

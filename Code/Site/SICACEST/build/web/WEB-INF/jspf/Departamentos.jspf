@@ -1,3 +1,16 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<option>Departamento1</option>
+<%
+    try{
+        String departamento;
+        consulta="SELECT departamento FROM tb_departamentos ORDER BY departamento_cod;";
+        stpr = con.createStatement();
+        rspr = stpr.executeQuery(consulta);
+        while(rspr.next()){
+            departamento=rspr.getString(1);
+            out.print("<option>"+departamento+"</option>");
+        }
+        }catch(Exception e){
+        System.out.println("Error: "+e);
+    }
+%>

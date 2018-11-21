@@ -47,6 +47,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap3-3-7.min.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <script src="js/jquery3-3-1.min.js"></script>
     <script src="js/bootstrap3-3-7.js"></script>
 <script src="js/perfil.js"></script>
@@ -63,27 +64,9 @@
             <div class="col-sm-3"><!--left col-->
                 <div class="text-center">
                     <img src="img/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <h6>Upload a different photo...</h6>
-                    <input type="file" class="text-center center-block file-upload">
+                    <h6>Seleccione una foto de perfil...</h6>
+                    <input type="file" class="text-center center-block" id="fotoPerfil">
                 </div></hr><br>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                    <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-                </ul>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">Social Media</div>
-                    <div class="panel-body">
-                        <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-                    </div>
-                </div>
             </div><!--/col-3-->
             <div class="col-sm-9">
                 <ul class="nav nav-tabs">
@@ -125,8 +108,7 @@
                                 <h4><%out.print(nombreEncuesta);%></h4>
                                 <%@include file="WEB-INF/jspf/LlenarPerfil.jspf"%>
                                 <div class="col-xs-6">
-                                    
-                                    <!--<input type="text" class="form-control" name="first_name" id="first_name" value="Sede Principal - Administrativa" placeholder="Sede" title="Sede donde estudia.">-->
+                                    <!--  Boton de actualización  -->
                                 </div>
                             </div>
                         </form>
@@ -136,6 +118,7 @@
             </div><!--/col-9-->
         </div><!--/col-9-->
     </div><!--/row-->
-</body>                              
+</body>                        
+<script src="js/encuesta.js"></script>
 </html>
 <%}//END OF MAIN ELSE.%>
