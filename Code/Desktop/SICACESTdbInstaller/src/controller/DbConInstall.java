@@ -14,7 +14,7 @@ import java.sql.SQLException;
  *
  * @author b41n
  */
-public class DbConnection {
+public class DbConInstall {
     private String PORT;
         private String DATABASE;
         private String CLASSNAME;
@@ -22,7 +22,7 @@ public class DbConnection {
         private String URL;
         private Connection cn = null;
 
-    public DbConnection(String HOST, String USERNAME,String PASSWORD, String PORT){
+    public DbConInstall(String HOST, String USERNAME,String PASSWORD, String PORT){
         try{
             CLASSNAME = "com.mysql.jdbc.Driver";
             JDBC_MYSQL_DRIVER="jdbc:mysql://";
@@ -50,7 +50,7 @@ public class DbConnection {
     }
     
     public static void main(String[] args){
-        DbConnection cn= new DbConnection("localhost","Programador","programador","3306");
+        DbConInstall cn= new DbConInstall("localhost","Programador","programador","3306");
         cn.getConexion();
         cn.closeConexion();
     }

@@ -10,9 +10,6 @@ import controller.DbConInstall;
 import controller.InstallerController;
 import java.awt.Cursor;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
