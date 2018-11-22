@@ -23,7 +23,7 @@
 
 - [X] validar estudiantes antes de registrar
 
-- [M] traer los tipos numéricos
+- [...] traer los tipos numéricos
 
 - [M] validar estructura del correo en login, perfil y encuesta
 
