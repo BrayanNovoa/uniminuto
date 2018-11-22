@@ -52,6 +52,10 @@
         <link rel="stylesheet" href="css/perfil.css">
         <script src="js/jquery3-3-1.min.js"></script>
         <script src="js/perfil.js"></script>
+        
+        <link href="themes/grayscale/css/grayscale.css" rel="stylesheet">
+        <link href="themes/grayscale/css/grayscale.min.css" rel="stylesheet">
+        
         <%@include file="WEB-INF/jspf/ContarEncuestas.jspf"%>
         <%@include file="WEB-INF/jspf/traerEstudiante.jspf"%>
     </head>
@@ -102,13 +106,12 @@
                                     <h4><%out.print(nombreEncuesta);%></h4>
                                     <%@include file="WEB-INF/jspf/LlenarPerfil.jspf"%>
                                     <div class="col-xs-6">
-                                        <button type="submit" class="navbar-toggler navbar-toggler-right">
+                                        <button type="submit" class="btn btn-primary">
                                         Actualizar
                                         </button>
                                     </div>
                                 </div>
                             </form>
-                            <hr>
                         </div><!--/tab-pane--><%}}%>
                     </div><!--/tab-content-->
                 </div><!--/col-9-->

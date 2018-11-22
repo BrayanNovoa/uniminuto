@@ -19,24 +19,27 @@
 
 - [X] Consultas -- Eliminado
 
+- [X] cambiar en BD Sede Principal - Administrativa por Villavicencio
+
+- [X] Mostrar botón de actualización
+
+- [X] Validación de inicio de sesión estudiante con JQuery o AJAX
+
 - [X] Encriptar contraseña --  se deja anotado en las recomendaciones pues de nada sirve sin SSL
 
 - [X] Implementar un log de actividad de usuario -- se deja anotado en las recomendaciones
 
-- [M] cambiar en BD Sede Principal - Administrativa por Villavicencio
-
-- [M] traer los tipos numéricos
-
-- [M] Mostrar botón de actualización
+- [C] validar estudiantes antes de registrar
 
 - [M] validar estructura del correo en login y perfil y encuesta
 
-- [C] validar estudiantes antes de registrar
-
-- [C] Validación de inicio de sesión estudiante con JQuery o AJAX
+- [M] traer los tipos numéricos
 
 - [ ] Revisión de la base de Datos Ing. Arley
 
 Ensayo viernes 23 Noviembre
 
 Sustentación 30 Noviembre
+
+
+Enviar commit 

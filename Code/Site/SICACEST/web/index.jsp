@@ -95,7 +95,7 @@
               <div class="card">
                 <img class="card-img-top" src="img/encuestas.png" alt="Diligencie las Encuestas.">
                 <div class="card-body">
-                  <h5 class="card-title">Diligencie las Encuestas</h5>
+                  <h5 class="card-title">Encuestas</h5>
                   <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su universidad.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
@@ -103,7 +103,7 @@
               <div class="card">
                 <img class="card-img-top" src="..." alt="Actualice sus datos">
                 <div class="card-body">
-                  <h5 class="card-title">Actualice sus datos</h5>
+                  <h5 class="card-title">Actualización de datos</h5>
                   <p class="card-text">Mantenga actualizada su información para que su universidad le pueda ofrecer un mejor servicio.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
@@ -130,11 +130,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                  <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
-                  <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
+                  <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="userMail" placeholder="Correo Institucional...">
+                  <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="userPass" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>
+                    <button type="button" id="btnlogin" class="btn btn-primary" >Iniciar Sesión</button>
                   </div>
               </div>
             </div>
@@ -256,6 +256,7 @@
     <!-- Custom scripts for this template -->
     <script src="themes/grayscale/js/grayscale.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
 
   </body>
 
