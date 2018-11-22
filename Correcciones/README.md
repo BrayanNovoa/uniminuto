@@ -15,31 +15,31 @@
 
 - [X] quitar foto del estudiante
 
-- [X] Pasar ID al campo de búsqueda -- No se implementa pues genera más problemas de validación
-
 - [X] Consultas -- Eliminado
 
 - [X] cambiar en BD Sede Principal - Administrativa por Villavicencio
 
-- [X] Mostrar botón de actualización
-
 - [X] Validación de inicio de sesión estudiante con JQuery o AJAX
 
-- [X] Encriptar contraseña --  se deja anotado en las recomendaciones pues de nada sirve sin SSL
-
-- [X] Implementar un log de actividad de usuario -- se deja anotado en las recomendaciones
-
-- [C] validar estudiantes antes de registrar
-
-- [M] validar estructura del correo en login y perfil y encuesta
+- [X] validar estudiantes antes de registrar
 
 - [M] traer los tipos numéricos
 
+- [M] validar estructura del correo en login, perfil y encuesta
+
+- [X] Mostrar botón de actualización
+
+- [X] Encriptar contraseña --  se deja anotado en las recomendaciones pues de nada sirve sin SSL
+
+- [X] Pasar ID al campo de búsqueda -- No se implementa pues genera más problemas de validación
+
+- [X] Implementar un log de actividad de usuario -- se deja anotado en las recomendaciones
+
+- [X] Ensayo viernes 23 Noviembre
+
 - [ ] Revisión de la base de Datos Ing. Arley
 
-Ensayo viernes 23 Noviembre
-
-Sustentación 30 Noviembre
+- [X] Sustentación 30 Noviembre
 
 
 Enviar commit 

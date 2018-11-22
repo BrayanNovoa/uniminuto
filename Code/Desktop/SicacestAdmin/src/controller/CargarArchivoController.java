@@ -13,13 +13,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.JOptionPane;
 import view.Cargador;
 
@@ -27,21 +31,32 @@ import view.Cargador;
  *
  * @author b41n
  */
-public class CargarArchivoController extends Thread{
-
-  public CargarArchivoController() {}
+public class CargarArchivoController implements Runnable{
+    
+    private final AtomicBoolean running = new AtomicBoolean(false);
+    public CargarArchivoController() {}
     DefaultTableModel model;
     CargadorController carc = new CargadorController();
     DbConnection entrar = new DbConnection();
+    Connection cn;
+    Statement st;
+    ResultSet rs;
     public Object[] estudiantes;
     float total;
     int tamano;
     Object datoArchivo;
+    String sqlconf;
     String sql;
     PreparedStatement pst,pstR;
     
+
+    public void stop(){
+        running.set(false);
+    }
+    
     @Override
     public void run(){
+        running.set(true);
         model = (DefaultTableModel)view.CargarArchivo.tbEstudiantes.getModel();
         int a = (model.getRowCount()*0)-1;
         int i;
@@ -96,39 +111,53 @@ public class CargarArchivoController extends Thread{
                         Cargador.progress.setValue((int) avance);
                         System.out.println("Progreso: "+tasa*j);
                         Cargador.txtPercent.setText(Float.toString(avance)+"%");
-                        sql="INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('"+model.getValueAt(j-1, 0)+"' ,'"+model.getValueAt(j-1, 1)+"' ,(SELECT programa_id FROM tb_programas WHERE programa= '"+model.getValueAt(j-1, 5)+"'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+model.getValueAt(j-1, 2)+"'));";
-                        //System.out.println("Consulta SQL: "+ sql);
+                        
+                        sqlconf="SELECT estudiante_cod FROM tb_estudiantes WHERE estudiante_cod='"+model.getValueAt(j-1, 0)+"';";
                         try{
-                            pst = entrar.getConexion().prepareStatement(sql);
-                            if(pst!=null){
-                                Cargador.txtElemento.setText(""+j);
-                                pst.execute(sql);
+                            cn = entrar.getConexion();
+                            st = cn.createStatement();
+                            rs = st.executeQuery(sqlconf);
+                            if(rs.next()){
+                                JOptionPane.showMessageDialog(null, "El estudiante "+model.getValueAt(j-1, 0)+" Ya se encuentra registrado.\n Por favor revise el archivo que está cargando.");
+                                break;
                             }else{
-                                JOptionPane.showMessageDialog(null, "ERROR");
+                                sql="INSERT INTO tb_estudiantes (estudiante_cod, correo_insti, programa_id, periodo_id) VALUES ('"+model.getValueAt(j-1, 0)+"' ,'"+model.getValueAt(j-1, 1)+"' ,(SELECT programa_id FROM tb_programas WHERE programa= '"+model.getValueAt(j-1, 5)+"'),(SELECT periodo_id FROM tb_periodos WHERE periodo ='"+model.getValueAt(j-1, 2)+"'));";
+                                //System.out.println("Consulta SQL: "+ sql);
+                                try{
+                                    pst = entrar.getConexion().prepareStatement(sql);
+                                    if(pst!=null){
+                                        Cargador.txtElemento.setText(""+j);
+                                        pst.execute(sql);
+                                    }else{
+                                        JOptionPane.showMessageDialog(null, "ERROR");
+                                    }
+                                }catch(SQLException ex){
+                                    System.err.println("ERROR:"+ex);
+                                    Cargador.txtStatus.setText("ERROR: "+ex);
+                                    JOptionPane.showMessageDialog(null, "ERROR: "+ex);
+                                }
+                                int k;
+                                for(k=3;k<model.getColumnCount();k++){
+                                    consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(k)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(k)+"'),'"+model.getValueAt(j-1, 0)+"','"+model.getValueAt(j-1, k)+"');";
+                                    try{
+                                        pstR = entrar.getConexion().prepareStatement(consulta);
+                                        if(pstR!=null){
+                                            //System.out.println("Consulta SQL: "+consulta);
+                                            pstR.execute(consulta);
+                                        }
+                                    }catch(SQLException ex){
+                                        System.err.println("ERROR:"+ex);
+                                        JOptionPane.showMessageDialog(null, "ERROR: "+ex);
+                                    }
+                                }
+                                if(j==estudiantes.length){
+                                    //JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+j);
+                                    System.out.println("Estudiantes Guardados: "+j);
+                                    Thread.interrupted();
+                                }
                             }
                         }catch(SQLException ex){
-                            System.err.println("ERROR:"+ex);
-                            Cargador.txtStatus.setText("ERROR: "+ex);
-                            JOptionPane.showMessageDialog(null, "ERROR: "+ex);
-                        }
-                        int k;
-                        for(k=3;k<model.getColumnCount();k++){
-                            consulta="INSERT INTO tb_respuestas (encuesta_id, pregunta_id, estudiante_cod, respuesta) VALUES ((SELECT encuesta_id FROM tb_preguntas WHERE pregunta= '"+model.getColumnName(k)+"'), (SELECT pregunta_id FROM tb_preguntas WHERE pregunta='"+model.getColumnName(k)+"'),'"+model.getValueAt(j-1, 0)+"','"+model.getValueAt(j-1, k)+"');";
-                            try{
-                                pstR = entrar.getConexion().prepareStatement(consulta);
-                                if(pstR!=null){
-                                    //System.out.println("Consulta SQL: "+consulta);
-                                    pstR.execute(consulta);
-                                }
-                            }catch(SQLException ex){
-                                System.err.println("ERROR:"+ex);
-                                JOptionPane.showMessageDialog(null, "ERROR: "+ex);
-                            }
-                        }
-                        if(j==estudiantes.length){
-                            //JOptionPane.showMessageDialog(null, "La lista de estudiantes ha sido guardada."+"Estudiante Guardados: "+j);
-                            System.out.println("Estudiantes Guardados: "+j);
-                            Thread.interrupted();
+                            System.out.println(ex);
                         }
                     }
                 view.CargarArchivo.tbEstudiantes.setModel(model);
