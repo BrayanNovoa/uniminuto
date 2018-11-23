@@ -86,7 +86,7 @@
                         if(i==1){%><%@include file="WEB-INF/jspf/ObtenerEncuestas.jspf"%>
                         <div class="tab-pane active" id="<%out.print(tabId+i);%>">
                             <hr>
-                            <form class="form" action="##" method="post" id="actaliceForm">
+                            <form class="form" action="" method="post" id="actualiceForm">
                                 <%@include file="WEB-INF/jspf/ContarPreguntas.jspf"%>
                                 <div class="form-group">
                                     <h4><%out.print(nombreEncuesta);%></h4>

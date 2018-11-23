@@ -7,7 +7,7 @@
         rspr = stpr.executeQuery(consulta);
         while(rspr.next()){
             posibleRespuesta=rspr.getString(1);
-            out.print("<option>"+posibleRespuesta+"</option>");
+out.print("<option>"+posibleRespuesta+"</option>");
         }
         }catch(Exception e){
         System.out.println("Error: "+e);
