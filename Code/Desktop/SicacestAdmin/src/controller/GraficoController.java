@@ -17,7 +17,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -383,22 +382,33 @@ public class GraficoController implements interfaces.IGraficas{
                 encabezado.add(image);
                 encabezado.add(pLine);
                 try {
-                    out = new FileOutputStream("grafico.png");
+                    //out = new FileOutputStream("grafico.png");
                     if(tpRepo==CHARTSI){
-                        ChartUtilities.writeChartAsPNG(out, grafico, 550, 550);
-                        Image imgChart = Image.getInstance("grafico.png");
+                        File f;
+                        boolean bool;
+                        try{
+                            f = new File(System.getProperty("user.home")+"\\chart");
+                            bool = f.mkdir();
+                            System.out.print("Directory created? "+bool);
+                        }catch(Exception e){
+                           JOptionPane.showMessageDialog(null, "Error creando la carpeta de las gráficas.\n"+e);
+                        }
+                        String rutaG;
+                        rutaG = System.getProperty("user.home")+"\\chart\\grafico.png";
+                        ChartUtilities.saveChartAsPNG(new File(rutaG), grafico, 550, 550);
+                        Image imgChart = Image.getInstance(rutaG);
                         imgChart.setAlignment(Element.ALIGN_CENTER);
                         imgChart.scaleToFit(450, 450);
                         pGrafico.add(imgChart);
                     }
                     JOptionPane.showMessageDialog(null,"Reporte guardado correctamente.");
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null,"Error guardando la imágen de la gráfica.");
+                    JOptionPane.showMessageDialog(null,"Error agregando la imágen de la gráfica en el reporte.\n"+ex);
                 }
                 documento.add(new Paragraph(""));
                 documento.add(encabezado);
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null,"Error obteniendo la imagen. "+ex);
+                JOptionPane.showMessageDialog(null,"Error obteniendo la imagen.\n"+ex);
                 Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
             }
             documento.add(tbEncabezado);
@@ -416,10 +426,9 @@ public class GraficoController implements interfaces.IGraficas{
             archivo.close();
             mostrarReporte(file);
             return true;
-        }catch(DocumentException | FileNotFoundException e){
-            System.out.println("ERROR: "+e);
-        } catch (IOException ex) {
-            Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(DocumentException | IOException e){
+            JOptionPane.showMessageDialog(null,"Error generando el reporte.\n"+e);
+            Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, e);
         }
         return false;
     }
