@@ -1,5 +1,8 @@
 USE db_caracterizacion;
-INSERT INTO tb_periodos(periodo_id,periodo) VALUES(6,'2018-02');
+INSERT INTO tb_periodos(periodo_id,periodo) VALUES(1,'2017-01');
+INSERT INTO tb_periodos(periodo_id,periodo) VALUES(2,'2017-02');
+INSERT INTO tb_periodos(periodo_id,periodo) VALUES(3,'2018-01');
+INSERT INTO tb_periodos(periodo_id,periodo) VALUES(4,'2018-02');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(1,'Vicerrectoría Regional Orinoquía');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(2,'Sede Principal');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(3,'Sede Principal Virtual y a Distancia');
