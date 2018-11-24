@@ -252,49 +252,4 @@ public class AdminController implements interfaces.IAdmin {
         }
         return false;
     }
-    
-    public void filtroGeneral(){
-        String[]campos={"Programa", "Estudiantes"};
-        String[]registro = new String[campos.length];
-        sql ="SELECT prog.programa AS Programa, (SELECT COUNT(*) FROM tb_estudiantes AS estu WHERE estu.programa_id = prog.programa_id) AS Estudiantes FROM tb_programas AS prog ORDER BY Programa;";
-        model = new DefaultTableModel(null,campos);
-        Connection cn = entrar.getConexion();
-        try{
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                registro[0]=rs.getString(campos[0]);
-                registro[1]=rs.getString(campos[1]);
-                model.addRow(registro);
-            }
-            view.Admin.tbConsultas.setModel(model);
-        }catch(SQLException ex){
-            System.out.println("ERROR: "+ex);
-        }
-    }
-    public void filtroEncuesta(){
-        
-    }
-    
-    public void filtroEstudiante(String estudianteCod){
-        String[]campos={"Estudiante", "Encuesta", "Pregunta", "Respuesta"};
-        String[]registro = new String[campos.length];
-        sql="SELECT R.estudiante_cod AS Estudiante, E.encuesta AS Encuesta, P.pregunta AS Pregunta, R.respuesta AS Respuesta FROM tb_encuestas AS E, tb_preguntas AS P, tb_respuestas AS R WHERE E.encuesta_id=P.encuesta_id AND P.pregunta_id=R.pregunta_id AND R.estudiante_cod='"+estudianteCod+"'  ORDER BY R.pregunta_id, R.estudiante_cod;";
-        model = new DefaultTableModel(null,campos);
-        Connection cn = entrar.getConexion();
-        try{
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                registro[0]=rs.getString(campos[0]);
-                registro[1]=rs.getString(campos[1]);
-                registro[2]=rs.getString(campos[2]);
-                registro[3]=rs.getString(campos[3]);
-                model.addRow(registro);
-            }
-            view.Admin.tbConsultas.setModel(model);
-        }catch(SQLException ex){
-            System.out.println("ERROR: "+ex);
-        }
-    }
 }

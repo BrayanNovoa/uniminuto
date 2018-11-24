@@ -66,7 +66,6 @@ public class EncuestasController implements interfaces.IEncuestas{
                 registro[1]=rs.getString(campos[1]);
                 model.addRow(registro);
                 view.Admin.cmbEncuestas.addItem(rs.getString(campos[0]));
-                view.Admin.cmbEncuestasFind.addItem(rs.getString(campos[0]));
             }
             System.out.println("Añadiendo la tabla Encuestas");
             view.Admin.tbEncuestas.setModel(model);

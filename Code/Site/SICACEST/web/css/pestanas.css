@@ -35,9 +35,9 @@ background: #122C52;  /* Fondo de las pestañas */
  cursor: pointer;
  float: left;
  font-size: 15px; /*Tamaño del texto de las pestañas*/ 
- height: 2.5em;
+ height: 2em;
 /* line-height: 2.5em;*/
- padding: 15px;
+ padding: 5px;
  text-align: center;
 }
 #container label.control-label{

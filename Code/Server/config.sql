@@ -16,7 +16,7 @@ INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(11,'Bucaramanga');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(12,'Ibagué');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(13,'Cali');
 INSERT INTO tb_rectorias(rectoria_id, rectoria) VALUES(14,'Atlántico');
-INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(1,1,'Sede Principal - Administrativa');
+INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(1,1,'Villavicencio');
 INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(2,1,'Mitú');
 INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(3,1,'Puerto Carreño Vichada');
 INSERT INTO tb_sedes(sede_id, rectoria_id, sede) VALUES(4,1,'Orocué');

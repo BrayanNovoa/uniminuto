@@ -1,0 +1,70 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<br>
+<%
+    try{
+        con=conexion.getConexion();
+        consulta ="SELECT pregunta, tipo_pregunta FROM tb_preguntas AS P, tb_tipo_preguntas AS TP WHERE encuesta_id IN(SELECT encuesta_id FROM tb_encuestas WHERE encuesta_id="+i+")AND TP.tipo_pregunta_id=P.tipo_pregunta_id;";
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        while(rs.next()){
+            p= p+1;
+            pre="enc"+en+"pre"+p;
+            nombrePregunta=rs.getString(1);
+            tipoPregunta=rs.getString(2);
+            try{
+                if(tipoPregunta.equals("ARCHIVO")){%>
+                <%@include file="ArchivoPerfil.jspf"%>
+                <%}else if(tipoPregunta.equals("DESPLEGABLE")){%>
+                <div class="col-xs-6">
+                    <label for="<%out.print(pre);%>"><h4><%out.print(nombrePregunta);%></h4></label>
+                    <select id="<%out.print(pre);%>" name="respuestas" class="form-control">
+                        <%@include file="PosiblesRespuestas.jspf"%>
+                    </select>
+                </div>
+                <%}else if(tipoPregunta.equals("TEXTO")){%>
+                <label for="<%out.print(pre);%>"><h4><%out.print(nombrePregunta);%></h4></label>
+                <input type="text" id="<%out.print(pre);%>" class="form-control" name="respuestas" placeholder="<%out.print(nombrePregunta);%>" title="enter your last name if any.">
+                <%}else if(tipoPregunta.equals("NUMERO")){
+                if(nombrePregunta.equals("Edad")){%>
+                <%@include file="numericos.jspf"%>
+                    <%}else if(nombrePregunta.equals("Teléfono fijo")){%>    
+                <%@include file="numericos.jspf"%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <input type="text" id="<%out.print(pre);%>" name="respuestas" class="fijo form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                    <%}else if(nombrePregunta.equals("Teléfono celular")){%>
+                    <%@include file="numericos.jspf"%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <input type="text" id="<%out.print(pre);%>" name="respuestas" class="celular form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}
+                }else if(tipoPregunta.equals("EMAIL")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <input type="text" id="<%out.print(pre);%>" name="respuestas" class="email form-control login-input" placeholder="<%out.print(nombrePregunta);%>"/>
+                <%}else if(tipoPregunta.equals("DEPARTAMENTO")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <select id="<%out.print(pre);%>" name="respuestas" class="departamento form-control login-input" placeholder="<%out.print(nombrePregunta);%>">
+                <option>Seleccione...</option>
+                <%@include file="Departamentos.jspf"%>
+                </select>
+                <%}else if(tipoPregunta.equals("CIUDAD")){%>
+                <label for="<%out.print(pre);%>" class="cols-sm-2 control-label"><%out.print(nombrePregunta);%></label>
+                <input type="text" id="<%out.print(pre);%>" name="preguntas" class="hide" value="<%out.print(nombrePregunta);%>"/>
+                <select id="<%out.print(pre);%>" name="respuestas" class="ciudad form-control login-input" placeholder="<%out.print(nombrePregunta);%>">
+                <option>Seleccione...</option>
+                <%@include file="Ciudades.jspf"%>
+                </select>
+                <%}
+            }catch(Exception e){
+                System.out.println("ERROR: "+e);
+            }
+        }
+        p=0;
+        }catch(Exception e){
+            System.out.println("ERROR: "+e);
+            System.out.println("No ha sido posible obtener el nombre de la pregunta. "+e);
+        }
+%>

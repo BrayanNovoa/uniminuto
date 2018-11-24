@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>SICACEST - Sistema de Caracterización Estudiantil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -63,26 +62,16 @@
     </nav>
 
     <!-- Header -->
-    <header class="masthead">
-      <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-          <h1 class="mx-auto my-0 text-uppercase">Sicacest</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">Sistema de Caracterización Estudiantil.</h2>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLogin">
-          Iniciar Sesión
-        </button>
-        </div>
-      </div>
-    </header>
+    <%@include file="WEB-INF/jspf/header.jspf"%>
     <!-- About Section -->
     <section id="about" class="about-section text-center">
       <div class="container">
             <div class="row align-items-center no-gutters mb-4 col-lg-12 ">
               <div class="col-xl-5 col-lg-5">
                 <h2 class="text-white mb-4">¿Qué es SICACEST?</h2>
-                <p class="text-white-50">SICACEST es un sistema que permite a las Instituciones de Educación Superior(<a href="http://startbootstrap.com/template-overviews/grayscale/">IES</a>),
-                  administrar el proceso de caracterizacion estudiantil usando su propia herramienta web.</p>
-                <p class="text-white-50 mb-2">Esta herramienta permite a los estudiantes actualizar sus datos en cualquier momento.</p>
+                <p class="text-white-50">SICACEST es una herramienta de software liberada bajo la licencia GPL de GNU.</p>
+                <p class="text-white-50 mb-2">Esta herramienta permite que las Instituciones de Educación Superior (<a href="http://startbootstrap.com/template-overviews/grayscale/">IES</a>)
+                  la adapten a sus necesidades para administrar el proceso de caracterizacion estudiantil usando su propia herramienta web. También permite que los estudiantes actualicen sus datos en cualquier momento.</p>
               </div>
               <div class="col-xl-7 col-lg-5">
                 <img src="img/empresa.svg" class="img-fluid mb-5 col-xl-12" alt="">
@@ -106,7 +95,7 @@
               <div class="card">
                 <img class="card-img-top" src="img/encuestas.png" alt="Diligencie las Encuestas.">
                 <div class="card-body">
-                  <h5 class="card-title">Diligencie las Encuestas</h5>
+                  <h5 class="card-title">Encuestas</h5>
                   <p class="card-text">Proporcione la información necesaria para ayudar en la mejora continua de su universidad.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
@@ -114,7 +103,7 @@
               <div class="card">
                 <img class="card-img-top" src="..." alt="Actualice sus datos">
                 <div class="card-body">
-                  <h5 class="card-title">Actualice sus datos</h5>
+                  <h5 class="card-title">Actualización de datos</h5>
                   <p class="card-text">Mantenga actualizada su información para que su universidad le pueda ofrecer un mejor servicio.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
@@ -141,11 +130,11 @@
                 </button>
               </div>
               <div class="modal-body">
-                  <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="mail_User" placeholder="Correo Institucional...">
-                  <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="pass_User" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
+                  <input type="email" name="mail_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="userMail" placeholder="Correo Institucional...">
+                  <input type="password" name="pass_User" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="userPass" placeholder="Contraseña" autocomplete="off" maxlength="9"/>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" id="btnlogin" class="btn btn-primary" onclick="ingreso();">Iniciar Sesión</button>
+                    <button type="button" id="btnlogin" class="btn btn-primary" >Iniciar Sesión</button>
                   </div>
               </div>
             </div>
@@ -267,6 +256,7 @@
     <!-- Custom scripts for this template -->
     <script src="themes/grayscale/js/grayscale.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
 
   </body>
 

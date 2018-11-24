@@ -1,0 +1,13 @@
+<%
+    try{
+        con=conexion.getConexion();
+        consulta ="SELECT respuesta FROM tb_respuestas WHERE estudiante_cod='"+usurioId+"' AND pregunta_id IN(5,6);";
+        st = con.createStatement();
+        rs=st.executeQuery(consulta);
+        while(rs.next()){
+            nombreEstudiante= nombreEstudiante+rs.getString(1)+" ";
+        }
+    }catch(Exception e){
+        System.out.println("Error: "+e);
+    }
+%>

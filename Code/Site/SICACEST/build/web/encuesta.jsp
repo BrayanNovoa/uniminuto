@@ -1,5 +1,5 @@
 <%-- 
-    Document   : encuestaDinamica
+    Document   : encuesta
     Created on : 22/11/2017, 03:30:46 PM
     Author     : b41n
 --%>
@@ -40,7 +40,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Encuesta de caracterización estudiantil UNIMINUTO.</title>
+        <title>Encuesta de Caracterización Estudiantil.</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Sistema de Caracterización Estudiantil">
         <meta name="author" content="Brayan Novoa">
@@ -66,9 +66,7 @@
     </style>
     </head>
     <body>
-        
         <div class="container">
-            
         <div class="panel panel-default">
             <div class="panel-body">
                 <section id="contact" class="panel-body">
@@ -122,4 +120,3 @@
   </body>
 </html>
 <%}//END OF MAIN ELSE.%>
-    

@@ -1,7 +1,8 @@
 <%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
 <%
     try{
+        con=conexion.getConexion();
+        con=conexion.getConexion();
         consulta ="SELECT encuesta FROM tb_encuestas WHERE encuesta_id = "+i+";";
         //System.out.println(consulta);
         st = con.createStatement();
@@ -9,15 +10,8 @@
         if(rs.absolute(1)){
             nombreEncuesta=rs.getString(1);
         }
-        }catch(Exception e){
-            System.out.println("ERROR: "+e);
-            System.out.println("No ha sido posible obtener el nombre de la encuesta. \nERROR: "+e);
-        }finally{
-            try{
-                if (st!=null)st.close();
-                if (rs!=null)rs.close();
-            }catch(Exception e){
-                System.err.println("ERROR :"+e);
-            }
-        }
+    }catch(Exception e){
+        System.out.println("ERROR: "+e);
+        System.out.println("No ha sido posible obtener el nombre de la encuesta. \nERROR: "+e);
+    }
 %>
