@@ -31,9 +31,9 @@ public final class Login extends javax.swing.JFrame {
     public void setView(){
         if(logControl.llenarComboRectorias()){
             cmbSede.setEnabled(false);
-            btnInstallDB.setVisible(false);
+            btnInstallDB.setEnabled(false);
         }else{
-            btnInstallDB.setVisible(true);
+            btnInstallDB.setEnabled(true);
         }
     }
     public void getValues(){
@@ -102,7 +102,6 @@ public final class Login extends javax.swing.JFrame {
         });
 
         txtUsuario.setBackground(new java.awt.Color(224, 255, 255));
-        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario.setText("bnovoasalaz@uniminuto.edu.co");
 
@@ -112,7 +111,6 @@ public final class Login extends javax.swing.JFrame {
         jLabel1.setText("Iniciar Sesión");
 
         txtPassword.setBackground(new java.awt.Color(224, 255, 255));
-        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPassword.setText("1234567");
 

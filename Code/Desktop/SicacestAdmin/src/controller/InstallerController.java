@@ -6,11 +6,13 @@
  */
 package controller;
 
-import java.awt.Cursor;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -49,6 +51,7 @@ public class InstallerController implements interfaces.IInstaller{
             return cn;
         }
     }
+    @Override
     public boolean cargarArchivo(){
         int nL=0;
         JButton abrir = new JButton();
@@ -60,10 +63,11 @@ public class InstallerController implements interfaces.IInstaller{
             case JFileChooser.APPROVE_OPTION:
                 String ruta = jfc.getSelectedFile().getAbsolutePath();
                 System.out.println("Ruta Del Archivo: "+ruta);
-                file = new File(ruta);
+                File archivo = new File(ruta);
                 try {
                     int i=0;
-                    BufferedReader buffer = new BufferedReader(new FileReader(file));
+                    BufferedReader buffer;
+                    buffer = new BufferedReader(new InputStreamReader(new FileInputStream(archivo),"UTF-8"));
                     lineas = buffer.lines().toArray();
                     for (Object linea1 : lineas) {
                         nL=nL+1;
@@ -86,7 +90,9 @@ public class InstallerController implements interfaces.IInstaller{
                     return true;
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(InstallerController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (IOException ex) {
+                Logger.getLogger(CargarArchivoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             case JFileChooser.CANCEL_OPTION:
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo.");
                 return false;

@@ -60,15 +60,11 @@ public class CargarArchivoController implements Runnable{
         model = (DefaultTableModel)view.CargarArchivo.tbEstudiantes.getModel();
         int a = (model.getRowCount()*0)-1;
         int i;
-        //System.out.println("Valor de a antes de borrar la tabla"+a);
-        //System.out.println("Valor de i antes de borrar la tabla"+i);
         try{
             for(i = a; i >= 0; i--) {
                 model.removeRow(model.getRowCount()-1);
                 view.CargarArchivo.tbEstudiantes.setModel(model);
             }
-            //System.out.println("Valor de a al final de borrar la tabla"+a);
-            //System.out.println("Valor de i al final de borrar la tabla"+i);
         } catch(ArrayIndexOutOfBoundsException ex){
                 Logger.getLogger(CargarArchivoController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -85,7 +81,6 @@ public class CargarArchivoController implements Runnable{
             BufferedReader buffer;
             try {
                 buffer = new BufferedReader(new InputStreamReader(new FileInputStream(archivo),"UTF-8"));
-                //BufferedReader buffer = new BufferedReader(new FileReader(archivo));
                 String primerLinea = buffer.readLine().trim();
                 String[] titulos = primerLinea.split(",");
                 model.setColumnIdentifiers(titulos);
@@ -111,7 +106,6 @@ public class CargarArchivoController implements Runnable{
                         Cargador.progress.setValue((int) avance);
                         System.out.println("Progreso: "+tasa*j);
                         Cargador.txtPercent.setText(Float.toString(avance)+"%");
-                        
                         sqlconf="SELECT estudiante_cod FROM tb_estudiantes WHERE estudiante_cod='"+model.getValueAt(j-1, 0)+"';";
                         try{
                             cn = entrar.getConexion();
