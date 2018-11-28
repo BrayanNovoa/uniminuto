@@ -19,7 +19,7 @@ CREATE TABLE tb_programas(programa_id INT(3) NOT NULL AUTO_INCREMENT, facultad_i
 # Creación de la Tabla: tb_usuarios
 CREATE TABLE tb_usuarios(usuario_id INT(3) NOT NULL AUTO_INCREMENT, usuario VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, sede_id INT(3) NOT NULL, INDEX sede_ind2 (sede_id), FOREIGN KEY(sede_id) REFERENCES tb_sedes(sede_id) ON DELETE CASCADE, PRIMARY KEY (usuario_id));
 # Creación de la Tabla: tb_estudiantes
-CREATE TABLE tb_estudiantes(estudiante_id INT(11) NOT NULL AUTO_INCREMENT, estudiante_cod VARCHAR(12) NOT NULL ON DELETE CASCADE, INDEX estudiante_ind1 (estudiante_cod), correo_insti VARCHAR(50) NOT NULL, programa_id INT(3) NOT NULL, INDEX programa_ind(programa_id), FOREIGN KEY(programa_id) REFERENCES tb_programas(programa_id) ON DELETE CASCADE, periodo_id INT(3) NOT NULL, INDEX periodo_ind(periodo_id), FOREIGN KEY(periodo_id) REFERENCES tb_periodos(periodo_id) ON DELETE CASCADE, PRIMARY KEY(estudiante_id, correo_insti));
+CREATE TABLE tb_estudiantes(estudiante_id INT(11) NOT NULL AUTO_INCREMENT, estudiante_cod VARCHAR(12) NOT NULL, INDEX estudiante_ind1 (estudiante_cod), correo_insti VARCHAR(50) NOT NULL, programa_id INT(3) NOT NULL, INDEX programa_ind(programa_id), FOREIGN KEY(programa_id) REFERENCES tb_programas(programa_id) ON DELETE CASCADE, periodo_id INT(3) NOT NULL, INDEX periodo_ind(periodo_id), FOREIGN KEY(periodo_id) REFERENCES tb_periodos(periodo_id) ON DELETE CASCADE, PRIMARY KEY(estudiante_id, correo_insti));
 # Creación de la Tabla: tb_encuestas
 CREATE TABLE tb_encuestas(encuesta_id int(11) NOT NULL AUTO_INCREMENT, encuesta VARCHAR(50) NOT NULL, descripcion VARCHAR(300) NOT NULL, PRIMARY KEY(encuesta_id));
 # Creación de la Tabla: tb_tipo_preguntas

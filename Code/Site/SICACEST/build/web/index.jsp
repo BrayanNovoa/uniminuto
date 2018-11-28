@@ -255,9 +255,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="themes/grayscale/js/grayscale.min.js"></script>
-    <script src="js/index.js"></script>
     <script src="js/login.js"></script>
-
   </body>
 
 </html>

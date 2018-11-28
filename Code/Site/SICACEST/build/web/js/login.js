@@ -31,3 +31,9 @@ $(document).ready(function(){
         }return false;
     });
 });
+/*
+function ingreso(){
+    var mailUser= document.getElementById("userMail").value;
+    var passUser= document.getElementById("userPass").value;
+    window.location.href='ingreso?userPass='+passUser+'&userPass='+mailUser;
+}*/

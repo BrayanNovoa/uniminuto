@@ -36,21 +36,7 @@ public class CerrarSesion extends HttpServlet {
         String usuario = (String)objsesion.getAttribute("SesionUsuario");
         System.out.println("El Usuario "+usuario+" ha finalizado sesión.");
         objsesion.removeAttribute("SesionUsuario");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CerrarSesion</title>");
-            out.println("<link rel=\"stylesheet\" href=\"css/style.css\">");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<form action=\"ingreso\" class=\"login\" method=\"post\" id=\"formlogin\">");
-            out.println("<h1>Sesion Finalizada</h1>");
-            out.println("<p class=\"login-help\"><a href=\"index.jsp\">Volver al inicio</a></p>");
-            out.println("</form>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        response.sendRedirect("index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
