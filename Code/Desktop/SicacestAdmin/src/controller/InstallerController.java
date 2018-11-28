@@ -134,6 +134,12 @@ public class InstallerController implements interfaces.IInstaller{
         return false;
     }
     public boolean endInstall(){
+        /*
+        view.Login.btnInstallDB.setEnabled(false);
+        view.Login.cmbSede.setEnabled(true);
+        LoginController log = new LoginController();
+        log.llenarComboRectorias();
+        */
         return true;
     }
 }

@@ -52,6 +52,7 @@ public class Installer extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txpArchivo = new javax.swing.JTextPane();
@@ -83,6 +84,14 @@ public class Installer extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-instalador-de-software-30.png"))); // NOI18N
         jLabel1.setText("Instalador de la base de Datos para el Sistema SICACEST");
         jPanel3.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-eliminar-50.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel3, java.awt.BorderLayout.LINE_END);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -269,6 +278,10 @@ public class Installer extends javax.swing.JFrame {
         progress.setValue(0);
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         if(inst.cargarArchivo()){
+            view.Login.btnInstallDB.setEnabled(false);
+            view.Login.cmbSede.setEnabled(true);
+            //LoginController log = new LoginController();
+            //log.llenarComboRectorias();
             //JOptionPane.showMessageDialog(null,"Archivo de instalación cargado correctamente.");
         }else{
             setCursor(null);
@@ -317,6 +330,13 @@ public class Installer extends javax.swing.JFrame {
         btnClose.setVisible(false);
     }//GEN-LAST:event_btnCloseActionPerformed
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +378,7 @@ public class Installer extends javax.swing.JFrame {
     private javax.swing.JButton btncUpFile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

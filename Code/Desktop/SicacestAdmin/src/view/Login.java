@@ -76,6 +76,7 @@ public final class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(54, 63, 73));
@@ -119,7 +120,7 @@ public final class Login extends javax.swing.JFrame {
         cmbSede.setEnabled(false);
 
         btnInstallDB.setBackground(new java.awt.Color(255, 205, 7));
-        btnInstallDB.setText("INSTALL DATABASE");
+        btnInstallDB.setText("INSTALAR BASE DE DATOS");
         btnInstallDB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInstallDBActionPerformed(evt);
@@ -194,6 +195,14 @@ public final class Login extends javax.swing.JFrame {
         jLabel3.setText("Sistema de Caracterización Estudiantil");
         jPanel3.add(jLabel3, java.awt.BorderLayout.CENTER);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-eliminar-50.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel4, java.awt.BorderLayout.LINE_END);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -237,9 +246,15 @@ public final class Login extends javax.swing.JFrame {
 
     private void btnInstallDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstallDBActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         Installer install = new Installer();
         install.setVisible(true);
     }//GEN-LAST:event_btnInstallDBActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -284,6 +299,7 @@ public final class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
