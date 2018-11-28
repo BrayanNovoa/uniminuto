@@ -11,7 +11,7 @@ package interfaces;
  * @author b41n
  */
 public interface IInstaller {
-    //public boolean cargarArchivo(String ruta);
+    public boolean cargarArchivo();
     public boolean ejecutarConsulta(String sql);
     
 }

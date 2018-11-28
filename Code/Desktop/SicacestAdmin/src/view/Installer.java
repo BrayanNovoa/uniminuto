@@ -18,7 +18,9 @@ import javax.swing.JOptionPane;
  * @author b41n
  */
 public class Installer extends javax.swing.JFrame {
+    //DbInstall inst= new DbInstall();
     InstallerController inst= new InstallerController();
+    //DbConI dbi= new DbConI();
     ImageIcon icAcceso = new ImageIcon("img/icons8-buena-calidad-100.png");
     ImageIcon icClose = new ImageIcon("img/icons8-manual-100.png");
     URL url;
@@ -113,7 +115,7 @@ public class Installer extends javax.swing.JFrame {
         txtDbPort.setText("3306");
 
         txtDbContra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDbContra.setText("programador");
+        txtDbContra.setText("12345");
 
         btnClose.setBackground(new java.awt.Color(255, 205, 7));
         btnClose.setText("CERRAR CONEXIÓN");
@@ -129,7 +131,7 @@ public class Installer extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -163,7 +165,6 @@ public class Installer extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(18, 44, 82));
 
         btncUpFile.setBackground(new java.awt.Color(255, 205, 7));
-        btncUpFile.setForeground(new java.awt.Color(0, 0, 0));
         btncUpFile.setText("CARGAR ARCHIVO");
         btncUpFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
