@@ -6,6 +6,10 @@
  */
 package controller;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import view.Admin;
@@ -24,17 +28,21 @@ public class LoginController implements interfaces.ILogin {
             String rectoria, String password) {
         boolean acceso = false;
         System.out.println("Sede: "+sede+
-                " Rectoría: "+rectoria+
-                " Usuario: "+usuario);
-        String consulta ="SELECT usuario FROM tb_usuarios WHERE usuario ='"+
-                usuario+"' AND password = '"+password+
-                "' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+
-                sede+"' AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias"
-                + " WHERE rectoria = '"+rectoria+"'));";
-        java.sql.Connection cn = entrar.getConexion();
+                " \nRectoría: "+rectoria+
+                " \nUsuario: "+usuario+
+                " \nPassword: "+password);
+            //Consulta Segura que no permite SQLInyection
+            String consulta ="SELECT usuario FROM tb_usuarios WHERE usuario =? AND password = ? AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = ? AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias WHERE rectoria = ?));";
+            //Consulta Insegura que permite SQLInyection
+            //String consulta1 ="SELECT usuario FROM tb_usuarios WHERE usuario ='"+usuario+"' AND password = '"+password+"' AND sede_id IN (SELECT sede_id FROM tb_sedes WHERE sede = '"+sede+"' AND rectoria_id IN(SELECT rectoria_id FROM tb_rectorias"+ " WHERE rectoria = '"+rectoria+"'));";
+            Connection cn = entrar.getConexion();
         try{
-            java.sql.Statement st = cn.createStatement();
-            java.sql.ResultSet rs = st.executeQuery(consulta);
+            PreparedStatement pst = cn.prepareStatement(consulta);
+            pst.setString(1, usuario);
+            pst.setString(2, password);
+            pst.setString(3, sede);
+            pst.setString(4, rectoria);
+            ResultSet rs = pst.executeQuery();
             if(rs.absolute(1)){
                 System.out.println("Acceso Concedido a: "+usuario);
                 System.out.println(rs.getString(1));
