@@ -1760,7 +1760,6 @@
                                           <Component id="lblMADCABFAMPER" alignment="0" pref="372" max="32767" attributes="0"/>
                                           <Component id="lblGESPER" max="32767" attributes="0"/>
                                           <Component id="lblESTUDIANTE" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblMADCABFAMPER1" alignment="0" pref="372" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1782,8 +1781,6 @@
                                   <Component id="chkGENPER" max="32767" attributes="0"/>
                                   <Component id="lblGENPER" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblMADCABFAMPER1" min="-2" pref="24" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="chkMADCABFAMPER" max="32767" attributes="0"/>
@@ -1811,7 +1808,7 @@
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnReportGen" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace pref="132" max="32767" attributes="0"/>
+                              <EmptySpace pref="162" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2001,20 +1998,6 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                       </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblMADCABFAMPER1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Ubuntu" size="14" style="3"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="e0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n madres cabeza de familia por programa"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMADCABFAMPER1MouseClicked"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

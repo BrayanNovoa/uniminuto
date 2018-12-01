@@ -194,7 +194,6 @@ public final class Admin extends javax.swing.JFrame {
         btnChartTableWindow = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         btnReportGen = new javax.swing.JButton();
-        lblMADCABFAMPER1 = new javax.swing.JLabel();
         pnl_tb_EstPrograma = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
         tbEstProg = new javax.swing.JTable();
@@ -1222,15 +1221,6 @@ public final class Admin extends javax.swing.JFrame {
             }
         });
 
-        lblMADCABFAMPER1.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
-        lblMADCABFAMPER1.setForeground(new java.awt.Color(224, 255, 255));
-        lblMADCABFAMPER1.setText("Población madres cabeza de familia por programa");
-        lblMADCABFAMPER1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblMADCABFAMPER1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1261,8 +1251,7 @@ public final class Admin extends javax.swing.JFrame {
                             .addComponent(lblGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                             .addComponent(lblGESPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblMADCABFAMPER1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))))
+                            .addComponent(lblESTUDIANTE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1277,8 +1266,6 @@ public final class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkGENPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblGENPER, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMADCABFAMPER1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkMADCABFAMPER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1303,7 +1290,7 @@ public final class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportGen, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pnl_tb_EstPrograma.setBackground(new java.awt.Color(252, 252, 252));
@@ -1883,10 +1870,6 @@ public final class Admin extends javax.swing.JFrame {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_pnl_InfoMouseDragged
 
-    private void lblMADCABFAMPER1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMADCABFAMPER1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblMADCABFAMPER1MouseClicked
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
         this.dispose();
@@ -2014,7 +1997,6 @@ public final class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel lblGENPER;
     private javax.swing.JLabel lblGESPER;
     private javax.swing.JLabel lblMADCABFAMPER;
-    private javax.swing.JLabel lblMADCABFAMPER1;
     private javax.swing.JLabel lblPregunta;
     private javax.swing.JLabel lblTipoPregunta;
     public static javax.swing.JPanel pnlChartEstu;
