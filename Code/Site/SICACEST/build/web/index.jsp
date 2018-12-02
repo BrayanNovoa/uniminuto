@@ -242,7 +242,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50">
       <div class="container">
-        Copyright &copy; sicacest.com 2018
+        UNIMINUTO Vicerrectoría Regional Orinoquía, Brayan Novoa. GPL<br>sicacest.com 2018
       </div>
     </footer>
 

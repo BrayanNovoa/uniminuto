@@ -2,12 +2,28 @@
 ==============================================
 Encuesta:
 
-INTERNACIONALIZACIÓN
+HÁBITOS DE ESTUDIO
+
+Descripción:
+Se usa para conocer los habitos de estudio de los estudiantes
 ==============================================
+
 
 Pregunta:
 
-¿Conoce los servicios de internacionalización?
+¿Cuántos libros lee al año?
+==============================================
+
+RESPUESTA:
+1-5
+5-10
+10-15
+Más de 15 libros al año
+
+
+Pregunta:
+
+¿Dedica parte de su tiempo libre al estudio?
 ==============================================
 
 RESPUESTA:
