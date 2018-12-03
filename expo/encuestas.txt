@@ -32,3 +32,6 @@ NO
 
 Foto graduados
 https://www.uniminuto.edu/web/llanos/graduado
+
+Foto estudiantes
+http://www.uniminuto.edu/web/bienestaruvd/-/area-de-acompanamiento-y-permanencia
