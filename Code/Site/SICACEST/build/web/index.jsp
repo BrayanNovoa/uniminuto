@@ -31,7 +31,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">SICACEST</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <img src="img/Logo.png" class="logo" alt="sicacest">
+        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -49,9 +51,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#signup">¿Alguna pregunta?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
@@ -143,31 +142,13 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg" alt="">
+            <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.png" alt="">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-center text-lg-left text-white">
-              <h4>Estudiantes</h4>
+              <h4>Apreciado estudiante</h4>
               <p class="text-white-50 mb-0">Asegúrese de tener sus credenciales de acceso antes de ingresar.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Signup Section -->
-    <section id="signup" class="signup-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-            <h2 class="text-white mb-5">Déjanos tus inquietudes!</h2>
-
-            <form class="form-inline d-flex">
-              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Ingresa tu correo...">
-              <button type="submit" class="btn btn-primary mx-auto">Enviar</button>
-            </form>
-
           </div>
         </div>
       </div>

@@ -29,3 +29,6 @@ Pregunta:
 RESPUESTA:
 SI
 NO
+
+Foto graduados
+https://www.uniminuto.edu/web/llanos/graduado
